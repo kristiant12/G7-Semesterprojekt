@@ -45,5 +45,7 @@ public class User {
         this.userName = userName;
     } 
     
-    
+    public void createCase(String caseTitle, int caseID,double caseBudget,String deadline, String component,boolean evaluated,String freeText){
+        
+    }
 }
