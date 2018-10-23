@@ -16,7 +16,7 @@ import GUI.Gruppe_7_semesterprojekt;
  *
  * @author nicol
  */
-public class Starter {
+public class starter {
     
     public static void main(String[] args) {
         
