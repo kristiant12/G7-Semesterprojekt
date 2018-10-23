@@ -10,7 +10,7 @@ import Acquaintance.IData;
 import Acquaintance.IUI;
 import Business.BusinessFacade;
 import Data.DataFacade;
-import gruppe_7_semesterprojekt.Gruppe_7_semesterprojekt;
+import GUI.Gruppe_7_semesterprojekt;
 
 /**
  *

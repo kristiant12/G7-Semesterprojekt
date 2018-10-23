@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gruppe_7_semesterprojekt;
+package GUI;
 
 import Acquaintance.IBusiness;
 import Acquaintance.IUI;
