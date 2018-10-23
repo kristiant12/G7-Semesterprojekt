@@ -22,6 +22,17 @@ public class Case implements ICase{
     private String freeText;
     
     
+    // skal tilføre billeder 
+      public Case(String caseTitle, int caseID, double caseBudget, String deadline, String component, boolean evaluated, String freeText) {
+        this.caseTitle = caseTitle;
+        this.caseID = caseID;
+        this.caseBudget = caseBudget;
+        this.deadline = deadline;
+        this.component = component;
+        this.evaluated = evaluated;
+        this.freeText = freeText;
+    }
+    
 
     @Override
     public String getCaseTitle() {
@@ -55,32 +66,32 @@ public class Case implements ICase{
 
     @Override
     public String getComponent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return component;
     }
 
     @Override
     public void setComponent(String i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.component = i;
     }
 
     @Override
     public boolean getEvaluated() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return evaluated;
     }
 
     @Override
     public void setEvaluated(boolean i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.evaluated = i;
     }
 
     @Override
     public String getFreeText() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return freeText;
     }
 
     @Override
     public void setFreeText(String i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        freeText = i;
     }
 
     @Override
@@ -90,14 +101,12 @@ public class Case implements ICase{
 
     @Override
     public void setId(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        this.caseID = i;
+        }
 
     @Override
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return caseID;
     }
-
-
 }
    
