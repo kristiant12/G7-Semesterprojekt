@@ -11,6 +11,7 @@ import Acquaintance.IUI;
 import Business.BusinessFacade;
 import Data.DataFacade;
 import GUI.Gruppe_7_semesterprojekt;
+import Data.Database;
 
 /**
  *
@@ -31,6 +32,7 @@ public class starter {
         ui.injectBusiness(bus);
         
         ui.startAppLication(args);
+        
         
         
     }

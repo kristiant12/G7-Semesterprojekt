@@ -5,19 +5,28 @@
  */
 package Data;
 
+import Acquaintance.IUser;
 import Acquaintance.IData;
 import Business.Case;
 
+
+
 /**
  *
- * @author nicol
+ * @author sebastian
  */
+public class Database implements IUser,IData{
 
-public class DataFacade implements IData{
+    public Database() {
+    }
+    
+
 
     @Override
     public void sendCase(Case SendCase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //SQL SHIET
+
+        
     }
-    
+
 }

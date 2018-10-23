@@ -5,15 +5,21 @@
  */
 package Business;
 
+import Business.BusinessFacade;
+import Data.Database;
+
 /**
  *
  * @author sebastian
  */
 public class User {
+    public Database mainDatabase = new Database();
 
     private String idNumber;
     private String password;
     private String userName; 
+    
+    
     
     
     public User(String id, String pass, String userNam){
@@ -46,6 +52,10 @@ public class User {
     } 
     
     public void createCase(String caseTitle, int caseID,double caseBudget,String deadline, String component,boolean evaluated,String freeText){
+        Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
+        mainDatabase.sendCase(SendCase);
+        
+        
         
     }
 }
