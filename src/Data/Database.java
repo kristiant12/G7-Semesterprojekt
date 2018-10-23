@@ -15,7 +15,7 @@ import Business.Case;
  *
  * @author sebastian
  */
-public class Database implements IUser,IData{
+public class Database implements IData{
 
     public Database() {
     }
