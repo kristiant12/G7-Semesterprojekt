@@ -5,10 +5,25 @@
  */
 package Business;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author nicol
  */
 public class Auction {
+    
+    private List<Case> list;
+    
+    public Auction(){
+        list = new ArrayList<>();
+    }
+
+    public void insertCase(Case newCase){
+        list.add(newCase);
+    }
+    
+    
     
 }
