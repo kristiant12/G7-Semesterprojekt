@@ -12,7 +12,7 @@ package Acquaintance;
 public interface IUI {
     
     public void injectBusiness(IBusiness businessLayer);
-
-    public void startApplication(String[] args);
+    
+    public void startAppLication(String[] args);
     
 }
