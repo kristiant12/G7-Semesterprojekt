@@ -20,6 +20,7 @@ public class Case implements ICase{
     private String component;
     private boolean evaluated;
     private String freeText;
+    private double bid;
     
     
     // skal tilføre billeder 
@@ -31,6 +32,14 @@ public class Case implements ICase{
         this.component = component;
         this.evaluated = evaluated;
         this.freeText = freeText;
+    }
+
+    public double getBid() {
+        return bid;
+    }
+
+    public void setBid(double bid) {
+        this.bid = bid;
     }
     
 
@@ -108,5 +117,5 @@ public class Case implements ICase{
     public int getId() {
         return caseID;
     }
+
 }
-   

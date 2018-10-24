@@ -29,4 +29,9 @@ public class Database implements IData{
         
     }
 
+    @Override
+    public void getDatabaseInfo(String ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

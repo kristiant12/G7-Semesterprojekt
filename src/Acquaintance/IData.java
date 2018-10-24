@@ -15,4 +15,5 @@ import Business.Case;
 public interface IData {
     
     public void sendCase(Case SendCase);
+    public void getDatabaseInfo(String ID);
 }

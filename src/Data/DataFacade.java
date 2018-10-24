@@ -15,9 +15,17 @@ import Business.Case;
 
 public class DataFacade implements IData{
 
-    @Override
+      @Override
     public void sendCase(Case SendCase) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void getDatabaseInfo(String ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
     
 }

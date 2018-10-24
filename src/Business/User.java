@@ -58,4 +58,17 @@ public class User {
         
         
     }
+        public boolean sammenligner(String password, String username, String ID){
+        
+        // getDatabaseInfo(ID);
+        int i = password.compareTo(password);
+        
+        if(i == 0){
+            i = username.compareTo(username);
+        }if(i == 0){
+            return true;
+        }
+        return false; 
+    }
+    
 }

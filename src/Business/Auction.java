@@ -24,6 +24,8 @@ public class Auction {
         list.add(newCase);
     }
     
-    
-    
+
+    public void registerBid(Case cs, double bid) {
+        cs.setBid(bid);
+    }
 }
