@@ -29,10 +29,16 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private Label label;
-    @FXML
     private TextField test;
-    @FXML
     private TextArea area;
+    @FXML
+    private TextField usernameTextFiled;
+    @FXML
+    private TextField passwordTextFiled;
+    @FXML
+    private Button LoginButton;
+    @FXML
+    private Label lukketIn;
     
    
     
@@ -46,7 +52,6 @@ public class FXMLDocumentController implements Initializable {
         FXMLDocumentController.business = business;
     }
 
-    @FXML
     private void testButton(ActionEvent event) throws IOException {
         area.setText(c.toServer(test.getText()));
         

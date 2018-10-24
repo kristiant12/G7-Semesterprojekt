@@ -22,14 +22,14 @@ public class Client implements IClient{
     private PrintStream out;
     private Scanner in;
     
-//    public static void main(String[] args) throws IOException {
-//        Client c = new Client();
-//        Scanner scan  = new Scanner(System.in);
-//      while(true){
-//          String a  = scan.nextLine();
-//        System.out.println(c.toServer(a));
-//      }
-//    }
+    public static void main(String[] args) throws IOException {
+        Client c = new Client();
+        Scanner scan  = new Scanner(System.in);
+      while(true){
+          String a  = scan.nextLine();
+        System.out.println(c.toServer(a));
+      }
+    }
 
     public Client() {
         
@@ -45,14 +45,10 @@ public class Client implements IClient{
             in = null;
 
             try {
-                // socket for en ip den skal forbinde til samt en port
                 echoSocket = new Socket(serverHostname, 8081);
                 out = new PrintStream(echoSocket.getOutputStream());
-               // out = new PrintWriter(echoSocket.getOutputStream(), true);
-               
                 in = new Scanner(echoSocket.getInputStream());
                 
-              
             }catch (UnknownHostException e) {
                 System.err.println("Unknown host: " + serverHostname);
                 System.exit(1);
@@ -60,17 +56,6 @@ public class Client implements IClient{
                 System.err.println("Unable to get streams from server");
                 System.exit(1);
             }
-
-            /** {@link UnknownHost} object used to read from console */
-            //stdIn = new BufferedReader(new InputStreamReader(System.in));
-
-          //  test();
-
-            /** Closing all the resources */
-//            out.close();
-//            in.close();
-//            stdIn.close();
-//            echoSocket.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,21 +64,11 @@ public class Client implements IClient{
     
     @Override
     public String toServer(String i) throws IOException{
-      //  while (true) {
                 String client = "client: ";
-                //System.out.print("client: ");
-               // String userInput = stdIn.readLine();
-                /** Exit on 'q' char sent */
-//                if ("q".equals(userInput)) {
-//                    break;
-//                }
                 out.println(i);
                 String clientOut = client+""+i;
                 String server = in.nextLine();
                 return server; 
-               // System.out.println("server: " + in.readLine());
-            //} 
-       // return null;
     }
 
  
