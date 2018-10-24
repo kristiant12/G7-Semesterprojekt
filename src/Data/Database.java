@@ -15,21 +15,21 @@ import Business.Case;
  *
  * @author sebastian
  */
-public class Database implements IData{
+public class Database {
 
     public Database() {
     }
     
 
 
-    @Override
+   
     public void sendCase(Case SendCase) {
     //SQL SHIET
 
         
     }
 
-    @Override
+   
     public void getDatabaseInfo(String ID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

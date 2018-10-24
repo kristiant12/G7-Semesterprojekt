@@ -18,5 +18,5 @@ public interface IBusiness {
     
     public void RegisterBid(Case cs, double bid);
     
-    
+    public String toServer(String i);
 }

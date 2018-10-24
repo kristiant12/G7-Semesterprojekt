@@ -1,21 +1,18 @@
-package Acquaintance;
-
-import Business.Case;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Acquaintance;
+
+import java.io.IOException;
 
 /**
  *
  * @author nicol
  */
-public interface IData {
+public interface IClient {
     
-    public void sendCase(Case SendCase);
-    public void getDatabaseInfo(String ID);
-    public String toServer(String i);
+    public String toServer(String i)throws IOException;
     
 }

@@ -5,37 +5,39 @@
  */
 package testclinet;
 
+import Acquaintance.IClient;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Client {
+public class Client implements IClient{
 
-    private BufferedReader stdIn;
-    private PrintWriter out;
-    private BufferedReader in;
+    private PrintStream out;
+    private Scanner in;
     
-    public static void main(String[] args) throws IOException {
-        String host = "127.0.0.1";
-        int port = 8081;
-        Client c = new Client(host, port);
-        Scanner scan  = new Scanner(System.in);
-      while(true){
-          String a  = scan.nextLine();
-        System.out.println(c.test(a));
-      }
-    }
+//    public static void main(String[] args) throws IOException {
+//        Client c = new Client();
+//        Scanner scan  = new Scanner(System.in);
+//      while(true){
+//          String a  = scan.nextLine();
+//        System.out.println(c.toServer(a));
+//      }
+//    }
 
-    public Client(String host, int port) {
+    public Client() {
+        
         
         
         try {
             String serverHostname = new String("127.0.0.1");
-
+            int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
 
             Socket echoSocket = null;
@@ -43,10 +45,15 @@ public class Client {
             in = null;
 
             try {
+                // socket for en ip den skal forbinde til samt en port
                 echoSocket = new Socket(serverHostname, 8081);
-                out = new PrintWriter(echoSocket.getOutputStream(), true);
-                in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
-            } catch (UnknownHostException e) {
+                out = new PrintStream(echoSocket.getOutputStream());
+               // out = new PrintWriter(echoSocket.getOutputStream(), true);
+               
+                in = new Scanner(echoSocket.getInputStream());
+                
+              
+            }catch (UnknownHostException e) {
                 System.err.println("Unknown host: " + serverHostname);
                 System.exit(1);
             } catch (IOException e) {
@@ -55,7 +62,7 @@ public class Client {
             }
 
             /** {@link UnknownHost} object used to read from console */
-            stdIn = new BufferedReader(new InputStreamReader(System.in));
+            //stdIn = new BufferedReader(new InputStreamReader(System.in));
 
           //  test();
 
@@ -69,7 +76,9 @@ public class Client {
         }
     }
     
-    public String test(String i) throws IOException{
+    
+    @Override
+    public String toServer(String i) throws IOException{
       //  while (true) {
                 String client = "client: ";
                 //System.out.print("client: ");
@@ -79,11 +88,13 @@ public class Client {
 //                    break;
 //                }
                 out.println(i);
-                String clientOut = client+" "+i;
-                String server = "server"+in.readLine();
-                return clientOut+"\n"+server; 
+                String clientOut = client+""+i;
+                String server = in.nextLine();
+                return server; 
                // System.out.println("server: " + in.readLine());
             //} 
        // return null;
     }
+
+ 
 }

@@ -6,6 +6,7 @@
 package GUI;
 
 import Acquaintance.IBusiness;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import testclinet.Client;
 
 /**
  *
@@ -23,6 +25,7 @@ import javafx.scene.control.TextField;
 public class FXMLDocumentController implements Initializable {
     
     private static IBusiness business;
+    private Client c;
     
     @FXML
     private Label label;
@@ -30,21 +33,23 @@ public class FXMLDocumentController implements Initializable {
     private TextField test;
     @FXML
     private TextArea area;
-    @FXML
-    private Button testButton;
     
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+   
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        c = new Client();
     }    
     
     public void injectBusiness(IBusiness business){
         FXMLDocumentController.business = business;
+    }
+
+    @FXML
+    private void testButton(ActionEvent event) throws IOException {
+        area.setText(c.toServer(test.getText()));
+        
     }
     
 }

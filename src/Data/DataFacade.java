@@ -7,6 +7,10 @@ package Data;
 
 import Acquaintance.IData;
 import Business.Case;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import testclinet.Client;
 
 /**
  *
@@ -14,6 +18,12 @@ import Business.Case;
  */
 
 public class DataFacade implements IData{
+    private Client client;
+    
+    public DataFacade(Client client){
+        this.client = client;
+        
+    }
 
       @Override
     public void sendCase(Case SendCase) {
@@ -23,6 +33,16 @@ public class DataFacade implements IData{
     @Override
     public void getDatabaseInfo(String ID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toServer(String i) {
+        try {
+            return client.toServer(i);
+        } catch (IOException ex) {
+            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 

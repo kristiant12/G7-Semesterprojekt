@@ -12,6 +12,7 @@ import Business.BusinessFacade;
 import Data.DataFacade;
 import GUI.Gruppe_7_semesterprojekt;
 import Data.Database;
+import testclinet.Client;
 
 /**
  *
@@ -20,8 +21,10 @@ import Data.Database;
 public class starter {
     
     public static void main(String[] args) {
+
+        Client client = new Client();
         
-        IData data = new DataFacade();
+        IData data = new DataFacade(client);
         
         IBusiness bus = new BusinessFacade();
         

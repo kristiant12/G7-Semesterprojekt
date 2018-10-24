@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="443.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <TextField fx:id="test" layoutX="126.0" layoutY="41.0" />
-      <TextArea fx:id="area" layoutX="101.0" layoutY="81.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="testButton" layoutX="169.0" layoutY="307.0" mnemonicParsing="false" text="Button" />
+      <TextArea fx:id="area" layoutX="113.0" layoutY="81.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="169.0" layoutY="307.0" mnemonicParsing="false" onAction="#testButton" text="Button" />
     </children>
 </AnchorPane>
