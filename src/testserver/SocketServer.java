@@ -35,7 +35,7 @@ public class SocketServer extends Thread {
             while ((request = br.readLine()) != null) {
                 System.out.println("Message received:" + request);
                 request += '\n';
-                out.write(request.getBytes());
+                out.write(request.toUpperCase().getBytes());
             }
 
         } catch (IOException ex) {
