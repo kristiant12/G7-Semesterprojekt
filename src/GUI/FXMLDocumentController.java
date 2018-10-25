@@ -40,6 +40,8 @@ public class FXMLDocumentController implements Initializable {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordPasswordField;
+    @FXML
+    private Button createNewAccountButton;
     
    
     
@@ -60,6 +62,10 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void LoginButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void createNewAccountButtonClicked(ActionEvent event) {
     }
     
 }

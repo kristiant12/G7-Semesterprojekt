@@ -14,8 +14,14 @@
             <Font name="Neue Haas Grotesk Text Pro" size="30.0" />
          </font></Label>
       <TextField fx:id="usernameTextField" layoutX="250.0" layoutY="194.0" prefHeight="17.0" prefWidth="300.0" promptText="Username" />
-      <Button fx:id="LoginButton" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" onAction="#LoginButtonClicked" text="Log in" />
+      <Button fx:id="LoginButton" defaultButton="true" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" onAction="#LoginButtonClicked" text="Log in" />
       <Label fx:id="lukketIn" layoutX="369.0" layoutY="412.0" />
       <PasswordField fx:id="passwordPasswordField" layoutX="250.0" layoutY="251.0" prefWidth="300.0" promptText="Password" />
+      <Label layoutX="561.0" layoutY="423.0" text="Dont have an account?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="createNewAccountButton" layoutX="570.0" layoutY="449.0" mnemonicParsing="false" onAction="#createNewAccountButtonClicked" text="Create your account" />
     </children>
 </AnchorPane>
