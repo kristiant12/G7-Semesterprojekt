@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EmployeeController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.EmployeeController">
+   <children>
+      <AnchorPane prefHeight="110.0" prefWidth="830.0">
+         <children>
+            <ImageView fx:id="validateCaseImage" fitHeight="80.0" fitWidth="90.0" layoutX="90.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/validateCase.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ticketsImage" fitHeight="80.0" fitWidth="90.0" layoutX="280.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/tickets.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageBankImage" fitHeight="80.0" fitWidth="90.0" layoutX="480.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/imageBank.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="createManufacturerImage" fitHeight="80.0" fitWidth="90.0" layoutX="670.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/createManufacturer.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="validateCasePane" layoutY="136.0" prefHeight="470.0" prefWidth="830.0" />
+      <AnchorPane fx:id="ticketsPane" layoutY="136.0" prefHeight="470.0" prefWidth="830.0" />
+      <AnchorPane fx:id="imageBankPane" layoutY="136.0" prefHeight="470.0" prefWidth="830.0" />
+      <AnchorPane fx:id="createManufacturerPane" layoutY="136.0" prefHeight="470.0" prefWidth="830.0" />
+   </children>
 </AnchorPane>

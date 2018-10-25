@@ -7,7 +7,10 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -15,6 +18,23 @@ import javafx.fxml.Initializable;
  * @author AC
  */
 public class EmployeeController implements Initializable {
+
+    @FXML
+    private ImageView validateCaseImage;
+    @FXML
+    private ImageView ticketsImage;
+    @FXML
+    private ImageView imageBankImage;
+    @FXML
+    private ImageView createManufacturerImage;
+    @FXML
+    private AnchorPane validateCasePane;
+    @FXML
+    private AnchorPane ticketsPane;
+    @FXML
+    private AnchorPane imageBankPane;
+    @FXML
+    private AnchorPane createManufacturerPane;
 
     /**
      * Initializes the controller class.
