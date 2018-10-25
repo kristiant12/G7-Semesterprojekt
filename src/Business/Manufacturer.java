@@ -11,8 +11,8 @@ package Business;
  */
 public class Manufacturer extends User {
     
-    public Manufacturer(String id, String pass, String userNam) {
-        super(id, pass, userNam);
+    public Manufacturer(String pass, String userNam) {
+        super(pass, userNam);
         
     }
     
