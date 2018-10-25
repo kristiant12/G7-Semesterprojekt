@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import testclinet.Client;
@@ -32,13 +33,15 @@ public class FXMLDocumentController implements Initializable {
     private TextField test;
     private TextArea area;
     @FXML
-    private TextField usernameTextFiled;
-    @FXML
-    private TextField passwordTextFiled;
-    @FXML
     private Button LoginButton;
     @FXML
     private Label lukketIn;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private PasswordField passwordPasswordField;
+    @FXML
+    private Button createNewAccountButton;
     
    
     
@@ -55,6 +58,14 @@ public class FXMLDocumentController implements Initializable {
     private void testButton(ActionEvent event) throws IOException {
         area.setText(c.toServer(test.getText()));
         
+    }
+
+    @FXML
+    private void LoginButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void createNewAccountButtonClicked(ActionEvent event) {
     }
     
 }
