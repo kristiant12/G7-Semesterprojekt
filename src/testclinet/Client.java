@@ -27,7 +27,7 @@ public class Client implements IClient{
         Scanner scan  = new Scanner(System.in);
       while(true){
           String a  = scan.nextLine();
-        System.out.println(c.toServer(a));
+        System.out.println(c.testServer(a));
       }
     }
 
@@ -70,6 +70,16 @@ public class Client implements IClient{
                 String server = in.nextLine();
                 return server; 
     }
+    
+        public List<String> testServer(String i) throws IOException{
+                List<String> test = new ArrayList<>();
+                String client = "client: ";
+                out.println(i);
+                String clientOut = client+""+i;
+                test.add(in.nextLine());
+                return test; 
+    }
+
 
  
 }
