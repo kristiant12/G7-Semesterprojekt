@@ -5,6 +5,8 @@
  */
 package Business;
 
+import java.io.Serializable;
+
 
 
 
@@ -12,10 +14,25 @@ package Business;
  *
  * @author sebastian
  */
-public class Admin extends User {
+//public class Admin extends User {
+//    
+//    public Admin(String pass, String userNam) {
+//        super (pass, userNam);
+//    }
+//
+//    
+//}
+public class Admin extends User implements Serializable {
     
     public Admin(String pass, String userNam) {
         super (pass, userNam);
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +super.toString()+ '}';
+    }
+    
+    
     
 }

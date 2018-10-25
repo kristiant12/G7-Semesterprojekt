@@ -5,15 +5,76 @@
  */
 package Business;
 
+import java.io.Serializable;
+
 /**
  *
  * @author sebastian
  */
-public class Manufacturer extends User {
+//public class Manufacturer extends User {
+//    
+//    public Manufacturer(String pass, String userNam) {
+//        super(pass, userNam);
+//        
+//    }
+//    
+//    
+//    
+//    
+//}
+public class Manufacturer extends User implements Serializable {
     
-    public Manufacturer(String pass, String userNam) {
+    private String firmaddress;
+    private int number;
+    private String firmaName;
+    private String firmaMail;
+    
+    
+    
+    public Manufacturer(String pass, String userNam, String firmaddress,int number,String firmaName,String firmaMail) {
         super(pass, userNam);
+        this.firmaMail = firmaMail;
+        this.firmaName = firmaName;
+        this.firmaddress = firmaddress;
+        this.number = number;
         
+    }
+
+    public String getFirmaddress() {
+        return firmaddress;
+    }
+
+    public void setFirmaddress(String firmaddress) {
+        this.firmaddress = firmaddress;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getFirmaName() {
+        return firmaName;
+    }
+
+    public void setFirmaName(String firmaName) {
+        this.firmaName = firmaName;
+    }
+
+    public String getFirmaMail() {
+        return firmaMail;
+    }
+
+    public void setFirmaMail(String firmaMail) {
+        this.firmaMail = firmaMail;
+    }
+
+    @Override
+    public String toString() {
+        return "Manufacturer{" +super.toString()+ "firmaddress=" + firmaddress + ", number=" + number + ", firmaName=" + firmaName + ", firmaMail=" + firmaMail +  '}';
     }
     
     

@@ -29,7 +29,7 @@ public class Client implements IClient{
     private InputStream stream;
     private ObjectInputStream mapInputStram;
     private Map<String,String> map;
-    private List<String> test;
+    private List<User> test;
     
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Client c = new Client();
@@ -37,6 +37,8 @@ public class Client implements IClient{
         List<String> list = new ArrayList<>();
         List<String> list2 = new ArrayList<>();
         Map<String,String> test = new HashMap();
+        List<User> userList = new ArrayList();
+        
 //        test = c.test();
 //        System.out.println(test.keySet().toString());
         
@@ -44,8 +46,20 @@ public class Client implements IClient{
 //        System.out.println(list.toString());
 //        System.out.println(list.get(0));
 //        System.out.println(list.get(1));
-
-        System.out.println(c.getFromServer().toString());
+           while(true){
+               int s= scan.nextInt();
+               if(s == 1){
+                userList = c.getFromServer();
+                 for (int i = 0; i < userList.size(); i++) {
+                System.out.println(userList.get(i).toString());
+                }
+           } else{
+                         System.out.println("er du bange");
+            } 
+               
+             
+        }
+        
 
 //      while(true){
 ////          String a  = scan.nextLine();
@@ -73,12 +87,11 @@ public class Client implements IClient{
                 map = new HashMap();
                 echoSocket = new Socket(serverHostname, 8081);
                 stream = echoSocket.getInputStream();
-                
                 mapInputStram = new ObjectInputStream(stream);
                 
                 
-              //  test = (List) mapInputStram.readObject();
-//                out = new PrintStream(echoSocket.getOutputStream());
+//                test = (List<User>) mapInputStram.readObject();
+      //          out = new PrintStream(echoSocket.getOutputStream());
 //                in = new Scanner(echoSocket.getInputStream());
 //                
             }catch (UnknownHostException e) {
@@ -97,13 +110,16 @@ public class Client implements IClient{
         return this.map;
     }
     
-    public List<String> testListz (){
+    public List<User> testListz (){
         return this.test;
     }
-    public Map<String,String> getFromServer() throws IOException, ClassNotFoundException{
-       map = (Map) mapInputStram.readObject();
-       
-       return map;
+    public List<User> getFromServer() throws IOException, ClassNotFoundException{
+        test = (List<User>) mapInputStram.readObject();
+
+        
+//       map = (Map) mapInputStram.readObject();
+//       return map;
+        return test;
     }
     
     

@@ -7,15 +7,17 @@ package Business;
 
 import Business.BusinessFacade;
 import Data.Database;
+import java.io.Serializable;
 
 /**
  *
  * @author sebastian
  */
-public class User {
+public class User implements Serializable{
     public Database mainDatabase = new Database();
     private String password;
     private String userName; 
+    static final long serialVersionUID = -7588980448693010399L;
     
     
     
@@ -64,5 +66,12 @@ public class User {
         }
         return false; 
     }
+
+    @Override
+    public String toString() {
+        return "{" + "mainDatabase=" + mainDatabase + ", password=" + password + ", userName=" + userName + '}';
+    }
+        
+        
     
 }

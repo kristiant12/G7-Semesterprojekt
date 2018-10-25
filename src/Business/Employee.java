@@ -5,18 +5,37 @@
  */
 package Business;
 
+import java.io.Serializable;
+
 /**
  *
  * @author sebastian
  */
-public class Employee extends User {
+public class Employee extends User implements Serializable{
     
-    private String idNumber;
-    private String password;
-    private String userName; 
+//    private String idNumber;
+//    private String password;
+//    private String userName; 
 
-    public Employee(String pass, String userNam) {
+//    public Employee(String pass, String userNam) {
+//        super(pass, userNam);
+//    }
+//    
+//    /**
+//     *
+//     * @param id
+//     * @param pass
+//     * @param userNam
+//     */
+//
+//}
+  public Employee(String pass, String userNam) {
         super(pass, userNam);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +super.toString()+ '}';
     }
     
     /**
@@ -25,5 +44,5 @@ public class Employee extends User {
      * @param pass
      * @param userNam
      */
-
+    
 }
