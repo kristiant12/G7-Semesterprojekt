@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -43,5 +44,27 @@ public class EmployeeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void openValidateCasePaneClicked(MouseEvent event) {
+        if(event.getTarget() == validateCaseImage){
+            validateCasePane.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void openTicketsPaneClicked(MouseEvent event) {
+        if(event.getTarget() == ticketsImage){
+            ticketsPane.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void openImageBankPaneClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void openCreateManufacturerPaneClicked(MouseEvent event) {
+    }
     
 }
