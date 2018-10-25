@@ -6,29 +6,51 @@
 package testclinet;
 
 import Acquaintance.IClient;
+import Business.User;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Client implements IClient{
-
+    
     private PrintStream out;
     private Scanner in;
+    private InputStream stream;
+    private ObjectInputStream mapInputStram;
+    private Map<String,String> map;
+    private List<String> test;
     
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         Client c = new Client();
         Scanner scan  = new Scanner(System.in);
-      while(true){
-          String a  = scan.nextLine();
-        System.out.println(c.testServer(a));
-      }
+        List<String> list = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+        Map<String,String> test = new HashMap();
+//        test = c.test();
+//        System.out.println(test.keySet().toString());
+        
+//        list = c.testListz();
+//        System.out.println(list.toString());
+//        System.out.println(list.get(0));
+//        System.out.println(list.get(1));
+
+        System.out.println(c.getFromServer().toString());
+
+//      while(true){
+////          String a  = scan.nextLine();
+////        System.out.println(c.testServer(a));
+//      }
     }
 
     public Client() {
@@ -43,12 +65,22 @@ public class Client implements IClient{
             Socket echoSocket = null;
             out = null;
             in = null;
-
+            stream = null;
+            mapInputStram = null;
+            
             try {
+                test = new ArrayList();
+                map = new HashMap();
                 echoSocket = new Socket(serverHostname, 8081);
-                out = new PrintStream(echoSocket.getOutputStream());
-                in = new Scanner(echoSocket.getInputStream());
+                stream = echoSocket.getInputStream();
                 
+                mapInputStram = new ObjectInputStream(stream);
+                
+                
+              //  test = (List) mapInputStram.readObject();
+//                out = new PrintStream(echoSocket.getOutputStream());
+//                in = new Scanner(echoSocket.getInputStream());
+//                
             }catch (UnknownHostException e) {
                 System.err.println("Unknown host: " + serverHostname);
                 System.exit(1);
@@ -60,6 +92,20 @@ public class Client implements IClient{
             e.printStackTrace();
         }
     }
+    
+    public Map<String,String> test(){
+        return this.map;
+    }
+    
+    public List<String> testListz (){
+        return this.test;
+    }
+    public Map<String,String> getFromServer() throws IOException, ClassNotFoundException{
+       map = (Map) mapInputStram.readObject();
+       
+       return map;
+    }
+    
     
     
     @Override
@@ -79,7 +125,27 @@ public class Client implements IClient{
                 test.add(in.nextLine());
                 return test; 
     }
+//     public Map<String,String> testServer() throws IOException{
+//                Map<String,String> test = new HashMap<>();
+//                String client = "client: ";
+//               // out.println(i);
+//          //      String clientOut = client+""+i;
+//                test = in.nextLine();
+//                return test; 
+//    }
+        
+      public Map<List<String>,List<String>> User(){
+          Map<List<String>,List<String>> s = new HashMap<>();
+          List<String> test = new ArrayList<>();
+          List<String> test2 = new ArrayList<>();
+          
+          test.add(in.nextLine());
+          test2.add(in.nextLine());
 
+          s.put(test, test2);
+          return s;
+      }
 
+        
  
 }

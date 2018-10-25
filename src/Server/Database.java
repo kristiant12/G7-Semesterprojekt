@@ -5,11 +5,18 @@
  */
 package Server;
 
+import Business.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -49,6 +56,125 @@ public class Database {
          return test;
      }
      
+    public Map<String,String> getUser(){
+        Map<String,String> list = new HashMap<>();
+        list.putAll(list);
+        list.putAll(getCustomer());
+        list.putAll(getEmployee());
+        list.putAll(getManufacturer());
+        
+        return list;
+        
+    }
     
     
+    public Map<String,String> getAdmin(){
+        Statement a = null;
+        ResultSet øv = null;
+        Map<String,String> list = new HashMap<>();
+        String userName = "";
+        String password = "";
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from admin");
+            
+            while(øv.next()){
+                userName = øv.getString(1);
+                password = øv.getString(2);
+                list.put(userName, password);
+            }
+            
+            
+        } catch (Exception ex) {
+
+        }
+        return list;
+    }
+     
+       public Map<String,String> getManufacturer(){
+        Statement a = null;
+        ResultSet øv = null;
+       Map<String,String> list = new HashMap<>();
+        String userName = "";
+        String password = "";
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from manufacturer");
+            
+            while(øv.next()){
+                userName = øv.getString(1);
+                password = øv.getString(2);
+                list.put(userName, password);
+            }
+            
+            
+        } catch (Exception ex) {
+
+        }
+        return list;
+    }
+        public Map<String,String> getCustomer(){
+        Statement a = null;
+        ResultSet øv = null;
+        Map<String,String> list = new HashMap<>();
+        String userName = "";
+        String password = "";
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from customer");
+            
+            while(øv.next()){
+                userName = øv.getString(1);
+                password = øv.getString(2);
+                list.put(userName, password);
+            }
+            
+            
+        } catch (Exception ex) {
+
+        }
+        return list;
+    }
+    
+        public Map<String,String> getEmployee(){
+        Statement a = null;
+        ResultSet øv = null;
+        Map<String,String> list = new HashMap<>();
+        String userName = "";
+        String password = "";
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from employee");
+            
+            while(øv.next()){
+                userName = øv.getString(1);
+                password = øv.getString(2);
+                list.put(userName, password);
+            }
+            
+            
+        } catch (Exception ex) {
+
+        }
+        return list;
+    }
+    
+    
+        public List<String> test(){
+            List<String> list = new ArrayList<>();
+            
+            list.add("1");
+            list.add("2");
+            
+            return list;
+        }
+    
+           public List<String> test2(){
+            List<String> list = new ArrayList<>();
+            
+            list.add("4");
+            list.add("5");
+            
+            return list;
+        }
 }
