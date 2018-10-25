@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -36,6 +38,20 @@ public class EmployeeController implements Initializable {
     private AnchorPane imageBankPane;
     @FXML
     private AnchorPane createManufacturerPane;
+    @FXML
+    private ImageView imageBankBackArrow;
+    @FXML
+    private ImageView validateCaseBackArrow;
+    @FXML
+    private ListView<?> showTicketsListView;
+    @FXML
+    private ListView<?> showCasesListView;
+    @FXML
+    private ListView<?> imageBankListView;
+    @FXML
+    private TextField imageBankSearchField;
+    @FXML
+    private ImageView imageBankSearchButton;
 
     /**
      * Initializes the controller class.
@@ -65,6 +81,26 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void openCreateManufacturerPaneClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void backArrowTicketsClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void backArrowCreateManufacturerClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void backArrowImageBankClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void backArrowValidateCaseClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void imageBankSearchButtonClicked(MouseEvent event) {
     }
     
 }
