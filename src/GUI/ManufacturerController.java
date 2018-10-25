@@ -7,7 +7,13 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -16,6 +22,27 @@ import javafx.fxml.Initializable;
  */
 public class ManufacturerController implements Initializable {
 
+    @FXML
+    private ImageView logOutButton;
+    @FXML
+    private ImageView auctionImage;
+    @FXML
+    private ImageView casesImage;
+    @FXML
+    private ImageView profileImage;
+    @FXML
+    private AnchorPane auctionPane;
+    @FXML
+    private ImageView auctionBackArrow;
+    @FXML
+    private AnchorPane casesPane;
+    @FXML
+    private ImageView casesBackArrow;
+    @FXML
+    private AnchorPane profilePane;
+    @FXML
+    private Button saveProfileButton;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +50,33 @@ public class ManufacturerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void logOutButtonClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void auctionImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void casesImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void profileImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void auctionBackArrowClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void casesBackArrowClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void saveProfileButtonClicked(ActionEvent event) {
+    }
     
 }

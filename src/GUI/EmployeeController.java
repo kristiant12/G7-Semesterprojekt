@@ -7,8 +7,10 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -52,6 +54,18 @@ public class EmployeeController implements Initializable {
     private TextField imageBankSearchField;
     @FXML
     private ImageView imageBankSearchButton;
+    @FXML
+    private ImageView ticketsBackArrow;
+    @FXML
+    private ImageView createManufacturerBackArrow;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private TextField passwordTextField;
+    @FXML
+    private Button createAccountButton;
+    @FXML
+    private ImageView logOutButton;
 
     /**
      * Initializes the controller class.
@@ -101,6 +115,14 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void imageBankSearchButtonClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void createAccountButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void logOutButtonClicked(MouseEvent event) {
     }
     
 }
