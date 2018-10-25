@@ -21,8 +21,6 @@ import java.util.Scanner;
 public class SocketServer extends Thread {
     public static final int PORT_NUMBER = 8081;
     private Database db;
-    
-
     protected Socket socket;
 
     private SocketServer(Socket socket, Database db) {
