@@ -22,6 +22,9 @@ public class Case implements ICase,Serializable{
     private boolean evaluated;
     private String freeText;
     private double bid;
+      static final long serialVersionUID = -7588980448693010399L;
+ 
+
     
     
     // skal tilføre billeder 
@@ -117,6 +120,11 @@ public class Case implements ICase,Serializable{
     @Override
     public String getId() {
         return caseID;
+    }
+
+    @Override
+    public String toString() {
+        return "Case{" + "caseTitle=" + caseTitle + ", caseID=" + caseID + ", caseBudget=" + caseBudget + ", deadline=" + deadline + ", component=" + component + ", evaluated=" + evaluated + ", freeText=" + freeText + ", bid=" + bid + '}';
     }
 
 }

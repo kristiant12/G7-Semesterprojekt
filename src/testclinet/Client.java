@@ -6,6 +6,7 @@
 package testclinet;
 
 import Acquaintance.IClient;
+import Business.Case;
 import Business.User;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,14 +31,34 @@ public class Client implements IClient{
     private ObjectInputStream mapInputStram;
     private Map<String,String> map;
     private List<User> test;
+    private List<Case> caseList;
     
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Client c = new Client();
         Scanner scan  = new Scanner(System.in);
-        List<String> list = new ArrayList<>();
-        List<String> list2 = new ArrayList<>();
         Map<String,String> test = new HashMap();
         List<User> userList = new ArrayList();
+        List<Case> userCase = new ArrayList();
+        userList = c.getUserFromServer();
+//        userCase = c.getCaseFromServer();
+//        
+//        for (int i = 0; i < userCase.size(); i++) {
+//            userCase.get(i).toString();
+//        }
+//        
+//        for (int i = 0; i < userCase.size(); i++) {
+//            System.out.println(userCase.get(i).toString());
+//        }
+        
+//        
+//        System.out.println("");
+//        
+        for (int i = 0; i < userList.size(); i++) {
+            System.out.println(userList.get(i).toString());
+        }
+//        
+        
+        
         
 //        test = c.test();
 //        System.out.println(test.keySet().toString());
@@ -46,19 +67,19 @@ public class Client implements IClient{
 //        System.out.println(list.toString());
 //        System.out.println(list.get(0));
 //        System.out.println(list.get(1));
-           while(true){
-               int s= scan.nextInt();
-               if(s == 1){
-                userList = c.getFromServer();
-                 for (int i = 0; i < userList.size(); i++) {
-                System.out.println(userList.get(i).toString());
-                }
-           } else{
-                         System.out.println("er du bange");
-            } 
-               
-             
-        }
+//           while(true){
+//               int s= scan.nextInt();
+//               if(s == 1){
+//                userList = c.getUserFromServer();
+//                 for (int i = 0; i < userList.size(); i++) {
+//                System.out.println(userList.get(i).toString());
+//                }
+//           } else{
+//                         System.out.println("er du bange");
+//            } 
+//               
+//             
+//        }
         
 
 //      while(true){
@@ -91,9 +112,11 @@ public class Client implements IClient{
                 
                 
 //                test = (List<User>) mapInputStram.readObject();
-      //          out = new PrintStream(echoSocket.getOutputStream());
+              //  out = new PrintStream(echoSocket.getOutputStream());
 //                in = new Scanner(echoSocket.getInputStream());
-//                
+                
+
+
             }catch (UnknownHostException e) {
                 System.err.println("Unknown host: " + serverHostname);
                 System.exit(1);
@@ -113,15 +136,18 @@ public class Client implements IClient{
     public List<User> testListz (){
         return this.test;
     }
-    public List<User> getFromServer() throws IOException, ClassNotFoundException{
+    public List<User> getUserFromServer() throws IOException, ClassNotFoundException{
         test = (List<User>) mapInputStram.readObject();
-
-        
-//       map = (Map) mapInputStram.readObject();
-//       return map;
+      //  out.println("1");
         return test;
     }
     
+    
+    public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException{
+        caseList = (List<Case>) mapInputStram.readObject();
+     //   out.println("2");
+        return caseList;
+    }
     
     
     @Override
