@@ -6,16 +6,17 @@
 package Business;
 
 import Acquaintance.ICase;
+import java.io.Serializable;
 
 /**
  *
  * @author nicol
  */
-public class Case implements ICase{
+public class Case implements ICase,Serializable{
     
     private String caseTitle;
-    private int caseID;
-    private double caseBudget;
+    private String caseID;
+    private String caseBudget;
     private String deadline;
     private String component;
     private boolean evaluated;
@@ -24,7 +25,7 @@ public class Case implements ICase{
     
     
     // skal tilføre billeder 
-      public Case(String caseTitle, int caseID, double caseBudget, String deadline, String component, boolean evaluated, String freeText) {
+      public Case(String caseTitle, String caseID, String caseBudget, String deadline, String component, boolean evaluated, String freeText) {
         this.caseTitle = caseTitle;
         this.caseID = caseID;
         this.caseBudget = caseBudget;
@@ -54,12 +55,12 @@ public class Case implements ICase{
     }
 
     @Override
-    public double getCaseBudget() {
+    public String getCaseBudget() {
         return caseBudget;
     }
 
     @Override
-    public void setCaseBudget(double i) {
+    public void setCaseBudget(String i) {
         this.caseBudget = i;
     }
 
@@ -109,12 +110,12 @@ public class Case implements ICase{
     }
 
     @Override
-    public void setId(int i) {
+    public void setId(String i) {
         this.caseID = i;
         }
 
     @Override
-    public int getId() {
+    public String getId() {
         return caseID;
     }
 

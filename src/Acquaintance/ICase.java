@@ -14,8 +14,8 @@ public interface ICase {
     public String getCaseTitle();
     public void setCaseTitle(String i);
     
-    public double getCaseBudget();
-    public void setCaseBudget(double i);
+    public String getCaseBudget();
+    public void setCaseBudget(String i);
     
     public String getDeadline();
     public void setDeadLine(String i);
@@ -33,7 +33,7 @@ public interface ICase {
     
     public boolean verifyPayment();
     
-    public int getId();
-    public void setId(int i);
+    public String getId();
+    public void setId(String i);
     
 }
