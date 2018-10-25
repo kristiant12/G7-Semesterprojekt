@@ -14,26 +14,20 @@ import Data.Database;
  */
 public class User {
     public Database mainDatabase = new Database();
-
-    private String idNumber;
     private String password;
     private String userName; 
     
     
     
     
-    public User(String id, String pass, String userNam){
-        this.idNumber = id;
+    public User(String pass, String userNam){
+      
         this.password = pass;
         this.userName = userNam;
 }
-   public String getIdNumber() {
-        return idNumber;
-    }
+  
 
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
-    }
+   
 
     public String getPassword() {
         return password;

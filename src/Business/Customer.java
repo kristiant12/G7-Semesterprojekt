@@ -11,22 +11,20 @@ import Acquaintance.ICustomer;
  *
  * @author rober
  */
-public class Customer implements ICustomer {
+public class Customer extends User implements ICustomer {
 
-    private String idNumber;
     private String username;
     private String password;
 
-    public Customer(String id, String pass, String userNam) {
-
-        this.idNumber = id;
-        this.password = pass;
-        this.username = userNam;
+    public Customer(String pass, String userNam) {
+        super(pass, userNam);
     }
+
+    
 
     @Override
     public void createCase(String caseTitle, int caseID, double caseBudget, String deadline, String component, boolean evaluated, String freeText) {
-        Case SendCase = new Case(caseTitle, caseID, caseBudget, deadline, component, evaluated, freeText); 
-       
+        Case SendCase = new Case(caseTitle, caseID, caseBudget, deadline, component, evaluated, freeText);
+
     }
 }

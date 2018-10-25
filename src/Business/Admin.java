@@ -14,8 +14,8 @@ package Business;
  */
 public class Admin extends User {
     
-    public Admin(String id, String pass, String userNam) {
-        super(id, pass, userNam);
+    public Admin(String pass, String userNam) {
+        super (pass, userNam);
     }
     
 }
