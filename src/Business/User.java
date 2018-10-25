@@ -50,9 +50,6 @@ public class User implements Serializable{
     public void createCase(String caseTitle, int caseID,double caseBudget,String deadline, String component,boolean evaluated,String freeText){
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
         mainDatabase.sendCase(SendCase);
-        
-        
-        
     }
         public boolean sammenligner(String password, String username, String ID){
         
@@ -69,7 +66,7 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "{" + "mainDatabase=" + mainDatabase + ", password=" + password + ", userName=" + userName + '}';
+        return "{" + ", password=" + password + ", userName=" + userName + '}';
     }
         
         

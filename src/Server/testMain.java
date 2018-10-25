@@ -5,6 +5,12 @@
  */
 package Server;
 
+import Business.Employee;
+import Business.Manufacturer;
+import Business.User;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author nicol
@@ -12,9 +18,22 @@ package Server;
 public class testMain {
     public static void main(String[] args) {
         
-        Database test = new Database();
-        String noget = "dette er en test";
-        System.out.println(test.SQLTest(noget));
+   List<User> list = new ArrayList();
+   list.add(new Employee("sd", "sds"));
+   list.add(new Employee("2sd", "sds"));
+   list.add(new Manufacturer("hallo", "ting", "sdoin", 3434, "dimg", "ssidsoiniso"));
+   list.add(new Employee("s2d", "sds"));
+   list.add(new Employee("sd3", "sds"));
+   list.add(new Employee("sd1", "sds"));
+   list.add(new Employee("sd5", "sds"));
+   list.add(new Employee("sd4", "sds"));
+
+   
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i)instanceof Manufacturer){
+                System.out.println(list.get(i).toString());
+            }
+        }
         
         
     }

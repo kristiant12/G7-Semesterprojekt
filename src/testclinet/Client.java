@@ -141,26 +141,6 @@ public class Client implements IClient{
                 test.add(in.nextLine());
                 return test; 
     }
-//     public Map<String,String> testServer() throws IOException{
-//                Map<String,String> test = new HashMap<>();
-//                String client = "client: ";
-//               // out.println(i);
-//          //      String clientOut = client+""+i;
-//                test = in.nextLine();
-//                return test; 
-//    }
-        
-      public Map<List<String>,List<String>> User(){
-          Map<List<String>,List<String>> s = new HashMap<>();
-          List<String> test = new ArrayList<>();
-          List<String> test2 = new ArrayList<>();
-          
-          test.add(in.nextLine());
-          test2.add(in.nextLine());
-
-          s.put(test, test2);
-          return s;
-      }
 
         
  
