@@ -7,7 +7,10 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -16,6 +19,13 @@ import javafx.fxml.Initializable;
  */
 public class BrugerController implements Initializable {
 
+    @FXML
+    private ImageView createCaseImage;
+    @FXML
+    private ImageView logOutImage;
+    @FXML
+    private ImageView helpImage;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +33,17 @@ public class BrugerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void createCaseImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void logOutImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void helpImageClicked(MouseEvent event) {
+    }
     
 }

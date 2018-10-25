@@ -5,10 +5,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.ManufacturerController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManufacturerController">
    <children>
-      <ImageView fx:id="logOutButton" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="543.0" onMouseClicked="#logOutButtonClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="543.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@billeder/logout.png" />
          </image>

@@ -23,8 +23,6 @@ import javafx.scene.layout.AnchorPane;
 public class ManufacturerController implements Initializable {
 
     @FXML
-    private ImageView logOutButton;
-    @FXML
     private ImageView auctionImage;
     @FXML
     private ImageView casesImage;
@@ -42,6 +40,8 @@ public class ManufacturerController implements Initializable {
     private AnchorPane profilePane;
     @FXML
     private Button saveProfileButton;
+    @FXML
+    private ImageView logOutImage;
 
     /**
      * Initializes the controller class.
@@ -51,9 +51,6 @@ public class ManufacturerController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void logOutButtonClicked(MouseEvent event) {
-    }
 
     @FXML
     private void auctionImageClicked(MouseEvent event) {
@@ -77,6 +74,10 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void saveProfileButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void logOutImageClicked(MouseEvent event) {
     }
     
 }

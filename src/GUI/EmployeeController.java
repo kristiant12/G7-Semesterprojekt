@@ -65,7 +65,7 @@ public class EmployeeController implements Initializable {
     @FXML
     private Button createAccountButton;
     @FXML
-    private ImageView logOutButton;
+    private ImageView logOutImage;
 
     /**
      * Initializes the controller class.
@@ -122,7 +122,7 @@ public class EmployeeController implements Initializable {
     }
 
     @FXML
-    private void logOutButtonClicked(MouseEvent event) {
+    private void logOutImageClicked(MouseEvent event) {
     }
     
 }
