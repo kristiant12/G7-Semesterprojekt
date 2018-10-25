@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OpretController">
+   <children>
+      <Label layoutX="224.0" layoutY="57.0" text="Register">
+         <font>
+            <Font name="Verdana" size="37.0" />
+         </font>
+      </Label>
+      <TextField layoutX="68.0" layoutY="328.0" prefHeight="25.0" prefWidth="178.0" promptText="Username " />
+      <TextField layoutX="68.0" layoutY="265.0" prefHeight="25.0" prefWidth="206.0" promptText="Your Password" />
+      <TextField layoutX="359.0" layoutY="265.0" prefHeight="25.0" prefWidth="206.0" promptText="Confirm Password" />
+      <TextField layoutX="68.0" layoutY="209.0" prefHeight="25.0" prefWidth="281.0" promptText="Enter Your Email Address" />
+      <TextField layoutX="68.0" layoutY="151.0" prefHeight="25.0" prefWidth="246.0" promptText="Full name" />
+      <TextField layoutX="68.0" layoutY="442.0" prefHeight="25.0" prefWidth="185.0" promptText="Address" />
+      <TextField layoutX="68.0" layoutY="385.0" prefHeight="25.0" prefWidth="178.0" promptText="Telefonnummer" />
+      <Label layoutX="65.0" layoutY="133.0" text="Your full name">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="191.0" text="Email address">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="250.0" text="Password">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="359.0" layoutY="250.0" text="Confirm your password">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="311.0" text="Enter a Username">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="368.0" text="Enter your phone number" />
+      <Label layoutX="68.0" layoutY="425.0" text="Enter your address" />
+   </children>
+</AnchorPane>
