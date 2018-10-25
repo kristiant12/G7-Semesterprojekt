@@ -15,8 +15,8 @@ public class Employee extends User {
     private String password;
     private String userName; 
 
-    public Employee(String id, String pass, String userNam) {
-        super(id, pass, userNam);
+    public Employee(String pass, String userNam) {
+        super(pass, userNam);
     }
     
     /**
