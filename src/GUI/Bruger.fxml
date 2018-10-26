@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="GUI.BrugerController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
    <children>
-      <Label layoutX="74.0" layoutY="217.0" prefHeight="33.0" prefWidth="135.0" text="Start creating a Case">
+      <Label layoutX="124.0" layoutY="139.0" prefHeight="33.0" prefWidth="135.0" text="Create a new case">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="50.0" prefHeight="54.0" prefWidth="465.0" text="Welcome  + Vedkommendes Username ">
+      <Label layoutX="168.0" layoutY="40.0" prefHeight="54.0" prefWidth="465.0" text="Welcome  + Vedkommendes Username ">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <Button layoutX="69.0" layoutY="257.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="146.0" text="Create!">
+      <Label layoutX="430.0" layoutY="143.0" text="List of cases">
          <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Label layoutX="311.0" layoutY="158.0" text="My Case list..">
-         <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ListView layoutX="311.0" layoutY="185.0" prefHeight="249.0" prefWidth="242.0" />
-      <Button layoutX="14.0" layoutY="449.0" mnemonicParsing="false" text="Logout">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="85.0" layoutY="449.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Back">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
+      <ListView layoutX="430.0" layoutY="168.0" prefHeight="300.0" prefWidth="275.0" />
+      <ImageView fx:id="createCaseImage" fitHeight="150.0" fitWidth="200.0" layoutX="109.0" layoutY="200.0" onMouseClicked="#createCaseImageClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/caseCustomer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="376.0" layoutY="486.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/logout.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helpImage" fitHeight="150.0" fitWidth="50.0" layoutX="14.0" layoutY="486.0" onMouseClicked="#helpImageClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/support.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
