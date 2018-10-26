@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @author sebastian
  */
 public class User implements Serializable{
+    
     public Database mainDatabase = new Database();
     private String password;
     private String userName; 
@@ -58,6 +59,6 @@ public class User implements Serializable{
         return "{" + ", password=" + password + ", userName=" + userName + '}';
     }
         
-        
+    
     
 }

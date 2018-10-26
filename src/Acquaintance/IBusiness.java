@@ -1,6 +1,9 @@
 package Acquaintance;
 
 import Business.Case;
+import Business.User;
+import java.io.IOException;
+import java.util.List;
 
 /* OSRS ER ET LORTE SPIL!!!!!!!!! CONFIRMED!
  * To change this license header, choose License Headers in Project Properties.
@@ -19,4 +22,7 @@ public interface IBusiness {
     public void RegisterBid(Case cs, double bid);
     
     public String toServer(String i);
+  
+    public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
+
 }
