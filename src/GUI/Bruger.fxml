@@ -2,43 +2,93 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
    <children>
-      <Label layoutX="124.0" layoutY="139.0" prefHeight="33.0" prefWidth="135.0" text="Create a new case">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="168.0" layoutY="40.0" prefHeight="54.0" prefWidth="465.0" text="Welcome  + Vedkommendes Username ">
-         <font>
-            <Font size="37.0" />
-         </font>
-      </Label>
-      <Label layoutX="430.0" layoutY="143.0" text="List of cases">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <ListView layoutX="430.0" layoutY="168.0" prefHeight="300.0" prefWidth="275.0" />
-      <ImageView fx:id="createCaseImage" fitHeight="150.0" fitWidth="200.0" layoutX="109.0" layoutY="200.0" onMouseClicked="#createCaseImageClicked" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@billeder/caseCustomer.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="376.0" layoutY="486.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@billeder/logout.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="helpImage" fitHeight="150.0" fitWidth="50.0" layoutX="14.0" layoutY="486.0" onMouseClicked="#helpImageClicked" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@billeder/support.png" />
-         </image>
-      </ImageView>
+      <AnchorPane prefHeight="550.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="465.0" layoutY="128.0" text="List of cases">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="162.0" layoutY="147.0" prefHeight="33.0" prefWidth="135.0" text="Create a new case">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="168.0" layoutY="25.0" prefHeight="54.0" prefWidth="465.0" text="Welcome  + Vedkommendes Username ">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <ListView fx:id="userCaseListView" layoutX="465.0" layoutY="153.0" prefHeight="300.0" prefWidth="275.0" />
+            <ImageView fx:id="createCaseImage" fitHeight="150.0" fitWidth="200.0" layoutX="154.0" layoutY="200.0" onMouseClicked="#createCaseImageClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/caseCustomer.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="542.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/logout.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="helpImage" fitHeight="150.0" fitWidth="50.0" layoutX="14.0" layoutY="542.0" onMouseClicked="#helpImageClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/support.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="createCasePane" prefHeight="550.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="titleTextField" layoutX="77.0" layoutY="115.0" promptText="Enter title" />
+            <TextField fx:id="budgetTextField" layoutX="77.0" layoutY="197.0" promptText="Enter budget" />
+            <TextField fx:id="deadlineTextField" layoutX="77.0" layoutY="275.0" promptText="Enter deadline" />
+            <TextField fx:id="componentTextField" layoutX="77.0" layoutY="362.0" promptText="Enter component" />
+            <TextArea fx:id="informationTextArea" layoutX="378.0" layoutY="115.0" prefHeight="350.0" prefWidth="375.0" promptText="Information about case" />
+            <Label layoutX="77.0" layoutY="94.0" text="Title">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="176.0" text="Budget">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="254.0" text="Deadline">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="341.0" text="Component">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="createCaseBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="32.0" layoutY="532.0" onMouseClicked="#createCaseBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/backArrow.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="268.0" layoutY="24.0" text="Create a new case">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="attachFileImage" fitHeight="150.0" fitWidth="80.0" layoutX="120.0" layoutY="425.0" onMouseClicked="#attachFileImageClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/attachFile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
