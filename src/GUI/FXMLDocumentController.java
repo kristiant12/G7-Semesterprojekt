@@ -6,6 +6,8 @@
 package GUI;
 
 import Acquaintance.IBusiness;
+import Business.BusinessFacade;
+import Business.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +28,7 @@ import testclinet.Client;
 public class FXMLDocumentController implements Initializable {
     
     private static IBusiness business;
+    private BusinessFacade business1;
     private Client c;
     
     @FXML
@@ -60,7 +63,19 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void LoginButtonClicked(ActionEvent event) {
+    private void LoginButtonClicked(ActionEvent event) throws ClassNotFoundException, IOException {
+        String username = usernameTextField.getText();
+        String password = passwordPasswordField.getText();
+        User CurrentUser = business1.login(username, password);
+        if (CurrentUser instanceof User) {
+        
+    }
+        else{
+            
+        }
+            
+        
+       
     }
 
     @FXML

@@ -19,7 +19,7 @@ import testclinet.Client;
  */
 public class BusinessFacade implements IBusiness{
       // Auction auction = new Auction();
-     //  BusinessFacade business = new BusinessFacade();
+      BusinessFacade business = new BusinessFacade();
       // Database mainDatabase = new Database();
 
         private IData data;
