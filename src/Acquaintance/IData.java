@@ -1,6 +1,8 @@
 package Acquaintance;
 
 import Business.Case;
+import java.util.List;
+import java.util.Map;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

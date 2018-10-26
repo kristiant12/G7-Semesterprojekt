@@ -8,6 +8,10 @@ package Data;
 import Acquaintance.IUser;
 import Acquaintance.IData;
 import Business.Case;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import sun.security.util.Password;
 
 
 
@@ -16,10 +20,28 @@ import Business.Case;
  * @author sebastian
  */
 public class Database {
+    
+    
+    private String password;
+    private String username;
+     private Map<String, String> testMap = new HashMap<String, String>();
+     
+     
+    
+     
+      public Map<String, String> getmap() {
+      testMap.put("Sebastian", "123");
+      testMap.put("Robert", "321");
+      return testMap;
+    }
+   
+  
+    
+    
 
     public Database() {
     }
-    
+   
 
 
    
