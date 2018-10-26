@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -37,7 +39,7 @@ public class OpretController implements Initializable {
     @FXML
     private Button createAccountButton;
     @FXML
-    private Button backButton;
+    private ImageView createAccountBackArrow;
 
     /**
      * Initializes the controller class.
@@ -52,7 +54,7 @@ public class OpretController implements Initializable {
     }
 
     @FXML
-    private void backButtonClicked(ActionEvent event) {
+    private void createAccountBackArrowClicked(MouseEvent event) {
     }
     
 }
