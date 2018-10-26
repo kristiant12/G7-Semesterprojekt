@@ -45,7 +45,7 @@ public class BusinessFacade implements IBusiness{
 
     @Override
     public String toServer(String i) {
-        return data.toServer(i);
+        return data.SendString(i);
     }
     
 }

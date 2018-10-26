@@ -24,6 +24,9 @@ import java.util.logging.Logger;
  */
 public class Database {
     
+    
+    
+    
     Connection db = null;
     private final String url = "jdbc:postgresql://horton.elephantsql.com:5432/ddrapuye";
     private final String username = "ddrapuye";

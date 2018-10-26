@@ -7,7 +7,15 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -16,6 +24,27 @@ import javafx.fxml.Initializable;
  */
 public class AdminController implements Initializable {
 
+    @FXML
+    private AnchorPane createEmployeePane;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private TextField passwordTextField;
+    @FXML
+    private Button createEmployeeButton;
+    @FXML
+    private AnchorPane deleteUserPane;
+    @FXML
+    private ListView<?> usersListView;
+    @FXML
+    private Button deleteUserButton;
+    @FXML
+    private ImageView logOutImage;
+    @FXML
+    private ImageView createEmployeeImage;
+    @FXML
+    private ImageView deleteUserImage;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +52,25 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void createEmployeeButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteUserButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void logOutImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void createEmployeeImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void deleteUserImageClicked(MouseEvent event) {
+    }
     
 }

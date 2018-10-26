@@ -51,18 +51,7 @@ public class User implements Serializable{
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
         mainDatabase.sendCase(SendCase);
     }
-        public boolean sammenligner(String password, String username, String ID){
-        
-        // getDatabaseInfo(ID);
-        int i = password.compareTo(password);
-        
-        if(i == 0){
-            i = username.compareTo(username);
-        }if(i == 0){
-            return true;
-        }
-        return false; 
-    }
+     
 
     @Override
     public String toString() {

@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -42,6 +44,30 @@ public class ManufacturerController implements Initializable {
     private Button saveProfileButton;
     @FXML
     private ImageView logOutImage;
+    @FXML
+    private TextField firmNameTextField;
+    @FXML
+    private TextField firmNumberTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField newPasswordTextField;
+    @FXML
+    private TextField repeatPasswordTextField;
+    @FXML
+    private Button confirmButton;
+    @FXML
+    private TextField firmAddressTextField;
+    @FXML
+    private ImageView profilePaneBackArrow;
+    @FXML
+    private TextField auctionSearchTextField;
+    @FXML
+    private ImageView auctionSearchImage;
+    @FXML
+    private ListView<?> casesListView;
+    @FXML
+    private ListView<?> auctionCasesListView;
 
     /**
      * Initializes the controller class.
@@ -78,6 +104,18 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void logOutImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void confirmButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void profilePaneBackArrowClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void auctionSearchImageClicked(MouseEvent event) {
     }
     
 }
