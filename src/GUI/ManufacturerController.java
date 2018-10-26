@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -42,6 +43,12 @@ public class ManufacturerController implements Initializable {
     private Button saveProfileButton;
     @FXML
     private ImageView logOutImage;
+    @FXML
+    private TextField firmNameTextField;
+    @FXML
+    private TextField firmNumberTextField;
+    @FXML
+    private TextField emailTextField;
 
     /**
      * Initializes the controller class.

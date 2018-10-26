@@ -13,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -36,6 +38,12 @@ public class AdminController implements Initializable {
     private ListView<?> usersListView;
     @FXML
     private Button deleteUserButton;
+    @FXML
+    private ImageView logOutImage;
+    @FXML
+    private ImageView createEmployeeImage;
+    @FXML
+    private ImageView deleteUserImage;
 
     /**
      * Initializes the controller class.
@@ -51,6 +59,18 @@ public class AdminController implements Initializable {
 
     @FXML
     private void deleteUserButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void logOutImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void createEmployeeImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void deleteUserImageClicked(MouseEvent event) {
     }
     
 }
