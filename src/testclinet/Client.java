@@ -35,17 +35,17 @@ public class Client implements IClient{
     private List<Case> caseList;
     
     
-//    public static void main(String[] args) throws IOException, ClassNotFoundException {
-//        Client c = new Client();
-//        Scanner scan  = new Scanner(System.in);
-//        List<User> userList = new ArrayList();
-//        userList = c.getUserFromServer();
-////        
-////        for (int i = 0; i < userList.size(); i++) {
-////            System.out.println(userList.get(i).toString());
-////        }
-////       
-//    }
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Client c = new Client();
+        Scanner scan  = new Scanner(System.in);
+        List<User> userList = new ArrayList();
+        userList = c.getUserFromServer();
+        
+        for (int i = 0; i < userList.size(); i++) {
+            System.out.println(userList.get(i).toString());
+        }
+       
+    }
 
     public Client() {
         
