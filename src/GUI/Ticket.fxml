@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TicketController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.TicketController">
+   <children>
+      <Label layoutX="324.0" layoutY="34.0" text="Ticket desk">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <ListView fx:id="ticketsListView" layoutX="74.0" layoutY="144.0" prefHeight="300.0" prefWidth="200.0" />
+      <Label layoutX="74.0" layoutY="118.0" text="List of tickets">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="ticketTextArea" layoutX="380.0" layoutY="144.0" prefHeight="300.0" prefWidth="375.0" promptText="Whats the problem?" />
+      <ImageView fx:id="ticketBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="33.0" layoutY="537.0" onMouseClicked="#ticketBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/backArrow.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="createTicketButton" layoutX="651.0" layoutY="476.0" mnemonicParsing="false" onAction="#createTicketButtonClicked" text="Create ticket" />
+   </children>
 </AnchorPane>

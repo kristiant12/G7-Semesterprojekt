@@ -7,7 +7,14 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -16,6 +23,15 @@ import javafx.fxml.Initializable;
  */
 public class TicketController implements Initializable {
 
+    @FXML
+    private ListView<?> ticketsListView;
+    @FXML
+    private TextArea ticketTextArea;
+    @FXML
+    private ImageView ticketBackArrow;
+    @FXML
+    private Button createTicketButton;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +39,13 @@ public class TicketController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void ticketBackArrowClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void createTicketButtonClicked(ActionEvent event) {
+    }
     
 }
