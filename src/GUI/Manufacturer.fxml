@@ -47,8 +47,8 @@
                   <Image url="@billeder/backArrow.png" />
                </image>
             </ImageView>
-            <ListView layoutX="215.0" layoutY="62.0" prefHeight="350.0" prefWidth="400.0" />
-            <TextField fx:id="auctionSearchTextField" layoutX="215.0" layoutY="30.0" prefHeight="31.0" prefWidth="363.0" promptText="Search" />
+            <ListView fx:id="auctionCasesListView" layoutX="215.0" layoutY="62.0" prefHeight="350.0" prefWidth="400.0" />
+            <TextField fx:id="auctionSearchTextField" layoutX="215.0" layoutY="30.0" prefHeight="31.0" prefWidth="364.0" promptText="Search" />
             <ImageView fx:id="auctionSearchImage" fitHeight="150.0" fitWidth="31.0" layoutX="584.0" layoutY="30.0" onMouseClicked="#auctionSearchImageClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/searchButton.png" />

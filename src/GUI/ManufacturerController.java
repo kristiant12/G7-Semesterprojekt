@@ -66,6 +66,8 @@ public class ManufacturerController implements Initializable {
     private ImageView auctionSearchImage;
     @FXML
     private ListView<?> casesListView;
+    @FXML
+    private ListView<?> auctionCasesListView;
 
     /**
      * Initializes the controller class.
