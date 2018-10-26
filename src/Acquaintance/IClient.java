@@ -5,7 +5,9 @@
  */
 package Acquaintance;
 
+import Business.User;
 import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -13,7 +15,9 @@ import java.io.IOException;
  */
 public interface IClient {
     
-    public String SendString(String i)throws IOException;
+    //public String SendString(String i)throws IOException;
     
+    
+    public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
   
 }
