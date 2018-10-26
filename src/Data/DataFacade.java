@@ -7,7 +7,9 @@ package Data;
 
 import Acquaintance.IData;
 import Business.Case;
+import Business.User;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import testclinet.Client;
@@ -25,7 +27,6 @@ public class DataFacade implements IData{
         
     }
 
-      @Override
     public void sendCase(Case SendCase) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -34,15 +35,28 @@ public class DataFacade implements IData{
     public void getDatabaseInfo(String ID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    
+
+//    @Override
+//    public String SendString(String i) {
+//        try {
+//            return client.SendString(i);
+//        } catch (IOException ex) {
+//            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
 
     @Override
     public String SendString(String i) {
-        try {
-            return client.SendString(i);
-        } catch (IOException ex) {
-            Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<User> getUserFromServer() throws IOException, ClassNotFoundException {
+        return client.getUserFromServer();
     }
 
   

@@ -1,6 +1,8 @@
 package Acquaintance;
 
 import Business.Case;
+import Business.User;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -16,8 +18,10 @@ import java.util.Map;
  */
 public interface IData {
     
-    public void sendCase(Case SendCase);
+    //public void sendCase(Case SendCase);
     public void getDatabaseInfo(String ID);
     public String SendString(String i);
+    public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
+
     
 }
