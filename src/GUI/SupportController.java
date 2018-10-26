@@ -7,7 +7,12 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -16,6 +21,11 @@ import javafx.fxml.Initializable;
  */
 public class SupportController implements Initializable {
 
+    @FXML
+    private ImageView supportBackArrow;
+    @FXML
+    private Button createTicketButton;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +33,13 @@ public class SupportController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void supportBackArrowClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void createButtonClicked(ActionEvent event) {
+    }
     
 }

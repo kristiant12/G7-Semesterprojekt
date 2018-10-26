@@ -35,7 +35,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="auctionPane" layoutY="122.0" prefHeight="485.0" prefWidth="830.0">
+      <AnchorPane fx:id="auctionPane" layoutY="122.0" prefHeight="485.0" prefWidth="830.0" visible="false">
          <children>
             <ImageView fitHeight="150.0" fitWidth="31.0" layoutX="151.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
