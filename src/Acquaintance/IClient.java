@@ -13,6 +13,7 @@ import java.io.IOException;
  */
 public interface IClient {
     
-    public String toServer(String i)throws IOException;
+    public String SendString(String i)throws IOException;
     
+  
 }

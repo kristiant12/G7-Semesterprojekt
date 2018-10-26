@@ -36,14 +36,16 @@ public class DataFacade implements IData{
     }
 
     @Override
-    public String toServer(String i) {
+    public String SendString(String i) {
         try {
-            return client.toServer(i);
+            return client.SendString(i);
         } catch (IOException ex) {
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
+
+  
 
 
 

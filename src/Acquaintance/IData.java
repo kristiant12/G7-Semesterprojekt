@@ -16,6 +16,6 @@ public interface IData {
     
     public void sendCase(Case SendCase);
     public void getDatabaseInfo(String ID);
-    public String toServer(String i);
+    public String SendString(String i);
     
 }

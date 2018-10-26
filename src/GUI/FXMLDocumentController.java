@@ -56,7 +56,6 @@ public class FXMLDocumentController implements Initializable {
     }
 
     private void testButton(ActionEvent event) throws IOException {
-        area.setText(c.toServer(test.getText()));
         
     }
 

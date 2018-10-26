@@ -39,9 +39,13 @@ public class Client implements IClient{
         Map<String,String> test = new HashMap();
         List<User> userList = new ArrayList();
         List<Case> userCase = new ArrayList();
-        userList = c.getUserFromServer();
+    //    userList = c.getUserFromServer();
 //        userCase = c.getCaseFromServer();
 //        
+
+
+
+
 //        for (int i = 0; i < userCase.size(); i++) {
 //            userCase.get(i).toString();
 //        }
@@ -53,35 +57,25 @@ public class Client implements IClient{
 //        
 //        System.out.println("");
 //        
-        for (int i = 0; i < userList.size(); i++) {
-            System.out.println(userList.get(i).toString());
-        }
+//        for (int i = 0; i < userList.size(); i++) {
+//            System.out.println(userList.get(i).toString());
+//        }
+            String test34;
+            while(true){
+                 test34 = scan.nextLine();
+                 System.out.println(c.SendString(test34));
+                 
+            }
+
+//    
+//                    for(int i = 0;i<userList.size();i++){
+//                        System.out.println(userCase.get(i).toString());
+//                    
+//        }
 //        
-        
-        
         
 //        test = c.test();
 //        System.out.println(test.keySet().toString());
-        
-//        list = c.testListz();
-//        System.out.println(list.toString());
-//        System.out.println(list.get(0));
-//        System.out.println(list.get(1));
-//           while(true){
-//               int s= scan.nextInt();
-//               if(s == 1){
-//                userList = c.getUserFromServer();
-//                 for (int i = 0; i < userList.size(); i++) {
-//                System.out.println(userList.get(i).toString());
-//                }
-//           } else{
-//                         System.out.println("er du bange");
-//            } 
-//               
-//             
-//        }
-        
-
 //      while(true){
 ////          String a  = scan.nextLine();
 ////        System.out.println(c.testServer(a));
@@ -112,8 +106,8 @@ public class Client implements IClient{
                 
                 
 //                test = (List<User>) mapInputStram.readObject();
-              //  out = new PrintStream(echoSocket.getOutputStream());
-//                in = new Scanner(echoSocket.getInputStream());
+               out = new PrintStream(echoSocket.getOutputStream());
+               //in = new Scanner(echoSocket.getInputStream());
                 
 
 
@@ -138,7 +132,7 @@ public class Client implements IClient{
     }
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException{
         test = (List<User>) mapInputStram.readObject();
-      //  out.println("1");
+      //  out.println("sidnsidn");
         return test;
     }
     
@@ -150,12 +144,9 @@ public class Client implements IClient{
     }
     
     
-    @Override
-    public String toServer(String i) throws IOException{
-                String client = "client: ";
+    public String SendString(String i) throws IOException{
                 out.println(i);
-                String clientOut = client+""+i;
-                String server = in.nextLine();
+                String server = mapInputStram.readUTF();
                 return server; 
     }
     
