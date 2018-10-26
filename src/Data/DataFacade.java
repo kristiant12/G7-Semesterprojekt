@@ -8,8 +8,6 @@ package Data;
 import Acquaintance.IData;
 import Business.Case;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import testclinet.Client;
@@ -21,7 +19,7 @@ import testclinet.Client;
 
 public class DataFacade implements IData{
     private Client client;
-   
+    
     public DataFacade(Client client){
         this.client = client;
         
@@ -45,9 +43,11 @@ public class DataFacade implements IData{
             Logger.getLogger(DataFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    
     }
-}
+
+  
+
+
 
     
-
+}
