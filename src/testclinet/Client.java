@@ -35,17 +35,62 @@ public class Client implements IClient{
     private List<Case> caseList;
     
     
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Client c = new Client();
-        Scanner scan  = new Scanner(System.in);
-        List<User> userList = new ArrayList();
-        userList = c.getUserFromServer();
-        
-        for (int i = 0; i < userList.size(); i++) {
-            System.out.println(userList.get(i).toString());
-        }
-       
-    }
+//    public static void main(String[] args) throws IOException, ClassNotFoundException {
+//        Client c = new Client();
+//        Scanner scan  = new Scanner(System.in);
+//        List<User> userList = new ArrayList();
+//        List<Case> caseList = new ArrayList();
+//        String i;
+//        
+//             caseList = c.getCaseFromServer();
+//        userList = c.getUserFromServer();
+//   
+//        
+//          for (int j = 0; j < caseList.size(); j++) {
+//            System.out.println(caseList.get(j).toString());
+//        }
+//        
+//        for (int j = 0; j < userList.size(); j++) {
+//            System.out.println(userList.get(j).toString());
+//        }
+//        
+//      
+//        while(true){
+//        i = scan.nextLine();
+//        c.sendtilServeren(i);
+//        if(i.equalsIgnoreCase("1")){
+//            userList = c.getUserFromServer();
+//            for (int j = 0; j < userList.size(); j++) {
+//                System.out.println(userList.get(j).toString());
+//            }
+//        
+//        }else if(i.equalsIgnoreCase("2")){
+//            caseList = c.getCaseFromServer();
+//
+//              for (int j = 0; j < caseList.size(); j++) {
+//                System.out.println(caseList.get(j).toString());
+//            }
+//        
+//        }
+//        
+//        
+//        
+//            
+//        }
+//        caseList = c.getCaseFromServer();
+//        
+//        for (int i = 0; i < caseList.size(); i++) {
+//            System.out.println(caseList.toString());
+//        }
+//        
+//        
+//        userList = c.getUserFromServer();
+//        
+//        for (int i = 0; i < userList.size(); i++) {
+//            System.out.println(userList.get(i).toString());
+//        }
+//       
+//    }
 
     public Client() {
         
@@ -88,15 +133,12 @@ public class Client implements IClient{
         }
     }
     
-    public Map<String,String> test(){
-        return this.map;
-    }
+ 
     
-    public List<User> testListz (){
-        return this.test;
-    }
+   
     @Override
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException{
+        sendtilServeren("1");
         test = (List<User>) mapInputStram.readObject();
         //out.println("sidnsidn");
         return test;
@@ -104,31 +146,18 @@ public class Client implements IClient{
     
     
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException{
+        sendtilServeren("2");
         caseList = (List<Case>) mapInputStram.readObject();
      //   out.println("2");
         return caseList;
     }
     
-    
-//    @Override
-//    public String SendString(String i) throws IOException{
-//                String client = "client: ";
-//                out.println(i);
-//                String clientOut = client+""+i;
-//                String server = in.nextLine();
-//                return server; 
-//    }
-    
-        public List<String> testServer(String i) throws IOException{
-                List<String> test = new ArrayList<>();
-                String client = "client: ";
-                out.println(i);
-                String clientOut = client+""+i;
-                test.add(in.nextLine());
-                return test; 
-    }
-
+    public void sendtilServeren(String i){
+        out.println(i);
         
+    }
+    
+
         
  
 }
