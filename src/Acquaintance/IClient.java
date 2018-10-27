@@ -5,6 +5,7 @@
  */
 package Acquaintance;
 
+import Business.Case;
 import Business.User;
 import java.io.IOException;
 import java.util.List;
@@ -19,5 +20,8 @@ public interface IClient {
     
     
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
-  
+    
+    public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException;
+
+   
 }

@@ -19,12 +19,13 @@ import testclinet.Client;
  */
 public class BusinessFacade implements IBusiness{
       // Auction auction = new Auction();
-      BusinessFacade business = new BusinessFacade();
+//      BusinessFacade business = new BusinessFacade();
       // Database mainDatabase = new Database();
 
         private IData data;
-
+        private User user;
     public BusinessFacade() {
+        
     //    this.data = data;
       //  mainDatabase = new Database();
     }
@@ -57,6 +58,27 @@ public class BusinessFacade implements IBusiness{
         return data.getUserFromServer();
     }
     
+    public boolean logintest(String name, String password) throws ClassNotFoundException, IOException{
+        List<User> list = getUserFromServer();
+        for (int i = 0; i < list.size(); i++) {
+            String name1 = list.get(i).getUserName();
+            String pas = list.get(i).getPassword();
+            if(name.equals(name1) && password.equals(password)){
+                setUser(list.get(i));
+                return true;
+            }
+        }
+        return false;  
+    }
+    
+    public User getUser(){
+        return user;
+    }
+    
+    public void setUser(User u){
+        this.user = u;
+    }
+    
     
     public User login(String name, String password) throws ClassNotFoundException, IOException{
         List<User> list = getUserFromServer();
@@ -73,16 +95,27 @@ public class BusinessFacade implements IBusiness{
         
         return null;
     }
+
+    @Override
+    public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException {
+       return data.getCaseFromServer();
+    }
     
     public static void main(String[] args) throws ClassNotFoundException, IOException {
-        BusinessFacade a = new BusinessFacade();
-        Client s = new Client();
-        DataFacade q  = new DataFacade(s);
-        a.injectData(q);
-       
-       User f = a.login("admin", "password");
-       
-       f.toString();
+        DataFacade a = new DataFacade();
+        BusinessFacade s = new BusinessFacade();
+        s.injectData(a);
+        
+        List<User> dd = s.getUserFromServer();
+        for (int i = 0; i < dd.size(); i++) {
+            System.out.println(dd.get(i).toString());
+            System.out.println("a");
+        }
+        
+        System.out.println(s.logintest("kfc", "mcd"));
+      //  System.out.println(s.getUser());
+        
     }
+  
     
 }

@@ -8,13 +8,10 @@ package testclinet;
 import Acquaintance.IClient;
 import Business.Case;
 import Business.User;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -145,6 +142,7 @@ public class Client implements IClient{
     }
     
     
+    @Override
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException{
         sendtilServeren("2");
         caseList = (List<Case>) mapInputStram.readObject();
@@ -152,7 +150,7 @@ public class Client implements IClient{
         return caseList;
     }
     
-    public void sendtilServeren(String i){
+    private void sendtilServeren(String i){
         out.println(i);
         
     }

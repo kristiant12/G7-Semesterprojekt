@@ -24,5 +24,8 @@ public interface IBusiness {
     public String toServer(String i);
   
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
+    
+    public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException;
+
 
 }

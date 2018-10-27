@@ -22,8 +22,8 @@ import testclinet.Client;
 public class DataFacade implements IData{
     private Client client;
     
-    public DataFacade(Client client){
-        this.client = client;
+    public DataFacade(){
+        this.client = new Client();
         
     }
 
@@ -57,9 +57,24 @@ public class DataFacade implements IData{
     @Override
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException {
         return client.getUserFromServer();
+
+    }
+
+    @Override
+    public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException {
+        return client.getCaseFromServer();
     }
 
   
+
+//    public static void main(String[] args) throws IOException, ClassNotFoundException {
+//        DataFacade a = new DataFacade();
+//        List<User> test = a.getUserFromServer();
+//        for (int i = 0; i < test.size(); i++) {
+//            System.out.println(test.get(i).toString());
+//        }
+//        
+//    }
 
 
 

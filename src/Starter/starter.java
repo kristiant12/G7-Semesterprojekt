@@ -22,9 +22,8 @@ public class starter {
     
     public static void main(String[] args) {
 
-        Client client = new Client();
         
-        IData data = new DataFacade(client);
+        IData data = new DataFacade();
         
         IBusiness bus = new BusinessFacade();
         
