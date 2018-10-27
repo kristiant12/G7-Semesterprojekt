@@ -104,21 +104,21 @@ public class BusinessFacade implements IBusiness{
        return data.getCaseFromServer();
     }
     
-//    public static void main(String[] args) throws ClassNotFoundException, IOException {
-//        DataFacade a = new DataFacade();
-//        BusinessFacade s = new BusinessFacade();
-//        s.injectData(a);
-//        
-//        List<User> dd = s.getUserFromServer();
-//        for (int i = 0; i < dd.size(); i++) {
-//            System.out.println(dd.get(i).toString());
-//            System.out.println("a");
-//        }
-//        
-//        System.out.println(s.logintest("jens", "abe"));
-//      //  System.out.println(s.getUser());
-//        
-//    }
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
+        DataFacade a = new DataFacade();
+        BusinessFacade s = new BusinessFacade();
+        s.injectData(a);
+        
+        List<User> dd = s.getUserFromServer();
+        for (int i = 0; i < dd.size(); i++) {
+            System.out.println(dd.get(i).toString());
+            System.out.println("a");
+        }
+        
+        System.out.println(s.logintest("jens", "abe"));
+      //  System.out.println(s.getUser());
+        
+    }
 //  
 //    
 }
