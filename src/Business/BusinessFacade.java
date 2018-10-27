@@ -58,6 +58,7 @@ public class BusinessFacade implements IBusiness{
         return data.getUserFromServer();
     }
     
+        @Override
     public boolean logintest(String name, String password) throws ClassNotFoundException, IOException{
         List<User> list = getUserFromServer();
         for (int i = 0; i < list.size(); i++) {
@@ -71,10 +72,12 @@ public class BusinessFacade implements IBusiness{
         return false;  
     }
     
+        @Override
     public User getUser(){
         return user;
     }
     
+        @Override
     public void setUser(User u){
         this.user = u;
     }
@@ -101,21 +104,21 @@ public class BusinessFacade implements IBusiness{
        return data.getCaseFromServer();
     }
     
-    public static void main(String[] args) throws ClassNotFoundException, IOException {
-        DataFacade a = new DataFacade();
-        BusinessFacade s = new BusinessFacade();
-        s.injectData(a);
-        
-        List<User> dd = s.getUserFromServer();
-        for (int i = 0; i < dd.size(); i++) {
-            System.out.println(dd.get(i).toString());
-            System.out.println("a");
-        }
-        
-        System.out.println(s.logintest("kfc", "mcd"));
-      //  System.out.println(s.getUser());
-        
-    }
-  
-    
+//    public static void main(String[] args) throws ClassNotFoundException, IOException {
+//        DataFacade a = new DataFacade();
+//        BusinessFacade s = new BusinessFacade();
+//        s.injectData(a);
+//        
+//        List<User> dd = s.getUserFromServer();
+//        for (int i = 0; i < dd.size(); i++) {
+//            System.out.println(dd.get(i).toString());
+//            System.out.println("a");
+//        }
+//        
+//        System.out.println(s.logintest("jens", "abe"));
+//      //  System.out.println(s.getUser());
+//        
+//    }
+//  
+//    
 }

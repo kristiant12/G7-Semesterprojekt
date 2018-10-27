@@ -27,5 +27,10 @@ public interface IBusiness {
     
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException;
 
+    public boolean logintest(String name,String password) throws ClassNotFoundException,IOException;
+    
+    public User getUser();
+    
+    public void setUser(User user);    
 
 }

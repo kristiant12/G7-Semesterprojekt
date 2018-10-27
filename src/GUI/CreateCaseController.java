@@ -8,6 +8,7 @@ package GUI;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import static GUI.Gruppe_7_semesterprojekt.business;
 
 /**
  * FXML Controller class
@@ -23,5 +24,7 @@ public class CreateCaseController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+    public void test(){
+       
+    }
 }

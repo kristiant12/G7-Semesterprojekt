@@ -27,7 +27,7 @@ public class starter {
         
         IBusiness bus = new BusinessFacade();
         
-         bus.injectData(data);
+        bus.injectData(data);
         
         IUI ui = new Gruppe_7_semesterprojekt();
         

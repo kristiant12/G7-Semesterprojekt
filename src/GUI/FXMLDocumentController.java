@@ -6,20 +6,34 @@
 package GUI;
 
 import Acquaintance.IBusiness;
-import Business.BusinessFacade;
-import Business.User;
+import Business.Admin;
+import Business.Customer;
+import Business.Employee;
+import Business.Manufacturer;
+
+// vi skal se på disse import de bruger 3 lags
+//import Business.Employee;
+
+
+
+
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import testclinet.Client;
+import javafx.stage.Stage;
 
 /**
  *
@@ -28,13 +42,9 @@ import testclinet.Client;
 public class FXMLDocumentController implements Initializable {
     
     private static IBusiness business;
-    private BusinessFacade business1;
-    private Client c;
     
     @FXML
     private Label label;
-    private TextField test;
-    private TextArea area;
     @FXML
     private Button LoginButton;
     @FXML
@@ -51,28 +61,42 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        c = new Client();
     }    
-    
+       private void changeScreen(ActionEvent event, String a) throws IOException{ 
+        Parent parent = FXMLLoader.load(getClass().getResource(a));
+        Scene screen = new Scene(parent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(screen);
+        window.show();
+    }
+       
+       
     public void injectBusiness(IBusiness business){
         FXMLDocumentController.business = business;
     }
 
-    private void testButton(ActionEvent event) throws IOException {
-        
-    }
+    
 
     @FXML
     private void LoginButtonClicked(ActionEvent event) throws ClassNotFoundException, IOException {
         String username = usernameTextField.getText();
         String password = passwordPasswordField.getText();
-        User CurrentUser = business1.login(username, password);
-        if (CurrentUser instanceof User) {
-        
-    }
-        else{
-            
+        boolean  test = business.logintest(username, password);
+        if( test == true){
+           if(business.getUser() instanceof Employee){
+               changeScreen(event, "Employee.fxml");
+           }else if(business.getUser() instanceof Manufacturer){
+               changeScreen(event, "Manufacturer.fxml");
+           }else if(business.getUser() instanceof Admin){
+               changeScreen(event, "Admin.fxml");
+           }else if(business.getUser() instanceof Customer){
+               changeScreen(event, "Bruger.fxml");
+           }
         }
+        
+        
             
         
        
