@@ -72,6 +72,8 @@ public class EmployeeController implements Initializable {
     private Button createAccountButton;
     @FXML
     private ImageView logOutImage;
+    @FXML
+    private AnchorPane employeePane;
 
     /**
      * Initializes the controller class.
@@ -90,10 +92,15 @@ public class EmployeeController implements Initializable {
         window.show();
     }
       
-    private void change(AnchorPane to) {
-
-        to.setVisible(true);
-        to.setDisable(false);
+    private void change(AnchorPane a, AnchorPane b, AnchorPane c, AnchorPane d) {
+            a.setDisable(false);
+            a.setVisible(true);
+            b.setVisible(false);
+            b.setDisable(true);
+            c.setVisible(false);
+            c.setDisable(true);
+            d.setVisible(false);
+            d.setDisable(true);
     } 
     
       
@@ -106,27 +113,36 @@ public class EmployeeController implements Initializable {
     @FXML
     private void openValidateCasePaneClicked(MouseEvent event) {
         if(event.getTarget() == validateCaseImage){
-            change(validateCasePane);
+            change(validateCasePane, ticketsPane, imageBankPane, createManufacturerPane);
         }
     }
 
     @FXML
     private void openTicketsPaneClicked(MouseEvent event) {
         if(event.getTarget() == ticketsImage){
-            change(ticketsPane);
+            change(ticketsPane, validateCasePane, imageBankPane, createManufacturerPane);
         }
     }
 
     @FXML
     private void openImageBankPaneClicked(MouseEvent event) {
+        if(event.getTarget() == imageBankImage){
+            change(imageBankPane, validateCasePane, ticketsPane, createManufacturerPane);
+        }
     }
 
     @FXML
     private void openCreateManufacturerPaneClicked(MouseEvent event) {
+        if(event.getTarget() == createManufacturerImage){
+            change(createManufacturerPane, validateCasePane, imageBankPane, ticketsPane);
+        }
     }
 
     @FXML
     private void backArrowTicketsClicked(MouseEvent event) {
+        if(event.getTarget() == ticketsBackArrow){
+            //change(employeePane, validateCasePane, ticketsPane, createManufacturerPane, imageBankPane);
+        }
     }
 
     @FXML

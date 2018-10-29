@@ -72,6 +72,17 @@ public class ManufacturerController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    private void change(AnchorPane a, AnchorPane b, AnchorPane c) {
+            a.setDisable(false);
+            a.setVisible(true);
+            b.setVisible(false);
+            b.setDisable(true);
+            c.setVisible(false);
+            c.setDisable(true);
+    } 
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -80,15 +91,23 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionImageClicked(MouseEvent event) {
-        
+        if(event.getTarget()== auctionImage){
+            change(auctionPane, casesPane, profilePane);
+        }
     }
 
     @FXML
     private void casesImageClicked(MouseEvent event) {
+        if(event.getTarget()== casesImage){
+            change(casesPane, auctionPane, profilePane);
+        }
     }
 
     @FXML
     private void profileImageClicked(MouseEvent event) {
+        if(event.getTarget()== profileImage){
+            change(profilePane, auctionPane, casesPane);
+        }
     }
 
     @FXML
