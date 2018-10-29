@@ -33,4 +33,5 @@ public interface IBusiness {
     
     public void setUser(User user);    
 
+    public void createEmployee(String pass, String usernam);
 }

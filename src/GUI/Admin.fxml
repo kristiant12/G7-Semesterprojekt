@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminController">
    <children>
       <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="544.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -40,9 +40,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="deleteUserPane" layoutY="122.0" prefHeight="486.0" prefWidth="830.0" visible="false">
+      <AnchorPane fx:id="deleteUserPane" layoutY="122.0" prefHeight="486.0" prefWidth="830.0">
          <children>
-            <ListView fx:id="usersListView" layoutX="215.0" layoutY="42.0" prefHeight="350.0" prefWidth="400.0" />
+            <ListView fx:id="usersListView" layoutX="215.0" layoutY="42.0" prefHeight="350.0" prefWidth="400.0" visible="false" />
             <Button fx:id="deleteUserButton" layoutX="666.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteUserButtonClicked" text="Delete user" />
             <ImageView fitHeight="150.0" fitWidth="31.0" layoutX="584.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
