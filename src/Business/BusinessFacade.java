@@ -47,6 +47,9 @@ public class BusinessFacade implements IBusiness{
        // mainDatabase.sendCase(cs);
         
     }
+    public void createEmployee(String password, String usernam){
+        Employee newEmployee  = new Employee(password, usernam);
+    }
 
     @Override
     public String toServer(String i) {
