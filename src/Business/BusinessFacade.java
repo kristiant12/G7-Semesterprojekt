@@ -103,7 +103,7 @@ public class BusinessFacade implements IBusiness{
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException {
        return data.getCaseFromServer();
     }
-    
+
     public static void main(String[] args) throws ClassNotFoundException, IOException {
         DataFacade a = new DataFacade();
         BusinessFacade s = new BusinessFacade();
