@@ -72,7 +72,7 @@ public class AdminController implements Initializable {
 
     }
 
-    private void changeScreen(ActionEvent event, String a) throws IOException {
+    private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
 
@@ -89,15 +89,9 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    private void logOutImageClicked(MouseEvent event) {
+    private void logOutImageClicked(MouseEvent event) throws IOException {
+        changeScreen(event, "FXMLDocumentController.java");
     }
 
-    @FXML
-    private void createEmployeeImageClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void deleteUserImageClicked(MouseEvent event) {
-    }
-
+    
 }

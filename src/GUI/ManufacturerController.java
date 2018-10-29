@@ -80,6 +80,7 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionImageClicked(MouseEvent event) {
+        
     }
 
     @FXML
