@@ -103,7 +103,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void createNewAccountButtonClicked(ActionEvent event) {
+    private void createNewAccountButtonClicked(ActionEvent event) throws IOException {
+        changeScreen(event, "Opret.fxml");
     }
     
 }
