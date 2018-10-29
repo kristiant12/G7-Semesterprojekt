@@ -20,7 +20,7 @@ import testclinet.Client;
 public class BusinessFacade implements IBusiness{
       // Auction auction = new Auction();
 //      BusinessFacade business = new BusinessFacade();
-      // Database mainDatabase = new Database();
+       Database mainDatabase = new Database();
 
         private IData data;
         private User user;
@@ -118,6 +118,14 @@ public class BusinessFacade implements IBusiness{
         System.out.println(s.logintest("jens", "abe"));
       //  System.out.println(s.getUser());
         
+    }
+    public Case modifyCase(String caseTitle, int caseID, double caseBudget, double bid, String deadline, String component, boolean evaluated, String freeText){
+        Case modifiedCase = new Case(caseTitle, caseTitle, caseTitle, deadline, component, evaluated, freeText);
+        mainDatabase.sendCase(modifiedCase);
+        return modifiedCase;
+
+
+                    
     }
 //  
 //    
