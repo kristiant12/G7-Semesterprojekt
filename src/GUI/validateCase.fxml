@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="GUI.ValidateCaseController">
+   <children>
+      <TextField fx:id="titleTextField" layoutX="83.0" layoutY="113.0" />
+      <TextField fx:id="budgetTextField" layoutX="83.0" layoutY="201.0" />
+      <TextField fx:id="deadlineTextField" layoutX="83.0" layoutY="288.0" />
+      <TextField fx:id="componentTextField" layoutX="83.0" layoutY="369.0" />
+      <TextArea fx:id="informationTextArea" layoutX="370.0" layoutY="113.0" prefHeight="350.0" prefWidth="375.0" />
+      <ImageView fx:id="validateCaseBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="33.0" layoutY="535.0" onMouseClicked="#validateCaseBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/backArrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="declineCaseImage" fitHeight="150.0" fitWidth="90.0" layoutX="370.0" layoutY="490.0" onMouseClicked="#declineCaseImageClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/approveCase.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="approveCaseImage" fitHeight="150.0" fitWidth="90.0" layoutX="658.0" layoutY="490.0" onMouseClicked="#approveCaseImageClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/declineCase.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="323.0" layoutY="31.0" text="Validate case">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
