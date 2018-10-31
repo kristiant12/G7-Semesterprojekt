@@ -53,7 +53,7 @@ public class ValidateCaseController implements Initializable {
         // TODO
     }    
     
-        private void changeScreen(ActionEvent event, String a) throws IOException{ 
+        private void changeScreen(MouseEvent event, String a) throws IOException{ 
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
         
@@ -65,7 +65,8 @@ public class ValidateCaseController implements Initializable {
     
 
     @FXML
-    private void validateCaseBackArrowClicked(MouseEvent event) {
+    private void validateCaseBackArrowClicked(MouseEvent event) throws IOException {
+        changeScreen(event, "Employee.fxml");
     }
 
     @FXML
