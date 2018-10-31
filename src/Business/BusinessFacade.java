@@ -36,10 +36,15 @@ public class BusinessFacade implements IBusiness{
     public void injectData(IData dataLayer) {
         data = dataLayer;
     }
-        public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
+    
+     public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
-      //  mainDatabase.sendCase(SendCase);                  
+        mainDatabase.sendCase(SendCase);
     }
+//        public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
+//        Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
+//      //  mainDatabase.sendCase(SendCase);                  
+//    }
 
    
     public void RegisterBid(Case cs, double bid) {
@@ -132,4 +137,9 @@ public class BusinessFacade implements IBusiness{
     }
 //  
 //    
+
+    @Override
+    public void sendUser(User d) throws IOException {
+        data.sendUser(d);
+    }
 }

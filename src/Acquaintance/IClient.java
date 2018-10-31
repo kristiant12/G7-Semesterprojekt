@@ -23,5 +23,5 @@ public interface IClient {
     
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException;
 
-   
+   public void sendUser(User d) throws IOException;
 }

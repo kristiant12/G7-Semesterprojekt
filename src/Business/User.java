@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 public class User implements Serializable{
     
-    public Database mainDatabase = new Database();
+   // public Database mainDatabase = new Database();
     private String password;
     private String userName; 
     static final long serialVersionUID = -7588980448693010399L;
@@ -48,10 +48,7 @@ public class User implements Serializable{
         this.userName = userName;
     } 
     
-    public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
-        Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
-        mainDatabase.sendCase(SendCase);
-    }
+   
      
 
     @Override

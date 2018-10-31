@@ -7,10 +7,12 @@ package testclinet;
 
 import Acquaintance.IClient;
 import Business.Case;
+import Business.Employee;
 import Business.User;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -30,7 +32,24 @@ public class Client implements IClient{
     private Map<String,String> map;
     private List<User> test;
     private List<Case> caseList;
+    private ObjectOutputStream tss;
     
+//    public static void main(String[] args) throws IOException {
+//        Client a = new Client();
+//        Employee e = new Employee("tesssst", "nsodin");
+//        Scanner scan = new Scanner(System.in);
+//        
+//        
+//        while(true){
+//
+//        String d = scan.nextLine();
+//            
+//            a.sendUser(e);
+//            
+//        }
+//        
+//        
+//    }
     
 //    public static void main(String[] args) throws IOException, ClassNotFoundException {
 //        Client c = new Client();
@@ -94,7 +113,7 @@ public class Client implements IClient{
         
         
         try {
-            String serverHostname = new String("10.126.24.194");
+            String serverHostname = new String("127.0.0.1");
             int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
 
@@ -103,6 +122,7 @@ public class Client implements IClient{
             in = null;
             stream = null;
             mapInputStram = null;
+            tss = null;
             
             try {
                 test = new ArrayList();
@@ -110,10 +130,13 @@ public class Client implements IClient{
                 echoSocket = new Socket(serverHostname, 8081);
                 stream = echoSocket.getInputStream();
                 mapInputStram = new ObjectInputStream(stream);
+                out = new PrintStream(echoSocket.getOutputStream());
+
+                
+                tss = new ObjectOutputStream(echoSocket.getOutputStream());
                 
                 
 //                test = (List<User>) mapInputStram.readObject();
-               out = new PrintStream(echoSocket.getOutputStream());
                // in = new Scanner(echoSocket.getInputStream());
                 
 
@@ -154,7 +177,12 @@ public class Client implements IClient{
         out.println(i);
         
     }
-    
+    @Override
+    public void sendUser(User d) throws IOException{
+        sendtilServeren("3");
+        tss.writeObject(d);
+        
+    }
 
         
  

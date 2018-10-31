@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Business.Customer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import static GUI.Gruppe_7_semesterprojekt.business;
 
 /**
  * FXML Controller class
@@ -56,12 +58,14 @@ public class OpretController implements Initializable {
     }    
 
     @FXML
-    private void createAccountButtonClicked(ActionEvent event) {
+    private void createAccountButtonClicked(ActionEvent event) throws IOException {
+        Customer a = new Customer(passwordTextField.getText(), usernameTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
+        business.sendUser(a);
     }
 
     @FXML
     private void createAccountBackArrowClicked(MouseEvent event) throws IOException {
-        changeScreen(event, "Employee.fxml");
+        changeScreen(event, "FXMLDocument.fxml");
             
     }
      private void changeScreen(MouseEvent event, String a) throws IOException {
@@ -73,5 +77,7 @@ public class OpretController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+     
+     
     
 }

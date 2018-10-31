@@ -23,4 +23,5 @@ public interface IData {
     public String SendString(String i);
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException;
+    public void sendUser(User d) throws IOException;
 }

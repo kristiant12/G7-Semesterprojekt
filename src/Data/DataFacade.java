@@ -76,6 +76,13 @@ public class DataFacade implements IData{
 //        
 //    }
 
+    @Override
+    public void sendUser(User d) throws IOException {
+        client.sendUser(d);
+    }
+    
+    
+
 
 
     
