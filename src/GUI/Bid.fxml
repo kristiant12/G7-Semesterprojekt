@@ -47,7 +47,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="377.0" layoutY="33.0" text="Bidding">
+      <Label layoutX="338.0" layoutY="31.0" text="Bid on a case">
          <font>
             <Font size="32.0" />
          </font>
