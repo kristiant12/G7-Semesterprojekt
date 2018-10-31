@@ -7,7 +7,12 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -16,6 +21,21 @@ import javafx.fxml.Initializable;
  */
 public class BidController implements Initializable {
 
+    @FXML
+    private ImageView bidBackArrow;
+    @FXML
+    private TextArea informationTextArea;
+    @FXML
+    private TextField titleTextField;
+    @FXML
+    private TextField budgetTextField;
+    @FXML
+    private TextField deadlineTextField;
+    @FXML
+    private TextField ComponentTextField;
+    @FXML
+    private TextField bidAmountTextField;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +43,9 @@ public class BidController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void bidBackArrowClicked(MouseEvent event) {
+    }
     
 }
