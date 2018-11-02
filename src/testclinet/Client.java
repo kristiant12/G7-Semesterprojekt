@@ -182,12 +182,14 @@ public class Client implements IClient{
         sendtilServeren("3");
         tss.writeObject(d);
     }
-    
+        
     @Override
     public void sendCase(Case a) throws IOException{
         sendtilServeren("4");
         tss.writeObject(a);
     }
+    
+
 //    public static void main(String[] args) throws IOException {
 //        
 //        Client a = new Client();
@@ -209,7 +211,14 @@ public class Client implements IClient{
 //        
 //    }
 //    
-    
+
+    @Override
+    public void deleteCase(Case ce) throws IOException {
+        sendtilServeren("5");
+        tss.writeObject(ce);
+
+    }
+
         
  
 }
