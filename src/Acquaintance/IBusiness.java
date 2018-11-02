@@ -17,11 +17,11 @@ import java.util.List;
  */
 public interface IBusiness {
     
-    public void injectData(IData dataLayer);
+//    public void injectData(IData dataLayer);
     
     public void RegisterBid(Case cs, double bid);
     
-    public String toServer(String i);
+//    public String toServer(String i);
   
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
     
@@ -36,5 +36,8 @@ public interface IBusiness {
     public void createEmployee(String pass, String usernam);
     
     public void sendUser(User d) throws IOException;
+    
+    public void sendCase(Case a) throws IOException;
+     
 
 }

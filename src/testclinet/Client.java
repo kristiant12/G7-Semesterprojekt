@@ -181,9 +181,35 @@ public class Client implements IClient{
     public void sendUser(User d) throws IOException{
         sendtilServeren("3");
         tss.writeObject(d);
-        
     }
-
+    
+    @Override
+    public void sendCase(Case a) throws IOException{
+        sendtilServeren("4");
+        tss.writeObject(a);
+    }
+//    public static void main(String[] args) throws IOException {
+//        
+//        Client a = new Client();
+//        Case s = new Case("test", "sfds", "fjnoisnf", "nsoeinsoien", "nvno", true, "nodsn");
+//         
+//        Scanner scan = new Scanner(System.in);
+//        
+//        while(true){
+//                
+//            String d = scan.nextLine();
+//            
+//            a.sendCase(s);
+//
+//                
+//        }
+//        
+//       
+//        
+//        
+//    }
+//    
+    
         
  
 }

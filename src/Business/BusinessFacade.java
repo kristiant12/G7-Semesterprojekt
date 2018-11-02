@@ -7,7 +7,7 @@ package Business;
 
 import Acquaintance.IBusiness;
 import Acquaintance.IData;
-import Data.DataFacade;
+//import Data.DataFacade;
 import Data.Database;
 import java.io.IOException;
 import java.util.List;
@@ -21,10 +21,11 @@ public class BusinessFacade implements IBusiness{
       // Auction auction = new Auction();
 //      BusinessFacade business = new BusinessFacade();
        Database mainDatabase = new Database();
-
-        private IData data;
+        private Client client;
+//        private IData data;
         private User user;
     public BusinessFacade() {
+        this.client = new Client();
         
     //    this.data = data;
       //  mainDatabase = new Database();
@@ -32,10 +33,10 @@ public class BusinessFacade implements IBusiness{
         
     
 
-    @Override
-    public void injectData(IData dataLayer) {
-        data = dataLayer;
-    }
+//    @Override
+//    public void injectData(IData dataLayer) {
+//        data = dataLayer;
+//    }
     
      public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
@@ -56,14 +57,14 @@ public class BusinessFacade implements IBusiness{
         Employee newEmployee  = new Employee(password, usernam);
     }
 
-    @Override
-    public String toServer(String i) {
-        return data.SendString(i);
-    }
+//    @Override
+//    public String toServer(String i) {
+//        return data.SendString(i);
+//    }
 
     @Override
     public List<User> getUserFromServer() throws ClassNotFoundException, IOException{
-        return data.getUserFromServer();
+        return client.getUserFromServer();
     }
     
         @Override
@@ -109,24 +110,10 @@ public class BusinessFacade implements IBusiness{
 
     @Override
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException {
-       return data.getCaseFromServer();
+       return client.getCaseFromServer();
     }
     
-    public static void main(String[] args) throws ClassNotFoundException, IOException {
-        DataFacade a = new DataFacade();
-        BusinessFacade s = new BusinessFacade();
-        s.injectData(a);
-        
-        List<User> dd = s.getUserFromServer();
-        for (int i = 0; i < dd.size(); i++) {
-            System.out.println(dd.get(i).toString());
-            System.out.println("a");
-        }
-        
-        System.out.println(s.logintest("jens", "abe"));
-      //  System.out.println(s.getUser());
-        
-    }
+
     public Case modifyCase(String caseTitle, int caseID, double caseBudget, double bid, String deadline, String component, boolean evaluated, String freeText){
         Case modifiedCase = new Case(caseTitle, caseTitle, caseTitle, deadline, component, evaluated, freeText);
         mainDatabase.sendCase(modifiedCase);
@@ -140,6 +127,11 @@ public class BusinessFacade implements IBusiness{
 
     @Override
     public void sendUser(User d) throws IOException {
-        data.sendUser(d);
+        client.sendUser(d);
+    }
+
+    @Override
+    public void sendCase(Case a) throws IOException {
+        client.sendCase(a);
     }
 }

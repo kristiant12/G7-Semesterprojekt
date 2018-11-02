@@ -9,7 +9,7 @@ import Acquaintance.IBusiness;
 import Acquaintance.IData;
 import Acquaintance.IUI;
 import Business.BusinessFacade;
-import Data.DataFacade;
+//import Data.DataFacade;
 import GUI.Gruppe_7_semesterprojekt;
 import Data.Database;
 import testclinet.Client;
@@ -23,11 +23,11 @@ public class starter {
     public static void main(String[] args) {
 
         
-        IData data = new DataFacade();
+       // IData data = new DataFacade();
         
         IBusiness bus = new BusinessFacade();
         
-        bus.injectData(data);
+//        bus.injectData(data);
         
         IUI ui = new Gruppe_7_semesterprojekt();
         

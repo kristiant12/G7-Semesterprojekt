@@ -11,6 +11,6 @@ package Acquaintance;
  */
 public interface ICustomer {
     
-    public void createCase(String caseTitle, int caseID,double caseBudget,String deadline, String component,boolean evaluated,String freeText);
+   // public void createCase(String caseTitle, int caseID,double caseBudget,String deadline, String component,boolean evaluated,String freeText);
     
 }

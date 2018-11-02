@@ -7,8 +7,8 @@ package Acquaintance;
 
 /**
  *
- * @author sebastian
+ * @author nicol
  */
-public interface IUser {
-   
+public interface IManufacturer {
+    
 }
