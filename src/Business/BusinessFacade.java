@@ -38,9 +38,9 @@ public class BusinessFacade implements IBusiness{
 //        data = dataLayer;
 //    }
     
-     public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
+     public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
-        mainDatabase.sendCase(SendCase);
+        sendCase(SendCase);
     }
 //        public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
 //        Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
