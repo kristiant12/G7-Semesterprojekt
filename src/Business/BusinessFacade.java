@@ -114,9 +114,9 @@ public class BusinessFacade implements IBusiness{
     }
     
 
-    public Case modifyCase(String caseTitle, int caseID, double caseBudget, double bid, String deadline, String component, boolean evaluated, String freeText){
+    public Case modifyCase(String caseTitle, int caseID, double caseBudget, double bid, String deadline, String component, boolean evaluated, String freeText) throws IOException{
         Case modifiedCase = new Case(caseTitle, caseTitle, caseTitle, deadline, component, evaluated, freeText);
-        mainDatabase.sendCase(modifiedCase);
+        sendCase(modifiedCase);
         return modifiedCase;
 
 
