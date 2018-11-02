@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="employeePane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EmployeeController">
+<AnchorPane id="AnchorPane" fx:id="employeePane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EmployeeController">
    <children>
       <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="542.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -105,5 +105,6 @@
                </image></ImageView>
          </children>
       </AnchorPane>
+      <Button fx:id="editCasesButton" layoutX="51.0" layoutY="173.0" mnemonicParsing="false" onAction="#createCaseButtonClick" text="EditCases" />
    </children>
 </AnchorPane>
