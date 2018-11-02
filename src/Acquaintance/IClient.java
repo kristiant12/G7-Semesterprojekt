@@ -27,4 +27,5 @@ public interface IClient {
    
    public void sendCase(Case a) throws IOException;
    
+   public void deleteCase(Case b) throws IOException;
 }
