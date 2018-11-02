@@ -22,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
 /**
  * FXML Controller class
  *
@@ -39,6 +40,8 @@ public class CustomerController implements Initializable {
     private ListView<?> userCaseListView;
     @FXML
     private AnchorPane createCasePane;
+    @FXML
+    private AnchorPane costumerScreen;
     @FXML
     private TextField titleTextField;
     @FXML
@@ -73,7 +76,8 @@ public class CustomerController implements Initializable {
 
     @FXML
     private void createCaseImageClicked(MouseEvent event) throws IOException {
-        changeScreen(event, "CreateCase.fxml");
+        costumerScreen.setVisible(false);
+        createCasePane.setVisible(true);
         
     }
 
@@ -89,10 +93,13 @@ public class CustomerController implements Initializable {
 
     @FXML
     private void createCaseBackArrowClicked(MouseEvent event) {
+
+        
     }
 
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
+        
         
     }
     

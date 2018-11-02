@@ -38,6 +38,11 @@ public interface IBusiness {
     public void sendUser(User d) throws IOException;
     
     public void sendCase(Case a) throws IOException;
+    
+    public void createCase(String caseTitle, String caseID,String caseBudget,
+            String deadline, String component,boolean evaluated,String freeText) throws IOException;
      
-
+    public void deleteCase(Case ce) throws IOException;
+    
+    public Case modifyCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException;
 }
