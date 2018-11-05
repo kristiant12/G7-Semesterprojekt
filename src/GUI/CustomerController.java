@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,13 +15,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 
 /**
@@ -56,6 +60,8 @@ public class CustomerController implements Initializable {
     private ImageView createCaseBackArrow;
     @FXML
     private ImageView attachFileImage;
+    
+    private FileChooser fileChooser;
 
     /**
      * Initializes the controller class.
@@ -93,12 +99,14 @@ public class CustomerController implements Initializable {
 
     @FXML
     private void createCaseBackArrowClicked(MouseEvent event) {
-
-        
+ 
     }
 
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
+        
+        File inFile = fileChooser.showOpenDialog(null);
+        
         
         
     }
