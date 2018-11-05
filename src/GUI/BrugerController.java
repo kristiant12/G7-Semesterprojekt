@@ -25,6 +25,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import static GUI.Gruppe_7_semesterprojekt.business;
+import java.util.ArrayList;
+import java.util.Collection;
+import jdk.nashorn.internal.runtime.ListAdapter;
+import java.lang.Object;
 
 /**
  * FXML Controller class
@@ -65,6 +69,9 @@ public class BrugerController implements Initializable {
     private ImageView createCaseBackArrow;
     @FXML
     private ImageView attachFileImage;
+    
+    ListAdapter adapter;
+    ArrayList<Object> caseArray;
 
     /**
      * Initializes the controller class.
@@ -129,7 +136,12 @@ public class BrugerController implements Initializable {
 
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
-        business.deleteCase((Case) userCaseListView.getSelectionModel().getSelectedItem());
+//        //adapter skal fixes
+//        business.deleteCase((Case) userCaseListView.getSelectionModel().getSelectedItem());
+//        caseArray.addAll((Collection<? extends Object>) userCaseListView);
+//        caseArray.remove(userCaseListView.getSelectionModel().getSelectedItem());
+//        //adapter = new ListAdapter(userCaseListView, Object);
+        
     }
 
     @FXML
@@ -139,5 +151,6 @@ public class BrugerController implements Initializable {
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
     }
-    
+   
 }
+//
