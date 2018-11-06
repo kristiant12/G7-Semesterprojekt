@@ -19,6 +19,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import Business.BusinessFacade;
+import Business.Ticket;
+import javafx.event.EventHandler;
+import javafx.scene.control.TextArea;
 
 /**
  * FXML Controller class
@@ -31,6 +35,13 @@ public class SupportController implements Initializable {
     private ImageView supportBackArrow;
     @FXML
     private Button createTicketButton;
+    
+    private BusinessFacade ticket;
+    @FXML
+    private TextArea issueTextArea;
+    
+    private Ticket tick;
+   
 
     /**
      * Initializes the controller class.
@@ -56,7 +67,34 @@ public class SupportController implements Initializable {
     }
 
     @FXML
-    private void createButtonClicked(ActionEvent event) {
+    private void createButtonClicked(ActionEvent event) throws IOException {
+        ticket = new BusinessFacade();    
+        ticket.sendTicket(new Ticket(issueTextArea.getText()));    
+        issueTextArea.clear();
+        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
+    public void handle(ActionEvent event)  {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("Thankyou.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("My New Stage Title");
+            stage.setScene(new Scene(root, 450, 450));
+            stage.show();
+            // Hide this current window (if this is what you want)
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
     }
-    
+        });
+                }
 }
+
+   
+    
+    
+        
+    
+    
+

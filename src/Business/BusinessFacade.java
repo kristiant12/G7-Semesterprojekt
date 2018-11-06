@@ -138,4 +138,7 @@ public class BusinessFacade implements IBusiness{
         client.deleteCase(ce);
         ce = null;
     }
+    public void sendTicket(Ticket ticket) throws IOException {
+        client.sendTicket(ticket);
+    }
 }

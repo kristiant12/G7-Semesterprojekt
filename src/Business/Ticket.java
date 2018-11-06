@@ -17,8 +17,8 @@ public class Ticket implements ITicket {
     private String issueDescription;
 
     
-    public Ticket(){
-        
+    public Ticket(String issueDescript){
+        this.issueDescription = issueDescript;
     }
 
     @Override

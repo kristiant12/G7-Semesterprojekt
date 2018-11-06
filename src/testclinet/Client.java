@@ -8,6 +8,7 @@ package testclinet;
 import Acquaintance.IClient;
 import Business.Case;
 import Business.Employee;
+import Business.Ticket;
 import Business.User;
 import java.io.IOException;
 import java.io.InputStream;
@@ -217,6 +218,11 @@ public class Client implements IClient{
         sendtilServeren("5");
         tss.writeObject(ce);
 
+    }
+    public void sendTicket(Ticket ticket) throws IOException{
+        sendtilServeren("6");
+        tss.writeObject(ticket);
+        
     }
 
         
