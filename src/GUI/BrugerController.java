@@ -29,6 +29,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import java.lang.Object;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * FXML Controller class
@@ -40,7 +42,8 @@ public class BrugerController implements Initializable {
     @FXML
     private AnchorPane costumerScreen;
     @FXML
-    private ListView<?> userCaseListView;
+    //private ListView<String> userCaseListView;
+    ListView<Case> userCaseListView = new ListView<>();
     @FXML
     private ImageView createCaseImage;
     @FXML
@@ -75,12 +78,14 @@ public class BrugerController implements Initializable {
     @FXML
     private Button supportButton;
 
+    ObservableList<Case> caseList =FXCollections.observableArrayList ();
+    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+public void initialize(URL url, ResourceBundle rb) {
+    
     }    
  private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
@@ -96,6 +101,7 @@ public class BrugerController implements Initializable {
     private void createCaseImageClicked(MouseEvent event) {
         costumerScreen.setVisible(false);
         createCasePane.setVisible(true);
+        userCaseListView.setItems(caseList);
     }
 
     @FXML
@@ -138,11 +144,11 @@ public class BrugerController implements Initializable {
 
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
-//        //adapter skal fixes
-//        business.deleteCase((Case) userCaseListView.getSelectionModel().getSelectedItem());
-//        caseArray.addAll((Collection<? extends Object>) userCaseListView);
-//        caseArray.remove(userCaseListView.getSelectionModel().getSelectedItem());
-//        //adapter = new ListAdapter(userCaseListView, Object);
+
+        business.deleteCase((Case) userCaseListView.getSelectionModel().getSelectedItem());
+        caseList.remove(userCaseListView.getSelectionModel().getSelectedItem());
+        userCaseListView.getItems().clear();
+        userCaseListView.setItems(caseList);
         
     }
 
@@ -160,4 +166,3 @@ public class BrugerController implements Initializable {
     }
    
 }
-//
