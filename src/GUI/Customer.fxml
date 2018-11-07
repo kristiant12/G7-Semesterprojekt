@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
    <children>
       <AnchorPane fx:id="costumerScreen" prefHeight="550.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -45,11 +45,6 @@
                   <Image url="@billeder/support.png" />
                </image>
             </ImageView>
-            <Button fx:id="createCaseButton" layoutX="203.0" layoutY="364.0" mnemonicParsing="false" onAction="#createCaseButtonClick" text="Create" textFill="#131212">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
             <Button fx:id="editCasesButton" layoutX="538.0" layoutY="542.0" mnemonicParsing="false" onAction="#editCasesButtonClick" prefHeight="25.0" prefWidth="112.0" text="Edit Cases ">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -60,7 +55,7 @@
             <Label layoutX="96.0" layoutY="445.0" text="Need help?" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createCasePane" prefHeight="550.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="createCasePane" disable="true" prefHeight="550.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="titleTextField" layoutX="77.0" layoutY="115.0" promptText="Enter title" />
             <TextField fx:id="budgetTextField" layoutX="77.0" layoutY="197.0" promptText="Enter budget" />
@@ -102,6 +97,7 @@
                   <Image url="@billeder/attachFile.png" />
                </image>
             </ImageView>
+            <Button fx:id="createCaseButton" layoutX="656.0" layoutY="507.0" mnemonicParsing="false" onAction="#createCaseButtonClick" text="Create case" />
          </children>
       </AnchorPane>
    </children>

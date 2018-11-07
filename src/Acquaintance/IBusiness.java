@@ -48,4 +48,7 @@ public interface IBusiness {
     public void sendTicket(Ticket ticket) throws IOException;
     
     public Case modifyCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException;
+    
+    public void sendMapOfUserAndCases(Case b) throws IOException;
+    
 }

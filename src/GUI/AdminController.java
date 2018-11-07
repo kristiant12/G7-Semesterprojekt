@@ -93,5 +93,13 @@ public class AdminController implements Initializable {
         changeScreen(event, "FXMLDocumentController.java");
     }
 
+    @FXML
+    private void createEmployeeImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void deleteUserImageClicked(MouseEvent event) {
+    }
+
     
 }

@@ -74,6 +74,10 @@ public class EmployeeController implements Initializable {
     private ImageView logOutImage;
     @FXML
     private AnchorPane employeePane;
+    @FXML
+    private Button editCasesButton;
+    @FXML
+    private Button deleteCasesButton;
 
     /**
      * Initializes the controller class.
@@ -168,6 +172,14 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void logOutImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void createCaseButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteCasesButtonClick(ActionEvent event) {
     }
     
 }

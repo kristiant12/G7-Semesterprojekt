@@ -7,9 +7,12 @@ package testclinet;
 
 import Acquaintance.IClient;
 import Business.Case;
+import Business.Customer;
 import Business.Employee;
+import Business.Picture;
 import Business.Ticket;
 import Business.User;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -34,82 +37,28 @@ public class Client implements IClient{
     private List<User> test;
     private List<Case> caseList;
     private ObjectOutputStream tss;
+    private Map<User,Case> mapOfUserCase;
+    private BufferedImage buffImage;
+    private List<Picture> pictureList;
     
 //    public static void main(String[] args) throws IOException {
-//        Client a = new Client();
-//        Employee e = new Employee("tesssst", "nsodin");
+//        Client test = new Client();
+//        Customer cu = new Customer("hallo", "oleolesen", "danmark",876543, "henrik@gmail.com", "dsdsds");
+//        Case a = new Case("oinsdi", "mnoiermoier", "sodinsdinos", "sesoid", "odmsoimd", true, "onmsdoinsdoi");
 //        Scanner scan = new Scanner(System.in);
-//        
-//        
 //        while(true){
-//
-//        String d = scan.nextLine();
+//            String s = scan.nextLine();
 //            
-//            a.sendUser(e);
 //            
-//        }
-//        
-//        
-//    }
-    
-//    public static void main(String[] args) throws IOException, ClassNotFoundException {
-//        Client c = new Client();
-//        Scanner scan  = new Scanner(System.in);
-//        List<User> userList = new ArrayList();
-//        List<Case> caseList = new ArrayList();
-//        String i;
-//        
-//             caseList = c.getCaseFromServer();
-//        userList = c.getUserFromServer();
-//   
-//        
-//          for (int j = 0; j < caseList.size(); j++) {
-//            System.out.println(caseList.get(j).toString());
-//        }
-//        
-//        for (int j = 0; j < userList.size(); j++) {
-//            System.out.println(userList.get(j).toString());
-//        }
-//        
-//      
-//        while(true){
-//        i = scan.nextLine();
-//        c.sendtilServeren(i);
-//        if(i.equalsIgnoreCase("1")){
-//            userList = c.getUserFromServer();
-//            for (int j = 0; j < userList.size(); j++) {
-//                System.out.println(userList.get(j).toString());
-//            }
-//        
-//        }else if(i.equalsIgnoreCase("2")){
-//            caseList = c.getCaseFromServer();
-//
-//              for (int j = 0; j < caseList.size(); j++) {
-//                System.out.println(caseList.get(j).toString());
-//            }
-//        
-//        }
-//        
-//        
-//        
+//            
+//            test.sendMapOfUserAndCases(cu, a);
+//            
 //            
 //        }
-//        caseList = c.getCaseFromServer();
 //        
-//        for (int i = 0; i < caseList.size(); i++) {
-//            System.out.println(caseList.toString());
-//        }
-//        
-//        
-//        userList = c.getUserFromServer();
-//        
-//        for (int i = 0; i < userList.size(); i++) {
-//            System.out.println(userList.get(i).toString());
-//        }
-//       
 //    }
 
-    public Client() {
+    public Client(){
         
         
         
@@ -190,6 +139,7 @@ public class Client implements IClient{
         tss.writeObject(a);
     }
     
+    
 
 //    public static void main(String[] args) throws IOException {
 //        
@@ -222,9 +172,27 @@ public class Client implements IClient{
     public void sendTicket(Ticket ticket) throws IOException{
         sendtilServeren("6");
         tss.writeObject(ticket);
+            
+    }
+    public void sendPicture(Picture pic) throws IOException {
+        sendtilServeren("7");
+        tss.writeObject(pic);
+    }
+    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException{
+        sendtilServeren("8");
+        pictureList = (List<Picture>) mapInputStram.readObject();  
+        return pictureList;
         
     }
 
+    
+    @Override
+    public void sendMapOfUserAndCases(User a, Case b) throws IOException{
+        sendtilServeren("7");
+        mapOfUserCase = new HashMap();
+        mapOfUserCase.put(a, b);
+        tss.writeObject(mapOfUserCase);
+    }
         
  
 }
