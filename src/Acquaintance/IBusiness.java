@@ -20,7 +20,7 @@ public interface IBusiness {
     
 //    public void injectData(IData dataLayer);
     
-    public void RegisterBid(Case cs, double bid);
+//    public void RegisterBid(Case cs);
     
 //    public String toServer(String i);
   

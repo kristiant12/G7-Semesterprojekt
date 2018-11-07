@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Business.Case;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,11 +15,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import static GUI.Gruppe_7_semesterprojekt.business;
 
 /**
  * FXML Controller class
@@ -41,6 +44,8 @@ public class BidController implements Initializable {
     private TextField ComponentTextField;
     @FXML
     private TextField bidAmountTextField;
+    @FXML
+    private Button bidOnCase;
 
     /**
      * Initializes the controller class.
@@ -64,5 +69,8 @@ public class BidController implements Initializable {
     private void bidBackArrowClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Manufacturer.fxml");
     }
-    
+    private void bidOncase(MouseEvent event, Case cs) throws IOException {
+        cs.setBid(Double.valueOf(budgetTextField.getText()));
+        business.sendCase(cs);
+    }
 }

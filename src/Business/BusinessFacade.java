@@ -11,6 +11,8 @@ import Acquaintance.IData;
 import Data.Database;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import testclinet.Client;
 
 /**
@@ -39,7 +41,7 @@ public class BusinessFacade implements IBusiness{
 //    }
     
      public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
-        Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
+        Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText,0);
         sendCase(SendCase);
     }
 //        public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
@@ -48,11 +50,17 @@ public class BusinessFacade implements IBusiness{
 //    }
 
    
-    public void RegisterBid(Case cs, double bid) {
-       // auction.registerBid(cs, bid);
-       // mainDatabase.sendCase(cs);
-        
-    }
+//       @Override
+//    public void RegisterBid(Case cs) {
+//           try {
+//             
+//               client.sendCase(cs);
+//               
+//           } catch (IOException ex) {
+//               Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
+//           }
+//        
+//    }
     public void createEmployee(String password, String usernam){
         Employee newEmployee  = new Employee(password, usernam);
     }
@@ -114,8 +122,9 @@ public class BusinessFacade implements IBusiness{
     }
     
 
+       @Override
     public Case modifyCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
-        Case modifiedCase = new Case(caseTitle, caseTitle, caseTitle, deadline, component, evaluated, freeText);
+        Case modifiedCase = new Case(caseTitle, caseTitle, caseTitle, deadline, component, evaluated, freeText, 0);
         sendCase(modifiedCase);
         return modifiedCase;
 
