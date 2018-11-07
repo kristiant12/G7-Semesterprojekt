@@ -23,6 +23,7 @@ import Business.BusinessFacade;
 import Business.Ticket;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
+import static GUI.Gruppe_7_semesterprojekt.business;
 
 /**
  * FXML Controller class
@@ -68,26 +69,25 @@ public class SupportController implements Initializable {
 
     @FXML
     private void createButtonClicked(ActionEvent event) throws IOException {
-        ticket = new BusinessFacade();    
-        ticket.sendTicket(new Ticket(issueTextArea.getText()));    
+        business.sendTicket(new Ticket(issueTextArea.getText()));      
         issueTextArea.clear();
-        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
-    public void handle(ActionEvent event)  {
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("Thankyou.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("My New Stage Title");
-            stage.setScene(new Scene(root, 450, 450));
-            stage.show();
-            // Hide this current window (if this is what you want)
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        
-    }
-        });
+//        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
+//    public void handle(ActionEvent event)  {
+//        Parent root;
+//        try {
+//            root = FXMLLoader.load(getClass().getClassLoader().getResource("Thankyou.fxml"));
+//            Stage stage = new Stage();
+//            stage.setTitle("My New Stage Title");
+//            stage.setScene(new Scene(root, 450, 450));
+//            stage.show();
+//            // Hide this current window (if this is what you want)
+//            ((Node)(event.getSource())).getScene().getWindow().hide();
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//        
+//    }
+//        });
                 }
 }
 

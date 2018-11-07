@@ -138,6 +138,13 @@ public class BusinessFacade implements IBusiness{
         client.deleteCase(ce);
         ce = null;
     }
+
+    /**
+     *
+     * @param ticket
+     * @throws IOException
+     */
+    @Override
     public void sendTicket(Ticket ticket) throws IOException {
         client.sendTicket(ticket);
     }
