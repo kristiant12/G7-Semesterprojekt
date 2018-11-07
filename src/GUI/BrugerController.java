@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import java.lang.Object;
+import java.util.Random;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -50,8 +51,6 @@ public class BrugerController implements Initializable {
     private ImageView logOutImage;
     @FXML
     private ImageView helpImage;
-    @FXML
-    private Button createCaseButton;
     @FXML
     private Button editCasesButton;
     @FXML
@@ -79,13 +78,17 @@ public class BrugerController implements Initializable {
     private Button supportButton;
 
     ObservableList<Case> caseList =FXCollections.observableArrayList ();
+    @FXML
+    private Button createCaseButton;
+    
+    private Random rand;
     
     /**
      * Initializes the controller class.
      */
     @Override
 public void initialize(URL url, ResourceBundle rb) {
-    
+    rand = new Random();
     }    
  private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
@@ -96,12 +99,19 @@ public void initialize(URL url, ResourceBundle rb) {
         window.setScene(screen);
         window.show();
     }
- 
+  public void changePane(AnchorPane a, AnchorPane b){
+         a.setDisable(true);
+         a.setVisible(false);
+         b.setDisable(false);
+         b.setVisible(true);
+     }
+  
     @FXML
     private void createCaseImageClicked(MouseEvent event) {
-        costumerScreen.setVisible(false);
-        createCasePane.setVisible(true);
-        userCaseListView.setItems(caseList);
+        changePane(costumerScreen, createCasePane);
+//        costumerScreen.setVisible(false);
+//        createCasePane.setVisible(true);
+//        userCaseListView.setItems(caseList);
     }
 
     @FXML
@@ -113,20 +123,19 @@ public void initialize(URL url, ResourceBundle rb) {
     private void helpImageClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
     }
-
-    @FXML
-    private void createCaseButtonClick(ActionEvent event) throws IOException {
-        String caseTitle = titleTextField.getText();
-        String caseBudget = budgetTextField.getText();
-        String component = componentTextField.getText();
-        String deadline = deadlineTextField.getText();
-        String freeText = informationTextArea.getText();
-        int caseIDint = (int)(Math.random() * 50 + 1);
-        String caseID = Integer.toString(caseIDint);
-
-        business.createCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
-        
-    }
+//
+//    private void createCaseButtonClick(ActionEvent event) throws IOException {
+//        String caseTitle = titleTextField.getText();
+//        String caseBudget = budgetTextField.getText();
+//        String component = componentTextField.getText();
+//        String deadline = deadlineTextField.getText();
+//        String freeText = informationTextArea.getText();
+//        int caseIDint = (int)(Math.random() * 50 + 1);
+//        String caseID = Integer.toString(caseIDint);
+//
+//        business.createCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
+//        
+//    }
 
     @FXML
     private void editCasesButtonClick(ActionEvent event) throws IOException {
@@ -160,9 +169,18 @@ public void initialize(URL url, ResourceBundle rb) {
     private void attachFileImageClicked(MouseEvent event) {
     }
 
-    @FXML
     private void supportButtonClick(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
+    }
+
+    @FXML
+    private void supportButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void createCaseButtonClick(ActionEvent event) throws IOException {
+        business.sendMapOfUserAndCases(new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText()));
+        
     }
    
 }

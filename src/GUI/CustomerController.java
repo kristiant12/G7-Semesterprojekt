@@ -79,11 +79,22 @@ public class CustomerController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+     
+     public void changePane(AnchorPane a, AnchorPane b){
+         a.setDisable(true);
+         a.setVisible(false);
+         b.setDisable(false);
+         b.setVisible(true);
+     }
+     
 
     @FXML
     private void createCaseImageClicked(MouseEvent event) throws IOException {
-        costumerScreen.setVisible(false);
-        createCasePane.setVisible(true);
+        
+        changePane(costumerScreen, createCasePane);
+        
+//        costumerScreen.setVisible(false);
+//        createCasePane.setVisible(true);
         
     }
 
@@ -99,6 +110,7 @@ public class CustomerController implements Initializable {
 
     @FXML
     private void createCaseBackArrowClicked(MouseEvent event) {
+        changePane(createCasePane, costumerScreen);
  
     }
 
