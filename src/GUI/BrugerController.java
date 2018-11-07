@@ -179,8 +179,8 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) throws IOException {
-        business.sendMapOfUserAndCases(new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText()));
-        
+
+        business.sendMapOfUserAndCases(new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText(),0));
     }
    
 }
