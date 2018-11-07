@@ -175,11 +175,11 @@ public class Client implements IClient{
             
     }
     public void sendPicture(Picture pic) throws IOException {
-        sendtilServeren("7");
+        sendtilServeren("8");
         tss.writeObject(pic);
     }
     public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException{
-        sendtilServeren("8");
+        sendtilServeren("9");
         pictureList = (List<Picture>) mapInputStram.readObject();  
         return pictureList;
         

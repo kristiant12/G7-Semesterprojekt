@@ -59,7 +59,7 @@ public class OpretController implements Initializable {
 
     @FXML
     private void createAccountButtonClicked(ActionEvent event) throws IOException {
-        Customer a = new Customer(passwordTextField.getText(), usernameTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
+        Customer a = new Customer(usernameTextField.getText(), passwordTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
         business.sendUser(a);
     }
 

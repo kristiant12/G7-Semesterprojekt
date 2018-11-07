@@ -32,6 +32,7 @@ import java.lang.Object;
 import java.util.Random;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -74,14 +75,14 @@ public class BrugerController implements Initializable {
     
     ListAdapter adapter;
     ArrayList<Object> caseArray;
-    @FXML
-    private Button supportButton;
 
     ObservableList<Case> caseList =FXCollections.observableArrayList ();
     @FXML
     private Button createCaseButton;
     
     private Random rand;
+    @FXML
+    private Label SagOprettet;
     
     /**
      * Initializes the controller class.
@@ -163,6 +164,9 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void createCaseBackArrowClicked(MouseEvent event) {
+        
+        changePane(createCasePane, costumerScreen);
+        SagOprettet.setText("");
     }
 
     @FXML
@@ -173,14 +177,18 @@ public void initialize(URL url, ResourceBundle rb) {
         changeScreen(event, "Support.fxml");
     }
 
-    @FXML
-    private void supportButtonClick(ActionEvent event) {
-    }
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) throws IOException {
 
         business.sendMapOfUserAndCases(new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText(),0));
+        titleTextField.clear();
+        budgetTextField.clear();
+        deadlineTextField.clear();
+        componentTextField.clear();
+        informationTextArea.clear();
+        SagOprettet.setText("Case created");
+        
     }
    
 }

@@ -51,8 +51,6 @@
                </font>
             </Button>
             <Button fx:id="deleteCasesButton" layoutX="189.0" layoutY="542.0" mnemonicParsing="false" onAction="#deleteCasesButtonClick" text="Delete cases" />
-            <Button fx:id="supportButton" layoutX="177.0" layoutY="440.0" mnemonicParsing="false" onAction="#supportButtonClick" text="Press me!" />
-            <Label layoutX="96.0" layoutY="445.0" text="Need help?" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="createCasePane" disable="true" prefHeight="550.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -98,6 +96,7 @@
                </image>
             </ImageView>
             <Button fx:id="createCaseButton" layoutX="656.0" layoutY="507.0" mnemonicParsing="false" onAction="#createCaseButtonClick" text="Create case" />
+            <Label fx:id="SagOprettet" layoutX="442.0" layoutY="511.0" prefHeight="17.0" prefWidth="135.0" />
          </children>
       </AnchorPane>
    </children>
