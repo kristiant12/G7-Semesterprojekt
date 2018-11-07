@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SupportController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SupportController">
    <children>
       <Label layoutX="345.0" layoutY="34.0" text="Support">
          <font>
@@ -20,12 +20,7 @@
             <Image url="@billeder/backArrow.png" />
          </image>
       </ImageView>
-      <TextArea editable="false" layoutX="166.0" layoutY="128.0" prefHeight="400.0" prefWidth="500.0" text="Et eller andet support tekst" />
-      <Button fx:id="createTicketButton" layoutX="695.0" layoutY="535.0" mnemonicParsing="false" onAction="#createButtonClicked" text="Create ticket" />
-      <Label layoutX="697.0" layoutY="509.0" text="Need more help?">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
+      <TextArea fx:id="issueTextArea" layoutX="172.0" layoutY="103.0" prefHeight="374.0" prefWidth="464.0" promptText="Write your problem here..." />
+      <Button fx:id="createTicketButton" layoutX="553.0" layoutY="496.0" mnemonicParsing="false" onAction="#createButtonClicked" text="Create ticket" />
    </children>
 </AnchorPane>

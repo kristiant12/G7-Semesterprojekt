@@ -75,6 +75,9 @@ public class BrugerController implements Initializable {
     
     ListAdapter adapter;
     ArrayList<Object> caseArray;
+    @FXML
+    private Button supportButton;
+
     ObservableList<Case> caseList =FXCollections.observableArrayList ();
     
     /**
@@ -155,6 +158,11 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void supportButtonClick(MouseEvent event) throws IOException {
+        changeScreen(event, "Support.fxml");
     }
    
 }
