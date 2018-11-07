@@ -148,4 +148,12 @@ public class BusinessFacade implements IBusiness{
     public void sendTicket(Ticket ticket) throws IOException {
         client.sendTicket(ticket);
     }
+
+    @Override
+    public void sendMapOfUserAndCases(Case b) throws IOException {
+        client.sendMapOfUserAndCases(getUser(), b);
+    }
+    
+    
+    
 }

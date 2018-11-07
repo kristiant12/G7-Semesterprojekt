@@ -28,4 +28,6 @@ public interface IClient {
    public void sendCase(Case a) throws IOException;
    
    public void deleteCase(Case ce) throws IOException;
+    
+   public void sendMapOfUserAndCases(User a, Case b) throws IOException;
 }

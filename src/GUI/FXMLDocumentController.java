@@ -84,7 +84,7 @@ public class FXMLDocumentController implements Initializable {
         String username = usernameTextField.getText();
         String password = passwordPasswordField.getText();
         boolean  test = business.logintest(username, password);
-        if( test == true){
+        if(test == true){
            if(business.getUser() instanceof Employee){
                changeScreen(event, "Employee.fxml");
            }else if(business.getUser() instanceof Manufacturer){
@@ -92,7 +92,7 @@ public class FXMLDocumentController implements Initializable {
            }else if(business.getUser() instanceof Admin){
                changeScreen(event, "Admin.fxml");
            }else if(business.getUser() instanceof Customer){
-               changeScreen(event, "Bruger.fxml");
+               changeScreen(event, "Customer.fxml");
            }
         }
         
