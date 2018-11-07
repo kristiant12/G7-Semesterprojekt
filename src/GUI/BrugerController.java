@@ -72,6 +72,8 @@ public class BrugerController implements Initializable {
     
     ListAdapter adapter;
     ArrayList<Object> caseArray;
+    @FXML
+    private Button supportButton;
 
     /**
      * Initializes the controller class.
@@ -150,6 +152,11 @@ public class BrugerController implements Initializable {
 
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void supportButtonClick(MouseEvent event) throws IOException {
+        changeScreen(event, "Support.fxml");
     }
    
 }

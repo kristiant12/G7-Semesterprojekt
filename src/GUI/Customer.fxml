@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
    <children>
       <AnchorPane fx:id="costumerScreen" prefHeight="550.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -56,6 +56,8 @@
                </font>
             </Button>
             <Button fx:id="deleteCasesButton" layoutX="189.0" layoutY="542.0" mnemonicParsing="false" onAction="#deleteCasesButtonClick" text="Delete cases" />
+            <Button fx:id="supportButton" layoutX="177.0" layoutY="440.0" mnemonicParsing="false" onAction="#supportButtonClick" text="Press me!" />
+            <Label layoutX="96.0" layoutY="445.0" text="Need help?" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="createCasePane" prefHeight="550.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
