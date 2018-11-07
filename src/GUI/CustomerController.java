@@ -79,6 +79,7 @@ public class CustomerController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+     
 
     @FXML
     private void createCaseImageClicked(MouseEvent event) throws IOException {

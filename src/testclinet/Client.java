@@ -8,8 +8,10 @@ package testclinet;
 import Acquaintance.IClient;
 import Business.Case;
 import Business.Employee;
+import Business.Picture;
 import Business.Ticket;
 import Business.User;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -34,6 +36,8 @@ public class Client implements IClient{
     private List<User> test;
     private List<Case> caseList;
     private ObjectOutputStream tss;
+    private BufferedImage buffImage;
+    private List<Picture> pictureList;
     
 //    public static void main(String[] args) throws IOException {
 //        Client a = new Client();
@@ -222,6 +226,16 @@ public class Client implements IClient{
     public void sendTicket(Ticket ticket) throws IOException{
         sendtilServeren("6");
         tss.writeObject(ticket);
+            
+    }
+    public void sendPicture(Picture pic) throws IOException {
+        sendtilServeren("7");
+        tss.writeObject(pic);
+    }
+    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException{
+        sendtilServeren("8");
+        pictureList = (List<Picture>) mapInputStram.readObject();  
+        return pictureList;
         
     }
 
