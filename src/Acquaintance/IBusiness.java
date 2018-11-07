@@ -1,6 +1,7 @@
 package Acquaintance;
 
 import Business.Case;
+import Business.Ticket;
 import Business.User;
 import java.io.IOException;
 import java.util.List;
@@ -43,6 +44,8 @@ public interface IBusiness {
             String deadline, String component,boolean evaluated,String freeText) throws IOException;
      
     public void deleteCase(Case ce) throws IOException;
+    
+    public void sendTicket(Ticket ticket) throws IOException;
     
     public Case modifyCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException;
 }
