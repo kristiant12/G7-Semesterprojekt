@@ -49,6 +49,8 @@ public interface IBusiness {
     
     public Case modifyCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException;
     
+     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException;
+    
     public void sendMapOfUserAndCases(Case b) throws IOException;
     
 }

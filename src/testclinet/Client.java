@@ -47,14 +47,16 @@ public class Client implements IClient{
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Client test = new Client();
         Customer cu = new Customer("hallo", "oleolesen", "danmark",876543, "henrik@gmail.com", "dsdsds");
-        Case a = new Case("oinsdi", "mnoiermoier", "sodinsdinos", "sesoid", "odmsoimd", true, "onmsdoinsdoi");
         Scanner scan = new Scanner(System.in);
         while(true){
             String s = scan.nextLine();
             
             
             
-            test.getUserCaseList(cu);
+            List<Case> ff = test.getUserCaseList(cu);
+            for (int i = 0; i <ff.size() ; i++) {
+                System.out.println(ff.get(i).toString());
+            }
             
             
         }
@@ -199,6 +201,7 @@ public class Client implements IClient{
         
  
     
+    @Override
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException{
         sendtilServeren("10");
         tss.writeObject(a);

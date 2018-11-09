@@ -162,6 +162,11 @@ public class BusinessFacade implements IBusiness{
     public void sendMapOfUserAndCases(Case b) throws IOException {
         client.sendMapOfUserAndCases(getUser(), b);
     }
+
+    @Override
+    public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException {
+        return client.getUserCaseList(a);
+    }
     
     
     

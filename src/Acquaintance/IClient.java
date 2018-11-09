@@ -30,4 +30,6 @@ public interface IClient {
    public void deleteCase(Case ce) throws IOException;
     
    public void sendMapOfUserAndCases(User a, Case b) throws IOException;
+   
+    public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException;
 }
