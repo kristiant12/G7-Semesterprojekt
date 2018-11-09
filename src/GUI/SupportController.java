@@ -67,8 +67,7 @@ public class SupportController implements Initializable {
         changeScreen(event, "Customer.fxml");
     }
 
-    @FXML
-    private void createButtonClicked(ActionEvent event) throws IOException {
+    private void createTicketButtonClicked(ActionEvent event) throws IOException {
         business.sendTicket(new Ticket(issueTextArea.getText()));      
         issueTextArea.clear();
 //        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -89,6 +88,7 @@ public class SupportController implements Initializable {
 //    }
 //        });
                 }
+
 }
 
    
