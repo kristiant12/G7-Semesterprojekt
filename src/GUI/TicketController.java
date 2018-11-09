@@ -63,6 +63,7 @@ public class TicketController implements Initializable {
 
     @FXML
     private void createTicketButtonClicked(ActionEvent event) {
+        
     }
     
 }

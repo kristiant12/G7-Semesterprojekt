@@ -20,7 +20,7 @@
             <Image url="@billeder/backArrow.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="issueTextArea" layoutX="172.0" layoutY="103.0" prefHeight="374.0" prefWidth="464.0" promptText="Write your problem here..." />
+      <TextArea fx:id="issueTextArea" editable="false" layoutX="172.0" layoutY="103.0" prefHeight="374.0" prefWidth="464.0" promptText="FAQ" />
       <Button fx:id="createTicketButton" layoutX="532.0" layoutY="497.0" mnemonicParsing="false" onAction="#createTicketButtonClicked" text="Create ticket" />
    </children>
 </AnchorPane>

@@ -61,15 +61,29 @@ public class SupportController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+         
+         private void changeScreen(ActionEvent event, String a) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource(a));
+        Scene screen = new Scene(parent);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(screen);
+        window.show();
+    }
 
     @FXML
     private void supportBackArrowClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Customer.fxml");
     }
 
+    @FXML
     private void createTicketButtonClicked(ActionEvent event) throws IOException {
-        business.sendTicket(new Ticket(issueTextArea.getText()));      
-        issueTextArea.clear();
+        changeScreen(event, "Ticket.fxml");
+
+
+//        business.sendTicket(new Ticket(issueTextArea.getText()));      
+//        issueTextArea.clear();
 //        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
 //    public void handle(ActionEvent event)  {
 //        Parent root;
