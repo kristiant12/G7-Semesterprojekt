@@ -44,22 +44,22 @@ public class Client implements IClient{
     private List<Picture> pictureList;
     
     
-//    public static void main(String[] args) throws IOException {
-//        Client test = new Client();
-//        Customer cu = new Customer("hallo", "oleolesen", "danmark",876543, "henrik@gmail.com", "dsdsds");
-//        Case a = new Case("oinsdi", "mnoiermoier", "sodinsdinos", "sesoid", "odmsoimd", true, "onmsdoinsdoi");
-//        Scanner scan = new Scanner(System.in);
-//        while(true){
-//            String s = scan.nextLine();
-//            
-//            
-//            
-//            test.sendMapOfUserAndCases(cu, a);
-//            
-//            
-//        }
-//        
-//    }
+    public static void main(String[] args) throws IOException {
+        Client test = new Client();
+        Customer cu = new Customer("hallo", "oleolesen", "danmark",876543, "henrik@gmail.com", "dsdsds");
+        Case a = new Case("oinsdi", "mnoiermoier", "sodinsdinos", "sesoid", "odmsoimd", true, "onmsdoinsdoi");
+        Scanner scan = new Scanner(System.in);
+        while(true){
+            String s = scan.nextLine();
+            
+            
+            
+            test.caseListForPerson();
+            
+            
+        }
+        
+    }
 
     public Client(){
         
