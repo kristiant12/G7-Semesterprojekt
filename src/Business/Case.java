@@ -28,7 +28,17 @@ public class Case implements ICase,Serializable{
     
     
     // skal tilføre billeder 
-      public Case(String caseTitle, String caseID, String caseBudget, String deadline, String component, boolean evaluated, String freeText, double bid) {
+//      public Case(String caseTitle, String caseID, String caseBudget, String deadline, String component, boolean evaluated, String freeText, double bid) {
+//        this.caseTitle = caseTitle;
+//        this.caseID = caseID;
+//        this.caseBudget = caseBudget;
+//        this.deadline = deadline;
+//        this.component = component;
+//        this.evaluated = evaluated;
+//        this.freeText = freeText;
+//        this.bid = bid;
+//    }
+       public Case(String caseTitle, String caseID, String caseBudget, String deadline, String component, boolean evaluated, String freeText) {
         this.caseTitle = caseTitle;
         this.caseID = caseID;
         this.caseBudget = caseBudget;
@@ -36,7 +46,6 @@ public class Case implements ICase,Serializable{
         this.component = component;
         this.evaluated = evaluated;
         this.freeText = freeText;
-        this.bid = bid;
     }
 
     public double getBid() {

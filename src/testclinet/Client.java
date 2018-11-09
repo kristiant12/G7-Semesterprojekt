@@ -201,6 +201,8 @@ public class Client implements IClient{
     
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException{
         sendtilServeren("10");
+        tss.writeObject(a);
+        
         caseListForPerson = (List<Case>) mapInputStram.readObject();
 
         return caseListForPerson;
