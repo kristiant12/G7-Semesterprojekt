@@ -11,28 +11,38 @@
 
 <AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManufacturerController">
    <children>
-      <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="543.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@billeder/logout.png" />
-         </image>
-      </ImageView>
       <AnchorPane prefHeight="122.0" prefWidth="830.0" style="-fx-background-color: grey;">
          <children>
-            <ImageView fx:id="auctionImage" fitHeight="150.0" fitWidth="90.0" layoutX="123.0" layoutY="16.0" onMouseClicked="#auctionImageClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="auctionImage" fitHeight="150.0" fitWidth="75.0" layoutX="131.0" layoutY="33.0" onMouseClicked="#auctionImageClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/auction.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="casesImage" fitHeight="150.0" fitWidth="90.0" layoutX="370.0" layoutY="16.0" onMouseClicked="#casesImageClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="casesImage" fitHeight="150.0" fitWidth="75.0" layoutX="369.0" layoutY="33.0" onMouseClicked="#casesImageClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/cases.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="profileImage" fitHeight="150.0" fitWidth="90.0" layoutX="634.0" layoutY="16.0" onMouseClicked="#profileImageClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profileImage" fitHeight="150.0" fitWidth="75.0" layoutX="635.0" layoutY="33.0" onMouseClicked="#profileImageClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/profile.png" />
                </image>
             </ImageView>
+            <Label layoutX="145.0" layoutY="7.0" text="Auction">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="390.0" layoutY="7.0" text="Cases">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="652.0" layoutY="7.0" text="Profile">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="auctionPane" layoutY="122.0" prefHeight="485.0" prefWidth="830.0" visible="false">
@@ -123,5 +133,10 @@
             <Button fx:id="confirmButton" layoutX="719.0" layoutY="274.0" mnemonicParsing="false" onAction="#confirmButtonClicked" text="Confirm" />
          </children>
       </AnchorPane>
+      <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="543.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@billeder/logout.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BidController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BidController">
    <children>
       <ImageView fx:id="bidBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="33.0" layoutY="535.0" onMouseClicked="#bidBackArrowClicked" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -47,12 +47,12 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="338.0" layoutY="31.0" text="Bid on a case">
+      <Label layoutX="322.0" layoutY="28.0" text="Bid on a case">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Button fx:id="bidOnCase" layoutX="220.0" layoutY="522.0" mnemonicParsing="false" text="Bid on Case">
+      <Button fx:id="bidOnCase" layoutX="727.0" layoutY="520.0" mnemonicParsing="false" onAction="#bidOnCaseClicked" text="Bid">
          <font>
             <Font size="15.0" />
          </font>

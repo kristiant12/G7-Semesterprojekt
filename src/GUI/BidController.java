@@ -22,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import static GUI.Gruppe_7_semesterprojekt.business;
+import javafx.event.ActionEvent;
 
 /**
  * FXML Controller class
@@ -72,5 +73,9 @@ public class BidController implements Initializable {
     private void bidOncase(MouseEvent event, Case cs) throws IOException {
         cs.setBid(Double.valueOf(budgetTextField.getText()));
         business.sendCase(cs);
+    }
+
+    @FXML
+    private void bidOnCaseClicked(ActionEvent event) {
     }
 }
