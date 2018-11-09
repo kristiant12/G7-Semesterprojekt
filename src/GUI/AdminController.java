@@ -81,24 +81,32 @@ public class AdminController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+    
+        private void change(AnchorPane a, AnchorPane b) {
+            a.setDisable(false);
+            a.setVisible(true);
+            b.setVisible(false);
+            b.setDisable(true);
+    } 
 
     @FXML
     private void deleteUserButtonClicked(ActionEvent event) {
-       deleteUserPane.setVisible(true);
        
     }
 
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
-        changeScreen(event, "FXMLDocumentController.java");
+        changeScreen(event, "FXMLDocument.fxml");
     }
 
     @FXML
     private void createEmployeeImageClicked(MouseEvent event) {
+        change(createEmployeePane, deleteUserPane);
     }
 
     @FXML
     private void deleteUserImageClicked(MouseEvent event) {
+        change(deleteUserPane, createEmployeePane);
     }
 
     
