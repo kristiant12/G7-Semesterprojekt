@@ -36,10 +36,13 @@ public class Client implements IClient{
     private Map<String,String> map;
     private List<User> test;
     private List<Case> caseList;
+    private List<Case> caseListForPerson;
+    
     private ObjectOutputStream tss;
     private Map<User,Case> mapOfUserCase;
     private BufferedImage buffImage;
     private List<Picture> pictureList;
+    
     
 //    public static void main(String[] args) throws IOException {
 //        Client test = new Client();
@@ -195,4 +198,14 @@ public class Client implements IClient{
     }
         
  
+    
+    public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException{
+        sendtilServeren("10");
+        caseListForPerson = (List<Case>) mapInputStram.readObject();
+
+        return caseListForPerson;
+        
+    }
+    
+    
 }
