@@ -88,6 +88,7 @@ public class BusinessFacade implements IBusiness{
                 return true;
             }
         }
+       
         return false;  
     }
     
@@ -103,7 +104,7 @@ public class BusinessFacade implements IBusiness{
     
     
     public User login(String name, String password) throws ClassNotFoundException, IOException{
-        List<User> list = getUserFromServer();
+        List<User> list = client.getUserFromServer();
         for (int i = 0; i < list.size(); i++) {
            String name1 = list.get(i).getUserName();
            String pas = list.get(i).getPassword();
@@ -176,29 +177,37 @@ public class BusinessFacade implements IBusiness{
     }
     
     
-    public static void main(String[] args) throws ClassNotFoundException, IOException {
-        BusinessFacade a = new BusinessFacade();
-        Scanner scan = new Scanner(System.in);
-        while(true){
-             String test = scan.nextLine();
-        System.out.println(a.logintest("nicolai4", "1234"));
-        System.out.println(a.getUser());
-        System.out.println(a.getUserCaseList(a.getUser()));
-        
-        System.out.println("");
-        String test2 = scan.nextLine();
-
-        System.out.println(a.logintest("henrik", "1234"));
-        System.out.println(a.getUser());
-        System.out.println(a.getUserCaseList(a.getUser()));
-        
-        System.out.println("");
-        }
+//    public static void main(String[] args) throws ClassNotFoundException, IOException {
+//        BusinessFacade a = new BusinessFacade();
+//        Scanner scan = new Scanner(System.in);
+//        while(true){
+//             String test = scan.nextLine();
+//               Customer dd = new Customer("sssdusi", "sdsdssd1si", "ewddses", 3353330, "sefdsfsdkds", "erds");
+//            a.sendUser(dd);
+//        System.out.println(a.logintest("nicolai4", "1234"));
+//        System.out.println(a.getUser());
+//        System.out.println(a.getUserCaseList(a.getUser()));
+//            System.out.println("dfdef");
+//        System.out.println(a.logintest("nidsi4", "12sdsdsd34"));
+//            System.out.println(a.logintest("nicolasdsdi1", "1234"));
+//      ;
+//            System.out.println(a.logintest("sssdusi", "sdsdssd1si"));
+//            
+//            
+////        System.out.println("");
+////        String test2 = scan.nextLine();
+////
+////        System.out.println(a.logintest("henrik", "1234"));
+////        System.out.println(a.getUser());
+////        System.out.println(a.getUserCaseList(a.getUser()));
+////        
+////        System.out.println("");
+//        }
        
 //        
 //           System.out.println(a.logintest("nicolai4", "1234"));
 //        System.out.println(a.getUser());
 //        System.out.println(a.getUserCaseList(a.getUser()));
-    }
+//    }
     
 }
