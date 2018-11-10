@@ -11,6 +11,7 @@ import Acquaintance.IData;
 import Data.Database;
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import testclinet.Client;
@@ -28,6 +29,7 @@ public class BusinessFacade implements IBusiness{
         private User user;
     public BusinessFacade() {
         this.client = new Client();
+        //user = null;
         
     //    this.data = data;
       //  mainDatabase = new Database();
@@ -168,6 +170,35 @@ public class BusinessFacade implements IBusiness{
         return client.getUserCaseList(a);
     }
     
+   
+    public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException {
+        return client.getUserCaseList1(a);
+    }
     
+    
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
+        BusinessFacade a = new BusinessFacade();
+        Scanner scan = new Scanner(System.in);
+        while(true){
+             String test = scan.nextLine();
+        System.out.println(a.logintest("nicolai4", "1234"));
+        System.out.println(a.getUser());
+        System.out.println(a.getUserCaseList(a.getUser()));
+        
+        System.out.println("");
+        String test2 = scan.nextLine();
+
+        System.out.println(a.logintest("henrik", "1234"));
+        System.out.println(a.getUser());
+        System.out.println(a.getUserCaseList(a.getUser()));
+        
+        System.out.println("");
+        }
+       
+//        
+//           System.out.println(a.logintest("nicolai4", "1234"));
+//        System.out.println(a.getUser());
+//        System.out.println(a.getUserCaseList(a.getUser()));
+    }
     
 }

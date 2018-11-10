@@ -6,6 +6,7 @@
 package GUI;
 
 import Business.Case;
+import Business.Customer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +30,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import java.lang.Object;
+import java.util.Observable;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
@@ -89,6 +93,14 @@ public class BrugerController implements Initializable {
      */
     @Override
 public void initialize(URL url, ResourceBundle rb) {
+//        try {
+//            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList(business.getUser()));
+//            userCaseListView.setItems(cases);
+//         } catch (Exception ex) {
+//
+//        }
+//    
+    
     rand = new Random();
     }    
  private void changeScreen(MouseEvent event, String a) throws IOException {
@@ -117,8 +129,11 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
+//         userCaseListView.setItems(null);
+//         business.setUser(null);
+
         changeScreen(event, "FXMLDocument.fxml");
-    }
+          }
 
     @FXML
     private void helpImageClicked(MouseEvent event) throws IOException {
@@ -190,5 +205,16 @@ public void initialize(URL url, ResourceBundle rb) {
         SagOprettet.setText("Case created");
         
     }
+    @FXML
+    private void testuttonClicked(ActionEvent event) {
+            try {
+            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
+            userCaseListView.setItems(cases);
+         } catch (Exception ex) {
+
+        }
+//    
+    }
+    
    
 }
