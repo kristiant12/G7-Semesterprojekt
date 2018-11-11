@@ -207,6 +207,16 @@ public class Client implements IClient{
         tss.writeObject(mapOfUserCase);
         
     }
+    
+    @Override
+    public void editCase(Case a) throws IOException{
+        sendtilServeren("11");
+        tss.writeObject(a);
+        tss.flush();
+        
+        
+    }
+    
         
  
     

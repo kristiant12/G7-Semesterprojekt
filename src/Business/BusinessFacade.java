@@ -126,10 +126,8 @@ public class BusinessFacade implements IBusiness{
     
 
        @Override
-    public Case modifyCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
-        Case modifiedCase = new Case(caseTitle, caseTitle, caseTitle, deadline, component, evaluated, freeText);
-        sendCase(modifiedCase);
-        return modifiedCase;
+    public void modifyCase(Case a) throws IOException{
+       client.editCase(a);
 
 
                     

@@ -87,6 +87,23 @@ public class BrugerController implements Initializable {
     private Random rand;
     @FXML
     private Label SagOprettet;
+    @FXML
+    private AnchorPane seeCasePane;
+    @FXML
+    private Label caseIdLabel;
+    
+    @FXML
+    private Button backButton;
+    @FXML
+    private TextField seeTitleTextfield;
+    @FXML
+    private TextField seeBudgetTextField;
+    @FXML
+    private TextField seeDeadlineTextfield;
+    @FXML
+    private TextField seeComponentTextField;
+    @FXML
+    private TextArea seeFreeTextTextField;
     
     /**
      * Initializes the controller class.
@@ -156,15 +173,26 @@ public void initialize(URL url, ResourceBundle rb) {
     @FXML
     private void editCasesButtonClick(ActionEvent event) throws IOException {
         // DET HER SKAL LAVES OM SÅDAN AT DEN TAGER FRA EDIT CASE SKÆRMEN
-        String caseTitle = titleTextField.getText();
-        String caseBudget = budgetTextField.getText();
-        String component = componentTextField.getText();
-        String deadline = deadlineTextField.getText();
-        String freeText = informationTextArea.getText();
-        int caseIDint = (int)(Math.random() * 50 + 1);
-        String caseID = Integer.toString(caseIDint);
         
-        business.modifyCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
+        Case test = userCaseListView.getSelectionModel().getSelectedItem();
+        caseIdLabel.setText(test.getId());
+        seeBudgetTextField.setText(test.getCaseBudget());
+        seeComponentTextField.setText(test.getComponent());
+        seeDeadlineTextfield.setText(test.getDeadline());
+        seeFreeTextTextField.setText(test.getFreeText());
+        seeTitleTextfield.setText(test.getCaseTitle());
+        changePane(costumerScreen, seeCasePane);
+
+        
+//        String caseTitle = titleTextField.getText();
+//        String caseBudget = budgetTextField.getText();
+//        String component = componentTextField.getText();
+//        String deadline = deadlineTextField.getText();
+//        String freeText = informationTextArea.getText();
+//        int caseIDint = (int)(Math.random() * 50 + 1);
+//        String caseID = Integer.toString(caseIDint);
+//        
+//        business.modifyCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
     }
 
     @FXML
@@ -215,6 +243,20 @@ public void initialize(URL url, ResourceBundle rb) {
         }
 //    
     }
+
+    @FXML
+    private void seeCaseBackButtonClicked(ActionEvent event) {
+        changePane(seeCasePane, costumerScreen);
+    }
+
+    @FXML
+    private void saveDataButtonClicked(ActionEvent event) throws IOException {
+        business.modifyCase(new Case(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText()));
+    
+    }
+    
+    
+    
     
    
 }

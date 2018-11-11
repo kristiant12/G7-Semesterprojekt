@@ -48,7 +48,7 @@ public interface IBusiness {
     
     public void sendTicket(Ticket ticket) throws IOException;
     
-    public Case modifyCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException;
+    public void modifyCase(Case a) throws IOException;
     
      public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException;
     
