@@ -5,7 +5,11 @@
  */
 package GUI;
 
-import Acquaintance.IBusiness;
+import Business.Case;
+import Business.Customer;
+import Business.Employee;
+import Business.User;
+import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +27,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * FXML Controller class
@@ -31,7 +37,6 @@ import javafx.stage.Stage;
  */
 public class AdminController implements Initializable {
 
-    private static IBusiness business;
     
     @FXML
     private AnchorPane createEmployeePane;
@@ -44,7 +49,7 @@ public class AdminController implements Initializable {
     @FXML
     private AnchorPane deleteUserPane;
     @FXML
-    private ListView<?> usersListView;
+    private ListView<User> usersListView;
     @FXML
     private Button deleteUserButton;
     @FXML
@@ -64,9 +69,8 @@ public class AdminController implements Initializable {
 
     @FXML
     private void createEmployeeButtonClicked(ActionEvent event) throws IOException {
-
-        createEmployeePane.setVisible(true);
-        business.createEmployee(passwordTextField.getText(), usernameTextField.getText());
+        Employee a = new Employee(usernameTextField.getText(),passwordTextField.getText()); 
+        business.sendUser(a);
         
          
 
@@ -106,8 +110,16 @@ public class AdminController implements Initializable {
 
     @FXML
     private void deleteUserImageClicked(MouseEvent event) {
+            try {
+            ObservableList<User> user = FXCollections.observableArrayList(business.getUserFromServer());
+            usersListView.setItems(user);
+         } catch (Exception ex) {
+
+        }
         change(deleteUserPane, createEmployeePane);
     }
+
+ 
 
     
 }

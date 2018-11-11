@@ -134,7 +134,9 @@ public class BusinessFacade implements IBusiness{
     }
 //  
 //    
-
+    
+    
+    // denne metode sender en ny user til sql
     @Override
     public void sendUser(User d) throws IOException {
         client.sendUser(d);

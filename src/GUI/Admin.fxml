@@ -35,7 +35,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createEmployeePane" layoutY="121.0" prefHeight="486.0" prefWidth="830.0" visible="false">
+      <AnchorPane fx:id="createEmployeePane" disable="true" layoutY="121.0" prefHeight="486.0" prefWidth="830.0" visible="false">
          <children>
             <TextField fx:id="usernameTextField" layoutX="290.0" layoutY="135.0" prefWidth="250.0" promptText="Enter username" />
             <TextField fx:id="passwordTextField" layoutX="290.0" layoutY="212.0" prefWidth="250.0" promptText="Enter password" />
