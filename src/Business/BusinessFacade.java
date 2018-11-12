@@ -167,6 +167,16 @@ public class BusinessFacade implements IBusiness{
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException {
         return client.getUserCaseList(a);
     }
+
+    @Override
+    public void SendPicture(Picture pic) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
