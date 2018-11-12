@@ -82,25 +82,7 @@ public class SupportController implements Initializable {
         changeScreen(event, "Ticket.fxml");
 
 
-//        business.sendTicket(new Ticket(issueTextArea.getText()));      
-//        issueTextArea.clear();
-//        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
-//    public void handle(ActionEvent event)  {
-//        Parent root;
-//        try {
-//            root = FXMLLoader.load(getClass().getClassLoader().getResource("Thankyou.fxml"));
-//            Stage stage = new Stage();
-//            stage.setTitle("My New Stage Title");
-//            stage.setScene(new Scene(root, 450, 450));
-//            stage.show();
-//            // Hide this current window (if this is what you want)
-//            ((Node)(event.getSource())).getScene().getWindow().hide();
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//        
-//    }
-//        });
+
                 }
 
 }
