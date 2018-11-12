@@ -6,6 +6,7 @@
 package GUI;
 
 import Business.Case;
+import Business.Customer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +30,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import java.lang.Object;
+import java.util.Observable;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
@@ -83,12 +87,37 @@ public class BrugerController implements Initializable {
     private Random rand;
     @FXML
     private Label SagOprettet;
+    @FXML
+    private AnchorPane seeCasePane;
+    @FXML
+    private Label caseIdLabel;
+    
+    @FXML
+    private Button backButton;
+    @FXML
+    private TextField seeTitleTextfield;
+    @FXML
+    private TextField seeBudgetTextField;
+    @FXML
+    private TextField seeDeadlineTextfield;
+    @FXML
+    private TextField seeComponentTextField;
+    @FXML
+    private TextArea seeFreeTextTextField;
     
     /**
      * Initializes the controller class.
      */
     @Override
 public void initialize(URL url, ResourceBundle rb) {
+//        try {
+//            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList(business.getUser()));
+//            userCaseListView.setItems(cases);
+//         } catch (Exception ex) {
+//
+//        }
+//    
+    
     rand = new Random();
     }    
  private void changeScreen(MouseEvent event, String a) throws IOException {
@@ -117,8 +146,11 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
+//         userCaseListView.setItems(null);
+//         business.setUser(null);
+
         changeScreen(event, "FXMLDocument.fxml");
-    }
+          }
 
     @FXML
     private void helpImageClicked(MouseEvent event) throws IOException {
@@ -141,15 +173,26 @@ public void initialize(URL url, ResourceBundle rb) {
     @FXML
     private void editCasesButtonClick(ActionEvent event) throws IOException {
         // DET HER SKAL LAVES OM SÅDAN AT DEN TAGER FRA EDIT CASE SKÆRMEN
-        String caseTitle = titleTextField.getText();
-        String caseBudget = budgetTextField.getText();
-        String component = componentTextField.getText();
-        String deadline = deadlineTextField.getText();
-        String freeText = informationTextArea.getText();
-        int caseIDint = (int)(Math.random() * 50 + 1);
-        String caseID = Integer.toString(caseIDint);
         
-        business.modifyCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
+        Case test = userCaseListView.getSelectionModel().getSelectedItem();
+        caseIdLabel.setText(test.getId());
+        seeBudgetTextField.setText(test.getCaseBudget());
+        seeComponentTextField.setText(test.getComponent());
+        seeDeadlineTextfield.setText(test.getDeadline());
+        seeFreeTextTextField.setText(test.getFreeText());
+        seeTitleTextfield.setText(test.getCaseTitle());
+        changePane(costumerScreen, seeCasePane);
+
+        
+//        String caseTitle = titleTextField.getText();
+//        String caseBudget = budgetTextField.getText();
+//        String component = componentTextField.getText();
+//        String deadline = deadlineTextField.getText();
+//        String freeText = informationTextArea.getText();
+//        int caseIDint = (int)(Math.random() * 50 + 1);
+//        String caseID = Integer.toString(caseIDint);
+//        
+//        business.modifyCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
     }
 
     @FXML
@@ -190,5 +233,30 @@ public void initialize(URL url, ResourceBundle rb) {
         SagOprettet.setText("Case created");
         
     }
+    @FXML
+    private void testuttonClicked(ActionEvent event) {
+            try {
+            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
+            userCaseListView.setItems(cases);
+         } catch (Exception ex) {
+
+        }
+//    
+    }
+
+    @FXML
+    private void seeCaseBackButtonClicked(ActionEvent event) {
+        changePane(seeCasePane, costumerScreen);
+    }
+
+    @FXML
+    private void saveDataButtonClicked(ActionEvent event) throws IOException {
+        business.modifyCase(new Case(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText()));
+    
+    }
+    
+    
+    
+    
    
 }

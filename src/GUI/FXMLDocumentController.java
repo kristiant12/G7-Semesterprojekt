@@ -93,6 +93,9 @@ public class FXMLDocumentController implements Initializable {
                changeScreen(event, "Admin.fxml");
            }else if(business.getUser() instanceof Customer){
                changeScreen(event, "Customer.fxml");
+           }else{
+                         System.out.println("fejl");
+
            }
         }
         

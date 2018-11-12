@@ -36,7 +36,7 @@ public class Client implements IClient{
     private Map<String,String> map;
     private List<User> test;
     private List<Case> caseList;
-    private List<Case> caseListForPerson;
+  //  private List<Case> caseListForPerson;
     
     private ObjectOutputStream tss;
     private Map<User,Case> mapOfUserCase;
@@ -136,12 +136,16 @@ public class Client implements IClient{
     public void sendUser(User d) throws IOException{
         sendtilServeren("3");
         tss.writeObject(d);
+                tss.flush();
+
     }
         
     @Override
     public void sendCase(Case a) throws IOException{
         sendtilServeren("4");
         tss.writeObject(a);
+
+        tss.flush();
     }
     
     
@@ -172,16 +176,20 @@ public class Client implements IClient{
     public void deleteCase(Case ce) throws IOException {
         sendtilServeren("5");
         tss.writeObject(ce);
+        tss.flush();
 
     }
     public void sendTicket(Ticket ticket) throws IOException{
         sendtilServeren("6");
         tss.writeObject(ticket);
-            
+                tss.flush();
+    
     }
     public void sendPicture(Picture pic) throws IOException {
         sendtilServeren("8");
         tss.writeObject(pic);
+            tss.flush();
+
     }
     public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException{
         sendtilServeren("9");
@@ -197,20 +205,45 @@ public class Client implements IClient{
         mapOfUserCase = new HashMap();
         mapOfUserCase.put(a, b);
         tss.writeObject(mapOfUserCase);
+        
     }
+    
+    @Override
+    public void editCase(Case a) throws IOException{
+        sendtilServeren("11");
+        tss.writeObject(a);
+        tss.flush();
+        
+        
+    }
+    
         
  
     
     @Override
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException{
         sendtilServeren("10");
-        tss.writeObject(a);
+        List<Case> test;
         
-        caseListForPerson = (List<Case>) mapInputStram.readObject();
+        tss.writeObject(a);
+                tss.flush();
 
-        return caseListForPerson;
+        test = (List<Case>) mapInputStram.readObject();
+
+        return test;
         
     }
     
-    
+    public List<Case> getUserCaseList1(Customer a) throws IOException, ClassNotFoundException{
+        sendtilServeren("10");
+        List<Case> test;
+        
+        tss.writeObject(a);
+                tss.flush();
+
+        test = (List<Case>) mapInputStram.readObject();
+
+        return test;
+        
+    }
 }
