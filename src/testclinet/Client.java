@@ -244,6 +244,21 @@ public class Client implements IClient{
         test = (List<Case>) mapInputStram.readObject();
 
         return test;
-        
     }
+    
+    @Override
+    public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException{
+        sendtilServeren("12");
+        List<Case> test; 
+        
+        test  = (List<Case>) mapInputStram.readObject();
+        
+        
+        return test;
+    } 
+    
+    
+    
+    
+    
 }

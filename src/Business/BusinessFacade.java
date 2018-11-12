@@ -219,7 +219,12 @@ public class BusinessFacade implements IBusiness{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
+    @Override
+    public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException {
+       return client.getNotEvaluatetCase();
+    }
+
+    
     
 }
 /*
