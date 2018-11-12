@@ -124,12 +124,12 @@ public class EmployeeController implements Initializable {
         if(event.getTarget() == validateCaseImage){
             change(validateCasePane, ticketsPane, imageBankPane, createManufacturerPane);
             
-//               try {
-//            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
-//            showCasesListView.setItems(cases);
-//         } catch (Exception ex) {
-//
-//        }
+               try {
+            ObservableList<Case> cases = FXCollections.observableArrayList(business.getNotEvaluatetCase());
+            showCasesListView.setItems(cases);
+         } catch (Exception ex) {
+
+        }
             
             
         }
