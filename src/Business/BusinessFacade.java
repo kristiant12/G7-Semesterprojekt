@@ -209,12 +209,6 @@ public class BusinessFacade implements IBusiness{
 //        System.out.println(a.getUser());
 //        System.out.println(a.getUserCaseList(a.getUser()));
 //    }
-
-    @Override
-    public Case modifyCase(String caseTitle, String caseID, String caseBudget, String deadline, String component, boolean evaluated, String freeText) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public void SendPicture(Picture pic) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -226,9 +220,11 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public void SendPicture(Picture pic) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException {
+       return client.getNotEvaluatetCase();
     }
+
+    
     
 }
 /*

@@ -148,7 +148,7 @@ public void initialize(URL url, ResourceBundle rb) {
     private void logOutImageClicked(MouseEvent event) throws IOException {
 //         userCaseListView.setItems(null);
 //         business.setUser(null);
-
+        userCaseListView = null;
         changeScreen(event, "FXMLDocument.fxml");
           }
 

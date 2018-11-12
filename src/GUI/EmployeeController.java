@@ -5,9 +5,14 @@
  */
 package GUI;
 
+import Business.Case;
+import Business.Customer;
+import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +58,7 @@ public class EmployeeController implements Initializable {
     @FXML
     private ListView<?> showTicketsListView;
     @FXML
-    private ListView<?> showCasesListView;
+    private ListView<Case> showCasesListView;
     @FXML
     private ListView<?> imageBankListView;
     @FXML
@@ -118,6 +123,15 @@ public class EmployeeController implements Initializable {
     private void openValidateCasePaneClicked(MouseEvent event) {
         if(event.getTarget() == validateCaseImage){
             change(validateCasePane, ticketsPane, imageBankPane, createManufacturerPane);
+            
+//               try {
+//            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
+//            showCasesListView.setItems(cases);
+//         } catch (Exception ex) {
+//
+//        }
+            
+            
         }
     }
 

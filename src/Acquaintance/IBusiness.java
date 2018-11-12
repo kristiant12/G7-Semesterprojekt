@@ -2,6 +2,7 @@ package Acquaintance;
 
 import Business.Case;
 import Business.Customer;
+import Business.Picture;
 import Business.Ticket;
 import Business.User;
 import java.io.IOException;
@@ -55,6 +56,12 @@ public interface IBusiness {
     public void sendMapOfUserAndCases(Case b) throws IOException;
     
     public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException;
+
+    public void SendPicture(Picture picture);
+
+    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException;
+    
+    public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
 }
 
 
