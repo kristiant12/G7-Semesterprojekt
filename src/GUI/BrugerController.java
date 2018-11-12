@@ -80,7 +80,7 @@ public class BrugerController implements Initializable {
     ListAdapter adapter;
     ArrayList<Object> caseArray;
 
-    ObservableList<Case> caseList =FXCollections.observableArrayList ();
+    ObservableList<Case> caseList = FXCollections.observableArrayList ();
     @FXML
     private Button createCaseButton;
     
