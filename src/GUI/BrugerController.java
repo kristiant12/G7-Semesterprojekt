@@ -81,6 +81,7 @@ public class BrugerController implements Initializable {
     ArrayList<Object> caseArray;
 
     ObservableList<Case> caseList =FXCollections.observableArrayList ();
+    
     @FXML
     private Button createCaseButton;
     
@@ -259,8 +260,8 @@ public void initialize(URL url, ResourceBundle rb) {
     
     }
     
+        
+        
     
     
-    
-   
 }
