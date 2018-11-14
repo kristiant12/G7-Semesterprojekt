@@ -228,6 +228,16 @@ public class BusinessFacade implements IBusiness{
     public void Evaluate(Case a) throws IOException {
         client.Evaluate(a);
     }
+    public Logistics updateLogistics(String lastKnownCity, int estimatedTime, String FormOfTransportation, Case cs){
+        
+        
+        
+           return null;
+    }
+    
+    public void trackLogistics(){
+        
+    }
 
     
     

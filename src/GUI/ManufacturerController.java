@@ -6,10 +6,13 @@
 package GUI;
 
 import Business.Case;
+import Business.Customer;
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -133,9 +136,12 @@ public class ManufacturerController implements Initializable {
 
 
     @FXML
-    private void auctionImageClicked(MouseEvent event) {
+    private void auctionImageClicked(MouseEvent event) throws IOException, ClassNotFoundException {
         if(event.getTarget()== auctionImage){
             change(auctionPane, casesPane, profilePane, BidPane);
+            ObservableList<Case> relevantcases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
+
+            auctionCasesListView.setItems(relevantcases);
         }
     }
 
@@ -186,9 +192,9 @@ public class ManufacturerController implements Initializable {
     private void bidBackArrowClicked(MouseEvent event) {
     }
 
-    private void bidOnCaseClicked(ActionEvent event, Case cs) throws IOException {
-                cs.setBid(Double.valueOf(budgetTextField.getText()));
-                business.sendCase(cs);
+    private void bidOnCaseClicked(ActionEvent event) throws IOException {
+                defaultCase.setBid(Double.valueOf(budgetTextField.getText()));
+                business.sendCase(defaultCase);
     }
 
     @FXML
@@ -200,11 +206,6 @@ public class ManufacturerController implements Initializable {
         deadlineTextField.setText(selected.getDeadline());
         
         defaultCase = selected;
-        
-    }
-
-    @FXML
-    private void bidOnCaseClicked(ActionEvent event) {
         
     }
     
