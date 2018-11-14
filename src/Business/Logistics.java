@@ -13,11 +13,14 @@ public class Logistics {
     private String lastKnownCity;
     private int estimatedTime;
     private String FormOfTransportation;
+    private int shipmentID;
 
-    public Logistics(String lastKnownCity, int estimatedTime, String FormOfTransportation) {
+    public Logistics(String lastKnownCity, int estimatedTime, String FormOfTransportation,int shipmentID) {
         this.lastKnownCity = lastKnownCity;
         this.estimatedTime = estimatedTime;
         this.FormOfTransportation = FormOfTransportation;
+        this.shipmentID = shipmentID;
+        
     }
 
     public String getFormOfTransportation() {
@@ -42,6 +45,14 @@ public class Logistics {
 
     public void setEstimatedTime(int estimatedTime) {
         this.estimatedTime = estimatedTime;
+    }
+
+    public int getShipmentID() {
+        return shipmentID;
+    }
+
+    public void setShipmentID(int shipmentID) {
+        this.shipmentID = shipmentID;
     }
     
     
