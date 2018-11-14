@@ -239,6 +239,11 @@ public class BusinessFacade implements IBusiness{
         
     }
 
+    @Override
+    public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException {
+        return client.getTicketFromServer();
+    }
+
     
     
 }

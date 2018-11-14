@@ -1,10 +1,13 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package GUI;
 
+import Business.Ticket;
+import Business.User;
+import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +24,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import static GUI.Gruppe_7_semesterprojekt.business;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * FXML Controller class
@@ -31,13 +36,15 @@ import static GUI.Gruppe_7_semesterprojekt.business;
 public class TicketController implements Initializable {
 
     @FXML
-    private ListView<?> ticketsListView;
+    private ListView<Ticket> ticketsListView;
     @FXML
     private TextArea ticketTextArea;
     @FXML
     private ImageView ticketBackArrow;
     @FXML
     private Button createTicketButton;
+    @FXML
+    private Button seeTicketsButton;
 
     /**
      * Initializes the controller class.
@@ -63,8 +70,8 @@ public class TicketController implements Initializable {
     }
 
     @FXML
-    private void createTicketButtonClicked(ActionEvent event) {
-        //        business.sendTicket(new Ticket(issueTextArea.getText()));      
+    private void createTicketButtonClicked(ActionEvent event) throws IOException  {
+             //   business.sendTicket(new Ticket(ticketTextArea.getText()));    
 //        issueTextArea.clear();
 //        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
 //    public void handle(ActionEvent event)  {
@@ -83,6 +90,18 @@ public class TicketController implements Initializable {
 //        
 //    }
 //        });
+    }
+    
+
+    @FXML
+    private void seeTicketsButtonAction(MouseEvent event) {
+         try {
+            ObservableList<Ticket> ticket = FXCollections.observableArrayList(business.getTicketFromServer());
+            ticketsListView.setItems(ticket);
+        
+         } catch (Exception ex) {
+
+        }
     }
     
 }

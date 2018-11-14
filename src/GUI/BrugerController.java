@@ -80,6 +80,8 @@ public class BrugerController implements Initializable {
     ListAdapter adapter;
     ArrayList<Object> caseArray;
 
+    ObservableList<Case> cases;
+            
     ObservableList<Case> caseList = FXCollections.observableArrayList ();
     @FXML
     private Button createCaseButton;
@@ -93,8 +95,6 @@ public class BrugerController implements Initializable {
     private Label caseIdLabel;
     
     @FXML
-    private Button backButton;
-    @FXML
     private TextField seeTitleTextfield;
     @FXML
     private TextField seeBudgetTextField;
@@ -104,6 +104,8 @@ public class BrugerController implements Initializable {
     private TextField seeComponentTextField;
     @FXML
     private TextArea seeFreeTextTextField;
+    @FXML
+    private ImageView seeCaseBackArrow;
     
     /**
      * Initializes the controller class.
@@ -232,15 +234,15 @@ public void initialize(URL url, ResourceBundle rb) {
         componentTextField.clear();
         informationTextArea.clear();
         SagOprettet.setText("Case created");
-        caseList.add(newCase);
-        userCaseListView.getItems().clear();
-        userCaseListView.setItems(caseList);
+        cases.add(newCase);
+       // userCaseListView.getItems().clear();
+        userCaseListView.setItems(cases);
         
     }
     @FXML
     private void testuttonClicked(ActionEvent event) {
             try {
-            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
+            cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
             userCaseListView.setItems(cases);
          } catch (Exception ex) {
 
@@ -249,14 +251,14 @@ public void initialize(URL url, ResourceBundle rb) {
     }
 
     @FXML
-    private void seeCaseBackButtonClicked(ActionEvent event) {
-        changePane(seeCasePane, costumerScreen);
-    }
-
-    @FXML
     private void saveDataButtonClicked(ActionEvent event) throws IOException {
         business.modifyCase(new Case(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText()));
     
+    }
+
+    @FXML
+    private void seeCaseBackArrowClicked(MouseEvent event) {
+        changePane(seeCasePane, costumerScreen);
     }
     
         

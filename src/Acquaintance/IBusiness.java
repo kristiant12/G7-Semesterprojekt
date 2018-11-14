@@ -29,6 +29,8 @@ public interface IBusiness {
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
     
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException;
+    
+    public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException;
 
     public boolean logintest(String name,String password) throws ClassNotFoundException,IOException;
     
@@ -64,6 +66,8 @@ public interface IBusiness {
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
     
      public void Evaluate(Case a) throws IOException;
+     
+     
     
 }
 

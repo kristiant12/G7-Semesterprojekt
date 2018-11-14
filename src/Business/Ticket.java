@@ -11,33 +11,32 @@ import Acquaintance.ITicket;
  *
  * @author rober
  */
-public class Ticket implements ITicket {
+public class Ticket {
     
     private String issueNumber;
     private String issueDescription;
+    static final long serialVersionUID = -7588980448693010391L;
+
 
     
-    public Ticket(String issueDescript){
+    public Ticket(String issueDescript,String issueNumber){
         this.issueDescription = issueDescript;
+        this.issueNumber = issueNumber;
     }
 
-    @Override
     public String getIssuenumber() {
       return issueNumber;
     }
 
-    @Override
     public void setIssuenumber(String issueNumber) {
        this.issueNumber = issueNumber;
 
     }
 
-    @Override
     public String getIssueDescription() {
          return issueDescription;
     }
 
-    @Override
     public void setIssueDescription(String issueDescription) {
          this.issueDescription = issueDescription;
 

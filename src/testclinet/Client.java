@@ -26,49 +26,42 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Client implements IClient{
-    
-    
+public class Client implements IClient {
+
     private PrintStream out;
     private Scanner in;
     private InputStream stream;
     private ObjectInputStream mapInputStram;
-    private Map<String,String> map;
+    private Map<String, String> map;
     private List<User> test;
     private List<Case> caseList;
-  //  private List<Case> caseListForPerson;
-    
+    //  private List<Case> caseListForPerson;
+
     private ObjectOutputStream tss;
-    private Map<User,Case> mapOfUserCase;
+    private Map<User, Case> mapOfUserCase;
     private BufferedImage buffImage;
     private List<Picture> pictureList;
-    
-    
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Client test = new Client();
-        Customer cu = new Customer("hallo", "oleolesen", "danmark",876543, "henrik@gmail.com", "dsdsds");
+        Customer cu = new Customer("hallo", "oleolesen", "danmark", 876543, "henrik@gmail.com", "dsdsds");
         Scanner scan = new Scanner(System.in);
-        while(true){
+        while (true) {
             String s = scan.nextLine();
-            
-            
-            
+
             List<Case> ff = test.getUserCaseList(cu);
-            for (int i = 0; i <ff.size() ; i++) {
+            for (int i = 0; i < ff.size(); i++) {
                 System.out.println(ff.get(i).toString());
             }
-            
-            
+
         }
-        
+
     }
 
-    public Client(){
-        
-        
-        
+    public Client() {
+
         try {
-            String serverHostname = new String("127.0.0.1");
+            String serverHostname = new String("10.126.10.106");
             int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
 
@@ -78,7 +71,7 @@ public class Client implements IClient{
             stream = null;
             mapInputStram = null;
             tss = null;
-            
+
             try {
                 test = new ArrayList();
                 map = new HashMap();
@@ -87,16 +80,11 @@ public class Client implements IClient{
                 mapInputStram = new ObjectInputStream(stream);
                 out = new PrintStream(echoSocket.getOutputStream());
 
-                
                 tss = new ObjectOutputStream(echoSocket.getOutputStream());
-                
-                
+
 //                test = (List<User>) mapInputStram.readObject();
-               // in = new Scanner(echoSocket.getInputStream());
-                
-
-
-            }catch (UnknownHostException e) {
+                // in = new Scanner(echoSocket.getInputStream());
+            } catch (UnknownHostException e) {
                 System.err.println("Unknown host: " + serverHostname);
                 System.exit(1);
             } catch (IOException e) {
@@ -107,50 +95,45 @@ public class Client implements IClient{
             e.printStackTrace();
         }
     }
-    
- 
-    
-   
+
     @Override
-    public List<User> getUserFromServer() throws IOException, ClassNotFoundException{
+    public List<User> getUserFromServer() throws IOException, ClassNotFoundException {
         sendtilServeren("1");
         List<User> ting = new ArrayList();
         ting = (List<User>) mapInputStram.readObject();
         //out.println("sidnsidn");
         return ting;
     }
-    
-    
+
     @Override
-    public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException{
+    public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException {
         sendtilServeren("2");
         List<Case> ting = new ArrayList();
         ting = (List<Case>) mapInputStram.readObject();
-     //   out.println("2");
+        //   out.println("2");
         return ting;
     }
-    
-    private void sendtilServeren(String i){
+
+    private void sendtilServeren(String i) {
         out.println(i);
-        
-    }
-    @Override
-    public void sendUser(User d) throws IOException{
-        sendtilServeren("3");
-        tss.writeObject(d);
-                tss.flush();
 
     }
-        
+
     @Override
-    public void sendCase(Case a) throws IOException{
+    public void sendUser(User d) throws IOException {
+        sendtilServeren("3");
+        tss.writeObject(d);
+        tss.flush();
+
+    }
+
+    @Override
+    public void sendCase(Case a) throws IOException {
         sendtilServeren("4");
         tss.writeObject(a);
 
         tss.flush();
     }
-    
-    
 
 //    public static void main(String[] args) throws IOException {
 //        
@@ -173,7 +156,6 @@ public class Client implements IClient{
 //        
 //    }
 //    
-
     @Override
     public void deleteCase(Case ce) throws IOException {
         sendtilServeren("5");
@@ -181,94 +163,98 @@ public class Client implements IClient{
         tss.flush();
 
     }
-    public void sendTicket(Ticket ticket) throws IOException{
+
+    public void sendTicket(Ticket ticket) throws IOException {
         sendtilServeren("6");
         tss.writeObject(ticket);
-                tss.flush();
-    
+        tss.flush();
+
     }
+
     public void sendPicture(Picture pic) throws IOException {
         sendtilServeren("8");
         tss.writeObject(pic);
-            tss.flush();
+        tss.flush();
 
     }
-    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException{
+
+    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException {
         sendtilServeren("9");
-        pictureList = (List<Picture>) mapInputStram.readObject();  
+        pictureList = (List<Picture>) mapInputStram.readObject();
         return pictureList;
-        
+
     }
 
-    
     @Override
-    public void sendMapOfUserAndCases(User a, Case b) throws IOException{
+    public void sendMapOfUserAndCases(User a, Case b) throws IOException {
         sendtilServeren("7");
-        Map<User,Case> test = new HashMap();
-       // mapOfUserCase = new HashMap();
+        Map<User, Case> test = new HashMap();
+        // mapOfUserCase = new HashMap();
         test.put(a, b);
         tss.writeObject(test);
-        
+
     }
-    
+
     @Override
-    public void editCase(Case a) throws IOException{
+    public void editCase(Case a) throws IOException {
         sendtilServeren("11");
         tss.writeObject(a);
         tss.flush();
-        
-        
+
     }
-    
-        
- 
-    
+
     @Override
-    public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException{
+    public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException {
         sendtilServeren("10");
         List<Case> test = new ArrayList();
-        
+
         tss.writeObject(a);
-                tss.flush();
+        tss.flush();
 
         test = (List<Case>) mapInputStram.readObject();
 
         return test;
-        
+
     }
-    
-    public List<Case> getUserCaseList1(Customer a) throws IOException, ClassNotFoundException{
+
+    public List<Case> getUserCaseList1(Customer a) throws IOException, ClassNotFoundException {
         sendtilServeren("10");
         List<Case> test;
-        
+
         tss.writeObject(a);
-                tss.flush();
+        tss.flush();
 
         test = (List<Case>) mapInputStram.readObject();
 
         return test;
     }
-    
+
     @Override
-    public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException{
+    public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException {
         sendtilServeren("12");
-        List<Case> test; 
-        
-        test  = (List<Case>) mapInputStram.readObject();
+        List<Case> test;
+
+        test = (List<Case>) mapInputStram.readObject();
         return test;
     }
-    
+
     @Override
-    public void Evaluate(Case a) throws IOException{
+    public void Evaluate(Case a) throws IOException {
         sendtilServeren("13");
         tss.writeObject(a);
         tss.flush();
-        
-        
+
     }
-    
-    
-    
-    
-    
+
+    @Override
+    public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException {
+
+        sendtilServeren("14");
+        List<Ticket> ticket = new ArrayList<>();
+        ticket = (List<Ticket>) mapInputStram.readObject();
+
+        return ticket;
+
+    }
+
 }
