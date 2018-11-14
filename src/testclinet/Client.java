@@ -255,10 +255,16 @@ public class Client implements IClient{
         List<Case> test; 
         
         test  = (List<Case>) mapInputStram.readObject();
-        
-        
         return test;
-    } 
+    }
+    
+    public void Evaluate(Case a) throws IOException{
+        sendtilServeren("13");
+        tss.writeObject(a);
+        tss.flush();
+        
+        
+    }
     
     
     
