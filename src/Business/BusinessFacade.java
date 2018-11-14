@@ -224,6 +224,11 @@ public class BusinessFacade implements IBusiness{
        return client.getNotEvaluatetCase();
     }
 
+    @Override
+    public void Evaluate(Case a) throws IOException {
+        client.Evaluate(a);
+    }
+
     
     
 }

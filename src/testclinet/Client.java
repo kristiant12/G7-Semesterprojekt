@@ -258,6 +258,7 @@ public class Client implements IClient{
         return test;
     }
     
+    @Override
     public void Evaluate(Case a) throws IOException{
         sendtilServeren("13");
         tss.writeObject(a);
