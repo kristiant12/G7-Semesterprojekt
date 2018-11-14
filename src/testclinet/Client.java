@@ -114,18 +114,20 @@ public class Client implements IClient{
     @Override
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException{
         sendtilServeren("1");
-        test = (List<User>) mapInputStram.readObject();
+        List<User> ting = new ArrayList();
+        ting = (List<User>) mapInputStram.readObject();
         //out.println("sidnsidn");
-        return test;
+        return ting;
     }
     
     
     @Override
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException{
         sendtilServeren("2");
-        caseList = (List<Case>) mapInputStram.readObject();
+        List<Case> ting = new ArrayList();
+        ting = (List<Case>) mapInputStram.readObject();
      //   out.println("2");
-        return caseList;
+        return ting;
     }
     
     private void sendtilServeren(String i){
@@ -202,9 +204,10 @@ public class Client implements IClient{
     @Override
     public void sendMapOfUserAndCases(User a, Case b) throws IOException{
         sendtilServeren("7");
-        mapOfUserCase = new HashMap();
-        mapOfUserCase.put(a, b);
-        tss.writeObject(mapOfUserCase);
+        Map<User,Case> test = new HashMap();
+       // mapOfUserCase = new HashMap();
+        test.put(a, b);
+        tss.writeObject(test);
         
     }
     
@@ -223,7 +226,7 @@ public class Client implements IClient{
     @Override
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException{
         sendtilServeren("10");
-        List<Case> test;
+        List<Case> test = new ArrayList();
         
         tss.writeObject(a);
                 tss.flush();
