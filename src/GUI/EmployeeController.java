@@ -214,7 +214,9 @@ public class EmployeeController implements Initializable {
     }
     public List<Ticket> getTicket(){
        // return showCasesListView.get
-       
+        Ticket test = (Ticket) showTicketsListView.getSelectionModel().getSelectedItem();
+        
+        
        return null;
     }
 
