@@ -15,45 +15,39 @@
             <Font name="Neue Haas Grotesk Text Pro" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameTextField" layoutX="100.0" layoutY="310.0" prefHeight="25.0" prefWidth="260.0" promptText="Username " />
-      <TextField fx:id="passwordTextField" layoutX="100.0" layoutY="250.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" />
-      <TextField fx:id="confirmPasswordTextField" layoutX="450.0" layoutY="250.0" prefHeight="25.0" prefWidth="260.0" promptText="Confirm Password" />
-      <TextField fx:id="emailTextField" layoutX="100.0" layoutY="185.0" prefHeight="25.0" prefWidth="260.0" promptText="Enter your email address" />
-      <TextField fx:id="fullNameTextField" layoutX="100.0" layoutY="125.0" prefHeight="25.0" prefWidth="260.0" promptText="Full name" />
-      <TextField fx:id="addressTextField" layoutX="100.0" layoutY="430.0" prefHeight="25.0" prefWidth="260.0" promptText="Address" />
-      <TextField fx:id="phoneNumberTextField" layoutX="100.0" layoutY="370.0" prefHeight="25.0" prefWidth="260.0" promptText="Phone number" />
-      <Label layoutX="100.0" layoutY="105.0" text="Your full name">
+      <TextField fx:id="fullNameTextField" layoutX="100.0" layoutY="141.0" prefHeight="25.0" prefWidth="260.0" promptText="Full name" />
+      <TextField fx:id="emailTextField" layoutX="100.0" layoutY="258.0" prefHeight="25.0" prefWidth="260.0" promptText="Enter your email address" />
+      <TextField fx:id="passwordTextField" layoutX="100.0" layoutY="380.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" />
+      <TextField fx:id="usernameTextField" layoutX="450.0" layoutY="141.0" prefHeight="25.0" prefWidth="260.0" promptText="Username " />
+      <TextField fx:id="phoneNumberTextField" layoutX="450.0" layoutY="258.0" prefHeight="25.0" prefWidth="260.0" promptText="Phone number" />
+      <TextField fx:id="addressTextField" layoutX="450.0" layoutY="380.0" prefHeight="25.0" prefWidth="260.0" promptText="Address" />
+      <Label layoutX="100.0" layoutY="115.0" text="Your full name">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="165.0" text="Email address">
+      <Label layoutX="100.0" layoutY="232.0" text="Email address">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="230.0" text="Enter a password">
+      <Label layoutX="100.0" layoutY="354.0" text="Enter a password">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="450.0" layoutY="230.0" text="Confirm your password">
+      <Label layoutX="450.0" layoutY="115.0" text="Enter a username">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="290.0" text="Enter a username">
+      <Label layoutX="450.0" layoutY="232.0" text="Enter your phone number">
          <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="100.0" layoutY="350.0" text="Enter your phone number">
-         <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="17.0" />
          </font></Label>
-      <Label layoutX="100.0" layoutY="410.0" text="Enter your address">
+      <Label layoutX="450.0" layoutY="354.0" text="Enter your address">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="17.0" />
          </font></Label>
       <Button fx:id="createAccountButton" layoutX="630.0" layoutY="490.0" mnemonicParsing="false" onAction="#createAccountButtonClicked" text="Create account" />
       <ImageView fx:id="createAccountBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="33.0" layoutY="475.0" onMouseClicked="#createAccountBackArrowClicked" pickOnBounds="true" preserveRatio="true">
