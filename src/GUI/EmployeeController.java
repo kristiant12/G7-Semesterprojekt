@@ -94,6 +94,8 @@ public class EmployeeController implements Initializable {
     private TextArea answerTextArea;
     @FXML
     private Button submitButton;
+    @FXML
+    private AnchorPane replyTicketPane;
 
     /**
      * Initializes the controller class.
