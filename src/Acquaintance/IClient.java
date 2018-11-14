@@ -6,6 +6,7 @@
 package Acquaintance;
 
 import Business.Case;
+import Business.Ticket;
 import Business.User;
 import java.io.IOException;
 import java.util.List;
@@ -38,4 +39,6 @@ public interface IClient {
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
     
      public void Evaluate(Case a) throws IOException;
+     
+     public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException;
 }
