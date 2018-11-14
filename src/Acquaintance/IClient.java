@@ -36,4 +36,6 @@ public interface IClient {
     public void editCase(Case a) throws IOException;
     
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
+    
+     public void Evaluate(Case a) throws IOException;
 }
