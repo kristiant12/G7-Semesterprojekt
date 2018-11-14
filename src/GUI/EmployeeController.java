@@ -213,7 +213,9 @@ public class EmployeeController implements Initializable {
         changeScreen(event, "TicketEmployee.fxml");
     }
     public List<Ticket> getTicket(){
-        return showCasesListView.get
+       // return showCasesListView.get
+       
+       return null;
     }
 
     @FXML
