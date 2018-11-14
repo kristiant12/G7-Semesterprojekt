@@ -106,7 +106,7 @@
             <Button fx:id="deleteCasesButton" layoutX="158.0" layoutY="419.0" mnemonicParsing="false" onAction="#deleteCasesButtonClick" text="Delete Cases" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="imageBankPane" disable="true" layoutY="122.0" prefHeight="484.0" prefWidth="830.0">
+      <AnchorPane fx:id="imageBankPane" disable="true" layoutY="122.0" prefHeight="484.0" prefWidth="830.0" visible="false">
          <children>
             <ListView fx:id="imageBankListView" layoutX="33.0" layoutY="68.0" prefHeight="315.0" prefWidth="250.0" />
             <TextField fx:id="imageBankSearchField" layoutX="33.0" layoutY="35.0" prefHeight="33.0" prefWidth="214.0" promptText="Search" />

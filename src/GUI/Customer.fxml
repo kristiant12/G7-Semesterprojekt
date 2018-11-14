@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
    <children>
-      <AnchorPane fx:id="costumerScreen" prefHeight="550.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="costumerScreen" prefHeight="550.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="465.0" layoutY="128.0" text="List of cases">
                <font>
@@ -100,16 +100,45 @@
             <Label fx:id="SagOprettet" layoutX="442.0" layoutY="511.0" prefHeight="17.0" prefWidth="135.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="seeCasePane" disable="true" prefHeight="606.0" prefWidth="830.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="seeCasePane" prefHeight="606.0" prefWidth="830.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="caseIdLabel" layoutX="181.0" layoutY="165.0" />
-            <TextField fx:id="seeTitleTextfield" layoutX="160.0" layoutY="114.0" />
-            <TextField fx:id="seeBudgetTextField" layoutX="160.0" layoutY="199.0" />
-            <TextField fx:id="seeDeadlineTextfield" layoutX="160.0" layoutY="279.0" />
-            <TextField fx:id="seeComponentTextField" layoutX="160.0" layoutY="350.0" />
-            <TextArea fx:id="seeFreeTextTextField" layoutX="327.0" layoutY="107.0" prefHeight="368.0" prefWidth="462.0" />
-            <Button fx:id="backButton" layoutX="37.0" layoutY="549.0" mnemonicParsing="false" onAction="#seeCaseBackButtonClicked" text="tilbase" />
-            <Button layoutX="725.0" layoutY="537.0" mnemonicParsing="false" onAction="#saveDataButtonClicked" text="gem" />
+            <Label fx:id="caseIdLabel" layoutX="720.0" layoutY="86.0" prefHeight="21.0" prefWidth="0.0" />
+            <TextField fx:id="seeTitleTextfield" layoutX="69.0" layoutY="120.0" />
+            <TextField fx:id="seeBudgetTextField" layoutX="69.0" layoutY="204.0" />
+            <TextField fx:id="seeDeadlineTextfield" layoutX="69.0" layoutY="289.0" />
+            <TextField fx:id="seeComponentTextField" layoutX="69.0" layoutY="368.0" />
+            <TextArea fx:id="seeFreeTextTextField" layoutX="328.0" layoutY="120.0" prefHeight="368.0" prefWidth="462.0" />
+            <Button layoutX="739.0" layoutY="549.0" mnemonicParsing="false" onAction="#saveDataButtonClicked" text="Save" />
+            <Label layoutX="353.0" layoutY="39.0" text="Edit case">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="97.0" text="Title">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="183.0" text="Budget">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="268.0" text="Deadline">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="347.0" text="Component">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="seeCaseBackArrow" fitHeight="45.0" fitWidth="45.0" layoutX="24.0" layoutY="542.0" onMouseClicked="#seeCaseBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/backArrow.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
