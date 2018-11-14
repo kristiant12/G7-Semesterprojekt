@@ -96,6 +96,24 @@ public class EmployeeController implements Initializable {
     private Button submitButton;
     @FXML
     private AnchorPane replyTicketPane;
+    @FXML
+    private AnchorPane approveCasePane;
+    @FXML
+    private TextField titleTextField;
+    @FXML
+    private TextField budgetTextField;
+    @FXML
+    private TextField deadlineTextField;
+    @FXML
+    private TextField componentTextField;
+    @FXML
+    private TextArea informationTextArea;
+    @FXML
+    private ImageView validateCaseBackArrow1;
+    @FXML
+    private ImageView declineCaseImage;
+    @FXML
+    private ImageView approveCaseImage;
 
     /**
      * Initializes the controller class.
@@ -228,6 +246,22 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void nextButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void validateCaseBackArrowClicked(MouseEvent event) {
+        approveCasePane.setDisable(true);
+        approveCasePane.setVisible(false);
+        validateCasePane.setDisable(false);
+        validateCasePane.setVisible(true);
+    }
+
+    @FXML
+    private void declineCaseImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void approveCaseImageClicked(MouseEvent event) {
     }
     
 }
