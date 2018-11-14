@@ -14,9 +14,9 @@
    <children>
       <AnchorPane layoutX="-1.0" layoutY="126.0" prefHeight="474.0" prefWidth="830.0">
          <children>
-            <TextArea fx:id="ticketTextArea" layoutX="31.0" layoutY="99.0" prefHeight="302.0" prefWidth="270.0" promptText="text of the ticket" />
-            <TextArea fx:id="answerTextArea" layoutX="418.0" layoutY="98.0" prefHeight="302.0" prefWidth="288.0" promptText="Write your answer here" />
-            <Button fx:id="submitButton" layoutX="561.0" layoutY="425.0" mnemonicParsing="false" onAction="#submitButtonClick" prefHeight="19.0" prefWidth="116.0" text="Submit" />
+            <TextArea fx:id="ticketTextArea" editable="false" layoutX="31.0" layoutY="99.0" prefHeight="302.0" prefWidth="270.0" promptText="text of the ticket" visible="false" />
+            <TextArea fx:id="answerTextArea" layoutX="418.0" layoutY="98.0" prefHeight="302.0" prefWidth="288.0" promptText="Write your answer here" visible="false" />
+            <Button fx:id="submitButton" layoutX="561.0" layoutY="425.0" mnemonicParsing="false" onAction="#submitButtonClick" prefHeight="19.0" prefWidth="116.0" text="Submit" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane disable="true" prefHeight="122.0" prefWidth="830.0" style="-fx-background-color: grey;">
@@ -125,7 +125,7 @@
                   <Image url="@billeder/backArrow.png" />
                </image>
             </ImageView>
-            <ListView fx:id="imageBankListView" layoutX="33.0" layoutY="68.0" prefHeight="315.0" prefWidth="250.0" />
+            <ListView fx:id="imageBankListView" layoutX="33.0" layoutY="68.0" prefHeight="315.0" prefWidth="250.0" visible="false" />
             <TextField fx:id="imageBankSearchField" layoutX="33.0" layoutY="35.0" prefHeight="33.0" prefWidth="214.0" promptText="Search" visible="false" />
             <ImageView fx:id="imageBankSearchButton" fitHeight="33.0" fitWidth="44.0" layoutX="250.0" layoutY="35.0" onMouseClicked="#imageBankSearchButtonClicked" pickOnBounds="true" preserveRatio="true">
                <image>
