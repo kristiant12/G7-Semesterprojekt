@@ -60,6 +60,11 @@ public interface IBusiness {
     public void SendPicture(Picture picture);
 
     public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException;
+    
+    public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
+    
+     public void Evaluate(Case a) throws IOException;
+    
 }
 
 

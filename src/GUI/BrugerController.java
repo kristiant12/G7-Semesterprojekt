@@ -80,7 +80,7 @@ public class BrugerController implements Initializable {
     ListAdapter adapter;
     ArrayList<Object> caseArray;
 
-    ObservableList<Case> caseList =FXCollections.observableArrayList ();
+    ObservableList<Case> caseList = FXCollections.observableArrayList ();
     @FXML
     private Button createCaseButton;
     
@@ -148,7 +148,7 @@ public void initialize(URL url, ResourceBundle rb) {
     private void logOutImageClicked(MouseEvent event) throws IOException {
 //         userCaseListView.setItems(null);
 //         business.setUser(null);
-
+        userCaseListView = null;
         changeScreen(event, "FXMLDocument.fxml");
           }
 
@@ -223,14 +223,18 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) throws IOException {
+        Case newCase = new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText());
 
-        business.sendMapOfUserAndCases(new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText()));
+        business.sendMapOfUserAndCases(newCase);
         titleTextField.clear();
         budgetTextField.clear();
         deadlineTextField.clear();
         componentTextField.clear();
         informationTextArea.clear();
         SagOprettet.setText("Case created");
+        caseList.add(newCase);
+        userCaseListView.getItems().clear();
+        userCaseListView.setItems(caseList);
         
     }
     @FXML
@@ -255,8 +259,8 @@ public void initialize(URL url, ResourceBundle rb) {
     
     }
     
+        
+        
     
     
-    
-   
 }

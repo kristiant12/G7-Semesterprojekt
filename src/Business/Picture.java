@@ -19,6 +19,11 @@ import java.io.Serializable;
  */
 public class Picture implements Serializable {
     
+    
+    public Picture(Object object){
+        
+    }
+    
     /**
      * Tries to save game. If succesful, prints : picture saved, if not, could not save picture. 
             

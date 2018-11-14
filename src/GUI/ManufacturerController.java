@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import Business.Case;
+import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -73,7 +76,28 @@ public class ManufacturerController implements Initializable {
     @FXML
     private ListView<?> casesListView;
     @FXML
-    private ListView<?> auctionCasesListView;
+    private ListView<Case> auctionCasesListView;
+    @FXML
+    private ImageView bidBackArrow;
+    @FXML
+    private TextArea informationTextArea;
+    @FXML
+    private TextField titleTextField;
+    @FXML
+    private TextField budgetTextField;
+    @FXML
+    private TextField deadlineTextField;
+    @FXML
+    private TextField ComponentTextField;
+    @FXML
+    private TextField bidAmountTextField;
+    @FXML
+    private Button bidOnCase;
+    @FXML
+    private Button bidButton;
+    @FXML
+    private AnchorPane BidPane;
+    private Case defaultCase;
 
     /**
      * Initializes the controller class.
@@ -89,13 +113,16 @@ public class ManufacturerController implements Initializable {
         window.show();
     }
     
-    private void change(AnchorPane a, AnchorPane b, AnchorPane c) {
+    private void change(AnchorPane a, AnchorPane b, AnchorPane c, AnchorPane d) {
             a.setDisable(false);
             a.setVisible(true);
             b.setVisible(false);
             b.setDisable(true);
             c.setVisible(false);
             c.setDisable(true);
+            d.setVisible(false);
+            d.setDisable(true);
+            
     } 
     
     
@@ -108,21 +135,21 @@ public class ManufacturerController implements Initializable {
     @FXML
     private void auctionImageClicked(MouseEvent event) {
         if(event.getTarget()== auctionImage){
-            change(auctionPane, casesPane, profilePane);
+            change(auctionPane, casesPane, profilePane, BidPane);
         }
     }
 
     @FXML
     private void casesImageClicked(MouseEvent event) {
         if(event.getTarget()== casesImage){
-            change(casesPane, auctionPane, profilePane);
+            change(casesPane, auctionPane, profilePane, BidPane);
         }
     }
 
     @FXML
     private void profileImageClicked(MouseEvent event) {
         if(event.getTarget()== profileImage){
-            change(profilePane, auctionPane, casesPane);
+            change(profilePane, auctionPane, casesPane, BidPane);
         }
     }
 
@@ -153,6 +180,32 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionSearchImageClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void bidBackArrowClicked(MouseEvent event) {
+    }
+
+    private void bidOnCaseClicked(ActionEvent event, Case cs) throws IOException {
+                cs.setBid(Double.valueOf(budgetTextField.getText()));
+                business.sendCase(cs);
+    }
+
+    @FXML
+    private void clickedBidButton(ActionEvent event) {
+        change(BidPane, auctionPane, casesPane, profilePane);
+        Case selected = auctionCasesListView.getSelectionModel().getSelectedItem();
+        informationTextArea.setText(selected.getFreeText());
+        titleTextField.setText(selected.getCaseTitle());
+        deadlineTextField.setText(selected.getDeadline());
+        
+        defaultCase = selected;
+        
+    }
+
+    @FXML
+    private void bidOnCaseClicked(ActionEvent event) {
+        
     }
     
 }

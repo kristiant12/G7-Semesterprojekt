@@ -80,7 +80,7 @@ public class UploadPicturesController implements Initializable {
 
     @FXML
     private void uploadButtonClick(ActionEvent event) throws IOException {
-        business.SendPicture(new Picture());
+     //  business.SendPicture(new Picture(uploadPicsTextfield));
     }
     
     
