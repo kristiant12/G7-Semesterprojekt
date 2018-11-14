@@ -7,9 +7,11 @@ package GUI;
 
 import Business.Case;
 import Business.Customer;
+import Business.Ticket;
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +24,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -83,6 +86,14 @@ public class EmployeeController implements Initializable {
     private Button editCasesButton;
     @FXML
     private Button deleteCasesButton;
+    @FXML
+    private Button nextButton;
+    @FXML
+    private TextArea ticketTextArea;
+    @FXML
+    private TextArea answerTextArea;
+    @FXML
+    private Button submitButton;
 
     /**
      * Initializes the controller class.
@@ -195,6 +206,22 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) {
+    }
+
+    private void nextButtonClick(MouseEvent event) throws IOException {
+        
+        changeScreen(event, "TicketEmployee.fxml");
+    }
+    public List<Ticket> getTicket(){
+        return showCasesListView.get
+    }
+
+    @FXML
+    private void submitButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextButtonClick(ActionEvent event) {
     }
     
 }
