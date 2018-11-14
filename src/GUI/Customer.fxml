@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrugerController">
    <children>
-      <AnchorPane fx:id="costumerScreen" prefHeight="550.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="costumerScreen" prefHeight="550.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="465.0" layoutY="128.0" text="List of cases">
                <font>
@@ -100,7 +100,7 @@
             <Label fx:id="SagOprettet" layoutX="442.0" layoutY="511.0" prefHeight="17.0" prefWidth="135.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="seeCasePane" prefHeight="606.0" prefWidth="830.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="seeCasePane" disable="true" prefHeight="606.0" prefWidth="830.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="caseIdLabel" layoutX="720.0" layoutY="86.0" prefHeight="21.0" prefWidth="0.0" />
             <TextField fx:id="seeTitleTextfield" layoutX="69.0" layoutY="120.0" />
