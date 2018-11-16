@@ -26,6 +26,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import static GUI.Gruppe_7_semesterprojekt.business;
+import java.awt.Desktop;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -37,6 +39,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -216,8 +219,25 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
+        
+        if(attachFileImage.isPressed()){
+             final FileChooser filechooser = new FileChooser();
+        File file  = filechooser.showOpenDialog(null);
+        
+        if(file != null){
+            try{
+                openFile(file);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        }
+        
     }
 
+     private void openFile(File file) throws Exception{
+        Desktop.getDesktop().open(file);
+    }
     private void supportButtonClick(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
     }
@@ -245,7 +265,7 @@ public void initialize(URL url, ResourceBundle rb) {
             cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
             userCaseListView.setItems(cases);
          } catch (Exception ex) {
-
+             ex.printStackTrace();
         }
 //    
     }

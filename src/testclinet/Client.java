@@ -257,6 +257,7 @@ public class Client implements IClient {
     }
 
     
+    @Override
      public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException{
          sendtilServeren("15");
          tss.writeObject(a);

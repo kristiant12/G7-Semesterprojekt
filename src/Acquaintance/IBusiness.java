@@ -2,6 +2,7 @@ package Acquaintance;
 
 import Business.Case;
 import Business.Customer;
+import Business.Manufacturer;
 import Business.Picture;
 import Business.Ticket;
 import Business.User;
