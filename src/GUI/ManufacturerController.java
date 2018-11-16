@@ -276,7 +276,7 @@ public class ManufacturerController implements Initializable {
     private void seeCasesButtonClick(ActionEvent event) {
         
         try{
-             cases = FXCollections.observableArrayList(business.getUserCaseList((Manufacturer) business.getManufacturer()));
+             cases = FXCollections.observableArrayList();
             auctionCasesListView.setItems(cases);
         }catch(Exception ex){
             ex.printStackTrace();
