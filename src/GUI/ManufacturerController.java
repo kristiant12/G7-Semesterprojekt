@@ -104,6 +104,8 @@ public class ManufacturerController implements Initializable {
     private Case defaultCase;
     ObservableList<Case> relevantcases = FXCollections.observableArrayList();
     ObservableList<Case> relevantcasesSearch = FXCollections.observableArrayList();
+    @FXML
+    private Button openCaseButton;
 
     /**
      * Initializes the controller class.
@@ -216,6 +218,7 @@ public class ManufacturerController implements Initializable {
         }
     }
 
+    @FXML
     private void bidOnCaseClicked(ActionEvent event) throws IOException {
                 defaultCase.setBid(Double.valueOf(budgetTextField.getText()));
                 business.sendCase(defaultCase);
@@ -231,6 +234,10 @@ public class ManufacturerController implements Initializable {
         
         defaultCase = selected;
         
+    }
+
+    @FXML
+    private void openCaseButtonClicked(ActionEvent event) {
     }
     
 }
