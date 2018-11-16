@@ -10,8 +10,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManufacturerController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManufacturerController">
    <children>
+      <AnchorPane fx:id="viewCaseInfoPane" disable="true" layoutY="121.0" prefHeight="485.0" prefWidth="840.0" visible="false">
+         <children>
+            <TextArea fx:id="caseTextArea" editable="false" layoutX="420.0" layoutY="73.0" prefHeight="338.0" prefWidth="357.0" />
+            <TextField fx:id="titleTextfield" disable="true" editable="false" layoutX="66.0" layoutY="81.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="caseIdTextfield" disable="true" layoutX="66.0" layoutY="139.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="budgetTextfield" disable="true" editable="false" layoutX="66.0" layoutY="217.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="deadlineTextfield" disable="true" editable="false" layoutX="66.0" layoutY="288.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="bidTextfield" disable="true" editable="false" layoutX="66.0" layoutY="349.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="componentTextfield" disable="true" editable="false" layoutX="66.0" layoutY="406.0" prefHeight="25.0" prefWidth="201.0" />
+            <Label layoutX="66.0" layoutY="60.0" text="Title">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="119.0" text="Case Id ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="199.0" text="Budget">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="331.0" text="Bid">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="388.0" text="Component">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="272.0" text="Deadline">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="420.0" layoutY="51.0" text="Case text">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane prefHeight="120.0" prefWidth="840.0" style="-fx-background-color: grey;">
          <children>
             <ImageView fx:id="auctionImage" fitHeight="150.0" fitWidth="75.0" layoutX="131.0" layoutY="33.0" onMouseClicked="#auctionImageClicked" pickOnBounds="true" preserveRatio="true">
@@ -81,7 +127,8 @@
                </image>
             </ImageView>
             <ListView fx:id="casesListView" layoutX="215.0" layoutY="54.0" prefHeight="350.0" prefWidth="400.0" />
-            <Button fx:id="openCaseButton" layoutX="558.0" layoutY="412.0" mnemonicParsing="false" onAction="#openCaseButtonClicked" text="Open" />
+            <Button fx:id="openCaseButton" layoutX="724.0" layoutY="386.0" mnemonicParsing="false" onAction="#openCaseButtonClicked" text="View case info" />
+            <Button fx:id="seeCasesButton" layoutX="531.0" layoutY="412.0" mnemonicParsing="false" onAction="#seeCasesButtonClick" prefHeight="25.0" prefWidth="83.0" text="See Cases" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="profilePane" layoutY="121.0" prefHeight="485.0" prefWidth="830.0" visible="false">

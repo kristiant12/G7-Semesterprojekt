@@ -245,7 +245,7 @@ public void initialize(URL url, ResourceBundle rb) {
             cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
             userCaseListView.setItems(cases);
          } catch (Exception ex) {
-
+             ex.printStackTrace();
         }
 //    
     }

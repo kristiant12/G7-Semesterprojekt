@@ -2,6 +2,7 @@ package Acquaintance;
 
 import Business.Case;
 import Business.Customer;
+import Business.Manufacturer;
 import Business.Picture;
 import Business.Ticket;
 import Business.User;
@@ -66,6 +67,8 @@ public interface IBusiness {
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
     
      public void Evaluate(Case a) throws IOException;
+     
+     public Manufacturer getManufacturer();
      
      
     

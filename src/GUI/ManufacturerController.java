@@ -106,6 +106,26 @@ public class ManufacturerController implements Initializable {
     ObservableList<Case> relevantcasesSearch = FXCollections.observableArrayList();
     @FXML
     private Button openCaseButton;
+    @FXML
+    private TextArea caseTextArea;
+    @FXML
+    private TextField titleTextfield;
+    @FXML
+    private TextField caseIdTextfield;
+    @FXML
+    private TextField budgetTextfield;
+    @FXML
+    private TextField deadlineTextfield;
+    @FXML
+    private TextField bidTextfield;
+    @FXML
+    private TextField componentTextfield;
+    @FXML
+    private AnchorPane viewCaseInfoPane;
+    @FXML
+    private Button seeCasesButton;
+    
+    private ObservableList<Case> cases;
 
     /**
      * Initializes the controller class.
@@ -121,7 +141,7 @@ public class ManufacturerController implements Initializable {
         window.show();
     }
     
-    private void change(AnchorPane a, AnchorPane b, AnchorPane c, AnchorPane d) {
+    private void change(AnchorPane a, AnchorPane b, AnchorPane c, AnchorPane d, AnchorPane e) {
             a.setDisable(false);
             a.setVisible(true);
             b.setVisible(false);
@@ -130,8 +150,19 @@ public class ManufacturerController implements Initializable {
             c.setDisable(true);
             d.setVisible(false);
             d.setDisable(true);
+            e.setVisible(false);
+            e.setDisable(true);
+            
             
     } 
+    private void changeTwo(AnchorPane a, AnchorPane b){
+        
+        a.setDisable(true);
+        a.setVisible(true);
+        b.setDisable(false);
+        b.setVisible(true);
+        
+    }
     
     
     @Override
@@ -143,7 +174,7 @@ public class ManufacturerController implements Initializable {
     @FXML
     private void auctionImageClicked(MouseEvent event) throws IOException, ClassNotFoundException {
         if(event.getTarget()== auctionImage){
-            change(auctionPane, casesPane, profilePane, BidPane);
+            change(auctionPane, casesPane, profilePane, BidPane, viewCaseInfoPane);
              relevantcases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
 
             auctionCasesListView.setItems(relevantcases);
@@ -153,28 +184,28 @@ public class ManufacturerController implements Initializable {
     @FXML
     private void casesImageClicked(MouseEvent event) {
         if(event.getTarget()== casesImage){
-            change(casesPane, auctionPane, profilePane, BidPane);
+            change(casesPane, auctionPane, profilePane, BidPane, viewCaseInfoPane);
         }
     }
 
     @FXML
     private void profileImageClicked(MouseEvent event) {
         if(event.getTarget()== profileImage){
-            change(profilePane, auctionPane, casesPane, BidPane);
+            change(profilePane, auctionPane, casesPane, BidPane, viewCaseInfoPane);
         }
     }
 
     @FXML
     private void auctionBackArrowClicked(MouseEvent event) {
                 if(event.getTarget()== auctionBackArrow){
-            change(profilePane, casesPane, BidPane,auctionPane);
+            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
         }
     }
 
     @FXML
     private void casesBackArrowClicked(MouseEvent event) {
         if(event.getTarget()== casesBackArrow){
-            change(profilePane, casesPane, BidPane,auctionPane);
+            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
         }
     }
 
@@ -214,7 +245,7 @@ public class ManufacturerController implements Initializable {
     @FXML
     private void bidBackArrowClicked(MouseEvent event) {
         if(event.getTarget()== bidBackArrow){
-            change(profilePane, casesPane, BidPane,auctionPane);
+            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
         }
     }
 
@@ -226,7 +257,7 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void clickedBidButton(ActionEvent event) {
-        change(BidPane, auctionPane, casesPane, profilePane);
+        change(BidPane, auctionPane, casesPane, profilePane, viewCaseInfoPane);
         Case selected = auctionCasesListView.getSelectionModel().getSelectedItem();
         informationTextArea.setText(selected.getFreeText());
         titleTextField.setText(selected.getCaseTitle());
@@ -238,6 +269,19 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void openCaseButtonClicked(ActionEvent event) {
+         
+        changeTwo(casesPane, viewCaseInfoPane);
+    }
+
+    @FXML
+    private void seeCasesButtonClick(ActionEvent event) {
+        
+        try{
+             cases = FXCollections.observableArrayList(business.getUserCaseList((Manufacturer) business.getManufacturer()));
+            auctionCasesListView.setItems(cases);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
     
 }

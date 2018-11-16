@@ -27,6 +27,7 @@ public class BusinessFacade implements IBusiness{
         private Client client;
 //        private IData data;
         private User user;
+        private Manufacturer manu;
     public BusinessFacade() {
         this.client = new Client();
         //user = null;
@@ -242,6 +243,11 @@ public class BusinessFacade implements IBusiness{
     @Override
     public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException {
         return client.getTicketFromServer();
+    }
+
+    @Override
+    public Manufacturer getManufacturer() {
+        return manu;
     }
 
     
