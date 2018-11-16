@@ -71,7 +71,7 @@ public class TicketController implements Initializable {
 
     @FXML
     private void createTicketButtonClicked(ActionEvent event) throws IOException  {
-                business.sendTicket(new Ticket(ticketTextArea.getText()));    
+             //   business.sendTicket(new Ticket(ticketTextArea.getText()));    
 //        issueTextArea.clear();
 //        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
 //    public void handle(ActionEvent event)  {
