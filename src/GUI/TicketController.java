@@ -94,7 +94,7 @@ public class TicketController implements Initializable {
     
 
     @FXML
-    private void seeTicketsButtonAction(MouseEvent event) {
+    private void seeTicketsButtonAction(ActionEvent event) {
          try {
             ObservableList<Ticket> ticket = FXCollections.observableArrayList(business.getTicketFromServer());
             ticketsListView.setItems(ticket);
