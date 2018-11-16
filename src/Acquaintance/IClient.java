@@ -41,4 +41,6 @@ public interface IClient {
      public void Evaluate(Case a) throws IOException;
      
      public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException;
+     
+     public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException;
 }

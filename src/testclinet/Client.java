@@ -254,7 +254,15 @@ public class Client implements IClient {
         ticket = (List<Ticket>) mapInputStram.readObject();
 
         return ticket;
-
     }
 
+    
+     public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException{
+         sendtilServeren("15");
+         tss.writeObject(a);
+         List<Case> dd = new ArrayList();
+         dd = (List<Case>) mapInputStram.readObject();
+         return dd;
+         
+     }
 }
