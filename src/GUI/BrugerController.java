@@ -200,10 +200,10 @@ public void initialize(URL url, ResourceBundle rb) {
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
 
-        business.deleteCase((Case) userCaseListView.getSelectionModel().getSelectedItem());
-        caseList.remove(userCaseListView.getSelectionModel().getSelectedItem());
-        userCaseListView.getItems().clear();
-        userCaseListView.setItems(caseList);
+        business.deleteCase(userCaseListView.getSelectionModel().getSelectedItem());
+        cases.remove(userCaseListView.getSelectionModel().getSelectedItem());
+        userCaseListView.setItems(cases);
+       
         
     }
 

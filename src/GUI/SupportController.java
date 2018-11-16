@@ -80,9 +80,6 @@ public class SupportController implements Initializable {
     @FXML
     private void createTicketButtonClicked(ActionEvent event) throws IOException {
         changeScreen(event, "Ticket.fxml");
-
-
-
                 }
 
 }

@@ -161,6 +161,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <Label fx:id="caseIdLabel" layoutX="596.0" layoutY="50.0" prefHeight="17.0" prefWidth="149.0" />
          </children>
       </AnchorPane>
       <ImageView fx:id="logOutImage" fitHeight="150.0" fitWidth="50.0" layoutX="390.0" layoutY="542.0" onMouseClicked="#logOutImageClicked" pickOnBounds="true" preserveRatio="true">

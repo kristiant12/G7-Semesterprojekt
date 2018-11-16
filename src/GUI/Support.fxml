@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SupportController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SupportController">
    <children>
       <Label layoutX="345.0" layoutY="34.0" text="Support">
          <font>
@@ -20,7 +20,7 @@
             <Image url="@billeder/backArrow.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="issueTextArea" editable="false" layoutX="172.0" layoutY="103.0" prefHeight="374.0" prefWidth="464.0" promptText="FAQ" />
+      <TextArea fx:id="issueTextArea" editable="false" layoutX="172.0" layoutY="103.0" prefHeight="374.0" prefWidth="464.0" text="He walked two or fewer batters in 29 of his 32 starts. He ranked fourth in the American League averaging just 1.9 walks per nine innings. Moyer was also third among the league in innings pitched and seventh winning percentage. He matched career-best seven game winning streak that stretched from May 11 to July 7. He started the Inaugural Game at Safeco Field on July 15 against the San Diego Padres, throwing a called strike to San Diego's Quilvio Veras for the first pitch getting a no-decision in Seattle's 3–2 loss after leaving with a 2–1 lead after eight innings.[5] He defeated Baltimore for the ninth straight time on July 31; did not lose to the Orioles, in the 1990s. Moyer's only loss at Safeco came on August 5 against the New York Yankees. He recorded three complete games in the final month of the season, tossing back-to-back complete games on September 14 and 19. His 2.30 ERA after the All-Star break was the second-lowest among AL starters, behind only Pedro Martinez with his 2.01 ERA. He pitched 4 complete games for the second-straight season, tying his career best.In 1999, Moyer went 14–8 with a 3.87 ERA and was voted to The Sporting News AL All-Star team. He again won the Seattle Pitcher of the Year award." wrapText="true" />
       <Button fx:id="createTicketButton" layoutX="532.0" layoutY="497.0" mnemonicParsing="false" onAction="#createTicketButtonClicked" text="Next" />
    </children>
 </AnchorPane>
