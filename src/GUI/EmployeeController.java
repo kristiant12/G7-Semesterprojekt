@@ -23,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -114,6 +115,9 @@ public class EmployeeController implements Initializable {
     private ImageView declineCaseImage;
     @FXML
     private ImageView approveCaseImage;
+    ObservableList<Case> cases;
+    @FXML
+    private Label caseIdLabel;
 
     /**
      * Initializes the controller class.
@@ -143,6 +147,13 @@ public class EmployeeController implements Initializable {
             d.setDisable(true);
     } 
     
+    public void changePane(AnchorPane b, AnchorPane a){
+        a.setDisable(false);
+        a.setVisible(true);
+        b.setDisable(true);
+        b.setVisible(false);
+        
+    }
       
       
     @Override
@@ -156,7 +167,7 @@ public class EmployeeController implements Initializable {
             change(validateCasePane, ticketsPane, imageBankPane, createManufacturerPane);
             
                try {
-            ObservableList<Case> cases = FXCollections.observableArrayList(business.getNotEvaluatetCase());
+            cases = FXCollections.observableArrayList(business.getNotEvaluatetCase());
             showCasesListView.setItems(cases);
          } catch (Exception ex) {
 
@@ -222,6 +233,14 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) {
+        Case a = showCasesListView.getSelectionModel().getSelectedItem();
+        titleTextField.setText(a.getCaseTitle());
+        budgetTextField.setText(a.getCaseBudget());
+        deadlineTextField.setText(a.getDeadline());
+        componentTextField.setText(a.getComponent());
+        informationTextArea.setText(a.getFreeText());
+        caseIdLabel.setText(a.getId());
+        changePane(validateCasePane, approveCasePane);
     }
 
     @FXML
@@ -262,6 +281,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void approveCaseImageClicked(MouseEvent event) {
+       //ness.Evaluate(a);
     }
     
 }
