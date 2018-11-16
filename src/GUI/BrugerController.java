@@ -201,8 +201,8 @@ public void initialize(URL url, ResourceBundle rb) {
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
 
         business.deleteCase(userCaseListView.getSelectionModel().getSelectedItem());
-//        cases.remove(userCaseListView.getSelectionModel().getSelectedItems());
-//        userCaseListView.setItems(cases);
+        cases.remove(userCaseListView.getSelectionModel().getSelectedItem());
+        userCaseListView.setItems(cases);
        
         
     }
