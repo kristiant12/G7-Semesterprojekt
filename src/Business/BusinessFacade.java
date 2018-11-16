@@ -146,9 +146,12 @@ public class BusinessFacade implements IBusiness{
     public void sendCase(Case a) throws IOException {
         client.sendCase(a);
     }
+    
+    
+    
+       @Override
     public void deleteCase(Case ce) throws IOException{
         client.deleteCase(ce);
-        ce = null;
     }
 
     /**
