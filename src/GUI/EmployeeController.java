@@ -244,7 +244,12 @@ public class EmployeeController implements Initializable {
     }
 
     @FXML
-    private void deleteCasesButtonClick(ActionEvent event) {
+    private void deleteCasesButtonClick(ActionEvent event) throws IOException {
+             business.deleteCase(showCasesListView.getSelectionModel().getSelectedItem());
+        cases.remove(showCasesListView.getSelectionModel().getSelectedItem());
+        showCasesListView.setItems(cases);
+        
+        
     }
 
     private void nextButtonClick(MouseEvent event) throws IOException {
