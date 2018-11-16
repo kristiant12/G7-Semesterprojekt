@@ -274,14 +274,19 @@ public class EmployeeController implements Initializable {
         validateCasePane.setDisable(false);
         validateCasePane.setVisible(true);
     }
-
+    
+    
+    //denne godkender en Case. det er bare ahmet der har givet forket navn
     @FXML
-    private void declineCaseImageClicked(MouseEvent event) {
+    private void declineCaseImageClicked(MouseEvent event) throws IOException {
+        business.Evaluate(showCasesListView.getSelectionModel().getSelectedItem());
+        cases.remove(showCasesListView.getSelectionModel().getSelectedItem());
+        showCasesListView.setItems(cases);
     }
 
     @FXML
-    private void approveCaseImageClicked(MouseEvent event) {
-       //ness.Evaluate(a);
+    private void approveCaseImageClicked(MouseEvent event){
+       
     }
     
 }
