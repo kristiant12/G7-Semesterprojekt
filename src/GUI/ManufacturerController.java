@@ -126,6 +126,8 @@ public class ManufacturerController implements Initializable {
     private Button seeCasesButton;
     
     private ObservableList<Case> cases;
+    @FXML
+    private ImageView viewCaseInfoBackArrow;
 
     /**
      * Initializes the controller class.
@@ -282,6 +284,10 @@ public class ManufacturerController implements Initializable {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    private void viewCaseInfoBackArrowClicked(MouseEvent event) {
     }
     
 }
