@@ -38,6 +38,8 @@ import javafx.collections.ObservableList;
 public class AdminController implements Initializable {
 
     
+      ObservableList<User> user;
+    
     @FXML
     private AnchorPane createEmployeePane;
     @FXML
@@ -71,6 +73,8 @@ public class AdminController implements Initializable {
     private void createEmployeeButtonClicked(ActionEvent event) throws IOException {
         Employee a = new Employee(usernameTextField.getText(),passwordTextField.getText()); 
         business.sendUser(a);
+        user.add(a);
+        usersListView.setItems(user);
         
          
 
@@ -94,8 +98,10 @@ public class AdminController implements Initializable {
     } 
 
     @FXML
-    private void deleteUserButtonClicked(ActionEvent event) {
-       
+    private void deleteUserButtonClicked(ActionEvent event) throws IOException {
+       business.deleteUser(usersListView.getSelectionModel().getSelectedItem());
+       user.remove(usersListView.getSelectionModel().getSelectedItem());
+       usersListView.setItems(user);
     }
 
     @FXML
@@ -111,12 +117,12 @@ public class AdminController implements Initializable {
     @FXML
     private void deleteUserImageClicked(MouseEvent event) {
             try {
-            ObservableList<User> user = FXCollections.observableArrayList(business.getUserFromServer());
+          user = FXCollections.observableArrayList(business.getUserFromServer());
             usersListView.setItems(user);
          } catch (Exception ex) {
 
         }
-        change(deleteUserPane, createEmployeePane);
+            change(deleteUserPane, createEmployeePane);
     }
 
  

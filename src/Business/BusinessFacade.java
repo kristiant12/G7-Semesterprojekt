@@ -84,7 +84,7 @@ public class BusinessFacade implements IBusiness{
         for (int i = 0; i < list.size(); i++) {
             String name1 = list.get(i).getUserName();
             String pas = list.get(i).getPassword();
-            if(name.equals(name1) && password.equals(password)){
+            if(name.equals(name1) && password.equals(pas)){
                 setUser(list.get(i));
                 return true;
             }
@@ -113,8 +113,6 @@ public class BusinessFacade implements IBusiness{
            if(name.equals(name1) && password.equals(pas)){
                return list.get(i);
            }
-           
-           
         }
         
         return null;
@@ -251,6 +249,11 @@ public class BusinessFacade implements IBusiness{
     @Override
     public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException {
         return client.getEvaluatetList(a);
+    }
+
+    @Override
+    public void deleteUser(User a) throws IOException {
+        client.deleteUser(a);
     }
 
     

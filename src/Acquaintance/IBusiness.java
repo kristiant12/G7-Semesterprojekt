@@ -69,6 +69,8 @@ public interface IBusiness {
     public void Evaluate(Case a) throws IOException;
      
      public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException; 
+     
+     public void deleteUser(User a) throws IOException;
     
 }
 

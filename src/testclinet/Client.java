@@ -61,7 +61,7 @@ public class Client implements IClient {
     public Client() {
 
         try {
-            String serverHostname = new String("10.126.10.106");
+            String serverHostname = new String("127.0.0.1");
             int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
 
@@ -266,4 +266,14 @@ public class Client implements IClient {
          return dd;
          
      }
+     
+    @Override
+     public void deleteUser(User a) throws IOException{
+         sendtilServeren("16");
+         tss.writeObject(a);
+         
+     }
+     
+     
+     
 }
