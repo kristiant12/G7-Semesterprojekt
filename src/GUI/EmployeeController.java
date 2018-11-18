@@ -7,6 +7,7 @@ package GUI;
 
 import Business.Case;
 import Business.Customer;
+import Business.Manufacturer;
 import Business.Ticket;
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
@@ -118,6 +119,8 @@ public class EmployeeController implements Initializable {
     ObservableList<Case> cases;
     @FXML
     private Label caseIdLabel;
+    @FXML
+    private Label ManufacturISCreated;
 
     /**
      * Initializes the controller class.
@@ -222,7 +225,12 @@ public class EmployeeController implements Initializable {
     }
 
     @FXML
-    private void createAccountButtonClicked(ActionEvent event) {
+    private void createAccountButtonClicked(ActionEvent event) throws IOException {
+        Manufacturer a = new Manufacturer(usernameTextField.getText(), passwordTextField.getText(), null, 0, null, null);
+        business.sendUser(a);
+        passwordTextField.clear();
+        usernameTextField.clear();
+        ManufacturISCreated.setText("User is created");
         
     }
 
