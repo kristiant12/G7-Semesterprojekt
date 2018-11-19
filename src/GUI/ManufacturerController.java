@@ -201,16 +201,16 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionBackArrowClicked(MouseEvent event) {
-                if(event.getTarget()== auctionBackArrow){
-            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
-        }
+//                if(event.getTarget()== auctionBackArrow){
+//            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
+//        }
     }
 
     @FXML
     private void casesBackArrowClicked(MouseEvent event) {
-        if(event.getTarget()== casesBackArrow){
-            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
-        }
+//        if(event.getTarget()== casesBackArrow){
+//            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
+//        }
     }
 
     @FXML
