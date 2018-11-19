@@ -19,7 +19,7 @@ public class Ticket {
 
 
     
-    public Ticket(String issueDescript,String issueNumber){
+    public Ticket(String issueNumber,String issueDescript){
         this.issueDescription = issueDescript;
         this.issueNumber = issueNumber;
     }
@@ -42,7 +42,7 @@ public class Ticket {
 
     }
     public String toString(){
-          return issueNumber + issueDescription;
+          return issueNumber +" "+ issueDescription;
 
     }
     
