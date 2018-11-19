@@ -68,8 +68,6 @@ public class ManufacturerController implements Initializable {
     @FXML
     private TextField repeatPasswordTextField;
     @FXML
-    private Button confirmButton;
-    @FXML
     private TextField firmAddressTextField;
     @FXML
     private ImageView profilePaneBackArrow;
@@ -157,7 +155,7 @@ public class ManufacturerController implements Initializable {
             e.setVisible(false);
             e.setDisable(true);
             
-            
+          
     } 
     private void changeTwo(AnchorPane a, AnchorPane b){
         
@@ -226,9 +224,6 @@ public class ManufacturerController implements Initializable {
         changeScreen(event, "FXMLDocument.fxml");
     }
 
-    @FXML
-    private void confirmButtonClicked(ActionEvent event) {
-    }
 
     @FXML
     private void profilePaneBackArrowClicked(MouseEvent event) {
