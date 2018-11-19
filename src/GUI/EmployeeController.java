@@ -123,6 +123,8 @@ public class EmployeeController implements Initializable {
     private AnchorPane panelPane;
     @FXML
     private ImageView approveCaseBackArrow1;
+    @FXML
+    private ImageView replyTicketBackArrow;
 
     /**
      * Initializes the controller class.
@@ -262,11 +264,11 @@ public class EmployeeController implements Initializable {
         
         
     }
-
+    // ved ikke lige hvad det her er, men den kan ikke bruges
     private void nextButtonClick(MouseEvent event) throws IOException {
-        
-        changeScreen(event, "TicketEmployee.fxml");
+        changePane(replyTicketPane, ticketsPane);
     }
+    
     public List<Ticket> getTicket(){
        // return showCasesListView.get
         Ticket test = (Ticket) showTicketsListView.getSelectionModel().getSelectedItem();
@@ -281,6 +283,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void nextButtonClick(ActionEvent event) {
+        changePane(ticketsPane, replyTicketPane);
     }
 
     private void validateCaseBackArrowClicked(MouseEvent event) {
@@ -307,6 +310,11 @@ public class EmployeeController implements Initializable {
         validateCasePane.setDisable(false);
         validateCasePane.setVisible(true);
         panelPane.setDisable(false);
+    }
+
+    @FXML
+    private void replyTicketBackArrowClicked(MouseEvent event) {
+        changePane(replyTicketPane, ticketsPane);
     }
     
 }

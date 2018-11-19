@@ -63,7 +63,7 @@
                   <Image url="@billeder/upArrow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="ticketsBackArrow" fitHeight="45.0" fitWidth="44.0" layoutX="33.0" layoutY="397.0" onMouseClicked="#backArrowTicketsClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ticketsBackArrow" fitHeight="45.0" fitWidth="44.0" layoutX="33.0" layoutY="415.0" onMouseClicked="#backArrowTicketsClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/backArrow.png" />
                </image>
@@ -79,7 +79,7 @@
                   <Image url="@billeder/upArrow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="createManufacturerBackArrow" fitHeight="45.0" fitWidth="44.0" layoutX="33.0" layoutY="397.0" onMouseClicked="#backArrowCreateManufacturerClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="createManufacturerBackArrow" fitHeight="45.0" fitWidth="44.0" layoutX="33.0" layoutY="419.0" onMouseClicked="#backArrowCreateManufacturerClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/backArrow.png" />
                </image>
@@ -116,7 +116,7 @@
                   <Image url="@billeder/upArrow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imageBankBackArrow" fitHeight="45.0" fitWidth="44.0" layoutX="33.0" layoutY="397.0" onMouseClicked="#backArrowImageBankClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageBankBackArrow" fitHeight="45.0" fitWidth="44.0" layoutX="33.0" layoutY="426.0" onMouseClicked="#backArrowImageBankClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/backArrow.png" />
                </image>
@@ -133,6 +133,11 @@
             <TextArea fx:id="ticketTextArea" editable="false" layoutX="77.0" layoutY="71.0" prefHeight="302.0" prefWidth="288.0" promptText="text of the ticket" />
             <TextArea fx:id="answerTextArea" layoutX="475.0" layoutY="71.0" prefHeight="302.0" prefWidth="288.0" promptText="Write your answer here" />
             <Button fx:id="submitButton" layoutX="647.0" layoutY="439.0" mnemonicParsing="false" onAction="#submitButtonClick" prefHeight="19.0" prefWidth="116.0" text="Submit" />
+            <ImageView fx:id="replyTicketBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="14.0" layoutY="432.0" onMouseClicked="#replyTicketBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/backArrow.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane id="AnchorPane" fx:id="approveCasePane" disable="true" layoutY="122.0" prefHeight="484.0" prefWidth="830.0" visible="false">
@@ -142,7 +147,7 @@
             <TextField fx:id="deadlineTextField" layoutX="83.0" layoutY="242.0" />
             <TextField fx:id="componentTextField" layoutX="83.0" layoutY="327.0" />
             <TextArea fx:id="informationTextArea" layoutX="367.0" layoutY="78.0" prefHeight="280.0" prefWidth="394.0" />
-            <ImageView fx:id="approveCaseBackArrow1" fitHeight="150.0" fitWidth="45.0" layoutX="31.0" layoutY="408.0" onMouseClicked="#approveCaseBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="approveCaseBackArrow1" fitHeight="150.0" fitWidth="45.0" layoutX="31.0" layoutY="416.0" onMouseClicked="#approveCaseBackArrowClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/backArrow.png" />
                </image>
