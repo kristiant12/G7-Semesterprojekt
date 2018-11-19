@@ -15,28 +15,28 @@
             <Font name="Neue Haas Grotesk Text Pro" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="fullNameTextField" layoutX="100.0" layoutY="141.0" prefHeight="25.0" prefWidth="260.0" promptText="Full name" />
-      <TextField fx:id="emailTextField" layoutX="100.0" layoutY="258.0" prefHeight="25.0" prefWidth="260.0" promptText="Enter your email address" />
-      <TextField fx:id="passwordTextField" layoutX="100.0" layoutY="380.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" />
-      <TextField fx:id="usernameTextField" layoutX="450.0" layoutY="141.0" prefHeight="25.0" prefWidth="260.0" promptText="Username " />
+      <TextField fx:id="usernameTextField" layoutX="100.0" layoutY="141.0" prefHeight="25.0" prefWidth="260.0" promptText="Username " />
+      <TextField fx:id="passwordTextField" layoutX="100.0" layoutY="258.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" />
+      <TextField fx:id="emailTextField" layoutX="100.0" layoutY="380.0" prefHeight="25.0" prefWidth="260.0" promptText="Enter your email address" />
+      <TextField fx:id="fullNameTextField" layoutX="450.0" layoutY="141.0" prefHeight="25.0" prefWidth="260.0" promptText="Full name" />
       <TextField fx:id="phoneNumberTextField" layoutX="450.0" layoutY="258.0" prefHeight="25.0" prefWidth="260.0" promptText="Phone number" />
       <TextField fx:id="addressTextField" layoutX="450.0" layoutY="380.0" prefHeight="25.0" prefWidth="260.0" promptText="Address" />
-      <Label layoutX="100.0" layoutY="115.0" text="Your full name">
+      <Label layoutX="450.0" layoutY="115.0" text="Your full name">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="232.0" text="Email address">
+      <Label layoutX="100.0" layoutY="354.0" text="Email address">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="354.0" text="Enter a password">
+      <Label layoutX="100.0" layoutY="232.0" text="Enter a password">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="450.0" layoutY="115.0" text="Enter a username">
+      <Label layoutX="100.0" layoutY="115.0" text="Enter a username">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

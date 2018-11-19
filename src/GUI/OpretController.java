@@ -61,6 +61,7 @@ public class OpretController implements Initializable {
     private void createAccountButtonClicked(ActionEvent event) throws IOException {
         Customer a = new Customer(usernameTextField.getText(), passwordTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
         business.sendUser(a);
+        changeScreen1(event, "FXMLDocument.fxml");
     }
 
     @FXML
@@ -77,7 +78,15 @@ public class OpretController implements Initializable {
         window.setScene(screen);
         window.show();
     }
-     
+     private void changeScreen1(ActionEvent event, String a) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource(a));
+        Scene screen = new Scene(parent);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(screen);
+        window.show();
+    }
      
     
 }
