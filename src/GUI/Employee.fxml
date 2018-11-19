@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="employeePane" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EmployeeController">
    <children>
-      <AnchorPane prefHeight="122.0" prefWidth="830.0" style="-fx-background-color: grey;">
+      <AnchorPane fx:id="panelPane" prefHeight="122.0" prefWidth="830.0" style="-fx-background-color: grey;">
          <children>
             <ImageView fx:id="validateCaseImage" fitHeight="80.0" fitWidth="75.0" layoutX="92.0" layoutY="35.0" onMouseClicked="#openValidateCasePaneClicked" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -142,7 +142,7 @@
             <TextField fx:id="deadlineTextField" layoutX="83.0" layoutY="242.0" />
             <TextField fx:id="componentTextField" layoutX="83.0" layoutY="327.0" />
             <TextArea fx:id="informationTextArea" layoutX="367.0" layoutY="78.0" prefHeight="280.0" prefWidth="394.0" />
-            <ImageView fx:id="validateCaseBackArrow1" fitHeight="150.0" fitWidth="45.0" layoutX="31.0" layoutY="408.0" onMouseClicked="#validateCaseBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="approveCaseBackArrow1" fitHeight="150.0" fitWidth="45.0" layoutX="31.0" layoutY="408.0" onMouseClicked="#approveCaseBackArrowClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/backArrow.png" />
                </image>

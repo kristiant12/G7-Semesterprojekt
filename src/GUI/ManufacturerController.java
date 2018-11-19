@@ -128,6 +128,8 @@ public class ManufacturerController implements Initializable {
     private ObservableList<Case> cases;
     @FXML
     private ImageView viewCaseInfoBackArrow;
+    @FXML
+    private AnchorPane panelPane;
 
     /**
      * Initializes the controller class.
@@ -160,7 +162,7 @@ public class ManufacturerController implements Initializable {
     private void changeTwo(AnchorPane a, AnchorPane b){
         
         a.setDisable(true);
-        a.setVisible(true);
+        a.setVisible(false);
         b.setDisable(false);
         b.setVisible(true);
         
@@ -270,6 +272,7 @@ public class ManufacturerController implements Initializable {
     private void openCaseButtonClicked(ActionEvent event) {
          
         changeTwo(casesPane, viewCaseInfoPane);
+        panelPane.setDisable(true);
     }
 
     @FXML
@@ -285,6 +288,8 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void viewCaseInfoBackArrowClicked(MouseEvent event) {
+        changeTwo(viewCaseInfoPane, casesPane);
+        panelPane.setDisable(false);
     }
     
 }
