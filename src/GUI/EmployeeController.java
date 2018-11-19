@@ -111,8 +111,6 @@ public class EmployeeController implements Initializable {
     @FXML
     private TextArea informationTextArea;
     @FXML
-    private ImageView validateCaseBackArrow1;
-    @FXML
     private ImageView declineCaseImage;
     @FXML
     private ImageView approveCaseImage;
@@ -121,6 +119,10 @@ public class EmployeeController implements Initializable {
     private Label caseIdLabel;
     @FXML
     private Label ManufacturISCreated;
+    @FXML
+    private AnchorPane panelPane;
+    @FXML
+    private ImageView approveCaseBackArrow1;
 
     /**
      * Initializes the controller class.
@@ -249,6 +251,7 @@ public class EmployeeController implements Initializable {
         informationTextArea.setText(a.getFreeText());
         caseIdLabel.setText(a.getId());
         changePane(validateCasePane, approveCasePane);
+        panelPane.setDisable(true);
     }
 
     @FXML
@@ -280,12 +283,7 @@ public class EmployeeController implements Initializable {
     private void nextButtonClick(ActionEvent event) {
     }
 
-    @FXML
     private void validateCaseBackArrowClicked(MouseEvent event) {
-        approveCasePane.setDisable(true);
-        approveCasePane.setVisible(false);
-        validateCasePane.setDisable(false);
-        validateCasePane.setVisible(true);
     }
     
     
@@ -300,6 +298,15 @@ public class EmployeeController implements Initializable {
     @FXML
     private void approveCaseImageClicked(MouseEvent event){
        
+    }
+
+    @FXML
+    private void approveCaseBackArrowClicked(MouseEvent event) {
+        approveCasePane.setDisable(true);
+        approveCasePane.setVisible(false);
+        validateCasePane.setDisable(false);
+        validateCasePane.setVisible(true);
+        panelPane.setDisable(false);
     }
     
 }
