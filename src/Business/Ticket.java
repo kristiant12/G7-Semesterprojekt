@@ -5,17 +5,20 @@
  */
 package Business;
 
-import Acquaintance.ITicket;
+import java.io.Serializable;
+
+
 
 /**
  *
  * @author rober
  */
-public class Ticket {
+public class Ticket implements Serializable {
     
     private String issueNumber;
     private String issueDescription;
-    static final long serialVersionUID = -7588980448693010391L;
+    static final long serialVersionUID = -7588980448693010399L;
+
 
 
     

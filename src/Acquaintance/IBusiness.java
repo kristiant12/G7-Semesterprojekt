@@ -54,7 +54,7 @@ public interface IBusiness {
     
     public void modifyCase(Case a) throws IOException;
     
-     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException;
+    public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException;
     
     public void sendMapOfUserAndCases(Case b) throws IOException;
     
@@ -68,9 +68,13 @@ public interface IBusiness {
     
     public void Evaluate(Case a) throws IOException;
      
-     public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException; 
+    public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException; 
      
-     public void deleteUser(User a) throws IOException;
+    public void deleteUser(User a) throws IOException;
+     
+    public void createTicket(Ticket t, Customer c) throws IOException;
+    
+    public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException;
     
 }
 

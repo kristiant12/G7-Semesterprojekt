@@ -22,7 +22,7 @@ public class Case implements ICase,Serializable{
     private boolean evaluated;
     private String freeText;
     private double bid;
-      static final long serialVersionUID = -7588980448693010399L;
+    static final long serialVersionUID = -7588980448693010399L;
  
 
     

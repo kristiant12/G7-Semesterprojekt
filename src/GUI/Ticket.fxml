@@ -9,26 +9,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TicketController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TicketController">
    <children>
-      <Label layoutX="324.0" layoutY="34.0" text="Ticket desk">
-         <font>
-            <Font size="37.0" />
-         </font>
-      </Label>
-      <ListView fx:id="ticketsListView" layoutX="74.0" layoutY="144.0" prefHeight="300.0" prefWidth="200.0" />
-      <Label layoutX="74.0" layoutY="118.0" text="List of tickets">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <TextArea fx:id="ticketTextArea" layoutX="380.0" layoutY="144.0" prefHeight="300.0" prefWidth="375.0" promptText="Describe your problem here..." />
-      <ImageView fx:id="ticketBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="33.0" layoutY="537.0" onMouseClicked="#ticketBackArrowClicked" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@billeder/backArrow.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="createTicketButton" layoutX="651.0" layoutY="476.0" mnemonicParsing="false" onAction="#createTicketButtonClicked" text="Create ticket" />
-      <Button fx:id="seeTicketsButton" layoutX="94.0" layoutY="464.0" mnemonicParsing="false" onAction="#seeTicketsButtonAction" text="See tickets" />
+      <AnchorPane fx:id="MainTicketPane" layoutX="7.0" layoutY="18.0" prefHeight="606.0" prefWidth="830.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="324.0" layoutY="40.0" text="Ticket desk">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <ListView fx:id="ticketsListView" layoutX="76.0" layoutY="133.0" prefHeight="300.0" prefWidth="200.0" />
+            <Label layoutX="123.0" layoutY="101.0" text="List of tickets">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="ticketTextArea" layoutX="386.0" layoutY="134.0" prefHeight="300.0" prefWidth="430.0" promptText="Describe your problem here..." AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="134.0" />
+            <ImageView fx:id="ticketBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="31.0" layoutY="531.0" onMouseClicked="#ticketBackArrowClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@billeder/backArrow.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="createTicketButton" layoutX="539.0" layoutY="442.0" mnemonicParsing="false" onAction="#createTicketButtonClicked" text="Create ticket" />
+            <Button fx:id="seeTicketsButton" layoutX="87.0" layoutY="442.0" mnemonicParsing="false" onAction="#seeTicketsButtonAction" text="See tickets" />
+            <Button layoutX="188.0" layoutY="442.0" mnemonicParsing="false" onAction="#seeTicketInformationButtonClicked" text="See ticketnfo" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="seeInformationPane" disable="true" prefHeight="606.0" prefWidth="830.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="236.0" layoutY="24.0" prefHeight="72.0" prefWidth="358.0" text="Information about ticket">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="tickerIdLabel" layoutX="104.0" layoutY="124.0" prefHeight="7.0" prefWidth="144.0" />
+            <TextArea fx:id="InformationTextarea" layoutX="257.0" layoutY="124.0" prefHeight="386.0" prefWidth="516.0" />
+            <Button layoutX="63.0" layoutY="529.0" mnemonicParsing="false" onAction="#seeInformationBackButtonClicked" text="Back" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -44,24 +44,23 @@ public class Client implements IClient {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Client test = new Client();
-        Customer cu = new Customer("hallo", "oleolesen", "danmark", 876543, "henrik@gmail.com", "dsdsds");
+        Ticket a = new Ticket("test", "oinoindsoi");
+        Customer s = new Customer("oisnd", "lksmd", "sdnosmdoi", 1123, "OsrsBestGame@gmail.com", "oisndoi");
         Scanner scan = new Scanner(System.in);
-        while (true) {
-            String s = scan.nextLine();
-
-            List<Case> ff = test.getUserCaseList(cu);
-            for (int i = 0; i < ff.size(); i++) {
-                System.out.println(ff.get(i).toString());
-            }
-
+        while(true){
+        String f = scan.nextLine();
+            System.out.println(test.getAllSpecifikCustumerTicket(s));
         }
+        
+        
+        
 
     }
 
     public Client() {
 
         try {
-            String serverHostname = new String("10.126.10.106");
+            String serverHostname = new String("127.0.0.1");
             int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
 
@@ -245,7 +244,7 @@ public class Client implements IClient {
         tss.flush();
 
     }
-
+//
     @Override
     public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException {
 
@@ -272,6 +271,22 @@ public class Client implements IClient {
          sendtilServeren("16");
          tss.writeObject(a);
          
+     }
+     
+    @Override
+     public void createTicket(Ticket t, Customer c) throws IOException{
+          sendtilServeren("17");
+          Map<Customer,Ticket> test = new HashMap();
+          test.put(c, t);
+          tss.writeObject(test);
+     }
+     
+    @Override
+     public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException{
+         sendtilServeren("18");
+         tss.writeObject(c);
+         List<Ticket> list = (List<Ticket>) mapInputStram.readObject();
+         return list;
      }
      
      

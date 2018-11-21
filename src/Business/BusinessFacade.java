@@ -256,6 +256,16 @@ public class BusinessFacade implements IBusiness{
         client.deleteUser(a);
     }
 
+    @Override
+    public void createTicket(Ticket t, Customer c) throws IOException {
+        client.createTicket(t, c);
+    }
+
+    @Override
+    public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException {
+        return client.getAllSpecifikCustumerTicket(c);
+    }
+
     
     
 }

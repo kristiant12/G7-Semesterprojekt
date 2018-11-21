@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Business.Customer;
 import Business.Ticket;
 import Business.User;
 import static GUI.Gruppe_7_semesterprojekt.business;
@@ -25,8 +26,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.util.List;
+import java.util.Random;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+
 
 /**
  * FXML Controller class
@@ -46,11 +51,22 @@ public class TicketController implements Initializable {
     @FXML
     private Button seeTicketsButton;
 
+    private Random rand;
+    ObservableList<Ticket> ticket;
+    @FXML
+    private AnchorPane MainTicketPane;
+    @FXML
+    private AnchorPane seeInformationPane;
+    @FXML
+    private Label tickerIdLabel;
+    @FXML
+    private TextArea InformationTextarea;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.rand = new Random();
         // TODO
     }    
     
@@ -71,6 +87,10 @@ public class TicketController implements Initializable {
 
     @FXML
     private void createTicketButtonClicked(ActionEvent event) throws IOException  {
+        Ticket a = new Ticket("ID "+rand.nextInt(10000), ticketTextArea.getText());
+        business.createTicket(a, (Customer) business.getUser());
+        ticket.add(a);
+        ticketsListView.setItems(ticket);
              //   business.sendTicket(new Ticket(ticketTextArea.getText()));    
 //        issueTextArea.clear();
 //        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -96,12 +116,31 @@ public class TicketController implements Initializable {
     @FXML
     private void seeTicketsButtonAction(ActionEvent event) {
          try {
-            ObservableList<Ticket> ticket = FXCollections.observableArrayList(business.getTicketFromServer());
+            ticket = FXCollections.observableArrayList(business.getAllSpecifikCustumerTicket((Customer) business.getUser()));
             ticketsListView.setItems(ticket);
         
          } catch (Exception ex) {
 
         }
     }
+
+    @FXML
+    private void seeInformationBackButtonClicked(ActionEvent event) {
+        changePane(seeInformationPane, MainTicketPane);
+    }
+
+    @FXML
+    private void seeTicketInformationButtonClicked(ActionEvent event) {
+        Ticket a = ticketsListView.getSelectionModel().getSelectedItem();
+        tickerIdLabel.setText(a.getIssuenumber());
+        InformationTextarea.setText(a.getIssueDescription());
+        changePane(MainTicketPane, seeInformationPane);
+    }
     
+    public void changePane(AnchorPane a,AnchorPane b){
+        a.setDisable(true);
+        a.setVisible(false);
+        b.setDisable(false);
+        b.setVisible(true);
+    }
 }
