@@ -76,6 +76,8 @@ public interface IBusiness {
     
     public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException;
     
+     public void updateManufactor(Manufacturer m) throws IOException;
+    
 }
 
 

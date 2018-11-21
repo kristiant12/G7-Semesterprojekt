@@ -7,6 +7,7 @@ package Acquaintance;
 
 import Business.Case;
 import Business.Customer;
+import Business.Manufacturer;
 import Business.Ticket;
 import Business.User;
 import java.io.IOException;
@@ -50,6 +51,8 @@ public interface IClient {
     public void createTicket(Ticket t, Customer c) throws IOException;
     
     public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException;
+    
+    public void updateManufactor(Manufacturer m) throws IOException;
       
       
 }

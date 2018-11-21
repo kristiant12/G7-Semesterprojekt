@@ -9,6 +9,7 @@ import Acquaintance.IClient;
 import Business.Case;
 import Business.Customer;
 import Business.Employee;
+import Business.Manufacturer;
 import Business.Picture;
 import Business.Ticket;
 import Business.User;
@@ -287,6 +288,13 @@ public class Client implements IClient {
          tss.writeObject(c);
          List<Ticket> list = (List<Ticket>) mapInputStram.readObject();
          return list;
+     }
+     
+    @Override
+     public void updateManufactor(Manufacturer m) throws IOException{
+         sendtilServeren("19");
+         tss.writeObject(m);
+         
      }
      
      

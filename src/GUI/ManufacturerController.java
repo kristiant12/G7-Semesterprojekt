@@ -212,11 +212,12 @@ public class ManufacturerController implements Initializable {
     }
 
     @FXML
-    private void saveProfileButtonClicked(ActionEvent event) {
-       if(newPasswordTextField.getText().equalsIgnoreCase(repeatPasswordTextField.getText())){
-       int number = Integer.getInteger(firmNumberTextField.getText());
-       Manufacturer savedManufactorer = new Manufacturer(repeatPasswordTextField.getText(),firmNameTextField.getText(), firmAddressTextField.getText(),number,firmNameTextField.getText(),emailTextField.getText());
-       }
+    private void saveProfileButtonClicked(ActionEvent event) throws IOException {
+     //  if(newPasswordTextField.getText().equalsIgnoreCase(repeatPasswordTextField.getText())){
+     // virker ikke lige nu 
+     int number = Integer.getInteger(firmNumberTextField.getText());
+       business.updateManufactor(new Manufacturer(repeatPasswordTextField.getText(), business.getUser().getUserName(), firmAddressTextField.getText(), number, firmNameTextField.getText(),emailTextField.getText()));
+       //}
     }
 
     @FXML

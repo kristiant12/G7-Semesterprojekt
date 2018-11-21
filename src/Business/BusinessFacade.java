@@ -178,39 +178,6 @@ public class BusinessFacade implements IBusiness{
         return client.getUserCaseList1(a);
     }
     
-    
-//    public static void main(String[] args) throws ClassNotFoundException, IOException {
-//        BusinessFacade a = new BusinessFacade();
-//        Scanner scan = new Scanner(System.in);
-//        while(true){
-//             String test = scan.nextLine();
-//               Customer dd = new Customer("sssdusi", "sdsdssd1si", "ewddses", 3353330, "sefdsfsdkds", "erds");
-//            a.sendUser(dd);
-//        System.out.println(a.logintest("nicolai4", "1234"));
-//        System.out.println(a.getUser());
-//        System.out.println(a.getUserCaseList(a.getUser()));
-//            System.out.println("dfdef");
-//        System.out.println(a.logintest("nidsi4", "12sdsdsd34"));
-//            System.out.println(a.logintest("nicolasdsdi1", "1234"));
-//      ;
-//            System.out.println(a.logintest("sssdusi", "sdsdssd1si"));
-//            
-//            
-////        System.out.println("");
-////        String test2 = scan.nextLine();
-////
-////        System.out.println(a.logintest("henrik", "1234"));
-////        System.out.println(a.getUser());
-////        System.out.println(a.getUserCaseList(a.getUser()));
-////        
-////        System.out.println("");
-//        }
-       
-//        
-//           System.out.println(a.logintest("nicolai4", "1234"));
-//        System.out.println(a.getUser());
-//        System.out.println(a.getUserCaseList(a.getUser()));
-//    }
     @Override
     public void SendPicture(Picture pic) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -264,6 +231,11 @@ public class BusinessFacade implements IBusiness{
     @Override
     public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException {
         return client.getAllSpecifikCustumerTicket(c);
+    }
+
+    @Override
+    public void updateManufactor(Manufacturer m) throws IOException {
+        client.updateManufactor(m);
     }
 
     
