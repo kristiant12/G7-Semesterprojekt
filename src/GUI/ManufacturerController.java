@@ -100,7 +100,7 @@ public class ManufacturerController implements Initializable {
     @FXML
     private AnchorPane BidPane;
     private Case defaultCase;
-    ObservableList<Case> relevantcases = FXCollections.observableArrayList();
+    ObservableList<Case> relevantcases;
     ObservableList<Case> relevantcasesSearch = FXCollections.observableArrayList();
     @FXML
     private Button openCaseButton;
@@ -177,9 +177,13 @@ public class ManufacturerController implements Initializable {
     private void auctionImageClicked(MouseEvent event) throws IOException, ClassNotFoundException {
         if(event.getTarget()== auctionImage){
             change(auctionPane, casesPane, profilePane, BidPane, viewCaseInfoPane);
-             relevantcases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
-
+       try{
+            relevantcases = FXCollections.observableArrayList(business.getEvaluatetList());
             auctionCasesListView.setItems(relevantcases);
+            }
+      catch(Exception e){
+                
+        }
         }
     }
 
@@ -194,6 +198,12 @@ public class ManufacturerController implements Initializable {
     private void profileImageClicked(MouseEvent event) {
         if(event.getTarget()== profileImage){
             change(profilePane, auctionPane, casesPane, BidPane, viewCaseInfoPane);
+            firmNumberTextField.setText(business.getManufactor().getNumber()+"");
+            newPasswordTextField.setText(business.getManufactor().getPassword());
+            firmAddressTextField.setText(business.getManufactor().getFirmaddress());
+            firmNameTextField.setText(business.getManufactor().getFirmaName());
+            emailTextField.setText(business.getManufactor().getFirmaMail());
+            
         }
     }
 
@@ -213,11 +223,11 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void saveProfileButtonClicked(ActionEvent event) throws IOException {
-     //  if(newPasswordTextField.getText().equalsIgnoreCase(repeatPasswordTextField.getText())){
+       if(newPasswordTextField.getText().equalsIgnoreCase(repeatPasswordTextField.getText())){
      // virker ikke lige nu 
-     int number = Integer.getInteger(firmNumberTextField.getText());
+        int number = Integer.parseInt(firmNumberTextField.getText());
        business.updateManufactor(new Manufacturer(repeatPasswordTextField.getText(), business.getUser().getUserName(), firmAddressTextField.getText(), number, firmNameTextField.getText(),emailTextField.getText()));
-       //}
+       }
     }
 
     @FXML
@@ -232,24 +242,25 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionSearchImageClicked(MouseEvent event) {
-        for(int i = 0; i < relevantcases.lastIndexOf(defaultCase); i++){
-            boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
-            if (equalsIgnoreCase = true){
-                relevantcasesSearch.add(relevantcases.get(i));
-            }
-        }
-        auctionCasesListView.getItems().clear();
-        auctionCasesListView.setItems(relevantcasesSearch);
+//        for(int i = 0; i < relevantcases.lastIndexOf(defaultCase); i++){
+//            boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
+//            if (equalsIgnoreCase = true){
+//                relevantcasesSearch.add(relevantcases.get(i));
+//            }
+//        }
+//        auctionCasesListView.getItems().clear();
+//        auctionCasesListView.setItems(relevantcasesSearch);
     }
 
     @FXML
     private void bidBackArrowClicked(MouseEvent event) {
+        changeTwo(BidPane, auctionPane);
     }
 
     @FXML
     private void bidOnCaseClicked(ActionEvent event) throws IOException {
-                defaultCase.setBid(Double.valueOf(budgetTextField.getText()));
-                business.sendCase(defaultCase);
+//                defaultCase.setBid(Double.valueOf(budgetTextField.getText()));
+//                business.sendCase(defaultCase);
     }
 
     @FXML
@@ -259,8 +270,10 @@ public class ManufacturerController implements Initializable {
         informationTextArea.setText(selected.getFreeText());
         titleTextField.setText(selected.getCaseTitle());
         deadlineTextField.setText(selected.getDeadline());
+        budgetTextField.setText(selected.getCaseBudget());
+        componentTextfield.setText(selected.getComponent());
         
-        defaultCase = selected;
+        //defaultCase = selected;
         
     }
 
@@ -287,5 +300,7 @@ public class ManufacturerController implements Initializable {
         changeTwo(viewCaseInfoPane, casesPane);
         panelPane.setDisable(false);
     }
-    
+
+
+  
 }

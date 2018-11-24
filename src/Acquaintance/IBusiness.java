@@ -68,7 +68,7 @@ public interface IBusiness {
     
     public void Evaluate(Case a) throws IOException;
      
-    public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException; 
+    public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException; 
      
     public void deleteUser(User a) throws IOException;
      
@@ -77,6 +77,9 @@ public interface IBusiness {
     public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException;
     
      public void updateManufactor(Manufacturer m) throws IOException;
+     
+     
+      public Manufacturer getManufactor();
     
 }
 

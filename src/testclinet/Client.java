@@ -50,7 +50,8 @@ public class Client implements IClient {
         Scanner scan = new Scanner(System.in);
         while(true){
         String f = scan.nextLine();
-            System.out.println(test.getAllSpecifikCustumerTicket(s));
+        List<Case> dd = test.getEvaluatetList();
+            System.out.println(dd.toString());
         }
         
         
@@ -258,9 +259,8 @@ public class Client implements IClient {
 
     
     @Override
-     public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException{
+     public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException{
          sendtilServeren("15");
-         tss.writeObject(a);
          List<Case> dd = new ArrayList();
          dd = (List<Case>) mapInputStram.readObject();
          return dd;

@@ -95,14 +95,24 @@ public class BusinessFacade implements IBusiness{
     
         @Override
     public User getUser(){
+//        if(user instanceof Manufacturer){
+//            return (Manufacturer) user;
+//        }
         return user;
     }
     
         @Override
     public void setUser(User u){
+        if(u instanceof Manufacturer){
+            this.user = (Manufacturer) u;
+        }
         this.user = u;
     }
     
+    
+    public Manufacturer getManufactor(){
+        return (Manufacturer) user;
+    }
     
     public User login(String name, String password) throws ClassNotFoundException, IOException{
         List<User> list = client.getUserFromServer();
@@ -214,8 +224,8 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public List<Case> getEvaluatetList(Case a) throws IOException, ClassNotFoundException {
-        return client.getEvaluatetList(a);
+    public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException {
+        return client.getEvaluatetList();
     }
 
     @Override

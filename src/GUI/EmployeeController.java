@@ -61,7 +61,7 @@ public class EmployeeController implements Initializable {
     @FXML
     private ImageView validateCaseBackArrow;
     @FXML
-    private ListView<?> showTicketsListView;
+    private ListView<Ticket> showTicketsListView;
     @FXML
     private ListView<Case> showCasesListView;
     @FXML
@@ -115,6 +115,7 @@ public class EmployeeController implements Initializable {
     @FXML
     private ImageView approveCaseImage;
     ObservableList<Case> cases;
+    ObservableList<Ticket> ticketList;
     @FXML
     private Label caseIdLabel;
     @FXML
@@ -185,9 +186,12 @@ public class EmployeeController implements Initializable {
     }
 
     @FXML
-    private void openTicketsPaneClicked(MouseEvent event) {
+    private void openTicketsPaneClicked(MouseEvent event) throws IOException, ClassNotFoundException {
         if(event.getTarget() == ticketsImage){
             change(ticketsPane, validateCasePane, imageBankPane, createManufacturerPane);
+             ticketList = FXCollections.observableArrayList(business.getTicketFromServer());
+             showTicketsListView.setItems(ticketList);
+
         }
     }
 
@@ -269,13 +273,6 @@ public class EmployeeController implements Initializable {
         changePane(replyTicketPane, ticketsPane);
     }
     
-    public List<Ticket> getTicket(){
-       // return showCasesListView.get
-        Ticket test = (Ticket) showTicketsListView.getSelectionModel().getSelectedItem();
-        
-        
-       return null;
-    }
 
     @FXML
     private void submitButtonClick(ActionEvent event) {
