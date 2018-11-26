@@ -28,6 +28,8 @@ public class BusinessFacade implements IBusiness{
 //        private IData data;
         private User user;
         private Manufacturer manu;
+        private Case newCase;
+        private Manufacturer newManufactor;
     public BusinessFacade() {
         this.client = new Client();
         //user = null;
@@ -43,27 +45,23 @@ public class BusinessFacade implements IBusiness{
 //        data = dataLayer;
 //    }
     
+       @Override
      public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
-        sendCase(SendCase);
-    }
-//        public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText){
-//        Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
-//      //  mainDatabase.sendCase(SendCase);                  
-//    }
-
-   
-//       @Override
-//    public void RegisterBid(Case cs) {
-//           try {
-//             
-//               client.sendCase(cs);
-//               
-//           } catch (IOException ex) {
-//               Logger.getLogger(BusinessFacade.class.getName()).log(Level.SEVERE, null, ex);
-//           }
-//        
-//    }
+           setCase(SendCase);
+           sendMapOfUserAndCases(SendCase);
+     }
+     
+       @Override
+     public Case getCase(){
+         return newCase;
+     }
+     
+       @Override
+     public void setCase(Case a){
+         this.newCase = a;
+     }
+     
     public void createEmployee(String password, String usernam){
         Employee newEmployee  = new Employee(password, usernam);
     }
@@ -248,7 +246,18 @@ public class BusinessFacade implements IBusiness{
         client.updateManufactor(m);
     }
 
+   
+    public void createManufactur(String username,String password) throws IOException{
+        Manufacturer a = new Manufacturer(username, password, null, 0, null, null);
+        sendUser(a);
+        
+    }
     
+    public void setManufactor(Manufacturer m){
+        this.newManufactor = m;
+    }
+    
+  
     
 }
 /*

@@ -178,14 +178,14 @@ public void initialize(URL url, ResourceBundle rb) {
     @FXML
     private void editCasesButtonClick(ActionEvent event) throws IOException {
         // DET HER SKAL LAVES OM SÅDAN AT DEN TAGER FRA EDIT CASE SKÆRMEN
-        
-        Case test = userCaseListView.getSelectionModel().getSelectedItem();
-        caseIdLabel.setText(test.getId());
-        seeBudgetTextField.setText(test.getCaseBudget());
-        seeComponentTextField.setText(test.getComponent());
-        seeDeadlineTextfield.setText(test.getDeadline());
-        seeFreeTextTextField.setText(test.getFreeText());
-        seeTitleTextfield.setText(test.getCaseTitle());
+        business.setCase(userCaseListView.getSelectionModel().getSelectedItem());
+        //Case test = userCaseListView.getSelectionModel().getSelectedItem();
+        caseIdLabel.setText(business.getCase().getId());
+        seeBudgetTextField.setText(business.getCase().getCaseBudget());
+        seeComponentTextField.setText(business.getCase().getComponent());
+        seeDeadlineTextfield.setText(business.getCase().getDeadline());
+        seeFreeTextTextField.setText(business.getCase().getFreeText());
+        seeTitleTextfield.setText(business.getCase().getCaseTitle());
         changePane(costumerScreen, seeCasePane);
 
         
@@ -245,16 +245,17 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) throws IOException {
-        Case newCase = new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText());
-
-        business.sendMapOfUserAndCases(newCase);
+          business.createCase(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText());
+//        Case newCase = new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText());
+//
+//        business.sendMapOfUserAndCases(newCase);
         titleTextField.clear();
         budgetTextField.clear();
         deadlineTextField.clear();
         componentTextField.clear();
         informationTextArea.clear();
         SagOprettet.setText("Case created");
-        cases.add(newCase);
+        cases.add(business.getCase());
        // userCaseListView.getItems().clear();
         userCaseListView.setItems(cases);
         
@@ -272,7 +273,8 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void saveDataButtonClicked(ActionEvent event) throws IOException {
-        business.modifyCase(new Case(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText()));
+        business.createCase(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText());
+        business.modifyCase(business.getCase());
     
     }
 

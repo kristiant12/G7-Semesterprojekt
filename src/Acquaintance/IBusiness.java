@@ -80,6 +80,13 @@ public interface IBusiness {
      
      
       public Manufacturer getManufactor();
+      
+      public Case getCase();
+      public void setCase(Case a);
+      
+      public void createManufactur(String username,String password) throws IOException;
+      
+      public void setManufactor(Manufacturer m);
     
 }
 

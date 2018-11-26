@@ -114,6 +114,7 @@ public class EmployeeController implements Initializable {
     private ImageView declineCaseImage;
     @FXML
     private ImageView approveCaseImage;
+    // dette er ikke godt vi skal finde en løsning måske objekt
     ObservableList<Case> cases;
     ObservableList<Ticket> ticketList;
     @FXML
@@ -126,6 +127,8 @@ public class EmployeeController implements Initializable {
     private ImageView approveCaseBackArrow1;
     @FXML
     private ImageView replyTicketBackArrow;
+    @FXML
+    private Label TicketID;
 
     /**
      * Initializes the controller class.
@@ -234,8 +237,10 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void createAccountButtonClicked(ActionEvent event) throws IOException {
-        Manufacturer a = new Manufacturer(usernameTextField.getText(), passwordTextField.getText(), null, 0, null, null);
-        business.sendUser(a);
+        //Manufacturer a = new Manufacturer(usernameTextField.getText(), passwordTextField.getText(), null, 0, null, null);
+       
+        //business.sendUser(a);
+        business.createManufactur(usernameTextField.getText(), passwordTextField.getText());
         passwordTextField.clear();
         usernameTextField.clear();
         ManufacturISCreated.setText("User is created");
@@ -249,13 +254,14 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) {
-        Case a = showCasesListView.getSelectionModel().getSelectedItem();
-        titleTextField.setText(a.getCaseTitle());
-        budgetTextField.setText(a.getCaseBudget());
-        deadlineTextField.setText(a.getDeadline());
-        componentTextField.setText(a.getComponent());
-        informationTextArea.setText(a.getFreeText());
-        caseIdLabel.setText(a.getId());
+        business.setCase(showCasesListView.getSelectionModel().getSelectedItem());
+       // Case a = showCasesListView.getSelectionModel().getSelectedItem();
+        titleTextField.setText(business.getCase().getCaseTitle());
+        budgetTextField.setText(business.getCase().getCaseBudget());
+        deadlineTextField.setText(business.getCase().getDeadline());
+        componentTextField.setText(business.getCase().getComponent());
+        informationTextArea.setText(business.getCase().getFreeText());
+        caseIdLabel.setText(business.getCase().getId());
         changePane(validateCasePane, approveCasePane);
         panelPane.setDisable(true);
     }
@@ -270,12 +276,17 @@ public class EmployeeController implements Initializable {
     }
     // ved ikke lige hvad det her er, men den kan ikke bruges
     private void nextButtonClick(MouseEvent event) throws IOException {
+        Ticket t = showTicketsListView.getSelectionModel().getSelectedItem();
+        TicketID.setText(t.getIssuenumber());
+        ticketTextArea.setText(t.getIssueDescription());
         changePane(replyTicketPane, ticketsPane);
     }
     
 
     @FXML
     private void submitButtonClick(ActionEvent event) {
+        
+        
     }
 
     @FXML
