@@ -268,7 +268,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
-             business.deleteCase(showCasesListView.getSelectionModel().getSelectedItem());
+        business.deleteCase(showCasesListView.getSelectionModel().getSelectedItem());
         cases.remove(showCasesListView.getSelectionModel().getSelectedItem());
         showCasesListView.setItems(cases);
         
@@ -276,9 +276,7 @@ public class EmployeeController implements Initializable {
     }
     // ved ikke lige hvad det her er, men den kan ikke bruges
     private void nextButtonClick(MouseEvent event) throws IOException {
-        Ticket t = showTicketsListView.getSelectionModel().getSelectedItem();
-        TicketID.setText(t.getIssuenumber());
-        ticketTextArea.setText(t.getIssueDescription());
+       
         changePane(replyTicketPane, ticketsPane);
     }
     
@@ -291,6 +289,9 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void nextButtonClick(ActionEvent event) {
+        Ticket t = showTicketsListView.getSelectionModel().getSelectedItem();
+        TicketID.setText(t.getIssuenumber());
+        ticketTextArea.setText(t.getIssueDescription());
         changePane(ticketsPane, replyTicketPane);
     }
 
