@@ -36,4 +36,5 @@ public interface ICase {
     public String getId();
     public void setId(String i);
     
+    
 }

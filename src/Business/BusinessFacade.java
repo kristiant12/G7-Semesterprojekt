@@ -256,9 +256,12 @@ public class BusinessFacade implements IBusiness{
     public void setManufactor(Manufacturer m){
         this.newManufactor = m;
     }
-    
+
+    @Override
+    public void employeeReplyTekst(Ticket t) throws IOException {
+        client.employeeReplyTekst(t);
+    }
   
-    
 }
 /*
  * To change this license header, choose License Headers in Project Properties.

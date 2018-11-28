@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/Acquaintance/IBusiness.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>84</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/testclinet/Client.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Business/Auction.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/GUI/Gruppe_7_semesterprojekt.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/GUI/ManufacturerController.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Acquaintance/IClient.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Acquaintance/IBusiness.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Business/BusinessFacade.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Business/Ticket.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/GUI/TicketController.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/GUI/BrugerController.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Starter/starter.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/GUI/EmployeeController.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Business/Manufacturer.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/GUI/CustomerController.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/GUI/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Business/User.java</file>
-            <file>file:/C:/Users/nicol/Documents/GitHub/G7-Semesterprojekt/src/Business/Case.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

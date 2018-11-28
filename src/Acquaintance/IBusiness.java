@@ -88,6 +88,8 @@ public interface IBusiness {
       
       public void setManufactor(Manufacturer m);
     
+      public void employeeReplyTekst(Ticket t) throws IOException;
+      
 }
 
 

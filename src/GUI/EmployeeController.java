@@ -282,7 +282,11 @@ public class EmployeeController implements Initializable {
     
 
     @FXML
-    private void submitButtonClick(ActionEvent event) {
+    private void submitButtonClick(ActionEvent event) throws IOException {
+        Ticket t = showTicketsListView.getSelectionModel().getSelectedItem();
+        t.setBackMessage(answerTextArea.getText());
+        t.setEmployeeName(business.getUser().getUserName());
+        business.employeeReplyTekst(t);
         
         
     }

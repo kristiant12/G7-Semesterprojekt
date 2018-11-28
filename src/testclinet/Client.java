@@ -297,6 +297,10 @@ public class Client implements IClient {
          
      }
      
+     public void employeeReplyTekst(Ticket t) throws IOException{
+         sendtilServeren("20");
+         tss.writeObject(t);
+     }
      
      
 }
