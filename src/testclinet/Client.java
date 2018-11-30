@@ -308,5 +308,12 @@ public class Client implements IClient {
         tss.writeObject(a);
         tss.flush();
     }
+    
+    public List<Case> getAuction() throws IOException, ClassNotFoundException{
+        sendtilServeren("22");
+        List<Case> s = (List<Case>) mapInputStram.readObject();
+        
+        return s;
+    }
      
 }
