@@ -91,6 +91,8 @@ public interface IBusiness {
       public void employeeReplyTekst(Ticket t) throws IOException;
       
       public void registerBid(Case c,double bid) throws IOException;
+      
+      public List<Case> getAuction() throws IOException, ClassNotFoundException;
 }
 
 

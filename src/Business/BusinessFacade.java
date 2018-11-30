@@ -267,6 +267,12 @@ public class BusinessFacade implements IBusiness{
         c.setBid(bid);
         client.RegisterBid(c);
     }
+
+    @Override
+    public List<Case> getAuction() throws IOException, ClassNotFoundException {
+        return client.getAuction();
+        
+    }
   
 }
 /*

@@ -135,12 +135,7 @@ public class Client implements IClient {
 
         tss.flush();
     }
-    @Override
-    public void RegisterBid(Case a) throws IOException {
-        sendtilServeren("5");
-        tss.writeObject(a);
-        tss.flush();
-    }
+
 
 //    public static void main(String[] args) throws IOException {
 //        
@@ -307,6 +302,18 @@ public class Client implements IClient {
          sendtilServeren("20");
          tss.writeObject(t);
      }
-     
+         @Override
+    public void RegisterBid(Case a) throws IOException {
+        sendtilServeren("21");
+        tss.writeObject(a);
+        tss.flush();
+    }
+    
+    public List<Case> getAuction() throws IOException, ClassNotFoundException{
+        sendtilServeren("22");
+        List<Case> s = (List<Case>) mapInputStram.readObject();
+        
+        return s;
+    }
      
 }

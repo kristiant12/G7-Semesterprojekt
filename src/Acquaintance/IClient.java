@@ -56,4 +56,8 @@ public interface IClient {
       
    public void employeeReplyTekst(Ticket t) throws IOException;
    public void RegisterBid(Case a) throws IOException;
+
+   
+   public List<Case> getAuction() throws IOException, ClassNotFoundException;
+   
 }
