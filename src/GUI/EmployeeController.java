@@ -5,9 +5,8 @@
  */
 package GUI;
 
-import Business.Case;
-import Business.Customer;
-import Business.Manufacturer;
+
+import Acquaintance.ICase;
 import Business.Ticket;
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
@@ -63,7 +62,7 @@ public class EmployeeController implements Initializable {
     @FXML
     private ListView<Ticket> showTicketsListView;
     @FXML
-    private ListView<Case> showCasesListView;
+    private ListView<ICase> showCasesListView;
     @FXML
     private ListView<?> imageBankListView;
     @FXML
@@ -115,7 +114,7 @@ public class EmployeeController implements Initializable {
     @FXML
     private ImageView approveCaseImage;
     // dette er ikke godt vi skal finde en løsning måske objekt
-    ObservableList<Case> cases;
+    ObservableList<ICase> cases;
     ObservableList<Ticket> ticketList;
     @FXML
     private Label caseIdLabel;

@@ -48,6 +48,10 @@ public class Case implements ICase,Serializable{
         this.freeText = freeText;
     }
 
+    public Case() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public double getBid() {
         return bid;
     }

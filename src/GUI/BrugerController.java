@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Acquaintance.ICase;
 import Business.Case;
 import Business.Customer;
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class BrugerController implements Initializable {
     private AnchorPane costumerScreen;
     @FXML
     //private ListView<String> userCaseListView;
-    ListView<Case> userCaseListView = new ListView<>();
+    ListView<ICase> userCaseListView = new ListView<>();
     @FXML
     private ImageView createCaseImage;
     @FXML
@@ -83,9 +84,9 @@ public class BrugerController implements Initializable {
     ListAdapter adapter;
     ArrayList<Object> caseArray;
 
-    ObservableList<Case> cases;
+    ObservableList<ICase> cases;
             
-    ObservableList<Case> caseList = FXCollections.observableArrayList ();
+    ObservableList<ICase> caseList = FXCollections.observableArrayList ();
     @FXML
     private Button createCaseButton;
     
@@ -203,7 +204,7 @@ public void initialize(URL url, ResourceBundle rb) {
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
 
-        business.deleteCase(userCaseListView.getSelectionModel().getSelectedItem());
+        business.deleteCase( userCaseListView.getSelectionModel().getSelectedItem());
         cases.remove(userCaseListView.getSelectionModel().getSelectedItem());
         userCaseListView.setItems(cases);
        
@@ -282,8 +283,8 @@ public void initialize(URL url, ResourceBundle rb) {
     private void seeCaseBackArrowClicked(MouseEvent event) {
         changePane(seeCasePane, costumerScreen);
     }
+
     
-        
         
     
     

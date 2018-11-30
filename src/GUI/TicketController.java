@@ -5,9 +5,10 @@
  */
 package GUI;
 
+
 import Business.Customer;
 import Business.Ticket;
-import Business.User;
+
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;

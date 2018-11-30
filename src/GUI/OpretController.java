@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import Business.Customer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,9 +58,10 @@ public class OpretController implements Initializable {
 
     @FXML
     private void createAccountButtonClicked(ActionEvent event) throws IOException {
-        Customer a = new Customer(usernameTextField.getText(), passwordTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
-        business.sendUser(a);
-        changeScreen1(event, "FXMLDocument.fxml");
+//        Customer a = new Customer(usernameTextField.getText(), passwordTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
+//        business.sendUser(a);
+//        changeScreen1(event, "FXMLDocument.fxml");
+// indsæt funktionaliteten i business facaden 
     }
 
     @FXML

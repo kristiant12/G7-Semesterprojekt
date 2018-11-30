@@ -5,10 +5,10 @@
  */
 package GUI;
 
-import Business.Case;
-import Business.Customer;
+import Acquaintance.IUser;
+
 import Business.Employee;
-import Business.User;
+
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
@@ -38,7 +38,7 @@ import javafx.collections.ObservableList;
 public class AdminController implements Initializable {
 
     
-      ObservableList<User> user;
+      ObservableList<IUser> user;
     
     @FXML
     private AnchorPane createEmployeePane;
@@ -51,7 +51,7 @@ public class AdminController implements Initializable {
     @FXML
     private AnchorPane deleteUserPane;
     @FXML
-    private ListView<User> usersListView;
+    private ListView<IUser> usersListView;
     @FXML
     private Button deleteUserButton;
     @FXML
@@ -71,10 +71,11 @@ public class AdminController implements Initializable {
 
     @FXML
     private void createEmployeeButtonClicked(ActionEvent event) throws IOException {
-        Employee a = new Employee(usernameTextField.getText(),passwordTextField.getText()); 
-        business.sendUser(a);
-        user.add(a);
-        usersListView.setItems(user);
+//        Employee a = new Employee(usernameTextField.getText(),passwordTextField.getText()); 
+//        business.sendUser(a);
+//        user.add(a)
+//        usersListView.setItems(user);
+//Fix det her, functionalitet skal flyttes til business facaden
         
          
 
@@ -99,7 +100,7 @@ public class AdminController implements Initializable {
 
     @FXML
     private void deleteUserButtonClicked(ActionEvent event) throws IOException {
-       business.deleteUser(usersListView.getSelectionModel().getSelectedItem());
+       business.deleteUser( usersListView.getSelectionModel().getSelectedItem());
        user.remove(usersListView.getSelectionModel().getSelectedItem());
        usersListView.setItems(user);
     }
@@ -117,7 +118,8 @@ public class AdminController implements Initializable {
     @FXML
     private void deleteUserImageClicked(MouseEvent event) {
             try {
-          user = FXCollections.observableArrayList(business.getUserFromServer());
+                //virker nok ikke og skal laves om i client/server delen
+          user = FXCollections.observableArrayList((IUser)business.getUserFromServer());
             usersListView.setItems(user);
          } catch (Exception ex) {
 

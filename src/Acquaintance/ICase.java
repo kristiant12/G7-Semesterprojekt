@@ -5,12 +5,13 @@
  */
 package Acquaintance;
 
+
+
 /**
  *
  * @author nicol
  */
 public interface ICase {
-    
     public String getCaseTitle();
     public void setCaseTitle(String i);
     

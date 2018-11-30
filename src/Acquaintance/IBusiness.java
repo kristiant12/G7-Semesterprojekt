@@ -48,7 +48,7 @@ public interface IBusiness {
     public void createCase(String caseTitle, String caseID,String caseBudget,
             String deadline, String component,boolean evaluated,String freeText) throws IOException;
      
-    public void deleteCase(Case ce) throws IOException;
+    public void deleteCase(ICase ic) throws IOException;
     
     public void sendTicket(Ticket ticket) throws IOException;
     
@@ -66,11 +66,11 @@ public interface IBusiness {
     
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
     
-    public void Evaluate(Case a) throws IOException;
+    public void Evaluate(ICase ic) throws IOException ;
      
     public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException; 
      
-    public void deleteUser(User a) throws IOException;
+    public void deleteUser(IUser iu) throws IOException ;
      
     public void createTicket(Ticket t, Customer c) throws IOException;
     
@@ -82,7 +82,7 @@ public interface IBusiness {
       public Manufacturer getManufactor();
       
       public Case getCase();
-      public void setCase(Case a);
+      public void setCase(ICase ia);
       
       public void createManufactur(String username,String password) throws IOException;
       
@@ -90,7 +90,8 @@ public interface IBusiness {
     
       public void employeeReplyTekst(Ticket t) throws IOException;
       
-      public void registerBid(Case c,double bid) throws IOException;
+      public void registerBid(ICase ic,double bid) throws IOException;
+      
 }
 
 

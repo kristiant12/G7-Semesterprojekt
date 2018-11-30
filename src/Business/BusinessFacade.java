@@ -6,7 +6,9 @@
 package Business;
 
 import Acquaintance.IBusiness;
+import Acquaintance.ICase;
 import Acquaintance.IData;
+import Acquaintance.IUser;
 //import Data.DataFacade;
 import Data.Database;
 import java.io.IOException;
@@ -58,8 +60,9 @@ public class BusinessFacade implements IBusiness{
      }
      
        @Override
-     public void setCase(Case a){
-         this.newCase = a;
+     public void setCase(ICase ia){
+         Case c = (Case) ia;
+         this.newCase = c;
      }
      
     public void createEmployee(String password, String usernam){
@@ -157,8 +160,9 @@ public class BusinessFacade implements IBusiness{
     
     
        @Override
-    public void deleteCase(Case ce) throws IOException{
-        client.deleteCase(ce);
+    public void deleteCase(ICase ic) throws IOException{
+        Case c = (Case) ic;
+        client.deleteCase(c);
     }
 
     /**
@@ -202,8 +206,9 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public void Evaluate(Case a) throws IOException {
-        client.Evaluate(a);
+    public void Evaluate(ICase ic) throws IOException {
+        Case c = (Case) ic;
+        client.Evaluate(c);
     }
     public Logistics updateLogistics(String lastKnownCity, int estimatedTime, String FormOfTransportation, Case cs){
         
@@ -227,8 +232,9 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public void deleteUser(User a) throws IOException {
-        client.deleteUser(a);
+    public void deleteUser(IUser iu) throws IOException {
+        User u = (User) iu;
+        client.deleteUser(u);
     }
 
     @Override
@@ -263,7 +269,8 @@ public class BusinessFacade implements IBusiness{
     }
     
        @Override
-    public void registerBid(Case c,double bid) throws IOException{
+    public void registerBid(ICase ic,double bid) throws IOException{
+        Case c = (Case) ic;
         c.setBid(bid);
         client.RegisterBid(c);
     }

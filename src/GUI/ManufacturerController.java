@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Business.Case;
+import Acquaintance.ICase;
 import Business.Customer;
 import Business.Manufacturer;
 import static GUI.Gruppe_7_semesterprojekt.business;
@@ -78,9 +78,9 @@ public class ManufacturerController implements Initializable {
     @FXML
     private ImageView auctionSearchImage;
     @FXML
-    private ListView<?> casesListView;
+    private ListView<ICase> casesListView;
     @FXML
-    private ListView<Case> auctionCasesListView;
+    private ListView<ICase> auctionCasesListView;
     @FXML
     private ImageView bidBackArrow;
     @FXML
@@ -101,9 +101,9 @@ public class ManufacturerController implements Initializable {
     private Button bidButton;
     @FXML
     private AnchorPane BidPane;
-    private Case defaultCase;
-    ObservableList<Case> relevantcases;
-    ObservableList<Case> relevantcasesSearch = FXCollections.observableArrayList();
+
+    ObservableList<ICase> relevantcases;
+    ObservableList<ICase> relevantcasesSearch = FXCollections.observableArrayList();
     IntegerBinding sizeProperty = Bindings.size(relevantcases);
     @FXML
     private Button openCaseButton;
@@ -126,7 +126,7 @@ public class ManufacturerController implements Initializable {
     @FXML
     private Button seeCasesButton;
     
-    private ObservableList<Case> cases;
+    private ObservableList<ICase> cases;
     @FXML
     private ImageView viewCaseInfoBackArrow;
     @FXML
@@ -265,13 +265,12 @@ public class ManufacturerController implements Initializable {
     @FXML
     private void bidOnCaseClicked(ActionEvent event) throws IOException {
             business.registerBid(auctionCasesListView.getSelectionModel().getSelectedItem(), Double.valueOf(budgetTextField.getText()));
-               
     }
 
     @FXML
     private void clickedBidButton(ActionEvent event) {
         change(BidPane, auctionPane, casesPane, profilePane, viewCaseInfoPane);
-        Case selected = auctionCasesListView.getSelectionModel().getSelectedItem();
+        ICase selected =  auctionCasesListView.getSelectionModel().getSelectedItem();
         informationTextArea.setText(selected.getFreeText());
         titleTextField.setText(selected.getCaseTitle());
         deadlineTextField.setText(selected.getDeadline());
