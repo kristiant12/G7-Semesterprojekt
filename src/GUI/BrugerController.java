@@ -6,8 +6,7 @@
 package GUI;
 
 import Acquaintance.ICase;
-import Business.Case;
-import Business.Customer;
+import Acquaintance.ICustomer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -264,7 +263,7 @@ public void initialize(URL url, ResourceBundle rb) {
     @FXML
     private void testuttonClicked(ActionEvent event) {
             try {
-            cases = FXCollections.observableArrayList(business.getUserCaseList2((Customer) business.getUser()));
+            cases = FXCollections.observableArrayList(business.getUserCaseList2((ICustomer) business.getUser()));
             userCaseListView.setItems(cases);
          } catch (Exception ex) {
              ex.printStackTrace();
