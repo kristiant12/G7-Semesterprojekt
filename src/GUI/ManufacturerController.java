@@ -245,14 +245,16 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionSearchImageClicked(MouseEvent event) {
-        for(int i = 0; i < sizeProperty.doubleValue(); i++){
-            boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
-            if (equalsIgnoreCase = true){
-                relevantcasesSearch.add(relevantcases.get(i));
+        if(event.getTarget()== auctionSearchImage){
+            for(int i = 0; i < sizeProperty.doubleValue(); i++){
+                boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
+                 if (equalsIgnoreCase = true){
+                     relevantcasesSearch.add(relevantcases.get(i));
+                }
             }
-        }
         auctionCasesListView.getItems().clear();
         auctionCasesListView.setItems(relevantcasesSearch);
+        }
     }
 
     @FXML
