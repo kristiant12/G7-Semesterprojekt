@@ -134,7 +134,7 @@ public class Case implements ICase,Serializable{
 
     @Override
     public String toString() {
-        return "Case{" + "caseTitle=" + caseTitle + ", caseID=" + caseID + ", caseBudget=" + caseBudget + ", deadline=" + deadline + ", component=" + component + ", evaluated=" + evaluated + ", freeText=" + freeText + ", bid=" + bid + '}';
+        return  "caseTitle=" + caseTitle;
     }
 
 }

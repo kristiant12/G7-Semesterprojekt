@@ -55,4 +55,5 @@ public interface IClient {
     public void updateManufactor(Manufacturer m) throws IOException;
       
    public void employeeReplyTekst(Ticket t) throws IOException;
+   public void RegisterBid(Case a) throws IOException;
 }

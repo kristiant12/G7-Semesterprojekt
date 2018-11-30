@@ -259,8 +259,8 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void bidOnCaseClicked(ActionEvent event) throws IOException {
-//                defaultCase.setBid(Double.valueOf(budgetTextField.getText()));
-//                business.sendCase(defaultCase);
+               business.registerBid(defaultCase, Double.valueOf(budgetTextField.getText()));
+               
     }
 
     @FXML

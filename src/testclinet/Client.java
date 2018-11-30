@@ -135,6 +135,12 @@ public class Client implements IClient {
 
         tss.flush();
     }
+    @Override
+    public void RegisterBid(Case a) throws IOException {
+        sendtilServeren("5");
+        tss.writeObject(a);
+        tss.flush();
+    }
 
 //    public static void main(String[] args) throws IOException {
 //        

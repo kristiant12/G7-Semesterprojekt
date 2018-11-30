@@ -261,10 +261,16 @@ public class BusinessFacade implements IBusiness{
     public void employeeReplyTekst(Ticket t) throws IOException {
         client.employeeReplyTekst(t);
     }
+    
+       @Override
+    public void registerBid(Case c,double bid) throws IOException{
+        c.setBid(bid);
+        client.RegisterBid(c);
+    }
   
 }
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header , choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
