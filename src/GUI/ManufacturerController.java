@@ -104,7 +104,7 @@ public class ManufacturerController implements Initializable {
 
     ObservableList<ICase> relevantcases;
     ObservableList<ICase> relevantcasesSearch = FXCollections.observableArrayList();
-    IntegerBinding sizeProperty = Bindings.size(relevantcases);
+//    IntegerBinding sizeProperty = Bindings.size(relevantcases);
     @FXML
     private Button openCaseButton;
     @FXML
@@ -181,7 +181,7 @@ public class ManufacturerController implements Initializable {
         if(event.getTarget()== auctionImage){
             change(auctionPane, casesPane, profilePane, BidPane, viewCaseInfoPane);
        try{
-            relevantcases = FXCollections.observableArrayList(business.getEvaluatetList());
+            relevantcases = FXCollections.observableArrayList(business.getAuction());
             auctionCasesListView.setItems(relevantcases);
             }
       catch(Exception e){
@@ -245,16 +245,16 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionSearchImageClicked(MouseEvent event) {
-        if(event.getTarget()== auctionSearchImage){
-            for(int i = 0; i < sizeProperty.doubleValue(); i++){
-                boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
-                 if (equalsIgnoreCase = true){
-                     relevantcasesSearch.add(relevantcases.get(i));
-                }
-            }
-        auctionCasesListView.getItems().clear();
-        auctionCasesListView.setItems(relevantcasesSearch);
-        }
+//        if(event.getTarget()== auctionSearchImage){
+//            for(int i = 0; i < sizeProperty.doubleValue(); i++){
+//                boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
+//                 if (equalsIgnoreCase = true){
+//                     relevantcasesSearch.add(relevantcases.get(i));
+//                }
+//            }
+//        auctionCasesListView.getItems().clear();
+//        auctionCasesListView.setItems(relevantcasesSearch);
+//        }
     }
 
     @FXML
@@ -264,7 +264,7 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void bidOnCaseClicked(ActionEvent event) throws IOException {
-            business.registerBid(auctionCasesListView.getSelectionModel().getSelectedItem(), Double.valueOf(budgetTextField.getText()));
+            business.registerBid(auctionCasesListView.getSelectionModel().getSelectedItem(), Double.valueOf(bidAmountTextField.getText()));
     }
 
     @FXML
