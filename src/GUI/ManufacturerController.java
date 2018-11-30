@@ -12,6 +12,8 @@ import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.IntegerBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -102,6 +104,7 @@ public class ManufacturerController implements Initializable {
     private Case defaultCase;
     ObservableList<Case> relevantcases;
     ObservableList<Case> relevantcasesSearch = FXCollections.observableArrayList();
+    IntegerBinding sizeProperty = Bindings.size(relevantcases);
     @FXML
     private Button openCaseButton;
     @FXML
@@ -209,16 +212,16 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionBackArrowClicked(MouseEvent event) {
-//                if(event.getTarget()== auctionBackArrow){
-//            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
-//        }
+        if(event.getTarget()== casesImage){
+            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
+        }
     }
 
     @FXML
     private void casesBackArrowClicked(MouseEvent event) {
-//        if(event.getTarget()== casesBackArrow){
-//            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
-//        }
+        if(event.getTarget()== casesImage){
+            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
+        }  
     }
 
     @FXML
@@ -242,14 +245,14 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionSearchImageClicked(MouseEvent event) {
-//        for(int i = 0; i < relevantcases.lastIndexOf(defaultCase); i++){
-//            boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
-//            if (equalsIgnoreCase = true){
-//                relevantcasesSearch.add(relevantcases.get(i));
-//            }
-//        }
-//        auctionCasesListView.getItems().clear();
-//        auctionCasesListView.setItems(relevantcasesSearch);
+        for(int i = 0; i < sizeProperty.doubleValue(); i++){
+            boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
+            if (equalsIgnoreCase = true){
+                relevantcasesSearch.add(relevantcases.get(i));
+            }
+        }
+        auctionCasesListView.getItems().clear();
+        auctionCasesListView.setItems(relevantcasesSearch);
     }
 
     @FXML
@@ -259,7 +262,7 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void bidOnCaseClicked(ActionEvent event) throws IOException {
-               business.registerBid(defaultCase, Double.valueOf(budgetTextField.getText()));
+            business.registerBid(auctionCasesListView.getSelectionModel().getSelectedItem(), Double.valueOf(budgetTextField.getText()));
                
     }
 
