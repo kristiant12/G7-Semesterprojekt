@@ -6,8 +6,9 @@
 package GUI;
 
 
-import Business.Customer;
-import Business.Ticket;
+import Acquaintance.ICustomer;
+import Acquaintance.ITicket;
+import Acquaintance.IUser;
 
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
@@ -42,7 +43,7 @@ import javafx.scene.layout.AnchorPane;
 public class TicketController implements Initializable {
 
     @FXML
-    private ListView<Ticket> ticketsListView;
+    private ListView<ITicket> ticketsListView;
     @FXML
     private TextArea ticketTextArea;
     @FXML
@@ -53,7 +54,7 @@ public class TicketController implements Initializable {
     private Button seeTicketsButton;
 
     private Random rand;
-    ObservableList<Ticket> ticket;
+    ObservableList<ITicket> ticket;
     @FXML
     private AnchorPane MainTicketPane;
     @FXML
@@ -88,9 +89,8 @@ public class TicketController implements Initializable {
 
     @FXML
     private void createTicketButtonClicked(ActionEvent event) throws IOException  {
-        Ticket a = new Ticket("ID "+rand.nextInt(10000), ticketTextArea.getText());
-        business.createTicket(a, (Customer) business.getUser());
-        ticket.add(a);
+        
+        ticket.add((ITicket)business.createTicket(ticketTextArea.getText(),tickerIdLabel.getText(),(ICustomer) business.getUser()));
         ticketsListView.setItems(ticket);
              //   business.sendTicket(new Ticket(ticketTextArea.getText()));    
 //        issueTextArea.clear();
@@ -117,7 +117,7 @@ public class TicketController implements Initializable {
     @FXML
     private void seeTicketsButtonAction(ActionEvent event) {
          try {
-            ticket = FXCollections.observableArrayList(business.getAllSpecifikCustumerTicket((Customer) business.getUser()));
+            ticket = FXCollections.observableArrayList((ITicket)business.getAllSpecifikCustumerTicket((ICustomer) business.getUser()));
             ticketsListView.setItems(ticket);
         
          } catch (Exception ex) {
@@ -132,7 +132,7 @@ public class TicketController implements Initializable {
 
     @FXML
     private void seeTicketInformationButtonClicked(ActionEvent event) {
-        Ticket a = ticketsListView.getSelectionModel().getSelectedItem();
+        ITicket a = ticketsListView.getSelectionModel().getSelectedItem();
         tickerIdLabel.setText(a.getIssuenumber());
         InformationTextarea.setText(a.getIssueDescription());
         changePane(MainTicketPane, seeInformationPane);

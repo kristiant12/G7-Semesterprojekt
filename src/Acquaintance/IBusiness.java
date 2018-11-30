@@ -14,85 +14,79 @@ import java.util.List;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author nicol
  */
 public interface IBusiness {
-    
+
 //    public void injectData(IData dataLayer);
-    
 //    public void RegisterBid(Case cs);
-    
 //    public String toServer(String i);
-  
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException;
-    
+
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException;
-    
+
     public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException;
 
-    public boolean logintest(String name,String password) throws ClassNotFoundException,IOException;
-    
+    public boolean logintest(String name, String password) throws ClassNotFoundException, IOException;
+
     public User getUser();
-    
-    public void setUser(User user);    
+
+    public void setUser(User user);
 
     public void createEmployee(String pass, String usernam);
-    
+
     public void sendUser(User d) throws IOException;
-    
+
     public void sendCase(Case a) throws IOException;
-    
-    public void createCase(String caseTitle, String caseID,String caseBudget,
-            String deadline, String component,boolean evaluated,String freeText) throws IOException;
-     
+
+    public void createCase(String caseTitle, String caseID, String caseBudget,
+            String deadline, String component, boolean evaluated, String freeText) throws IOException;
+
     public void deleteCase(ICase ic) throws IOException;
-    
+
     public void sendTicket(Ticket ticket) throws IOException;
-    
+
     public void modifyCase(Case a) throws IOException;
-    
+
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException;
-    
+
     public void sendMapOfUserAndCases(Case b) throws IOException;
-    
-    public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException;
+
+    public List<Case> getUserCaseList2(ICustomer a) throws IOException, ClassNotFoundException;
 
     public void SendPicture(Picture picture);
 
     public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException;
-    
+
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
-    
-    public void Evaluate(ICase ic) throws IOException ;
-     
-    public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException; 
-     
-    public void deleteUser(IUser iu) throws IOException ;
-     
-    public void createTicket(Ticket t, Customer c) throws IOException;
-    
-    public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException;
-    
-     public void updateManufactor(Manufacturer m) throws IOException;
-     
-     
-      public Manufacturer getManufactor();
-      
-      public Case getCase();
-      public void setCase(ICase ia);
-      
-      public void createManufactur(String username,String password) throws IOException;
-      
-      public void setManufactor(Manufacturer m);
-    
-      public void employeeReplyTekst(Ticket t) throws IOException;
-      
-      public void registerBid(ICase ic,double bid) throws IOException;
-      
-      public List<Case> getAuction() throws IOException, ClassNotFoundException;
+
+    public void Evaluate(ICase ic) throws IOException;
+
+    public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException;
+
+    public void deleteUser(IUser iu) throws IOException;
+
+    public Ticket createTicket(String issueNumber, String issueDescript, ICustomer ic) throws IOException;
+
+    public List<Ticket> getAllSpecifikCustumerTicket(ICustomer ic) throws IOException, ClassNotFoundException;
+
+    public void updateManufactor(Manufacturer m) throws IOException;
+
+    public Manufacturer getManufactor();
+
+    public Case getCase();
+
+    public void setCase(ICase ia);
+
+    public void createManufactur(String username, String password) throws IOException;
+
+    public void setManufactor(Manufacturer m);
+
+    public void employeeReplyTekst(ITicket it) throws IOException;
+
+    public void registerBid(ICase ic, double bid) throws IOException;
+
+    public List<Case> getAuction() throws IOException, ClassNotFoundException;
 }
-
-

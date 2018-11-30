@@ -7,7 +7,7 @@ package GUI;
 
 
 import Acquaintance.ICase;
-import Business.Ticket;
+import Acquaintance.ITicket;
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
@@ -60,7 +60,7 @@ public class EmployeeController implements Initializable {
     @FXML
     private ImageView validateCaseBackArrow;
     @FXML
-    private ListView<Ticket> showTicketsListView;
+    private ListView<ITicket> showTicketsListView;
     @FXML
     private ListView<ICase> showCasesListView;
     @FXML
@@ -115,7 +115,7 @@ public class EmployeeController implements Initializable {
     private ImageView approveCaseImage;
     // dette er ikke godt vi skal finde en løsning måske objekt
     ObservableList<ICase> cases;
-    ObservableList<Ticket> ticketList;
+    ObservableList<ITicket> ticketList;
     @FXML
     private Label caseIdLabel;
     @FXML
@@ -191,7 +191,7 @@ public class EmployeeController implements Initializable {
     private void openTicketsPaneClicked(MouseEvent event) throws IOException, ClassNotFoundException {
         if(event.getTarget() == ticketsImage){
             change(ticketsPane, validateCasePane, imageBankPane, createManufacturerPane);
-             ticketList = FXCollections.observableArrayList(business.getTicketFromServer());
+             ticketList = FXCollections.observableArrayList((ITicket)business.getTicketFromServer());
              showTicketsListView.setItems(ticketList);
 
         }
@@ -282,7 +282,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void submitButtonClick(ActionEvent event) throws IOException {
-        Ticket t = showTicketsListView.getSelectionModel().getSelectedItem();
+        ITicket t = showTicketsListView.getSelectionModel().getSelectedItem();
         t.setBackMessage(answerTextArea.getText());
         t.setEmployeeName(business.getUser().getUserName());
         business.employeeReplyTekst(t);
@@ -292,7 +292,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private void nextButtonClick(ActionEvent event) {
-        Ticket t = showTicketsListView.getSelectionModel().getSelectedItem();
+        ITicket t = showTicketsListView.getSelectionModel().getSelectedItem();
         TicketID.setText(t.getIssuenumber());
         ticketTextArea.setText(t.getIssueDescription());
         changePane(ticketsPane, replyTicketPane);

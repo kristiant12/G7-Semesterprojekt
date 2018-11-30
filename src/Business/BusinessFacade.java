@@ -7,7 +7,9 @@ package Business;
 
 import Acquaintance.IBusiness;
 import Acquaintance.ICase;
+import Acquaintance.ICustomer;
 import Acquaintance.IData;
+import Acquaintance.ITicket;
 import Acquaintance.IUser;
 //import Data.DataFacade;
 import Data.Database;
@@ -186,8 +188,9 @@ public class BusinessFacade implements IBusiness{
     }
     
    
-    public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException {
-        return client.getUserCaseList1(a);
+    public List<Case> getUserCaseList2(ICustomer a) throws IOException, ClassNotFoundException {
+        Customer c = (Customer) a;
+        return client.getUserCaseList1((Customer) a);
     }
     
     @Override
@@ -238,12 +241,17 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public void createTicket(Ticket t, Customer c) throws IOException {
-        client.createTicket(t, c);
+    public Ticket createTicket(String issueNumber,String issueDescript, ICustomer ic) throws IOException {
+        Ticket ticket = new Ticket(issueNumber,issueDescript);
+        Customer c = (Customer) ic;
+        client.createTicket(ticket, c);
+        return ticket;
     }
 
     @Override
-    public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException {
+    public List<Ticket> getAllSpecifikCustumerTicket(ICustomer ic) throws IOException, ClassNotFoundException {
+        
+        Customer c = (Customer) ic;
         return client.getAllSpecifikCustumerTicket(c);
     }
 
@@ -264,7 +272,8 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public void employeeReplyTekst(Ticket t) throws IOException {
+    public void employeeReplyTekst(ITicket it) throws IOException {
+        Ticket t = (Ticket) it;
         client.employeeReplyTekst(t);
     }
     
