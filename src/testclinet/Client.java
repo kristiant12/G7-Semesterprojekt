@@ -62,7 +62,7 @@ public class Client implements IClient {
     public Client() {
 
         try {
-            String serverHostname = new String("127.0.0.1");
+            String serverHostname = new String("10.126.12.11");
             int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
 
