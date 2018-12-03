@@ -52,7 +52,7 @@ public class BusinessFacade implements IBusiness{
        @Override
      public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
-           setCase(SendCase);
+           setCase((ICase)SendCase);
            sendMapOfUserAndCases(SendCase);
      }
      
@@ -188,9 +188,9 @@ public class BusinessFacade implements IBusiness{
     }
     
    
-    public List<Case> getUserCaseList2(ICustomer a) throws IOException, ClassNotFoundException {
-        Customer c = (Customer) a;
-        return client.getUserCaseList1((Customer) a);
+    public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException {
+       // Customer c = (Customer) a;
+        return client.getUserCaseList1(a);
     }
     
     @Override
@@ -289,7 +289,12 @@ public class BusinessFacade implements IBusiness{
         return client.getAuction();
         
     }
-  
+    
+       @Override
+    public Manufacturer createManufactor(String pass, String userNam,String firmaddress,int number,String firmaName,String firmaMail){
+        Manufacturer a = new Manufacturer(pass, userNam, firmaddress, number, firmaName, firmaMail);
+        return a;
+    } 
 }
 /*
  * To change this license header , choose License Headers in Project Properties.

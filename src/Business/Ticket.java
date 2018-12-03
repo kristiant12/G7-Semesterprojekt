@@ -5,6 +5,7 @@
  */
 package Business;
 
+import Acquaintance.ITicket;
 import java.io.Serializable;
 
 
@@ -13,7 +14,7 @@ import java.io.Serializable;
  *
  * @author rober
  */
-public class Ticket implements Serializable {
+public class Ticket implements Serializable,ITicket {
     
     private String issueNumber;
     private String issueDescription;

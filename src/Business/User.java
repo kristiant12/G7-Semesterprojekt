@@ -7,13 +7,14 @@ package Business;
 
 //import Business.BusinessFacade;
 //import Data.Database;
+import Acquaintance.IUser;
 import java.io.Serializable;
 
 /**
  *
  * @author sebastian
  */
-public class User implements Serializable{
+public class User implements Serializable, IUser{
     
    // public Database mainDatabase = new Database();
     private String password;

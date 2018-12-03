@@ -191,7 +191,7 @@ public class EmployeeController implements Initializable {
     private void openTicketsPaneClicked(MouseEvent event) throws IOException, ClassNotFoundException {
         if(event.getTarget() == ticketsImage){
             change(ticketsPane, validateCasePane, imageBankPane, createManufacturerPane);
-             ticketList = FXCollections.observableArrayList((ITicket)business.getTicketFromServer());
+             ticketList = FXCollections.observableArrayList(business.getTicketFromServer());
              showTicketsListView.setItems(ticketList);
 
         }

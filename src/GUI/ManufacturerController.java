@@ -6,14 +6,10 @@
 package GUI;
 
 import Acquaintance.ICase;
-import Business.Customer;
-import Business.Manufacturer;
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.IntegerBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -229,7 +225,7 @@ public class ManufacturerController implements Initializable {
        if(newPasswordTextField.getText().equalsIgnoreCase(repeatPasswordTextField.getText())){
      // virker ikke lige nu 
         int number = Integer.parseInt(firmNumberTextField.getText());
-       business.updateManufactor(new Manufacturer(repeatPasswordTextField.getText(), business.getUser().getUserName(), firmAddressTextField.getText(), number, firmNameTextField.getText(),emailTextField.getText()));
+       business.updateManufactor(business.createManufactor(repeatPasswordTextField.getText(), business.getUser().getUserName(), firmAddressTextField.getText(), number, firmNameTextField.getText(),emailTextField.getText()));
        }
     }
 

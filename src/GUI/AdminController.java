@@ -7,7 +7,6 @@ package GUI;
 
 import Acquaintance.IUser;
 
-import Business.Employee;
 
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
@@ -100,7 +99,7 @@ public class AdminController implements Initializable {
 
     @FXML
     private void deleteUserButtonClicked(ActionEvent event) throws IOException {
-       business.deleteUser( usersListView.getSelectionModel().getSelectedItem());
+       business.deleteUser(usersListView.getSelectionModel().getSelectedItem());
        user.remove(usersListView.getSelectionModel().getSelectedItem());
        usersListView.setItems(user);
     }
@@ -119,7 +118,7 @@ public class AdminController implements Initializable {
     private void deleteUserImageClicked(MouseEvent event) {
             try {
                 //virker nok ikke og skal laves om i client/server delen
-          user = FXCollections.observableArrayList((IUser)business.getUserFromServer());
+          user = FXCollections.observableArrayList(business.getUserFromServer());
             usersListView.setItems(user);
          } catch (Exception ex) {
 

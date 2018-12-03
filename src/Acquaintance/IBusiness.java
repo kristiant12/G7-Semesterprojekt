@@ -54,7 +54,7 @@ public interface IBusiness {
 
     public void sendMapOfUserAndCases(Case b) throws IOException;
 
-    public List<Case> getUserCaseList2(ICustomer a) throws IOException, ClassNotFoundException;
+    public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException;
 
     public void SendPicture(Picture picture);
 
@@ -89,4 +89,6 @@ public interface IBusiness {
     public void registerBid(ICase ic, double bid) throws IOException;
 
     public List<Case> getAuction() throws IOException, ClassNotFoundException;
+
+   public Manufacturer createManufactor(String pass, String userNam,String firmaddress,int number,String firmaName,String firmaMail); 
 }

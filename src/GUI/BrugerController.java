@@ -29,13 +29,8 @@ import static GUI.Gruppe_7_semesterprojekt.business;
 import java.awt.Desktop;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import jdk.nashorn.internal.runtime.ListAdapter;
-import java.lang.Object;
-import java.util.Observable;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
@@ -263,7 +258,7 @@ public void initialize(URL url, ResourceBundle rb) {
     @FXML
     private void testuttonClicked(ActionEvent event) {
             try {
-            cases = FXCollections.observableArrayList(business.getUserCaseList2((ICustomer) business.getUser()));
+            cases = FXCollections.observableArrayList(business.getUserCaseList(business.getUser()));
             userCaseListView.setItems(cases);
          } catch (Exception ex) {
              ex.printStackTrace();
