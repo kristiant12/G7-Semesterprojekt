@@ -268,8 +268,8 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void saveDataButtonClicked(ActionEvent event) throws IOException {
-        business.createCase(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText());
-        business.modifyCase(business.getCase());
+        //business.createCase(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText());
+       business.modifyCase(seeTitleTextfield.getText(), business.getCase().getId(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), business.getCase().getEvaluated(), seeFreeTextTextField.getText());
     
     }
 

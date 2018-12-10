@@ -34,7 +34,8 @@ public class BusinessFacade implements IBusiness{
         private Manufacturer manu;
         private Case newCase;
         private Manufacturer newManufactor;
-    public BusinessFacade() {
+        private Ticket ticket;
+        public BusinessFacade() {
         this.client = new Client();
         //user = null;
         
@@ -109,6 +110,9 @@ public class BusinessFacade implements IBusiness{
         if(u instanceof Manufacturer){
             this.user = (Manufacturer) u;
         }
+        else if(u instanceof Customer){
+            this.user = (Customer) u;
+        }
         this.user = u;
     }
     
@@ -117,6 +121,10 @@ public class BusinessFacade implements IBusiness{
         return (Manufacturer) user;
     }
     
+    public Customer getCustumer(){
+        return (Customer) user;
+    }
+            
     public User login(String name, String password) throws ClassNotFoundException, IOException{
         List<User> list = client.getUserFromServer();
         for (int i = 0; i < list.size(); i++) {
@@ -138,8 +146,9 @@ public class BusinessFacade implements IBusiness{
     
 
        @Override
-    public void modifyCase(Case a) throws IOException{
-       client.editCase(a);
+    public void modifyCase(String caseTitle, String caseID, String caseBudget, String deadline, String component, boolean evaluated, String freeText) throws IOException{
+      
+        client.editCase(new Case(caseTitle, caseID, caseBudget, deadline, component, evaluated, freeText));
 
 
                     
@@ -188,6 +197,7 @@ public class BusinessFacade implements IBusiness{
     }
     
    
+       @Override
     public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException {
        // Customer c = (Customer) a;
         return client.getUserCaseList1(a);
@@ -241,18 +251,25 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public Ticket createTicket(String issueNumber,String issueDescript, ICustomer ic) throws IOException {
-        Ticket ticket = new Ticket(issueNumber,issueDescript);
-        Customer c = (Customer) ic;
-        client.createTicket(ticket, c);
+    public void createTicket(String issueNumber,String issueDescript, Customer ic) throws IOException {
+        Ticket ticket2 = new Ticket(issueNumber,issueDescript);
+        setTicket(ticket2);
+        client.createTicket(ticket2, ic);
+    }
+    
+    public void setTicket(Ticket ticket){
+        this.ticket = ticket;
+    }
+    
+    public Ticket getTicket(){
         return ticket;
     }
 
     @Override
-    public List<Ticket> getAllSpecifikCustumerTicket(ICustomer ic) throws IOException, ClassNotFoundException {
+    public List<Ticket> getAllSpecifikCustumerTicket(Customer ic) throws IOException, ClassNotFoundException {
         
-        Customer c = (Customer) ic;
-        return client.getAllSpecifikCustumerTicket(c);
+        
+        return client.getAllSpecifikCustumerTicket(ic);
     }
 
     @Override

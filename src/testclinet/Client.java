@@ -5,6 +5,7 @@
  */
 package testclinet;
 
+import Business.HomeMadeMap;
 import Acquaintance.IClient;
 import Business.Case;
 import Business.Customer;
@@ -26,6 +27,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.SealedObject;
+import javax.crypto.SecretKey;;
+
 
 public class Client implements IClient {
 
@@ -42,17 +50,31 @@ public class Client implements IClient {
     private Map<User, Case> mapOfUserCase;
     private BufferedImage buffImage;
     private List<Picture> pictureList;
+    private SecretKey key;
+    private EnccryptionDecryption encrypt;
+    
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        
         Client test = new Client();
         Ticket a = new Ticket("test", "oinoindsoi");
         Customer s = new Customer("oisnd", "lksmd", "sdnosmdoi", 1123, "OsrsBestGame@gmail.com", "oisndoi");
         Scanner scan = new Scanner(System.in);
+        
+     
+        
+        
         while(true){
-        String f = scan.nextLine();
-        List<Case> dd = test.getEvaluatetList();
-            System.out.println(dd.toString());
+            String aa = scan.nextLine();
+            List<User> t = test.getUserFromServer();
+            System.out.println(t.toString());
+            
         }
+       
+//        List<User> t = test.getUserFromServer();
+//            System.out.println(t.toString());        
+        
+        
         
         
         
@@ -62,17 +84,17 @@ public class Client implements IClient {
     public Client() {
 
         try {
-            String serverHostname = new String("10.126.12.11");
+            String serverHostname = new String("127.0.0.1");
             int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
-
+            //this.key = null;
             Socket echoSocket = null;
             out = null;
             in = null;
             stream = null;
             mapInputStram = null;
             tss = null;
-
+            
             try {
                 test = new ArrayList();
                 map = new HashMap();
@@ -82,6 +104,7 @@ public class Client implements IClient {
                 out = new PrintStream(echoSocket.getOutputStream());
 
                 tss = new ObjectOutputStream(echoSocket.getOutputStream());
+                encrypt = new EnccryptionDecryption(getKey());
 
 //                test = (List<User>) mapInputStram.readObject();
                 // in = new Scanner(echoSocket.getInputStream());
@@ -101,7 +124,18 @@ public class Client implements IClient {
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException {
         sendtilServeren("1");
         List<User> ting = new ArrayList();
-        ting = (List<User>) mapInputStram.readObject();
+        List<SealedObject> test = new ArrayList();
+        test = (List<SealedObject>) mapInputStram.readObject();
+
+        try {
+            ting = encrypt.decryptUserList(test);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+//        ting = (List<User>) mapInputStram.readObject();
         //out.println("sidnsidn");
         return ting;
     }
@@ -110,8 +144,20 @@ public class Client implements IClient {
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException {
         sendtilServeren("2");
         List<Case> ting = new ArrayList();
-        ting = (List<Case>) mapInputStram.readObject();
-        //   out.println("2");
+        List<SealedObject> test = new ArrayList();
+        
+        test = (List<SealedObject>) mapInputStram.readObject();
+        
+//        ting = (List<Case>) mapInputStram.readObject();
+//        //   out.println("2");
+//        return ting;
+        try {
+            ting = encrypt.decryptCaseList(test);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return ting;
     }
 
@@ -123,7 +169,13 @@ public class Client implements IClient {
     @Override
     public void sendUser(User d) throws IOException {
         sendtilServeren("3");
-        tss.writeObject(d);
+        SealedObject a = null;
+        try {
+            a = encrypt.encryptUser(d);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tss.writeObject(a);
         tss.flush();
 
     }
@@ -131,7 +183,13 @@ public class Client implements IClient {
     @Override
     public void sendCase(Case a) throws IOException {
         sendtilServeren("4");
-        tss.writeObject(a);
+        SealedObject b = null;
+        try {
+             b = encrypt.encryptCase(a);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tss.writeObject(b);
 
         tss.flush();
     }
@@ -161,7 +219,13 @@ public class Client implements IClient {
     @Override
     public void deleteCase(Case ce) throws IOException {
         sendtilServeren("5");
-        tss.writeObject(ce);
+        SealedObject a = null;
+        try {
+            a = encrypt.encryptCase(ce);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tss.writeObject(a);
         tss.flush();
 
     }
@@ -190,17 +254,36 @@ public class Client implements IClient {
     @Override
     public void sendMapOfUserAndCases(User a, Case b) throws IOException {
         sendtilServeren("7");
-        Map<User, Case> test = new HashMap();
-        // mapOfUserCase = new HashMap();
-        test.put(a, b);
-        tss.writeObject(test);
+        HomeMadeMap d = new HomeMadeMap(a, b);
+        
+        SealedObject ting = null;
+       
+        try {
+            ting = encrypt.encryptHomeMadeMap(d);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        tss.writeObject(ting);
+
+//        Map<User, Case> test = new HashMap();
+//        // mapOfUserCase = new HashMap();
+//        test.put(a, b);
+//        
+//        tss.writeObject(test);
 
     }
 
     @Override
     public void editCase(Case a) throws IOException {
         sendtilServeren("11");
-        tss.writeObject(a);
+        SealedObject s = null;
+        try {
+            s = encrypt.encryptCase(a);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tss.writeObject(s);
         tss.flush();
 
     }
@@ -209,11 +292,24 @@ public class Client implements IClient {
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException {
         sendtilServeren("10");
         List<Case> test = new ArrayList();
-
-        tss.writeObject(a);
+        List<SealedObject> ting = new ArrayList();
+        SealedObject b = null;
+        try {
+            b =  encrypt.encryptUser(a);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tss.writeObject(b);
         tss.flush();
 
-        test = (List<Case>) mapInputStram.readObject();
+        ting = (List<SealedObject>) mapInputStram.readObject();
+        try {
+            test = encrypt.decryptCaseList(ting);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         return test;
 
@@ -234,16 +330,31 @@ public class Client implements IClient {
     @Override
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException {
         sendtilServeren("12");
-        List<Case> test;
-
-        test = (List<Case>) mapInputStram.readObject();
+        List<Case> test = new ArrayList();
+        List<SealedObject> ting = (List<SealedObject>) mapInputStram.readObject();
+        
+        try {
+            test = encrypt.decryptCaseList(ting);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       // test = (List<Case>) mapInputStram.readObject();
         return test;
     }
 
     @Override
     public void Evaluate(Case a) throws IOException {
         sendtilServeren("13");
-        tss.writeObject(a);
+        SealedObject ting = null;
+        try {
+            ting = encrypt.encryptCase(a);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tss.writeObject(ting);
         tss.flush();
 
     }
@@ -253,7 +364,15 @@ public class Client implements IClient {
 
         sendtilServeren("14");
         List<Ticket> ticket = new ArrayList<>();
-        ticket = (List<Ticket>) mapInputStram.readObject();
+        List<SealedObject> ting = (List<SealedObject>) mapInputStram.readObject();
+        try {
+            //        ticket = (List<Ticket>) mapInputStram.readObject();
+            ticket = encrypt.decryptTicketList(ting);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         return ticket;
     }
@@ -262,8 +381,17 @@ public class Client implements IClient {
     @Override
      public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException{
          sendtilServeren("15");
+         
          List<Case> dd = new ArrayList();
-         dd = (List<Case>) mapInputStram.readObject();
+         List<SealedObject> ting = (List<SealedObject>) mapInputStram.readObject();
+        try {
+            //dd = (List<Case>) mapInputStram.readObject();
+            dd = encrypt.decryptCaseList(ting);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
          return dd;
          
      }
@@ -271,36 +399,76 @@ public class Client implements IClient {
     @Override
      public void deleteUser(User a) throws IOException{
          sendtilServeren("16");
-         tss.writeObject(a);
+         SealedObject ting = null;
+         try {
+            ting = encrypt.encryptUser(a);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         tss.writeObject(ting);
          
      }
      
     @Override
      public void createTicket(Ticket t, Customer c) throws IOException{
           sendtilServeren("17");
-          Map<Customer,Ticket> test = new HashMap();
-          test.put(c, t);
-          tss.writeObject(test);
+          HomeMadeMap ding = new HomeMadeMap(c, t);
+          SealedObject ting = null;
+        try {
+            ting = encrypt.encryptHomeMadeMap(ding);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          tss.writeObject(ting);
      }
      
     @Override
      public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException{
          sendtilServeren("18");
-         tss.writeObject(c);
-         List<Ticket> list = (List<Ticket>) mapInputStram.readObject();
+         SealedObject ting =null;
+        try {
+           ting = encrypt.encryptUser(c);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         tss.writeObject(ting);
+         
+         List<SealedObject> ting2 = (List<SealedObject>) mapInputStram.readObject();
+         List<Ticket> list = null;
+        try {
+            list = encrypt.decryptTicketList(ting2);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//         List<Ticket> list = (List<Ticket>) mapInputStram.readObject();
          return list;
      }
      
     @Override
      public void updateManufactor(Manufacturer m) throws IOException{
          sendtilServeren("19");
-         tss.writeObject(m);
+         SealedObject t = null;
+        try {
+            t = encrypt.encryptManufactor(m);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         tss.writeObject(t);
          
      }
      
+    @Override
      public void employeeReplyTekst(Ticket t) throws IOException{
          sendtilServeren("20");
-         tss.writeObject(t);
+         SealedObject ting = null;
+        try {
+            ting = encrypt.encrypTicket(t);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         tss.writeObject(ting);
      }
          @Override
     public void RegisterBid(Case a) throws IOException {
@@ -311,9 +479,24 @@ public class Client implements IClient {
     
     public List<Case> getAuction() throws IOException, ClassNotFoundException{
         sendtilServeren("22");
-        List<Case> s = (List<Case>) mapInputStram.readObject();
+        List<SealedObject> ting = (List<SealedObject>) mapInputStram.readObject();
+        List<Case> s = null;
+        try {
+            s = encrypt.decryptCaseList(ting);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return s;
     }
      
+    public SecretKey getKey() throws IOException, ClassNotFoundException{
+        sendtilServeren("30");
+        SecretKey key = (SecretKey) mapInputStram.readObject();
+        
+        return key;
+
+    }
 }

@@ -89,8 +89,8 @@ public class TicketController implements Initializable {
 
     @FXML
     private void createTicketButtonClicked(ActionEvent event) throws IOException  {
-        
-        ticket.add((ITicket)business.createTicket(ticketTextArea.getText(),tickerIdLabel.getText(),(ICustomer) business.getUser()));
+       business.createTicket("Case ID "+rand.nextInt(10000),ticketTextArea.getText(), business.getCustumer());
+       ticket.add(business.getTicket());
         ticketsListView.setItems(ticket);
              //   business.sendTicket(new Ticket(ticketTextArea.getText()));    
 //        issueTextArea.clear();
@@ -117,7 +117,7 @@ public class TicketController implements Initializable {
     @FXML
     private void seeTicketsButtonAction(ActionEvent event) {
          try {
-            ticket = FXCollections.observableArrayList((ITicket)business.getAllSpecifikCustumerTicket((ICustomer) business.getUser()));
+            ticket = FXCollections.observableArrayList(business.getAllSpecifikCustumerTicket(business.getCustumer()));
             ticketsListView.setItems(ticket);
         
          } catch (Exception ex) {

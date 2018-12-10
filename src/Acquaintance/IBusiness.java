@@ -48,7 +48,7 @@ public interface IBusiness {
 
     public void sendTicket(Ticket ticket) throws IOException;
 
-    public void modifyCase(Case a) throws IOException;
+    public void modifyCase(String caseTitle, String caseID, String caseBudget, String deadline, String component, boolean evaluated, String freeText) throws IOException;
 
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException;
 
@@ -68,9 +68,9 @@ public interface IBusiness {
 
     public void deleteUser(IUser iu) throws IOException;
 
-    public Ticket createTicket(String issueNumber, String issueDescript, ICustomer ic) throws IOException;
+   public void createTicket(String issueNumber,String issueDescript, Customer ic) throws IOException;
 
-    public List<Ticket> getAllSpecifikCustumerTicket(ICustomer ic) throws IOException, ClassNotFoundException;
+    public List<Ticket> getAllSpecifikCustumerTicket(Customer ic) throws IOException, ClassNotFoundException;
 
     public void updateManufactor(Manufacturer m) throws IOException;
 
@@ -91,4 +91,9 @@ public interface IBusiness {
     public List<Case> getAuction() throws IOException, ClassNotFoundException;
 
    public Manufacturer createManufactor(String pass, String userNam,String firmaddress,int number,String firmaName,String firmaMail); 
+
+   public Customer getCustumer();
+   
+   public Ticket getTicket();
+
 }
