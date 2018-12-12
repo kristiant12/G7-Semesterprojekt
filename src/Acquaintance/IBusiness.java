@@ -35,7 +35,7 @@ public interface IBusiness {
 
     public void setUser(User user);
 
-    public void createEmployee(String pass, String usernam);
+    public void createEmployee(String pass, String usernam)throws IOException;
 
     public void sendUser(User d) throws IOException;
 
@@ -96,4 +96,7 @@ public interface IBusiness {
    
    public Ticket getTicket();
 
+    public void createCustumer(String userName,String password, String addresse,int number, String email, String fullName) throws IOException;
+    
+    public User getTing();
 }

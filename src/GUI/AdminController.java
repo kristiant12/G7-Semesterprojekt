@@ -72,8 +72,9 @@ public class AdminController implements Initializable {
     private void createEmployeeButtonClicked(ActionEvent event) throws IOException {
 //        Employee a = new Employee(usernameTextField.getText(),passwordTextField.getText()); 
 //        business.sendUser(a);
-//        user.add(a)
-//        usersListView.setItems(user);
+         business.createEmployee(usernameTextField.getText(), passwordTextField.getText());
+        user.add(business.getTing());
+        usersListView.setItems(user);
 //Fix det her, functionalitet skal flyttes til business facaden
         
          

@@ -7,17 +7,12 @@ package Business;
 
 import Acquaintance.IBusiness;
 import Acquaintance.ICase;
-import Acquaintance.ICustomer;
-import Acquaintance.IData;
 import Acquaintance.ITicket;
 import Acquaintance.IUser;
 //import Data.DataFacade;
 import Data.Database;
 import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import testclinet.Client;
 
 /**
@@ -35,6 +30,7 @@ public class BusinessFacade implements IBusiness{
         private Case newCase;
         private Manufacturer newManufactor;
         private Ticket ticket;
+        private User ting;
         public BusinessFacade() {
         this.client = new Client();
         //user = null;
@@ -53,7 +49,7 @@ public class BusinessFacade implements IBusiness{
        @Override
      public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
         Case SendCase = new Case(caseTitle, caseID,caseBudget,deadline,component,evaluated,freeText);
-           setCase((ICase)SendCase);
+           setCase(SendCase);
            sendMapOfUserAndCases(SendCase);
      }
      
@@ -68,9 +64,9 @@ public class BusinessFacade implements IBusiness{
          this.newCase = c;
      }
      
-    public void createEmployee(String password, String usernam){
-        Employee newEmployee  = new Employee(password, usernam);
-    }
+//    public void createEmployee(String password, String usernam){
+//        Employee newEmployee  = new Employee(password, usernam);
+//    }
 
 //    @Override
 //    public String toServer(String i) {
@@ -267,8 +263,6 @@ public class BusinessFacade implements IBusiness{
 
     @Override
     public List<Ticket> getAllSpecifikCustumerTicket(Customer ic) throws IOException, ClassNotFoundException {
-        
-        
         return client.getAllSpecifikCustumerTicket(ic);
     }
 
@@ -312,6 +306,27 @@ public class BusinessFacade implements IBusiness{
         Manufacturer a = new Manufacturer(pass, userNam, firmaddress, number, firmaName, firmaMail);
         return a;
     } 
+    
+       @Override
+    public void createCustumer(String userName,String password, String addresse,int number, String email, String fullName) throws IOException{
+        Customer test = new Customer(userName,password, addresse, number, email, fullName);
+        client.sendUser(test);
+    }
+      
+       @Override
+    public void createEmployee(String username,String password) throws IOException{
+        Employee em = new Employee(username,password);
+        SetTing(em);
+        client.sendUser(em);
+           
+    }
+    
+    public void SetTing(User t){
+        this.ting = t;
+    }
+    public User getTing(){
+        return ting;
+    }
 }
 /*
  * To change this license header , choose License Headers in Project Properties.
