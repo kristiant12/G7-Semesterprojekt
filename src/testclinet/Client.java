@@ -41,11 +41,6 @@ public class Client implements IClient {
     private Scanner in;
     private InputStream stream;
     private ObjectInputStream mapInputStram;
-    private Map<String, String> map;
-    private List<User> test;
-    private List<Case> caseList;
-    //  private List<Case> caseListForPerson;
-
     private ObjectOutputStream tss;
     private Map<User, Case> mapOfUserCase;
     private BufferedImage buffImage;
@@ -53,34 +48,6 @@ public class Client implements IClient {
     private SecretKey key;
     private EnccryptionDecryption encrypt;
     
-
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        
-        Client test = new Client();
-        Ticket a = new Ticket("test", "oinoindsoi");
-        Customer s = new Customer("oisnd", "lksmd", "sdnosmdoi", 1123, "OsrsBestGame@gmail.com", "oisndoi");
-        Scanner scan = new Scanner(System.in);
-        
-     
-        
-        
-        while(true){
-            String aa = scan.nextLine();
-            List<User> t = test.getUserFromServer();
-            System.out.println(t.toString());
-            
-        }
-       
-//        List<User> t = test.getUserFromServer();
-//            System.out.println(t.toString());        
-        
-        
-        
-        
-        
-
-    }
-
     public Client() {
 
         try {
@@ -96,13 +63,10 @@ public class Client implements IClient {
             tss = null;
             
             try {
-                test = new ArrayList();
-                map = new HashMap();
                 echoSocket = new Socket(serverHostname, 8081);
                 stream = echoSocket.getInputStream();
                 mapInputStram = new ObjectInputStream(stream);
                 out = new PrintStream(echoSocket.getOutputStream());
-
                 tss = new ObjectOutputStream(echoSocket.getOutputStream());
                 encrypt = new EnccryptionDecryption(getKey());
 
@@ -193,29 +157,7 @@ public class Client implements IClient {
 
         tss.flush();
     }
-
-
-//    public static void main(String[] args) throws IOException {
-//        
-//        Client a = new Client();
-//        Case s = new Case("test", "sfds", "fjnoisnf", "nsoeinsoien", "nvno", true, "nodsn");
-//         
-//        Scanner scan = new Scanner(System.in);
-//        
-//        while(true){
-//                
-//            String d = scan.nextLine();
-//            
-//            a.sendCase(s);
-//
-//                
-//        }
-//        
-//       
-//        
-//        
-//    }
-//    
+  
     @Override
     public void deleteCase(Case ce) throws IOException {
         sendtilServeren("5");

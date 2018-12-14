@@ -58,9 +58,8 @@ public class OpretController implements Initializable {
 
     @FXML
     private void createAccountButtonClicked(ActionEvent event) throws IOException {
-//        Customer a = new Customer(usernameTextField.getText(), passwordTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
-//        business.sendUser(a);
-//        changeScreen1(event, "FXMLDocument.fxml");
+        business.createCustumer(usernameTextField.getText(), passwordTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
+        changeScreen1(event, "FXMLDocument.fxml");
 // indsæt funktionaliteten i business facaden 
     }
     
