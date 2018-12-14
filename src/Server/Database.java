@@ -25,7 +25,9 @@ import java.util.logging.Logger;
 public class Database {
     
     
-    
+    /**
+     * connnects with our sql server.
+     */
     
     Connection db = null;
     private final String url = "jdbc:postgresql://horton.elephantsql.com:5432/ddrapuye";
@@ -41,6 +43,12 @@ public class Database {
         } catch (SQLException e) {
         }
     }
+     
+     /**
+      * fix paramtrene her please
+      * @param i
+      * @return 
+      */
      
      public String SQLTest(String i){
          Statement a = null;
@@ -58,6 +66,10 @@ public class Database {
          }
          return test;
      }
+     /**
+      * gets the user which has its password and username in a map. then the users is put in the map. 
+      * @returns the list.
+      */
      
     public Map<String,String> getUser(){
         Map<String,String> list = new HashMap<>();
@@ -70,6 +82,10 @@ public class Database {
         
     }
     
+    /**
+     * gets admin with sql query
+     * @returns map with admins 
+     */
     
     public Map<String,String> getAdmin(){
         Statement a = null;
@@ -93,6 +109,10 @@ public class Database {
         }
         return list;
     }
+    /**
+     * gets manufacturer with sql query
+     * @returns map with manufactuer 
+     */
      
        public Map<String,String> getManufacturer(){
         Statement a = null;
@@ -116,6 +136,11 @@ public class Database {
         }
         return list;
     }
+       /**
+        * gets customer with sql query
+        * @returns customer  
+        */
+       
         public Map<String,String> getCustomer(){
         Statement a = null;
         ResultSet øv = null;
@@ -138,6 +163,10 @@ public class Database {
         }
         return list;
     }
+        /**
+         * gets employee with sql query
+         * @returns map with employee
+         */
     
         public Map<String,String> getEmployee(){
         Statement a = null;
@@ -161,7 +190,10 @@ public class Database {
         }
         return list;
     }
-    
+    /**
+     * hvad er det her.
+     * @return 
+     */
     
         public List<String> test(){
             List<String> list = new ArrayList<>();

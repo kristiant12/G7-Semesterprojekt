@@ -17,6 +17,11 @@ import java.io.Serializable;
 public class User implements Serializable, IUser{
     
    // public Database mainDatabase = new Database();
+    
+    /**
+     * parameters represent the things a user can have
+     */
+    
     private String password;
     private String userName; 
     static final long serialVersionUID = -7588980448693010399L;

@@ -120,6 +120,14 @@ public void initialize(URL url, ResourceBundle rb) {
     
     rand = new Random();
     }    
+
+/**
+ * changes screen between the panes, forexample, if you want to access another pane, this method should be used.
+ * @param event
+ * @param a 
+ * @throws IOException thrown when an IOException occurs
+ */
+
  private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
@@ -129,12 +137,23 @@ public void initialize(URL url, ResourceBundle rb) {
         window.setScene(screen);
         window.show();
     }
+ 
+ /**
+  * changes panes between panes, by changing their boolean values
+  * @param a one anchorpane
+  * @param b another anchorpane
+  */
+ 
   public void changePane(AnchorPane a, AnchorPane b){
          a.setDisable(true);
          a.setVisible(false);
          b.setDisable(false);
          b.setVisible(true);
      }
+  /**
+   * changes pane when this button is clicked
+   * @param event 
+   */
   
     @FXML
     private void createCaseImageClicked(MouseEvent event) {
@@ -143,6 +162,11 @@ public void initialize(URL url, ResourceBundle rb) {
 //        createCasePane.setVisible(true);
 //        userCaseListView.setItems(caseList);
     }
+    /**
+     * sets the listview to null, and changes screen
+     * @param event
+     * @throws IOException thrown when IOException occurs
+     */
 
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
@@ -152,6 +176,12 @@ public void initialize(URL url, ResourceBundle rb) {
         changeScreen(event, "FXMLDocument.fxml");
           }
 
+    /**
+     * changes screen to support.fxml
+     * @param event
+     * @throws IOException thrown when IOException occurs
+     */
+    
     @FXML
     private void helpImageClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
@@ -170,6 +200,12 @@ public void initialize(URL url, ResourceBundle rb) {
 //        
 //    }
 
+    /**
+     * edits  case when this button is clicked
+     * @param event
+     * @throws IOException thrown when IOException occurs
+     */
+    
     @FXML
     private void editCasesButtonClick(ActionEvent event) throws IOException {
         // DET HER SKAL LAVES OM SÅDAN AT DEN TAGER FRA EDIT CASE SKÆRMEN
@@ -194,7 +230,12 @@ public void initialize(URL url, ResourceBundle rb) {
 //        
 //        business.modifyCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
     }
-
+    /**
+     * deletes the selected items in the listview
+     * @param event
+     * @throws IOException thrown when an IOexception occurs
+     */
+   
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
 
@@ -204,6 +245,11 @@ public void initialize(URL url, ResourceBundle rb) {
        
         
     }
+    
+    /**
+     * changes screen
+     * @param event 
+     */
 
     @FXML
     private void createCaseBackArrowClicked(MouseEvent event) {
@@ -211,6 +257,10 @@ public void initialize(URL url, ResourceBundle rb) {
         changePane(createCasePane, costumerScreen);
         SagOprettet.setText("");
     }
+    /**
+     * attaches, doesnt work.
+     * @param event 
+     */
 
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
@@ -237,6 +287,11 @@ public void initialize(URL url, ResourceBundle rb) {
         changeScreen(event, "Support.fxml");
     }
 
+    /**
+     * Creates case using businessfacade method and clears all textfields. 
+     * @param event
+     * @throws IOException thrown when IOException occurs.
+     */
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) throws IOException {
@@ -255,6 +310,11 @@ public void initialize(URL url, ResourceBundle rb) {
         userCaseListView.setItems(cases);
         
     }
+    /**
+     * edit the method name, please. //Robert
+     * @param event 
+     */
+    
     @FXML
     private void testuttonClicked(ActionEvent event) {
             try {
@@ -265,6 +325,11 @@ public void initialize(URL url, ResourceBundle rb) {
         }
 //    
     }
+    /**
+     * Saves the data, by the modify method
+     * @param event
+     * @throws IOException thrown when IOException happens. 
+     */
 
     @FXML
     private void saveDataButtonClicked(ActionEvent event) throws IOException {
@@ -272,6 +337,10 @@ public void initialize(URL url, ResourceBundle rb) {
        business.modifyCase(seeTitleTextfield.getText(), business.getCase().getId(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), business.getCase().getEvaluated(), seeFreeTextTextField.getText());
     
     }
+    /**
+     * changes pane to customer screen
+     * @param event 
+     */
 
     @FXML
     private void seeCaseBackArrowClicked(MouseEvent event) {

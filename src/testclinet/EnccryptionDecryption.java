@@ -70,7 +70,16 @@ public class EnccryptionDecryption {
         
         } 
     }
-
+    /**
+     * decrypts a case
+     * @param a is a sealedobject
+     * @return a case
+     * @throws IOException thrown when this exception happens
+     * @throws ClassNotFoundException  thrown when this exception happens
+     * @throws IllegalBlockSizeException thrown when this exception happens
+     * @throws BadPaddingException  thrown when this exception happens
+     */
+    
 public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
      
       Case o = (Case) a.getObject(dcipher);
@@ -79,6 +88,16 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
       
   }
   
+    /**
+     * decrypts the case list
+     * @param a is a list of sealedobjects
+     * @returns a list with the cases
+     * @throws IOException thrown when an IOException occurs.
+     * @throws ClassNotFoundException thrown when a classnotfoundexception occurs. 
+     * @throws IllegalBlockSizeException thrown when an illegalblocksizeexception occurs
+     * @throws BadPaddingException  thrown when badpaddingexception occurs.
+     */
+
   public List<Case> decryptCaseList(List<SealedObject> a) throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
       List<Case> test = new ArrayList();
       
@@ -92,6 +111,15 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
       
       
   } 
+  /**
+   * decrypts a user
+   * @param a sealedobject
+   * @return
+   * @throws IOException thrown when this occurs
+   * @throws ClassNotFoundException thrown when this occurs
+   * @throws IllegalBlockSizeException thrown when this occurs
+   * @throws BadPaddingException  thrown when this occurs
+   */
 
  public User decryptUser(SealedObject a) throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
      
@@ -99,6 +127,16 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      
      return o;
  }
+    /**
+    * decrypts a list of sealed objects
+    * @param a list of sealed objects
+    * @return
+    * @throws IOException thrown when this occurs 
+    * @throws ClassNotFoundException thrown when this occurs
+    * @throws IllegalBlockSizeException thrown when this occurs 
+    * @throws BadPaddingException thrown when this occurs
+    */
+ 
  public List<User> decryptUserList(List<SealedObject> a) throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
       List<User> test = new ArrayList();
       
@@ -112,6 +150,15 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
       
       
   } 
+     /**
+    * decrypts a ticket
+    * @param a a sealedobject
+    * @returns a Ticket
+    * @throws IOException thrown when this occurs
+    * @throws ClassNotFoundException thrown when this occurs
+    * @throws IllegalBlockSizeException thrown when this occurs
+    * @throws BadPaddingException  thrown when this occurs
+    */
 
  public Ticket decryptTicket(SealedObject a)throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
      Ticket o = (Ticket) a.getObject(dcipher);
@@ -137,6 +184,13 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      return test;
      
  }
+    /**
+     * encrypts a case list
+     * @param a is a sealed object
+     * @return
+     * @throws IOException thrown is IOException
+     * @throws IllegalBlockSizeException  thrown when this exception occurs
+     */
  
  public List<SealedObject> encryptCaseList(List<Case> a) throws IOException, IllegalBlockSizeException{
     List<SealedObject> ting = new ArrayList();
@@ -146,7 +200,14 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      }
      return ting;
  }
- 
+    /**
+     * encrypts a user 
+     * @param a is a user 
+     * @returns a sealedobject
+     * @throws IOException thrown when this exception occurs
+     * @throws IllegalBlockSizeException  thrown when this exception occus
+     */
+    
  public SealedObject encryptUser(User a) throws IOException, IllegalBlockSizeException{
      
      SealedObject test = new SealedObject(a, ecipher);
@@ -154,6 +215,7 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      return test;
  }
  
+    
   public List<SealedObject> encryptUserList(List<User> a) throws IOException, IllegalBlockSizeException{
     List<SealedObject> ting = new ArrayList();
      for (int i = 0; i < a.size(); i++) {

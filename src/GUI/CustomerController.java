@@ -70,6 +70,12 @@ public class CustomerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    /**
+ * changes screen between the panes, forexample, if you want to access another pane, this method should be used.
+ * @param event
+ * @param a 
+ * @throws IOException thrown when an IOException occurs
+ */
      private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
@@ -79,6 +85,12 @@ public class CustomerController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+      /**
+  * changes panes between panes, by changing their boolean values
+  * @param a one anchorpane
+  * @param b another anchorpane
+  */
+ 
      
      public void changePane(AnchorPane a, AnchorPane b){
          a.setDisable(true);
@@ -87,6 +99,11 @@ public class CustomerController implements Initializable {
          b.setVisible(true);
      }
      
+     /**
+      * changes pane to createCasePane when the image is clicked
+      * @param event
+      * @throws IOException thrown when a IOException happens
+      */
 
     @FXML
     private void createCaseImageClicked(MouseEvent event) throws IOException {
@@ -97,23 +114,40 @@ public class CustomerController implements Initializable {
 //        createCasePane.setVisible(true);
         
     }
+    /**
+     * CHanges screen to FXMLDocument.fxml
+     * @param event
+     * @throws IOException thrown when IOException happens
+     */
 
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
         changeScreen(event, "FXMLDocument.fxml");
     }
-
+    /**
+     * changes screeen to support.fxml
+    * @param event
+    * @throws IOException thrown when IOException occurs.
+    */
     @FXML
     private void helpImageClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
     }
+    /**
+     * changes pane to customerscreen
+     * @param event 
+     */
 
     @FXML
     private void createCaseBackArrowClicked(MouseEvent event) {
         changePane(createCasePane, costumerScreen);
  
     }
-
+    /**
+     * in order  to attach file, use the filechooser class and pick showopendialog method, which opens a window u can choose the file in.
+     * @param event 
+     */
+    
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
         

@@ -132,6 +132,13 @@ public class ManufacturerController implements Initializable {
      * Initializes the controller class.
      */
     
+        /**
+ * changes screen between the panes, forexample, if you want to access another pane, this method should be used.
+ * @param event
+ * @param a 
+ * @throws IOException thrown when an IOException occurs
+ */
+    
         private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
@@ -141,6 +148,15 @@ public class ManufacturerController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+        
+        /**
+         * changing boolean values in order to change screeens
+         * @param a anchorpane
+         * @param b anchorpane
+         * @param c anchorpane 
+         * @param d anchorpane
+         * @param e anchorpane
+         */
     
     private void change(AnchorPane a, AnchorPane b, AnchorPane c, AnchorPane d, AnchorPane e) {
             a.setDisable(false);
@@ -156,6 +172,12 @@ public class ManufacturerController implements Initializable {
             
           
     } 
+    /**
+     * same as above, just two now
+     * @param a anchorpane
+     * @param b  anchorpane 
+     */
+    
     private void changeTwo(AnchorPane a, AnchorPane b){
         
         a.setDisable(true);
@@ -171,6 +193,12 @@ public class ManufacturerController implements Initializable {
         // TODO
     }    
 
+    /**
+     * changes screen if imageauction is clicked, get the relevantcases from the arraylist, and sets the items. 
+     * @param event
+     * @throws IOException thrown when IOException occurws
+     * @throws ClassNotFoundException  thrown when classnotfound exception occurs. 
+     */
 
     @FXML
     private void auctionImageClicked(MouseEvent event) throws IOException, ClassNotFoundException {
@@ -185,6 +213,11 @@ public class ManufacturerController implements Initializable {
         }
         }
     }
+    
+    /**
+     * changes screen if caseimage is clicked
+     * @param event 
+     */
 
     @FXML
     private void casesImageClicked(MouseEvent event) {
@@ -205,6 +238,11 @@ public class ManufacturerController implements Initializable {
             
         }
     }
+    
+    /**
+     * changes screens if the caseimage has been clicked. 
+     * @param event 
+     */
 
     @FXML
     private void auctionBackArrowClicked(MouseEvent event) {
@@ -212,14 +250,23 @@ public class ManufacturerController implements Initializable {
             change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
         }
     }
-
+    /**
+     * changes screen if the caseimage has been clicked 
+     * @param event 
+     */
+    
     @FXML
     private void casesBackArrowClicked(MouseEvent event) {
         if(event.getTarget()== casesImage){
             change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
         }  
     }
-
+    /**
+     * saves a profile by 
+     * @param event
+     * @throws IOException 
+     */
+    
     @FXML
     private void saveProfileButtonClicked(ActionEvent event) throws IOException {
        if(newPasswordTextField.getText().equalsIgnoreCase(repeatPasswordTextField.getText())){
@@ -228,6 +275,11 @@ public class ManufacturerController implements Initializable {
        business.updateManufactor(business.createManufactor(repeatPasswordTextField.getText(), business.getUser().getUserName(), firmAddressTextField.getText(), number, firmNameTextField.getText(),emailTextField.getText()));
        }
     }
+    /**
+     * changes screens
+     * @param event
+     * @throws IOException thrown when an IOException occurs 
+     */
 
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
@@ -252,17 +304,33 @@ public class ManufacturerController implements Initializable {
 //        auctionCasesListView.setItems(relevantcasesSearch);
 //        }
     }
+    
+    
+    /**
+     * changes pane
+     * @param event 
+     */
 
     @FXML
     private void bidBackArrowClicked(MouseEvent event) {
         changeTwo(BidPane, auctionPane);
     }
+    
+    /**
+     * registers a bid and selects it
+     * @param event
+     * @throws IOException thrown when IOException occurs. 
+     */
 
     @FXML
     private void bidOnCaseClicked(ActionEvent event) throws IOException {
             business.registerBid(auctionCasesListView.getSelectionModel().getSelectedItem(), Double.valueOf(bidAmountTextField.getText()));
     }
-
+    /**
+     * gets all the items of a case and changes pane.
+     * @param event 
+     */
+    
     @FXML
     private void clickedBidButton(ActionEvent event) {
         change(BidPane, auctionPane, casesPane, profilePane, viewCaseInfoPane);
@@ -276,6 +344,11 @@ public class ManufacturerController implements Initializable {
         //defaultCase = selected;
         
     }
+    
+    /**
+     * chanes pane and sets panelpane to true.
+     * @param event 
+     */
 
     @FXML
     private void openCaseButtonClicked(ActionEvent event) {
@@ -283,6 +356,11 @@ public class ManufacturerController implements Initializable {
         changeTwo(casesPane, viewCaseInfoPane);
         panelPane.setDisable(true);
     }
+    /**
+     * sets the cases items from the observable list
+     * @param event 
+     */
+    
 
     @FXML
     private void seeCasesButtonClick(ActionEvent event) {
@@ -294,6 +372,10 @@ public class ManufacturerController implements Initializable {
             ex.printStackTrace();
         }
     }
+    /**
+     * changes pane between the two. 
+     * @param event 
+     */
 
     @FXML
     private void viewCaseInfoBackArrowClicked(MouseEvent event) {

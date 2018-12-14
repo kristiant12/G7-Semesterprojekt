@@ -62,6 +62,13 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+        /**
+ * changes screen between the panes, forexample, if you want to access another pane, this method should be used.
+ * @param event
+ * @param a 
+ * @throws IOException thrown when an IOException occurs
+ */
        private void changeScreen(ActionEvent event, String a) throws IOException{ 
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
@@ -71,13 +78,21 @@ public class FXMLDocumentController implements Initializable {
         window.setScene(screen);
         window.show();
     }
-       
+       /**
+        * injects business so we can use the methods. 
+        * @param business business parameter from IBusiness class
+        */
        
     public void injectBusiness(IBusiness business){
         FXMLDocumentController.business = business;
     }
 
-    
+    /**
+     * checks if u can login using the instanceof method.
+     * @param event
+     * @throws ClassNotFoundException thrown when a classnotfound
+     * @throws IOException thrown when IOException occurs. 
+     */
 
     @FXML
     private void LoginButtonClicked(ActionEvent event) throws ClassNotFoundException, IOException {

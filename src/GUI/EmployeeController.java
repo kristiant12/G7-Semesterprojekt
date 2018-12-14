@@ -145,6 +145,14 @@ public class EmployeeController implements Initializable {
         window.setScene(screen);
         window.show();
     }
+     
+      /**
+       * changes anchorpanes by setting the boolean values different
+       * @param a anchorpane
+       * @param b anchorpane
+       * @param c anchorpane
+       * @param d  anchorpane
+       */
       
     private void change(AnchorPane a, AnchorPane b, AnchorPane c, AnchorPane d) {
             a.setDisable(false);
@@ -156,6 +164,12 @@ public class EmployeeController implements Initializable {
             d.setVisible(false);
             d.setDisable(true);
     } 
+     /**
+  * changes panes between panes, by changing their boolean values
+  * @param a one anchorpane
+  * @param b another anchorpane
+  */
+ 
     
     public void changePane(AnchorPane b, AnchorPane a){
         a.setDisable(false);
@@ -170,6 +184,11 @@ public class EmployeeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    /**
+     * Someone else 
+     * @param event 
+     */
 
     @FXML
     private void openValidateCasePaneClicked(MouseEvent event) {
@@ -186,6 +205,12 @@ public class EmployeeController implements Initializable {
             
         }
     }
+    /**
+     * gets the tickets and changes pane when clicked
+     * @param event
+     * @throws IOException thrown when IOException occurs
+     * @throws ClassNotFoundException IOException thrown when ClassnotfoundException occurs 
+     */
 
     @FXML
     private void openTicketsPaneClicked(MouseEvent event) throws IOException, ClassNotFoundException {
@@ -196,13 +221,21 @@ public class EmployeeController implements Initializable {
 
         }
     }
-
+    /**
+     * chnaes screen to imagebank pane
+     * @param event 
+     */
+    
     @FXML
     private void openImageBankPaneClicked(MouseEvent event) {
         if(event.getTarget() == imageBankImage){
             change(imageBankPane, validateCasePane, ticketsPane, createManufacturerPane);
         }
     }
+    /**
+     * changes pane to create manufacturer by the change method
+     * @param event 
+     */
 
     @FXML
     private void openCreateManufacturerPaneClicked(MouseEvent event) {
@@ -210,7 +243,11 @@ public class EmployeeController implements Initializable {
             change(createManufacturerPane, validateCasePane, imageBankPane, ticketsPane);
         }
     }
-
+    /**
+     * does nothing because comment 
+     * @param event 
+     */
+    
     @FXML
     private void backArrowTicketsClicked(MouseEvent event) {
         if(event.getTarget() == ticketsBackArrow){
@@ -233,7 +270,14 @@ public class EmployeeController implements Initializable {
     @FXML
     private void imageBankSearchButtonClicked(MouseEvent event) {
     }
-
+    
+    /**
+     * uses business method to create a manufacturer, clears password and username textfield, and sets text to inform that a user has been created. 
+     * @param event
+     * @throws IOException thrown when an IOException is thrown
+     * 
+     */
+    
     @FXML
     private void createAccountButtonClicked(ActionEvent event) throws IOException {
         //Manufacturer a = new Manufacturer(usernameTextField.getText(), passwordTextField.getText(), null, 0, null, null);
@@ -245,12 +289,21 @@ public class EmployeeController implements Initializable {
         ManufacturISCreated.setText("User is created");
         
     }
-
+    /**
+     * changes the screen to fxmldocument.fxml
+     * @param event
+     * @throws IOException thrown when an IOException is thrown 
+     */
+    
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException{
         changeScreen(event, "FXMLDocument.fxml");
     }
-
+    /**
+     * creates a case by setting their paramters in the textfield, 
+     * @param event 
+     */
+    
     @FXML
     private void createCaseButtonClick(ActionEvent event) {
         business.setCase(showCasesListView.getSelectionModel().getSelectedItem());
@@ -264,7 +317,12 @@ public class EmployeeController implements Initializable {
         changePane(validateCasePane, approveCasePane);
         panelPane.setDisable(true);
     }
-
+    /**
+     * deletes case, by businessfacade method, and then removes it in the case observablelsit
+     * @param event
+     * @throws IOException 
+     */
+    
     @FXML
     private void deleteCasesButtonClick(ActionEvent event) throws IOException {
         business.deleteCase(showCasesListView.getSelectionModel().getSelectedItem());
@@ -279,6 +337,11 @@ public class EmployeeController implements Initializable {
         changePane(replyTicketPane, ticketsPane);
     }
     
+    /**
+     * submits a ticket by creating a ITicket object and then uses employeereplytekst .
+     * @param event
+     * @throws IOException thrown when IOException is thrown
+     */
 
     @FXML
     private void submitButtonClick(ActionEvent event) throws IOException {
@@ -289,7 +352,11 @@ public class EmployeeController implements Initializable {
         
         
     }
-
+    /**
+     * creates an ITicket object which is used to set the text in the textarea, later changes pane to replyticketpane
+     * @param event 
+     */
+    
     @FXML
     private void nextButtonClick(ActionEvent event) {
         ITicket t = showTicketsListView.getSelectionModel().getSelectedItem();
@@ -301,6 +368,12 @@ public class EmployeeController implements Initializable {
     private void validateCaseBackArrowClicked(MouseEvent event) {
     }
     
+    
+    /**
+     * WRONG NAMING, APPROVES A CASE. 
+     * @param event
+     * @throws IOException thrown when an IOException occurs. 
+     */
     
     //denne godkender en Case. det er bare ahmet der har givet forket navn
     @FXML
@@ -314,7 +387,11 @@ public class EmployeeController implements Initializable {
     private void approveCaseImageClicked(MouseEvent event){
        
     }
-
+    /**
+     * sets panes false,true
+     * @param event 
+     */
+    
     @FXML
     private void approveCaseBackArrowClicked(MouseEvent event) {
         approveCasePane.setDisable(true);

@@ -97,6 +97,12 @@ public class AdminController implements Initializable {
             b.setDisable(true);
     } 
 
+    /**
+     * deletes a user with the click of a button
+     * @param event
+     * @throws IOException thrown when an IOException occurs
+     */
+        
     @FXML
     private void deleteUserButtonClicked(ActionEvent event) throws IOException {
        business.deleteUser(usersListView.getSelectionModel().getSelectedItem());
@@ -104,15 +110,32 @@ public class AdminController implements Initializable {
        usersListView.setItems(user);
     }
 
+    /**
+     * logs out with the help of the changeScreen method
+     * @param event
+     * @throws IOException thrown when IOException occurs
+     */
+    
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
         changeScreen(event, "FXMLDocument.fxml");
     }
+    
+    /**
+     * creates an employee also with the help of changin panes 
+     * @param event 
+     */
 
     @FXML
     private void createEmployeeImageClicked(MouseEvent event) {
         change(createEmployeePane, deleteUserPane);
     }
+    
+    /**
+     * deletes a user, tries to get user from the server and sets the new user on the listview again
+     * @param event 
+     */
+    
 
     @FXML
     private void deleteUserImageClicked(MouseEvent event) {

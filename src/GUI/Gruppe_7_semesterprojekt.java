@@ -20,6 +20,11 @@ import javafx.stage.Stage;
 public class Gruppe_7_semesterprojekt extends Application implements IUI{
     
     public static IBusiness business;
+    /**
+     * Starter class injects business here and loads controller.
+     * @param stage
+     * @throws Exception thrown when an Exception occurs. 
+     */
     
     @Override
     public void start(Stage stage) throws Exception {

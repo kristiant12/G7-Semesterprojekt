@@ -22,6 +22,10 @@ public class starter {
     public static void main(String[] args) {
 
         
+        /**
+         * this is where u start the program. 
+         */
+        
  //       IData data = new DataFacade();
         
         IBusiness bus = new BusinessFacade();

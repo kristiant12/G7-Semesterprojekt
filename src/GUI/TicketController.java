@@ -86,7 +86,12 @@ public class TicketController implements Initializable {
     private void ticketBackArrowClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
     }
-
+    /**
+     * assigns the ticket with a random ID and sets the items to the ticket.
+     * @param event
+     * @throws IOException thrown when IOException occurs. 
+     */
+    
     @FXML
     private void createTicketButtonClicked(ActionEvent event) throws IOException  {
        business.createTicket("Case ID "+rand.nextInt(10000),ticketTextArea.getText(), business.getCustumer());
@@ -113,6 +118,10 @@ public class TicketController implements Initializable {
 //        });
     }
     
+    /**
+     * gets the specific customer tickets from the arraylist
+     * @param event 
+     */
 
     @FXML
     private void seeTicketsButtonAction(ActionEvent event) {
@@ -124,11 +133,19 @@ public class TicketController implements Initializable {
 
         }
     }
+    /**
+     * changes pane
+     * @param event 
+     */
 
     @FXML
     private void seeInformationBackButtonClicked(ActionEvent event) {
         changePane(seeInformationPane, MainTicketPane);
     }
+    /**
+     * changes pane and sets the issuenumber an gets the item.
+     * @param event 
+     */
 
     @FXML
     private void seeTicketInformationButtonClicked(ActionEvent event) {
@@ -137,6 +154,12 @@ public class TicketController implements Initializable {
         InformationTextarea.setText(a.getIssueDescription());
         changePane(MainTicketPane, seeInformationPane);
     }
+    
+    /**
+     * changes pane
+     * @param a anchorpane
+     * @param b  anchorpane
+     */
     
     public void changePane(AnchorPane a,AnchorPane b){
         a.setDisable(true);

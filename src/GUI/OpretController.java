@@ -63,6 +63,12 @@ public class OpretController implements Initializable {
 //        changeScreen1(event, "FXMLDocument.fxml");
 // indsæt funktionaliteten i business facaden 
     }
+    
+    /**
+     * changes pane to fxmldocument.fxml
+     * @param event
+     * @throws IOException thrown when IOException occurs 
+     */
 
     @FXML
     private void createAccountBackArrowClicked(MouseEvent event) throws IOException {
