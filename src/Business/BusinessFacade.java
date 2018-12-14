@@ -493,9 +493,21 @@ public class BusinessFacade implements IBusiness{
         Manufacturer a = new Manufacturer(pass, userNam, firmaddress, number, firmaName, firmaMail);
         return a;
     } 
+
+    @Override
+    public void SendPicture(Picture picture) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
-/*
+/* 
  * To change this license header , choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
