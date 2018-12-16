@@ -45,6 +45,19 @@ public class BusinessFacade implements IBusiness{
 //    public void injectData(IData dataLayer) {
 //        data = dataLayer;
 //    }
+        
+        
+        /**
+         * creates a case 
+         * @param caseTitle  is the title of the case
+         * @param caseID is the ID of the case
+         * @param caseBudget is the budget of the case
+         * @param deadline is the deadline of the case
+         * @param component is the component of the case
+         * @param evaluated is whether the case is evaluated or not. 
+         * @param freeText is the case description
+         * @throws IOException  thrown when this exception happens.
+         */
     
        @Override
      public void createCase(String caseTitle, String caseID,String caseBudget,String deadline, String component,boolean evaluated,String freeText) throws IOException{
@@ -73,10 +86,26 @@ public class BusinessFacade implements IBusiness{
 //        return data.SendString(i);
 //    }
 
+     /**
+      * gets the users in a list from the server
+      * @return s a list of users
+      * @throws ClassNotFoundException is thrown when  this exception happens
+      * @throws IOException is thrown when this exception happens.
+      */
+     
     @Override
     public List<User> getUserFromServer() throws ClassNotFoundException, IOException{
         return client.getUserFromServer();
     }
+    
+    /**
+     * login function, checks if password matches username
+     * @param name of the user
+     * @param password of the user
+     * @return boolean if password matches or not
+     * @throws ClassNotFoundException thrown when exxception
+     * @throws IOException  thrown when exception
+     */
     
         @Override
     public boolean logintest(String name, String password) throws ClassNotFoundException, IOException{
