@@ -173,7 +173,7 @@ public class ManufacturerController implements Initializable {
           
     } 
     /**
-     * same as above, just two now
+     * Changes between two anchorpanes
      * @param a anchorpane
      * @param b  anchorpane 
      */
@@ -195,7 +195,7 @@ public class ManufacturerController implements Initializable {
 
     /**
      * changes screen if imageauction is clicked, get the relevantcases from the arraylist, and sets the items. 
-     * @param event
+     * @param event is a mouseevent
      * @throws IOException thrown when IOException occurws
      * @throws ClassNotFoundException  thrown when classnotfound exception occurs. 
      */
@@ -216,7 +216,7 @@ public class ManufacturerController implements Initializable {
     
     /**
      * changes screen if caseimage is clicked
-     * @param event 
+     * @param event is a mouseevent
      */
 
     @FXML
@@ -225,7 +225,10 @@ public class ManufacturerController implements Initializable {
             change(casesPane, auctionPane, profilePane, BidPane, viewCaseInfoPane);
         }
     }
-
+    /**
+     * Changes screen when image is clicked
+     * @param event is a mouseevent
+     */
     @FXML
     private void profileImageClicked(MouseEvent event) {
         if(event.getTarget()== profileImage){
@@ -241,7 +244,7 @@ public class ManufacturerController implements Initializable {
     
     /**
      * changes screens if the caseimage has been clicked. 
-     * @param event 
+     * @param event is a mouseevent
      */
 
     @FXML
@@ -252,7 +255,7 @@ public class ManufacturerController implements Initializable {
     }
     /**
      * changes screen if the caseimage has been clicked 
-     * @param event 
+     * @param event is a mouseevent
      */
     
     @FXML
@@ -262,22 +265,21 @@ public class ManufacturerController implements Initializable {
         }  
     }
     /**
-     * saves a profile by 
-     * @param event
-     * @throws IOException 
+     * Updates manufacturer values when button is clicked
+     * @param event is an actionevent
+     * @throws IOException when exception
      */
     
     @FXML
     private void saveProfileButtonClicked(ActionEvent event) throws IOException {
        if(newPasswordTextField.getText().equalsIgnoreCase(repeatPasswordTextField.getText())){
-     // virker ikke lige nu 
         int number = Integer.parseInt(firmNumberTextField.getText());
        business.updateManufactor(business.createManufactor(repeatPasswordTextField.getText(), business.getUser().getUserName(), firmAddressTextField.getText(), number, firmNameTextField.getText(),emailTextField.getText()));
        }
     }
     /**
      * changes screens
-     * @param event
+     * @param event is a mouseevent
      * @throws IOException thrown when an IOException occurs 
      */
 
@@ -293,22 +295,13 @@ public class ManufacturerController implements Initializable {
 
     @FXML
     private void auctionSearchImageClicked(MouseEvent event) {
-//        if(event.getTarget()== auctionSearchImage){
-//            for(int i = 0; i < sizeProperty.doubleValue(); i++){
-//                boolean equalsIgnoreCase = relevantcases.get(i).getCaseTitle().equalsIgnoreCase(auctionSearchTextField.getText());
-//                 if (equalsIgnoreCase = true){
-//                     relevantcasesSearch.add(relevantcases.get(i));
-//                }
-//            }
-//        auctionCasesListView.getItems().clear();
-//        auctionCasesListView.setItems(relevantcasesSearch);
-//        }
+
     }
     
     
     /**
      * changes pane
-     * @param event 
+     * @param event is a mouseevent
      */
 
     @FXML
@@ -318,7 +311,7 @@ public class ManufacturerController implements Initializable {
     
     /**
      * registers a bid and selects it
-     * @param event
+     * @param event is an actionevent
      * @throws IOException thrown when IOException occurs. 
      */
 
@@ -328,7 +321,7 @@ public class ManufacturerController implements Initializable {
     }
     /**
      * gets all the items of a case and changes pane.
-     * @param event 
+     * @param event is an actionevent 
      */
     
     @FXML
@@ -341,13 +334,11 @@ public class ManufacturerController implements Initializable {
         budgetTextField.setText(selected.getCaseBudget());
         componentTextfield.setText(selected.getComponent());
         
-        //defaultCase = selected;
-        
     }
     
     /**
      * chanes pane and sets panelpane to true.
-     * @param event 
+     * @param event  is an actionevent
      */
 
     @FXML
@@ -356,12 +347,12 @@ public class ManufacturerController implements Initializable {
         changeTwo(casesPane, viewCaseInfoPane);
         panelPane.setDisable(true);
     }
+    
     /**
      * sets the cases items from the observable list
      * @param event 
      */
-    
-
+  
     @FXML
     private void seeCasesButtonClick(ActionEvent event) {
         

@@ -6,7 +6,6 @@
 package GUI;
 
 import Acquaintance.ICase;
-import Acquaintance.ICustomer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,7 +45,6 @@ public class BrugerController implements Initializable {
     @FXML
     private AnchorPane costumerScreen;
     @FXML
-    //private ListView<String> userCaseListView;
     ListView<ICase> userCaseListView = new ListView<>();
     @FXML
     private ImageView createCaseImage;
@@ -110,21 +108,13 @@ public class BrugerController implements Initializable {
      */
     @Override
 public void initialize(URL url, ResourceBundle rb) {
-//        try {
-//            ObservableList<Case> cases = FXCollections.observableArrayList(business.getUserCaseList(business.getUser()));
-//            userCaseListView.setItems(cases);
-//         } catch (Exception ex) {
-//
-//        }
-//    
-    
-    rand = new Random();
+   rand = new Random();
     }    
 
 /**
  * changes screen between the panes, forexample, if you want to access another pane, this method should be used.
- * @param event
- * @param a 
+ * @param event is a mouseevent
+ * @param a is a String
  * @throws IOException thrown when an IOException occurs
  */
 
@@ -152,33 +142,28 @@ public void initialize(URL url, ResourceBundle rb) {
      }
   /**
    * changes pane when this button is clicked
-   * @param event 
+   * @param event is a mouseevent
    */
   
     @FXML
     private void createCaseImageClicked(MouseEvent event) {
         changePane(costumerScreen, createCasePane);
-//        costumerScreen.setVisible(false);
-//        createCasePane.setVisible(true);
-//        userCaseListView.setItems(caseList);
     }
     /**
      * sets the listview to null, and changes screen
-     * @param event
+     * @param event mouseevent
      * @throws IOException thrown when IOException occurs
      */
 
     @FXML
     private void logOutImageClicked(MouseEvent event) throws IOException {
-//         userCaseListView.setItems(null);
-//         business.setUser(null);
         userCaseListView = null;
         changeScreen(event, "FXMLDocument.fxml");
           }
 
     /**
      * changes screen to support.fxml
-     * @param event
+     * @param event is a mouseevent
      * @throws IOException thrown when IOException occurs
      */
     
@@ -186,31 +171,16 @@ public void initialize(URL url, ResourceBundle rb) {
     private void helpImageClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
     }
-//
-//    private void createCaseButtonClick(ActionEvent event) throws IOException {
-//        String caseTitle = titleTextField.getText();
-//        String caseBudget = budgetTextField.getText();
-//        String component = componentTextField.getText();
-//        String deadline = deadlineTextField.getText();
-//        String freeText = informationTextArea.getText();
-//        int caseIDint = (int)(Math.random() * 50 + 1);
-//        String caseID = Integer.toString(caseIDint);
-//
-//        business.createCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
-//        
-//    }
-
+    
     /**
      * edits  case when this button is clicked
-     * @param event
+     * @param event is an actionevent
      * @throws IOException thrown when IOException occurs
      */
     
     @FXML
     private void editCasesButtonClick(ActionEvent event) throws IOException {
-        // DET HER SKAL LAVES OM SÅDAN AT DEN TAGER FRA EDIT CASE SKÆRMEN
         business.setCase(userCaseListView.getSelectionModel().getSelectedItem());
-        //Case test = userCaseListView.getSelectionModel().getSelectedItem();
         caseIdLabel.setText(business.getCase().getId());
         seeBudgetTextField.setText(business.getCase().getCaseBudget());
         seeComponentTextField.setText(business.getCase().getComponent());
@@ -219,20 +189,10 @@ public void initialize(URL url, ResourceBundle rb) {
         seeTitleTextfield.setText(business.getCase().getCaseTitle());
         changePane(costumerScreen, seeCasePane);
 
-        
-//        String caseTitle = titleTextField.getText();
-//        String caseBudget = budgetTextField.getText();
-//        String component = componentTextField.getText();
-//        String deadline = deadlineTextField.getText();
-//        String freeText = informationTextArea.getText();
-//        int caseIDint = (int)(Math.random() * 50 + 1);
-//        String caseID = Integer.toString(caseIDint);
-//        
-//        business.modifyCase(caseTitle, caseID, caseBudget, deadline, component, true, freeText);
-    }
+}
     /**
      * deletes the selected items in the listview
-     * @param event
+     * @param event is an actionevent
      * @throws IOException thrown when an IOexception occurs
      */
    
@@ -248,7 +208,7 @@ public void initialize(URL url, ResourceBundle rb) {
     
     /**
      * changes screen
-     * @param event 
+     * @param event is a mouseevent
      */
 
     @FXML
@@ -283,22 +243,25 @@ public void initialize(URL url, ResourceBundle rb) {
      private void openFile(File file) throws Exception{
         Desktop.getDesktop().open(file);
     }
+     /**
+      * Changes screen to support screen
+      * @param event is a mouseevent
+      * @throws IOException when exception
+      */
     private void supportButtonClick(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
     }
 
     /**
      * Creates case using businessfacade method and clears all textfields. 
-     * @param event
+     * @param event actionevent
      * @throws IOException thrown when IOException occurs.
      */
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) throws IOException {
           business.createCase(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText());
-//        Case newCase = new Case(titleTextField.getText(),"Case ID "+rand.nextInt(10000),budgetTextField.getText(), deadlineTextField.getText(), componentTextField.getText(),false, informationTextArea.getText());
-//
-//        business.sendMapOfUserAndCases(newCase);
+
         titleTextField.clear();
         budgetTextField.clear();
         deadlineTextField.clear();
@@ -306,13 +269,12 @@ public void initialize(URL url, ResourceBundle rb) {
         informationTextArea.clear();
         SagOprettet.setText("Case created");
         cases.add(business.getCase());
-       // userCaseListView.getItems().clear();
         userCaseListView.setItems(cases);
         
     }
     /**
-     * edit the method name, please. //Robert
-     * @param event 
+     * Adds cases for a user to a list
+     * @param event is an actionevent
      */
     
     @FXML
@@ -323,23 +285,21 @@ public void initialize(URL url, ResourceBundle rb) {
          } catch (Exception ex) {
              ex.printStackTrace();
         }
-//    
     }
     /**
      * Saves the data, by the modify method
-     * @param event
+     * @param event is an actionevent
      * @throws IOException thrown when IOException happens. 
      */
 
     @FXML
     private void saveDataButtonClicked(ActionEvent event) throws IOException {
-        //business.createCase(seeTitleTextfield.getText(), caseIdLabel.getText(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), false, seeFreeTextTextField.getText());
        business.modifyCase(seeTitleTextfield.getText(), business.getCase().getId(), seeBudgetTextField.getText(), seeDeadlineTextfield.getText(), seeComponentTextField.getText(), business.getCase().getEvaluated(), seeFreeTextTextField.getText());
     
     }
     /**
      * changes pane to customer screen
-     * @param event 
+     * @param event is a mouseevent
      */
 
     @FXML

@@ -60,12 +60,11 @@ public class OpretController implements Initializable {
     private void createAccountButtonClicked(ActionEvent event) throws IOException {
         business.createCustumer(usernameTextField.getText(), passwordTextField.getText(), addressTextField.getText(), Integer.parseInt(phoneNumberTextField.getText()), emailTextField.getText(), fullNameTextField.getText());
         changeScreen1(event, "FXMLDocument.fxml");
-// indsæt funktionaliteten i business facaden 
     }
     
     /**
      * changes pane to fxmldocument.fxml
-     * @param event
+     * @param event is a mouseevent
      * @throws IOException thrown when IOException occurs 
      */
 
@@ -74,6 +73,12 @@ public class OpretController implements Initializable {
         changeScreen(event, "FXMLDocument.fxml");
             
     }
+    /**
+     * Changes screen
+     * @param event is a mouseevent
+     * @param a is a String
+     * @throws IOException when exception
+     */
      private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
@@ -82,7 +87,13 @@ public class OpretController implements Initializable {
 
         window.setScene(screen);
         window.show();
-    }
+    }  
+     /**
+      * Changes screen
+      * @param event is an actionevent
+      * @param a is a String
+      * @throws IOException when exception
+      */
      private void changeScreen1(ActionEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);

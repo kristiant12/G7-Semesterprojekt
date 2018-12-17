@@ -67,20 +67,24 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
+    /**
+     * Creates an employee with the values from textfields
+     * @param event is an actionevent
+     * @throws IOException when exception
+     */
     @FXML
     private void createEmployeeButtonClicked(ActionEvent event) throws IOException {
-//        Employee a = new Employee(usernameTextField.getText(),passwordTextField.getText()); 
-//        business.sendUser(a);
          business.createEmployee(usernameTextField.getText(), passwordTextField.getText());
         user.add(business.getTing());
         usersListView.setItems(user);
-//Fix det her, functionalitet skal flyttes til business facaden
-        
-         
 
     }
-
+    /**
+     * Changes screen method
+     * @param event is a mouseevent
+     * @param a is a string
+     * @throws IOException when exception
+     */
     private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
@@ -90,7 +94,11 @@ public class AdminController implements Initializable {
         window.setScene(screen);
         window.show();
     }
-    
+    /**
+     * Changes between two panes method
+     * @param a is an anchorphane
+     * @param b is an anchorpane
+     */
         private void change(AnchorPane a, AnchorPane b) {
             a.setDisable(false);
             a.setVisible(true);
@@ -100,7 +108,7 @@ public class AdminController implements Initializable {
 
     /**
      * deletes a user with the click of a button
-     * @param event
+     * @param event is an actionevent
      * @throws IOException thrown when an IOException occurs
      */
         
@@ -113,7 +121,7 @@ public class AdminController implements Initializable {
 
     /**
      * logs out with the help of the changeScreen method
-     * @param event
+     * @param event is a mouseevent
      * @throws IOException thrown when IOException occurs
      */
     
@@ -124,7 +132,7 @@ public class AdminController implements Initializable {
     
     /**
      * creates an employee also with the help of changin panes 
-     * @param event 
+     * @param event  is a mouseevent
      */
 
     @FXML
@@ -134,14 +142,13 @@ public class AdminController implements Initializable {
     
     /**
      * deletes a user, tries to get user from the server and sets the new user on the listview again
-     * @param event 
+     * @param event is a mouseevent
      */
     
 
     @FXML
     private void deleteUserImageClicked(MouseEvent event) {
             try {
-                //virker nok ikke og skal laves om i client/server delen
           user = FXCollections.observableArrayList(business.getUserFromServer());
             usersListView.setItems(user);
          } catch (Exception ex) {

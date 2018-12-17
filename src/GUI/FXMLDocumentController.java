@@ -11,12 +11,6 @@ import Business.Customer;
 import Business.Employee;
 import Business.Manufacturer;
 
-// vi skal se på disse import de bruger 3 lags
-//import Business.Employee;
-
-
-
-
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +25,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -65,8 +58,8 @@ public class FXMLDocumentController implements Initializable {
     
         /**
  * changes screen between the panes, forexample, if you want to access another pane, this method should be used.
- * @param event
- * @param a 
+ * @param event is an actionevent
+ * @param a is a String
  * @throws IOException thrown when an IOException occurs
  */
        private void changeScreen(ActionEvent event, String a) throws IOException{ 
@@ -89,7 +82,7 @@ public class FXMLDocumentController implements Initializable {
 
     /**
      * checks if u can login using the instanceof method.
-     * @param event
+     * @param event is an actionevent
      * @throws ClassNotFoundException thrown when a classnotfound
      * @throws IOException thrown when IOException occurs. 
      */
@@ -119,6 +112,11 @@ public class FXMLDocumentController implements Initializable {
         
        
     }
+    /**
+     * changes screen when button is clicked
+     * @param event is an actionevent
+     * @throws IOException when exception
+     */
 
     @FXML
     private void createNewAccountButtonClicked(ActionEvent event) throws IOException {
