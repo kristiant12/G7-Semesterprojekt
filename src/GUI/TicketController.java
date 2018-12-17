@@ -6,9 +6,7 @@
 package GUI;
 
 
-import Acquaintance.ICustomer;
 import Acquaintance.ITicket;
-import Acquaintance.IUser;
 
 import static GUI.Gruppe_7_semesterprojekt.business;
 import java.io.IOException;
@@ -27,7 +25,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import java.util.List;
 import java.util.Random;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,6 +62,8 @@ public class TicketController implements Initializable {
     private TextArea InformationTextarea;
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,6 +71,12 @@ public class TicketController implements Initializable {
         // TODO
     }    
     
+    /**
+     *  change between to fxml documents 
+     * @param event is a mouseEvent
+     * @param a is a string 
+     * @throws IOException 
+     */
         private void changeScreen(MouseEvent event, String a) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource(a));
         Scene screen = new Scene(parent);
@@ -82,10 +87,17 @@ public class TicketController implements Initializable {
         window.show();
     }
 
+    /**
+     * change fxml document to Support.fxml
+     * @param event is a mouse event 
+     * @throws IOException when exception 
+     */   
     @FXML
     private void ticketBackArrowClicked(MouseEvent event) throws IOException {
         changeScreen(event, "Support.fxml");
     }
+    
+    
     /**
      * assigns the ticket with a random ID and sets the items to the ticket.
      * @param event
@@ -97,29 +109,11 @@ public class TicketController implements Initializable {
        business.createTicket("Case ID "+rand.nextInt(10000),ticketTextArea.getText(), business.getCustumer());
        ticket.add(business.getTicket());
         ticketsListView.setItems(ticket);
-             //   business.sendTicket(new Ticket(ticketTextArea.getText()));    
-//        issueTextArea.clear();
-//        createTicketButton.setOnAction(new EventHandler<ActionEvent>() {
-//    public void handle(ActionEvent event)  {
-//        Parent root;
-//        try {
-//            root = FXMLLoader.load(getClass().getClassLoader().getResource("Thankyou.fxml"));
-//            Stage stage = new Stage();
-//            stage.setTitle("My New Stage Title");
-//            stage.setScene(new Scene(root, 450, 450));
-//            stage.show();
-//            // Hide this current window (if this is what you want)
-//            ((Node)(event.getSource())).getScene().getWindow().hide();
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//        
-//    }
-//        });
+
     }
     
     /**
-     * gets the specific customer tickets from the arraylist
+     * creates a listview with a specific custumers tickets 
      * @param event 
      */
 

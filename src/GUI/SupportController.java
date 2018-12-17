@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import Acquaintance.ITicket;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import Business.BusinessFacade;
-import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
 import static GUI.Gruppe_7_semesterprojekt.business;
 
