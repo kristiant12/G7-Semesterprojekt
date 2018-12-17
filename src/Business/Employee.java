@@ -13,36 +13,21 @@ import java.io.Serializable;
  */
 public class Employee extends User implements Serializable{
     
-//    private String idNumber;
-//    private String password;
-//    private String userName; 
-
-//    public Employee(String pass, String userNam) {
-//        super(pass, userNam);
-//    }
-//    
-//    /**
-//     *
-//     * @param id
-//     * @param pass
-//     * @param userNam
-//     */
-//
-//}
-  public Employee(String pass, String userNam) {
+    /**
+     *
+     * @param pass is the password for an employee
+     * @param userNam is the username for an employee
+     */
+    public Employee(String pass, String userNam) {
         super(pass, userNam);
     }
 
+    /**
+     * Returns the toString
+     * @return String
+     */
     @Override
     public String toString() {
         return "Employee{" +super.toString()+ '}';
     }
-    
-    /**
-     *
-     * @param id
-     * @param pass
-     * @param userNam
-     */
-    
 }
