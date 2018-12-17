@@ -44,8 +44,6 @@ public class ManufacturerController implements Initializable {
     @FXML
     private AnchorPane auctionPane;
     @FXML
-    private ImageView auctionBackArrow;
-    @FXML
     private AnchorPane casesPane;
     @FXML
     private ImageView casesBackArrow;
@@ -67,8 +65,6 @@ public class ManufacturerController implements Initializable {
     private TextField repeatPasswordTextField;
     @FXML
     private TextField firmAddressTextField;
-    @FXML
-    private ImageView profilePaneBackArrow;
     @FXML
     private TextField auctionSearchTextField;
     @FXML
@@ -242,17 +238,7 @@ public class ManufacturerController implements Initializable {
         }
     }
     
-    /**
-     * changes screens if the caseimage has been clicked. 
-     * @param event is a mouseevent
-     */
-
-    @FXML
-    private void auctionBackArrowClicked(MouseEvent event) {
-        if(event.getTarget()== casesImage){
-            change(profilePane, casesPane, BidPane,auctionPane, viewCaseInfoPane);
-        }
-    }
+    
     /**
      * changes screen if the caseimage has been clicked 
      * @param event is a mouseevent
@@ -289,9 +275,6 @@ public class ManufacturerController implements Initializable {
     }
 
 
-    @FXML
-    private void profilePaneBackArrowClicked(MouseEvent event) {
-    }
 
     @FXML
     private void auctionSearchImageClicked(MouseEvent event) {

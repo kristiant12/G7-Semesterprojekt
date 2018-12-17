@@ -224,25 +224,9 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void attachFileImageClicked(MouseEvent event) {
-        
-        if(attachFileImage.isPressed()){
-             final FileChooser filechooser = new FileChooser();
-        File file  = filechooser.showOpenDialog(null);
-        
-        if(file != null){
-            try{
-                openFile(file);
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-        }
-        
     }
 
-     private void openFile(File file) throws Exception{
-        Desktop.getDesktop().open(file);
-    }
+    
      /**
       * Changes screen to support screen
       * @param event is a mouseevent

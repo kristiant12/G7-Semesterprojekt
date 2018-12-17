@@ -55,10 +55,6 @@ public class EmployeeController implements Initializable {
     @FXML
     private AnchorPane createManufacturerPane;
     @FXML
-    private ImageView imageBankBackArrow;
-    @FXML
-    private ImageView validateCaseBackArrow;
-    @FXML
     private ListView<ITicket> showTicketsListView;
     @FXML
     private ListView<ICase> showCasesListView;
@@ -68,10 +64,7 @@ public class EmployeeController implements Initializable {
     private TextField imageBankSearchField;
     @FXML
     private ImageView imageBankSearchButton;
-    @FXML
     private ImageView ticketsBackArrow;
-    @FXML
-    private ImageView createManufacturerBackArrow;
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -246,23 +239,11 @@ public class EmployeeController implements Initializable {
      * @param event 
      */
     
-    @FXML
     private void backArrowTicketsClicked(MouseEvent event) {
         if(event.getTarget() == ticketsBackArrow){
         }
     }
 
-    @FXML
-    private void backArrowCreateManufacturerClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void backArrowImageBankClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void backArrowValidateCaseClicked(MouseEvent event) {
-    }
 
     @FXML
     private void imageBankSearchButtonClicked(MouseEvent event) {
@@ -360,8 +341,6 @@ public class EmployeeController implements Initializable {
         changePane(ticketsPane, replyTicketPane);
     }
 
-    private void validateCaseBackArrowClicked(MouseEvent event) {
-    }
     
     
     /**
