@@ -9,7 +9,6 @@ import Business.HomeMadeMap;
 import Acquaintance.IClient;
 import Business.Case;
 import Business.Customer;
-import Business.Employee;
 import Business.Manufacturer;
 import Business.Ticket;
 import Business.User;
@@ -57,7 +56,6 @@ public class Client implements IClient {
             String serverHostname = new String("127.0.0.1");
             int port = 8081;
             System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
-            //this.key = null;
             Socket echoSocket = null;
             out = null;
             in = null;
@@ -72,9 +70,6 @@ public class Client implements IClient {
                 out = new PrintStream(echoSocket.getOutputStream());
                 tss = new ObjectOutputStream(echoSocket.getOutputStream());
                 encrypt = new EnccryptionDecryption(getKey());
-
-//                test = (List<User>) mapInputStram.readObject();
-                // in = new Scanner(echoSocket.getInputStream());
             } catch (UnknownHostException e) {
                 System.err.println("Unknown host: " + serverHostname);
                 System.exit(1);
@@ -89,9 +84,9 @@ public class Client implements IClient {
 
     /**
      * Retrieves users from the server
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @return list of users
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     @Override
     public List<User> getUserFromServer() throws IOException, ClassNotFoundException {
@@ -108,16 +103,14 @@ public class Client implements IClient {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-//        ting = (List<User>) mapInputStram.readObject();
-        //out.println("sidnsidn");
         return ting;
     }
 
     /**
      * Retrieves cases from the server
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @return list of cases
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     @Override
     public List<Case> getCaseFromServer() throws IOException, ClassNotFoundException {
@@ -127,9 +120,6 @@ public class Client implements IClient {
         
         test = (List<SealedObject>) mapInputStram.readObject();
         
-//        ting = (List<Case>) mapInputStram.readObject();
-//        //   out.println("2");
-//        return ting;
         try {
             ting = encrypt.decryptCaseList(test);
         } catch (IllegalBlockSizeException ex) {
@@ -146,9 +136,9 @@ public class Client implements IClient {
     }
 
     /**
-     * Adds user to the database
-     * @param d
-     * @throws IOException
+     * Sends user to server
+     * @param d is a user
+     * @throws IOException when exception
      */
     @Override
     public void sendUser(User d) throws IOException {
@@ -165,9 +155,9 @@ public class Client implements IClient {
     }
 
     /**
-     * Adds a case to the database
-     * @param a
-     * @throws IOException
+     * Sends a case to the server
+     * @param a is a case
+     * @throws IOException when exception
      */
     @Override
     public void sendCase(Case a) throws IOException {
@@ -184,9 +174,9 @@ public class Client implements IClient {
     }
   
     /**
-     * Deletes case from database
-     * @param ce
-     * @throws IOException
+     * Sends case to be deleted to server
+     * @param ce is a case
+     * @throws IOException when exception
      */
     @Override
     public void deleteCase(Case ce) throws IOException {
@@ -203,9 +193,9 @@ public class Client implements IClient {
     }
 
     /**
-     * Adds ticket to the database
-     * @param ticket
-     * @throws IOException
+     * Sends ticket to server
+     * @param ticket is a ticket
+     * @throws IOException when exception
      */
     public void sendTicket(Ticket ticket) throws IOException {
         sendtilServeren("6");
@@ -216,10 +206,10 @@ public class Client implements IClient {
 
 
     /**
-     *
-     * @param a
-     * @param b
-     * @throws IOException
+     * Sends list of users and cases to the server
+     * @param a is a user
+     * @param b is a case
+     * @throws IOException when exception
      */
     @Override
     public void sendMapOfUserAndCases(User a, Case b) throws IOException {
@@ -238,9 +228,9 @@ public class Client implements IClient {
     }
 
     /**
-     * Changes values of a case in the database
-     * @param a
-     * @throws IOException
+     * Sends case to  be edited to server
+     * @param a is a case
+     * @throws IOException when exception 
      */
     @Override
     public void editCase(Case a) throws IOException {
@@ -257,11 +247,11 @@ public class Client implements IClient {
     }
 
     /**
-     * Retrieves all users in database, adds to a list
-     * @param a
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Sends list of all cases for a user to server
+     * @param a is a user
+     * @return list of cases
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     @Override
     public List<Case> getUserCaseList(User a) throws IOException, ClassNotFoundException {
@@ -291,11 +281,11 @@ public class Client implements IClient {
     }
 
     /**
-     *
-     * @param a
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Returns list of cases for a user to the server
+     * @param a is a customer
+     * @return list of cases
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     public List<Case> getUserCaseList1(Customer a) throws IOException, ClassNotFoundException {
         sendtilServeren("10");
@@ -310,10 +300,10 @@ public class Client implements IClient {
     }
 
     /**
-     * Retrieves all cases in the database that is not evaluated
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * SEnds list of all not evaluated cases to server
+     * @return list of cases not evaluated
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     @Override
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException {
@@ -328,15 +318,13 @@ public class Client implements IClient {
         } catch (BadPaddingException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       // test = (List<Case>) mapInputStram.readObject();
         return test;
     }
 
     /**
-     * Evaluates a case from the database
-     * @param a
-     * @throws IOException
+     * Sends case to be evalued to server
+     * @param a is a case
+     * @throws IOException when exception
      */
     @Override
     public void Evaluate(Case a) throws IOException {
@@ -354,10 +342,10 @@ public class Client implements IClient {
 //
 
     /**
-     * Retrieves a ticket from the database
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Retrieves list of tickets from server
+     * @return list of tickets
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     @Override
     public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException {
@@ -378,10 +366,10 @@ public class Client implements IClient {
     }
 
     /**
-     * Retrieves all evaluated cases in the database
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Retrieves all evaluated cases from the server
+     * @return list of cases
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     @Override
      public List<Case> getEvaluatetList() throws IOException, ClassNotFoundException{
@@ -390,7 +378,6 @@ public class Client implements IClient {
          List<Case> dd = new ArrayList();
          List<SealedObject> ting = (List<SealedObject>) mapInputStram.readObject();
         try {
-            //dd = (List<Case>) mapInputStram.readObject();
             dd = encrypt.decryptCaseList(ting);
         } catch (IllegalBlockSizeException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
@@ -402,9 +389,9 @@ public class Client implements IClient {
      }
      
     /**
-     * Deletes user in the database
-     * @param a
-     * @throws IOException
+     * Sends request to server to delete user
+     * @param a is a user
+     * @throws IOException when exception
      */
     @Override
      public void deleteUser(User a) throws IOException{
@@ -420,10 +407,10 @@ public class Client implements IClient {
      }
      
     /**
-     * Creates a ticket in the database
-     * @param t
-     * @param c
-     * @throws IOException
+     * Sends request to server to create ticket
+     * @param t is a ticket
+     * @param c is a customer
+     * @throws IOException when exception
      */
     @Override
      public void createTicket(Ticket t, Customer c) throws IOException{
@@ -440,10 +427,10 @@ public class Client implements IClient {
      
     /**
      * Retrieves all tickets assigned to a specific user
-     * @param c
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @param c is a customer
+     * @return list of tickets
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     @Override
      public List<Ticket> getAllSpecifikCustumerTicket(Customer c) throws IOException, ClassNotFoundException{
@@ -465,14 +452,13 @@ public class Client implements IClient {
         } catch (BadPaddingException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
-//         List<Ticket> list = (List<Ticket>) mapInputStram.readObject();
          return list;
      }
      
     /**
-     * Updates values for a manufacturer account
-     * @param m
-     * @throws IOException
+     * Sends request to update values for a manufacturer
+     * @param m is a manufacturer
+     * @throws IOException when exception
      */
     @Override
      public void updateManufactor(Manufacturer m) throws IOException{
@@ -488,8 +474,8 @@ public class Client implements IClient {
      }
      
     /**
-     * Adds a reply from an employee to a ticket
-     * @param t
+     * sends request to add a reply from an employee to a ticket
+     * @param t is a ticket
      * @throws IOException
      */
     @Override
@@ -505,8 +491,8 @@ public class Client implements IClient {
      }
 
     /**
-     * Adds a bid on a case to the database
-     * @param a
+     * sends request to add a bid on a case to the database
+     * @param a is a case
      * @throws IOException
      */
     @Override
@@ -517,10 +503,10 @@ public class Client implements IClient {
     }
     
     /**
-     * Retrieves a specific auction in the database
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Adds auctions to a list
+     * @return list of cases
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     public List<Case> getAuction() throws IOException, ClassNotFoundException{
         sendtilServeren("22");
@@ -539,9 +525,9 @@ public class Client implements IClient {
      
     /**
      * Retrieves key for encryption/decryption
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @return key for decryption
+     * @throws IOException when exception
+     * @throws ClassNotFoundException when exception
      */
     public SecretKey getKey() throws IOException, ClassNotFoundException{
         sendtilServeren("30");
