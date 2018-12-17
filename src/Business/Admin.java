@@ -7,27 +7,21 @@ package Business;
 
 import java.io.Serializable;
 
-
-
-
-/**
- *
- * @author sebastian
- */
-//public class Admin extends User {
-//    
-//    public Admin(String pass, String userNam) {
-//        super (pass, userNam);
-//    }
-//
-//    
-//}
 public class Admin extends User implements Serializable {
     
+    /**
+     *
+     * @param pass is the password for an admin
+     * @param userNam is the username of an admin
+     */
     public Admin(String pass, String userNam) {
         super (pass, userNam);
     }
 
+    /**
+     * This is the standard toString method, overrides the super method
+     * @return String
+     */
     @Override
     public String toString() {
         return "Admin{" +super.toString()+ '}';
