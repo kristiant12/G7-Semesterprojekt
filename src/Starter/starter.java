@@ -6,12 +6,9 @@
 package Starter;
 
 import Acquaintance.IBusiness;
-import Acquaintance.IData;
 import Acquaintance.IUI;
 import Business.BusinessFacade;
 import GUI.Gruppe_7_semesterprojekt;
-import Data.Database;
-import testclinet.Client;
 
 /**
  *

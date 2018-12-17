@@ -11,7 +11,6 @@ import Business.Case;
 import Business.Customer;
 import Business.Employee;
 import Business.Manufacturer;
-import Business.Picture;
 import Business.Ticket;
 import Business.User;
 import java.awt.image.BufferedImage;
@@ -46,7 +45,6 @@ public class Client implements IClient {
     private ObjectOutputStream tss;
     private Map<User, Case> mapOfUserCase;
     private BufferedImage buffImage;
-    private List<Picture> pictureList;
     private SecretKey key;
     private EnccryptionDecryption encrypt;
     
@@ -216,30 +214,6 @@ public class Client implements IClient {
 
     }
 
-    /**
-     * 
-     * @param pic
-     * @throws IOException
-     */
-    public void sendPicture(Picture pic) throws IOException {
-        sendtilServeren("8");
-        tss.writeObject(pic);
-        tss.flush();
-
-    }
-
-    /**
-     *
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
-     */
-    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException {
-        sendtilServeren("9");
-        pictureList = (List<Picture>) mapInputStram.readObject();
-        return pictureList;
-
-    }
 
     /**
      *
@@ -261,13 +235,6 @@ public class Client implements IClient {
         }
         
         tss.writeObject(ting);
-
-//        Map<User, Case> test = new HashMap();
-//        // mapOfUserCase = new HashMap();
-//        test.put(a, b);
-//        
-//        tss.writeObject(test);
-
     }
 
     /**

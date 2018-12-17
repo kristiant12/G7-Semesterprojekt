@@ -10,7 +10,6 @@ import Acquaintance.ICase;
 import Acquaintance.ITicket;
 import Acquaintance.IUser;
 //import Data.DataFacade;
-import Data.Database;
 import java.io.IOException;
 import java.util.List;
 import testclinet.Client;
@@ -20,11 +19,7 @@ import testclinet.Client;
  * @author nicol
  */
 public class BusinessFacade implements IBusiness{
-      // Auction auction = new Auction();
-//      BusinessFacade business = new BusinessFacade();
-       Database mainDatabase = new Database();
         private Client client;
-//        private IData data;
         private User user;
         private Manufacturer manu;
         private Case newCase;
@@ -33,10 +28,7 @@ public class BusinessFacade implements IBusiness{
         private User ting;
         public BusinessFacade() {
         this.client = new Client();
-        //user = null;
         
-    //    this.data = data;
-      //  mainDatabase = new Database();
     }
         
     
@@ -229,16 +221,6 @@ public class BusinessFacade implements IBusiness{
     }
     
     @Override
-    public void SendPicture(Picture pic) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException {
        return client.getNotEvaluatetCase();
     }
@@ -248,16 +230,7 @@ public class BusinessFacade implements IBusiness{
         Case c = (Case) ic;
         client.Evaluate(c);
     }
-    public Logistics updateLogistics(String lastKnownCity, int estimatedTime, String FormOfTransportation, Case cs){
-        
-        
-        
-           return null;
-    }
     
-    public void trackLogistics(){
-        
-    }
 
     @Override
     public List<Ticket> getTicketFromServer() throws IOException, ClassNotFoundException {

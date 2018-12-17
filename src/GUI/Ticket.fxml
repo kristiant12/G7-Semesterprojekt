@@ -24,15 +24,15 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextArea fx:id="ticketTextArea" layoutX="386.0" layoutY="134.0" prefHeight="300.0" prefWidth="430.0" promptText="Describe your problem here..." AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="134.0" />
+            <TextArea fx:id="ticketTextArea" layoutX="386.0" layoutY="134.0" prefHeight="300.0" prefWidth="430.0" promptText="Describe your problem here..." wrapText="true" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="134.0" />
             <ImageView fx:id="ticketBackArrow" fitHeight="150.0" fitWidth="45.0" layoutX="31.0" layoutY="531.0" onMouseClicked="#ticketBackArrowClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@billeder/backArrow.png" />
                </image>
             </ImageView>
             <Button fx:id="createTicketButton" layoutX="539.0" layoutY="442.0" mnemonicParsing="false" onAction="#createTicketButtonClicked" text="Create ticket" />
-            <Button fx:id="seeTicketsButton" layoutX="87.0" layoutY="442.0" mnemonicParsing="false" onAction="#seeTicketsButtonAction" text="See tickets" />
-            <Button layoutX="188.0" layoutY="442.0" mnemonicParsing="false" onAction="#seeTicketInformationButtonClicked" text="See ticketnfo" />
+            <Button fx:id="seeTicketsButton" layoutX="76.0" layoutY="442.0" mnemonicParsing="false" onAction="#seeTicketsButtonAction" text="See ticket list" />
+            <Button layoutX="185.0" layoutY="442.0" mnemonicParsing="false" onAction="#seeTicketInformationButtonClicked" text="See ticket info" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="seeInformationPane" disable="true" prefHeight="606.0" prefWidth="830.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -43,7 +43,7 @@
                </font>
             </Label>
             <Label fx:id="tickerIdLabel" layoutX="104.0" layoutY="124.0" prefHeight="7.0" prefWidth="144.0" />
-            <TextArea fx:id="InformationTextarea" layoutX="257.0" layoutY="124.0" prefHeight="386.0" prefWidth="516.0" />
+            <TextArea fx:id="InformationTextarea" editable="false" layoutX="257.0" layoutY="124.0" prefHeight="386.0" prefWidth="516.0" wrapText="true" />
             <Button layoutX="63.0" layoutY="529.0" mnemonicParsing="false" onAction="#seeInformationBackButtonClicked" text="Back" />
          </children>
       </AnchorPane>

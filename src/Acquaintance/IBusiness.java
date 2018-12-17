@@ -3,13 +3,12 @@ package Acquaintance;
 import Business.Case;
 import Business.Customer;
 import Business.Manufacturer;
-import Business.Picture;
 import Business.Ticket;
 import Business.User;
 import java.io.IOException;
 import java.util.List;
 
-/* OSRS ER ET LORTE SPIL!!!!!!!!! CONFIRMED!
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -55,10 +54,6 @@ public interface IBusiness {
     public void sendMapOfUserAndCases(Case b) throws IOException;
 
     public List<Case> getUserCaseList2(Customer a) throws IOException, ClassNotFoundException;
-
-    public void SendPicture(Picture picture);
-
-    public List<Picture> getPictureFromServer() throws IOException, ClassNotFoundException;
 
     public List<Case> getNotEvaluatetCase() throws IOException, ClassNotFoundException;
 
