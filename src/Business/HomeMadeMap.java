@@ -7,10 +7,6 @@ package Business;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Monica
- */
 public class HomeMadeMap implements Serializable {
     
     static final long serialVersionUID = -7588980448693010399L;
