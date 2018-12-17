@@ -23,11 +23,7 @@ public class starter {
          * this is where u start the program. 
          */
         
- //       IData data = new DataFacade();
-        
         IBusiness bus = new BusinessFacade();
-        
-  //      bus.injectData(data);
         
         IUI ui = new Gruppe_7_semesterprojekt();
         

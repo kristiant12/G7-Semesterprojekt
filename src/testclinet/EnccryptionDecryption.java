@@ -19,6 +19,10 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SealedObject;
 import javax.crypto.SecretKey;
 
+/**
+ *
+ * @author nicol
+ */
 public class EnccryptionDecryption {
 
     private static Cipher ecipher;
@@ -26,36 +30,22 @@ public class EnccryptionDecryption {
     private static SecretKey key;
     private Client testt;
     
+    /**
+     *
+     * @param key is the key need for encrypting and decrypting 
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public EnccryptionDecryption(SecretKey key) throws IOException, ClassNotFoundException{
         this.key = key;
             try {
 
-            // generate secret key using DES algorithm
-            //key = KeyGenerator.getInstance("DES").generateKey();
-
             ecipher = Cipher.getInstance("DES");
             dcipher = Cipher.getInstance("DES");
 
-            // initialize the ciphers with the given key 
             ecipher.init(Cipher.ENCRYPT_MODE, key);
 
             dcipher.init(Cipher.DECRYPT_MODE, key);
-
-            // create a sealed object
-//            SealedObject test = new SealedObject((new Case(null, null, null, null, null, true, null)), ecipher);
-//
-//            // get the algorithm with the object has been sealed
-//            String algorithm = test.getAlgorithm();
-//
-//            System.out.println("Algorithm " + algorithm);
-//
-//            // unseal (decrypt) the object
-//            Case o = (Case) test.getObject(dcipher);
-//            
-//            System.out.println("Original Object: " + o);
-//            
-//            System.out.println(key);
-
         } catch (NoSuchAlgorithmException e) {
             System.out.println("No Such Algorithm:" + e.getMessage());
             return;
@@ -90,6 +80,7 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
     /**
      * decrypts the case list
      * @param a is a list of sealedobjects
+     * @return 
      * @returns a list with the cases
      * @throws IOException thrown when an IOException occurs.
      * @throws ClassNotFoundException thrown when a classnotfoundexception occurs. 
@@ -152,6 +143,7 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      /**
     * decrypts a ticket
     * @param a a sealedobject
+     * @return 
     * @returns a Ticket
     * @throws IOException thrown when this occurs
     * @throws ClassNotFoundException thrown when this occurs
@@ -166,7 +158,16 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
            
  }
  
- public List<Ticket> decryptTicketList(List<SealedObject> a)throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
+    /**
+     * decrypt a list of sealedobject ot a list of ticket
+     * @param a list of sealedObject 
+     * @return List of tickets 
+     * @throws IOException
+     * @throws ClassNotFoundException
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     */
+    public List<Ticket> decryptTicketList(List<SealedObject> a)throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
      List<Ticket> test = new ArrayList();
      
      for (int i = 0; i < a.size(); i++) {
@@ -176,7 +177,14 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      return test;
  }
  
- public SealedObject encryptCase(Case a) throws IOException, IllegalBlockSizeException{
+    /**
+     * encrypt a case object and return a sealedobject 
+     * @param a is a case 
+     * @return sealedobject 
+     * @throws IOException
+     * @throws IllegalBlockSizeException
+     */
+    public SealedObject encryptCase(Case a) throws IOException, IllegalBlockSizeException{
      
      SealedObject test = new SealedObject(a, ecipher);
      
@@ -186,7 +194,7 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
     /**
      * encrypts a case list
      * @param a is a sealed object
-     * @return
+     * @return list of sealedObject
      * @throws IOException thrown is IOException
      * @throws IllegalBlockSizeException  thrown when this exception occurs
      */
@@ -202,6 +210,7 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
     /**
      * encrypts a user 
      * @param a is a user 
+     * @return sealedObject
      * @returns a sealedobject
      * @throws IOException thrown when this exception occurs
      * @throws IllegalBlockSizeException  thrown when this exception occus
@@ -214,8 +223,14 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      return test;
  }
  
-    
-  public List<SealedObject> encryptUserList(List<User> a) throws IOException, IllegalBlockSizeException{
+    /**
+     * enctypt a list of users and return a list of sealedObject 
+     * @param a is a list of ussrs 
+     * @return list of sealedObject
+     * @throws IOException
+     * @throws IllegalBlockSizeException
+     */
+    public List<SealedObject> encryptUserList(List<User> a) throws IOException, IllegalBlockSizeException{
     List<SealedObject> ting = new ArrayList();
      for (int i = 0; i < a.size(); i++) {
          SealedObject test = new SealedObject(a.get(i), ecipher);
@@ -224,7 +239,14 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      return ting;
  }
  
- public SealedObject encrypTicket(Ticket a) throws IllegalBlockSizeException, IOException{
+    /**
+     * encrypt a ticket and returns a sealedObject
+     * @param a is a ticket
+     * @return sealedObject 
+     * @throws IllegalBlockSizeException
+     * @throws IOException
+     */
+    public SealedObject encrypTicket(Ticket a) throws IllegalBlockSizeException, IOException{
      
      SealedObject test = new SealedObject(a, ecipher);
      
@@ -232,7 +254,14 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      
  }
  
- public List<SealedObject> encryptTicketList(List<Ticket> a) throws IOException, IllegalBlockSizeException{
+    /**
+     * encrypt a list of ticket and return a list of sealedobject
+     * @param a is a list of ticket 
+     * @return list of sealedObejct 
+     * @throws IOException
+     * @throws IllegalBlockSizeException
+     */
+    public List<SealedObject> encryptTicketList(List<Ticket> a) throws IOException, IllegalBlockSizeException{
      
      List<SealedObject> ting = new ArrayList();
      for (int i = 0; i <a.size() ; i++) {
@@ -242,33 +271,57 @@ public Case decryptCase(SealedObject a) throws IOException, ClassNotFoundExcepti
      
      return ting;
  }
-// public SealedObject encryptHashMap(HashMap<User,Case> i) throws IOException, IllegalBlockSizeException{
-//    SealedObject test = new SealedObject(i, ecipher);
-//    return test;
-// }
-// public HashMap<User,Case> decryptHashMap(SealedObject i) throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
-//     
-//     HashMap<User,Case> test = (HashMap<User,Case>) i.getObject(dcipher);
-//     
-//     return test;
-// }
-   public SealedObject encryptHomeMadeMap(HomeMadeMap i) throws IOException, IllegalBlockSizeException{
+
+    /**
+     * encrypt a homeMadeMap and return a sealedObject 
+     * @param i is a homeMadeMap
+     * @return sealedObject 
+     * @throws IOException
+     * @throws IllegalBlockSizeException
+     */
+    public SealedObject encryptHomeMadeMap(HomeMadeMap i) throws IOException, IllegalBlockSizeException{
      SealedObject test  = new  SealedObject(i, ecipher);
      
      return test;
  }
  
- public HomeMadeMap decryptHomeMadeMap(SealedObject i) throws IOException, ClassNotFoundException, BadPaddingException, IllegalBlockSizeException{
+    /**
+     * derypt a sealedObject and return a homeMadeMap
+     * @param i is a sealedObject
+     * @return HomeMadeMap
+     * @throws IOException
+     * @throws ClassNotFoundException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
+    public HomeMadeMap decryptHomeMadeMap(SealedObject i) throws IOException, ClassNotFoundException, BadPaddingException, IllegalBlockSizeException{
      HomeMadeMap test = (HomeMadeMap) i.getObject(dcipher);
      return test;
  }
- public SealedObject encryptManufactor(Manufacturer m) throws IOException, IllegalBlockSizeException{
+
+    /**
+     * encypt manufactor and return a sealedObject
+     * @param m is a manufactor
+     * @return sealedObject
+     * @throws IOException
+     * @throws IllegalBlockSizeException
+     */
+    public SealedObject encryptManufactor(Manufacturer m) throws IOException, IllegalBlockSizeException{
      SealedObject test = new SealedObject(m, ecipher);
      
      return test;
  } 
  
- public Manufacturer decryptManufacturer(SealedObject i) throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
+    /**
+     * decrypt a sealedObject and return a manufactor
+     * @param i is a sealedObject 
+     * @return Manufacturer
+     * @throws IOException
+     * @throws ClassNotFoundException
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     */
+    public Manufacturer decryptManufacturer(SealedObject i) throws IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException{
      Manufacturer test = (Manufacturer) i.getObject(dcipher);
      return test;
  }
